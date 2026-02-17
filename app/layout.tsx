@@ -1,7 +1,9 @@
+export const dynamic = 'force-dynamic';
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Handjet, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/Navigation";
+import NavigationWrapper from "./components/NavigationWrapper";
 import Footer from "./components/Footer";
 import { baseMetadata } from "@/lib/metadata";
 
@@ -36,7 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${handjet.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <header>
-         <Navigation />
+         <NavigationWrapper />
         </header>
         <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-color-background sm:items-start">
           {children}
