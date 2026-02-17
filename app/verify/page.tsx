@@ -1,31 +1,9 @@
-import { revalidatePath } from 'next/cache';
-import { supabase } from '@/lib/supabase';
+import { verifyPledgeAction } from '@/lib/actions';
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ token?: string }> }) {
     const { token } = await searchParams;
 
-    let result: { success: boolean; message: string };
-
-    if (!token) {
-        result = { success: false, message: 'Invalid verification link.' };
-    } else {
-        const { data, error } = await supabase
-            .from('pledges')
-            .update({ confirmed: true })
-            .eq('verification_token', token)
-            .eq('confirmed', false)
-            .select();
-
-        if (error) {
-            console.error('Supabase update error:', error);
-            result = { success: false, message: 'Something went wrong. Please try again.' };
-        } else if (!data || data.length === 0) {
-            result = { success: false, message: 'This link is invalid or your pledge has already been confirmed.' };
-        } else {
-            revalidatePath('/');
-            result = { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!' };
-        }
-    }
+    const result = await verifyPledgeAction(token ?? '');
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
