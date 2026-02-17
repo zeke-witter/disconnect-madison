@@ -59,7 +59,7 @@ export default function Page() {
                     </p>
                     <p className="mb-4">For several years I listened to the people in my life voice similar concerns, and I finally decided the price I was paying for dopamine on social media was too high. I started deleting accounts one at a time and found I didn&apos;t miss them, and in 2025 I finally deleted my last social media account. <span className="font-bold">I haven&apos;t looked back</span>.</p>
                     <p>
-                        With every account I deleted, I reclaimed a little bit more of myself. I read more and slept better. I started talking to the people who live and work in my neighborhood. I became more present and intentional. My hope is this project will help other people improve their mental wellbeing, and know they aren&apos;t alone in wanting it.
+                        With every account I deleted, I reclaimed a little bit more of myself. I read more and slept better. I started talking to the people who live and work in my neighborhood. I became more present and intentional. My hope is this project will help other people improve their mental wellbeing, and know they aren&apos;t alone in the pursuit.
                     </p>
                 </div>
             </section>
