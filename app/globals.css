@@ -35,6 +35,22 @@ body {
   font-family: var(--font-geist-sans);
 }
 
+main {
+  a:not(#pledge-button) {
+    color: var(--primary-accent);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--primary-accent-hover);
+    }
+
+    &.link-news {
+      color: var(--foreground);
+      text-decoration: none;
+    }
+  }
+}
+
 nav {
   background: #1F3D3A;
   border-color: var(--secondary-accent);

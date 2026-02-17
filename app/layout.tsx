@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Handjet, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import { baseMetadata } from "@/lib/metadata";
 
 const geistSans = Geist({
@@ -37,10 +38,10 @@ export default function RootLayout({
         <header>
          <Navigation />
         </header>
-        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-18 px-16 bg-color-background sm:items-start">
+        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-color-background sm:items-start">
           {children}
         </main>
-        <footer></footer>
+        <Footer />
       </body>
     </html>
   );
