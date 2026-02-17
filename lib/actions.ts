@@ -14,6 +14,11 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
         return { success: false, message: 'Missing required info.' };
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return { success: false, message: 'Please enter a valid email address.' };
+    }
+
     const { error } = await supabase
         .from('pledges')
         .insert({ pledge_action: pledgeAction, email });
@@ -102,6 +107,11 @@ export async function submitContactAction(initialState: any, formData: FormData)
 
     if (!name || !email || !message) {
         return { success: false, message: 'Please fill out all fields.' };
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return { success: false, message: 'Please enter a valid email address.' };
     }
 
     const { error } = await resend.emails.send({
