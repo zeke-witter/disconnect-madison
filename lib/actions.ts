@@ -7,6 +7,12 @@ import { supabase } from '@/lib/supabase';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitPledgeAction(initialState: any, formData: FormData) {
+    // Honeypot check — bots fill hidden fields, real users don't
+    const honeypot = formData.get('website') as string;
+    if (honeypot) {
+        return { success: true, message: 'Please check your email to confirm your pledge.' };
+    }
+
     const pledgeAction = formData.get('pledgeAction[id]') as string;
     const email = formData.get('email') as string;
 
@@ -19,21 +25,43 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
         return { success: false, message: 'Please enter a valid email address.' };
     }
 
+    // Remove any unconfirmed duplicate so the user can re-submit
+    await supabase
+        .from('pledges')
+        .delete()
+        .eq('email', email)
+        .eq('pledge_action', pledgeAction)
+        .eq('confirmed', false);
+
+    const verificationToken = crypto.randomUUID();
+
     const { error } = await supabase
         .from('pledges')
-        .insert({ pledge_action: pledgeAction, email });
+        .insert({ pledge_action: pledgeAction, email, confirmed: false, verification_token: verificationToken });
 
     if (error) {
         console.error('Supabase insert error:', error);
         if (error.code === '23505') {
-            return { success: false, message: 'You have already made this pledge.' };
+            return { success: false, message: 'You have already confirmed this pledge.' };
         }
         return { success: false, message: 'Something went wrong. Please try again.' };
     }
 
-    revalidatePath('/');
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const verifyUrl = `${baseUrl}/verify?token=${verificationToken}`;
 
-    return { success: true, message: 'Thank you for taking the pledge!' };
+    const { error: emailError } = await resend.emails.send({
+        from: 'Disconnect Society <noreply@disconnectsociety.org>',
+        to: email,
+        subject: 'Confirm your pledge — Disconnect Society',
+        text: `Thanks for pledging to disconnect!\n\nPlease confirm your pledge by clicking the link below:\n\n${verifyUrl}\n\nIf you didn't make this pledge, you can safely ignore this email.`,
+    });
+
+    if (emailError) {
+        console.error('Resend error:', emailError);
+    }
+
+    return { success: true, message: 'Please check your email to confirm your pledge.' };
 }
 
 export async function addNewsArticleAction(initialState: any, formData: FormData) {
@@ -130,10 +158,37 @@ export async function submitContactAction(initialState: any, formData: FormData)
     return { success: true, message: 'Message sent. Thank you for reaching out.' };
 }
 
+export async function verifyPledgeAction(token: string) {
+    if (!token) {
+        return { success: false, message: 'Invalid verification link.' };
+    }
+
+    const { data, error } = await supabase
+        .from('pledges')
+        .update({ confirmed: true })
+        .eq('verification_token', token)
+        .eq('confirmed', false)
+        .select();
+
+    if (error) {
+        console.error('Supabase update error:', error);
+        return { success: false, message: 'Something went wrong. Please try again.' };
+    }
+
+    if (!data || data.length === 0) {
+        return { success: false, message: 'This link is invalid or your pledge has already been confirmed.' };
+    }
+
+    revalidatePath('/');
+
+    return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!' };
+}
+
 export async function getPledgesAction() {
     const { data, error } = await supabase
         .from('pledges')
-        .select('pledge_action');
+        .select('pledge_action')
+        .eq('confirmed', true);
 
     if (error) {
         return { reduce_screen_time: 0, take_a_break: 0, quit_for_good: 0 };

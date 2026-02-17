@@ -28,6 +28,12 @@ export default function Page() {
                     <Fieldset className="space-y-8">
                         <Legend className="sr-only">Pledge to free yourself from social media</Legend>
 
+                        {/* Honeypot field — hidden from real users, filled by bots */}
+                        <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+                            <label htmlFor="website">Website</label>
+                            <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                        </div>
+
                         <div>
                             <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do in the next 10 days?</p>
                             <RadioGroup
@@ -66,7 +72,7 @@ export default function Page() {
                                 className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
                             />
                             <p className="text-sm text-(--secondary-accent) mt-2">
-                                Your email will never be shared or used to contact you. It is collected only to ensure integrity in the pledge count.
+                                Your email address is collected only to ensure integrity in the pledge count. It will never be shared or used to contact you except to confirm your pledge. 
                             </p>
                         </Field>
                     </Fieldset>
