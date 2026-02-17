@@ -36,6 +36,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                 {result.message}
             </p>
             <a
+                id="button-back-home"
                 href="/"
                 className="mt-8 inline-block rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) font-handjet text-2xl"
             >

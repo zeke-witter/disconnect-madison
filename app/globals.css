@@ -36,7 +36,7 @@ body {
 }
 
 main {
-  a:not(#pledge-button) {
+  a:not(#pledge-button, #button-back-home) {
     color: var(--primary-accent);
     text-decoration: underline;
 
