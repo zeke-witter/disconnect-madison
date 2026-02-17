@@ -16,7 +16,7 @@ export default function Page() {
                     Our aim is simply to <span className="font-bold">help people</span> by reducing that dependency through intentional choice and solidarity.
                 </p>
                 <p>
-                    The pledge at the center of this project is voluntary and self-directed. We hope you'll join us in working toward a culture where we spend our most valuable resource (our time) in the real world, rather than the digital one. 
+                    The pledge at the center of this project is voluntary and self-directed. We hope you&apos;ll join us in working toward a culture where we spend our most valuable resource (our time) in the real world, rather than the digital one. 
                 </p>
             </section>
 

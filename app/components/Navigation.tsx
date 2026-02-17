@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import Link from "next/link";
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +9,7 @@ export default function Navigation() {
     return (
         <nav aria-label="main site navigation" className="flex flex-wrap lg:flex-nowrap w-full justify-between items-center py-4 lg:py-6 px-6 lg:px-8 font-handjet text-2xl border-b-5">
             <div>
-                <a href="/" aria-label="Home">Disconnect Society</a>
+                <Link href="/" aria-label="Home">Disconnect Society</Link>
             </div>
             <button
                 type="button"

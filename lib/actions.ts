@@ -105,7 +105,7 @@ export async function submitContactAction(initialState: any, formData: FormData)
     }
 
     const { error } = await resend.emails.send({
-        from: 'Disconnect Society <onboarding@resend.dev>',
+        from: 'Disconnect Society <noreply@disconnectsociety.org>',
         to: process.env.CONTACT_EMAIL!,
         replyTo: email,
         subject: `Contact form: ${name}`,
