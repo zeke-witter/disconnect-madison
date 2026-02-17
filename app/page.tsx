@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Hero from "./components/Hero";
 import PledgeCounter from "./components/PledgeCounter";
 
