@@ -179,8 +179,6 @@ export async function verifyPledgeAction(token: string) {
         return { success: false, message: 'This link is invalid or your pledge has already been confirmed.' };
     }
 
-    revalidatePath('/');
-
     return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!' };
 }
 
