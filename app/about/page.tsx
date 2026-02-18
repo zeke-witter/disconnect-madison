@@ -48,6 +48,7 @@ export default function Page() {
                         </ul>
                     </div>
                 </div>
+                <p className="mt-4">This is about <span className="italic">helping</span> people, not judging them. We&apos;re all in this boat together.</p>
             </section>
 
             <section aria-labelledby="who" className="w-full mb-12">

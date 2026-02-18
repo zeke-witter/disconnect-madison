@@ -77,6 +77,8 @@ export default function Page() {
                         </Field>
                     </Fieldset>
 
+                    <div className="cf-turnstile mt-6" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
+
                     <Button
                         type="submit"
                         disabled={isPending}

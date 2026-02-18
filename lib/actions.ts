@@ -7,11 +7,29 @@ import { createServerAuthClient } from '@/lib/supabase-auth';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            secret: process.env.TURNSTILE_SECRET_KEY!,
+            response: token,
+        }),
+    });
+    const data = await res.json();
+    return data.success === true;
+}
+
 export async function submitPledgeAction(initialState: any, formData: FormData) {
     // Honeypot check — bots fill hidden fields, real users don't
     const honeypot = formData.get('website') as string;
     if (honeypot) {
         return { success: true, message: 'Please check your email to confirm your pledge.' };
+    }
+
+    const turnstileToken = formData.get('cf-turnstile-response') as string;
+    if (!turnstileToken || !(await verifyTurnstile(turnstileToken))) {
+        return { success: false, message: 'Bot verification failed. Please try again.' };
     }
 
     const pledgeAction = formData.get('pledgeAction[id]') as string;
@@ -136,6 +154,11 @@ export async function getNewsArticlesAction() {
 }
 
 export async function submitContactAction(initialState: any, formData: FormData) {
+    const turnstileToken = formData.get('cf-turnstile-response') as string;
+    if (!turnstileToken || !(await verifyTurnstile(turnstileToken))) {
+        return { success: false, message: 'Bot verification failed. Please try again.' };
+    }
+
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
