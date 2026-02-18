@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import founderPhoto from "@/public/founder.jpg";
+
+export const metadata: Metadata = {
+    title: "About",
+    description: "Learn about Disconnect Society's mission to help people free themselves from social media dependence and reconnect with real life.",
+    alternates: { canonical: "/about" },
+};
 
 export default function Page() {
     return (

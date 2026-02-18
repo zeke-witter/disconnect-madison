@@ -28,26 +28,20 @@ export const baseMetadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
-//   openGraph: {
-//     type: 'website',
-//     locale: 'en_US',
-//     url: siteConfig.url,
-//     title: siteConfig.name,
-//     description: siteConfig.description,
-//     siteName: siteConfig.name,
-//     images: [
-//       {
-//         url: siteConfig.ogImage,
-//         width: 1200,
-//         height: 630,
-//         alt: siteConfig.name,
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: 'summary_large_image',
-//     // No creator handle needed - Twitter will use OpenGraph data
-//   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: 'summary',
+  },
+  alternates: {
+    canonical: siteConfig.url,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },

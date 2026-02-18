@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Sources",
+    description: "Peer-reviewed studies, institutional reports, and data analyses on the effects of social media.",
+    alternates: { canonical: "/sources" },
+};
+
 export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
