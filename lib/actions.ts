@@ -7,6 +7,10 @@ import { createServerAuthClient } from '@/lib/supabase-auth';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/**
+ * Verifies a Cloudflare Turnstile challenge token server-side.
+ * Returns true when Cloudflare confirms the token is valid.
+ */
 async function verifyTurnstile(token: string): Promise<boolean> {
     const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
@@ -20,6 +24,15 @@ async function verifyTurnstile(token: string): Promise<boolean> {
     return data.success === true;
 }
 
+/**
+ * Server action: submit a new pledge.
+ *
+ * Validates the honeypot field, Turnstile token, email, and pledge type, then
+ * inserts an unconfirmed pledge row and sends a verification email via Resend.
+ * Any existing unconfirmed pledge for the same email + action is deleted first
+ * so the user can re-submit without hitting a unique constraint. The optional
+ * `newsletter_opt_in` field is stored as-is for future use.
+ */
 export async function submitPledgeAction(initialState: any, formData: FormData) {
     // Honeypot check — bots fill hidden fields, real users don't
     const honeypot = formData.get('website') as string;
@@ -53,10 +66,11 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
         .eq('confirmed', false);
 
     const verificationToken = crypto.randomUUID();
+    const newsletterOptIn = formData.get('newsletter_opt_in') === 'true';
 
     const { error } = await supabase
         .from('pledges')
-        .insert({ pledge_action: pledgeAction, email, confirmed: false, verification_token: verificationToken });
+        .insert({ pledge_action: pledgeAction, email, confirmed: false, verification_token: verificationToken, newsletter_opt_in: newsletterOptIn });
 
     if (error) {
         console.error('Supabase insert error:', error);
@@ -83,6 +97,14 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
     return { success: true, message: 'Please check your email to confirm your pledge.' };
 }
 
+/**
+ * Server action: add a news article (admin only).
+ *
+ * Requires an authenticated Supabase session. Fetches the target URL to extract
+ * the og:title and og:image meta tags, then inserts the article into the
+ * news_articles table. Falls back to the raw URL as the title if the fetch
+ * fails. Revalidates the home page cache after a successful insert.
+ */
 export async function addNewsArticleAction(initialState: any, formData: FormData) {
     const authClient = await createServerAuthClient();
     const { data: { user } } = await authClient.auth.getUser();
@@ -138,6 +160,12 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
     return { success: true, message: `Added: ${title}` };
 }
 
+/**
+ * Server action: fetch the ten most recent news articles, ordered by
+ * creation date descending.
+ *
+ * Returns an empty array on any Supabase error.
+ */
 export async function getNewsArticlesAction() {
     const { data, error } = await supabase
         .from('news_articles')
@@ -153,6 +181,13 @@ export async function getNewsArticlesAction() {
     return data;
 }
 
+/**
+ * Server action: submit the contact form.
+ *
+ * Validates the Turnstile token, required fields, and email format, then sends
+ * the message to CONTACT_EMAIL via Resend with the sender's address set as
+ * reply-to.
+ */
 export async function submitContactAction(initialState: any, formData: FormData) {
     const turnstileToken = formData.get('cf-turnstile-response') as string;
     if (!turnstileToken || !(await verifyTurnstile(turnstileToken))) {
@@ -188,6 +223,12 @@ export async function submitContactAction(initialState: any, formData: FormData)
     return { success: true, message: 'Message sent. Thank you for reaching out.' };
 }
 
+/**
+ * Server action: confirm a pledge via the emailed verification token.
+ *
+ * Marks the matching unconfirmed pledge row as confirmed. Returns an error if
+ * the token is empty, already used, or not found.
+ */
 export async function verifyPledgeAction(token: string) {
     if (!token) {
         return { success: false, message: 'Invalid verification link.' };
@@ -212,6 +253,12 @@ export async function verifyPledgeAction(token: string) {
     return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!' };
 }
 
+/**
+ * Server action: fetch confirmed pledge counts grouped by pledge type.
+ *
+ * Returns `{ reduce_screen_time, take_a_break, quit_for_good }` with all
+ * counts set to zero on any Supabase error.
+ */
 export async function getPledgesAction() {
     const { data, error } = await supabase
         .from('pledges')

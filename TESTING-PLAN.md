@@ -109,6 +109,12 @@ Mock `@supabase/ssr`'s `createServerClient`.
 - `/add-news` redirects to `/login` when unauthenticated
 - `/login` renders email and password fields
 
+**New file:** `e2e/external-links.spec.ts` — External link health checks
+
+- Every platform help link on `/pledge` (Facebook, Instagram, X, Snapchat, TikTok, Reddit, Apple, Google) returns HTTP < 500 and is not 404/410
+- Every academic/research DOI link and news article on `/sources` returns HTTP < 500 and is not 404/410
+- Run independently via `npm run test:links` (slow due to network I/O)
+
 ---
 
 ## 5. Package.json scripts
@@ -134,6 +140,7 @@ Mock `@supabase/ssr`'s `createServerClient`.
 | `e2e/forms.spec.ts` | Create |
 | `e2e/navigation.spec.ts` | Create |
 | `e2e/auth.spec.ts` | Create |
+| `e2e/external-links.spec.ts` | Create |
 | `package.json` | Add test scripts |
 
 ---

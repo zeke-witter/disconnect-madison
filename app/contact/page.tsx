@@ -15,8 +15,11 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-2 w-full">Contact</h1>
+            <p className="text-(--secondary-accent) mb-4 w-full">
+                Have a question, idea, or want to collaborate? Let us know.
+            </p>
             <p className="text-(--secondary-accent) mb-10 w-full">
-                We&apos;re starting small but hoping to grow into something truly impactful. Have a question, idea, or want to collaborate? Send a message below.
+                We&apos;d also love to hear your story about why you decided to step away from social media, what drove that choice, or what changed when you did. <span className="font-bold">Sharing your story helps others find the courage to try.</span>
             </p>
 
             <form action={formAction} className="w-full">

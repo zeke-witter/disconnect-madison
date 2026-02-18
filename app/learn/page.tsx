@@ -126,6 +126,15 @@ export default function Page() {
                 </p>
             </section>
 
+            <section aria-labelledby="share-your-story" className="w-full mb-16">
+                <h2 id="share-your-story" className="font-handjet text-4xl lg:text-5xl font-bold mb-4">
+                    Share Your Story
+                </h2>
+                <p>
+                    Have you stepped away from social media, or are you thinking about it? We&apos;d like to hear from you &mdash; what drove the decision, what surprised you, what you miss (if anything), or what you got back. <Link href="/contact" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Send us a message.</Link>
+                </p>
+            </section>
+
             <NewsCarousel />
         </div>
     );

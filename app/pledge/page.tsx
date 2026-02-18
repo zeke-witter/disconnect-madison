@@ -2,7 +2,7 @@
 
 import { useState, useActionState } from 'react';
 import { submitPledgeAction } from '@/lib/actions';
-import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button } from '@headlessui/react'
+import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react'
 
 const initialState = {
     message: '',
@@ -17,6 +17,7 @@ const pledgeActions = [
 export default function Page() {
     const [state, formAction, isPending] = useActionState(submitPledgeAction, initialState);
     const [selectedPledgeAction, setSelectedPledgeAction] = useState(pledgeActions[0]);
+    const [newsletterOptIn, setNewsletterOptIn] = useState(false);
 
     return (
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-[family-name:var(--font-space-grotesk)]">
@@ -72,8 +73,26 @@ export default function Page() {
                                 className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
                             />
                             <p className="text-sm text-(--secondary-accent) mt-2">
-                                Your email address is collected only to ensure integrity in the pledge count. It will never be shared or used to contact you except to confirm your pledge. 
+                                Used only to confirm your pledge. Your email will never be shared with anyone.
                             </p>
+                        </Field>
+
+                        <Field className="flex items-start gap-3">
+                            <Checkbox
+                                name="newsletter_opt_in"
+                                value="true"
+                                checked={newsletterOptIn}
+                                onChange={setNewsletterOptIn}
+                                className="group mt-0.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded border border-(--secondary-accent) transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)"
+                            >
+                                <span className="invisible size-2.5 rounded-sm bg-white group-data-checked:visible" />
+                            </Checkbox>
+                            <div>
+                                <Label className="font-bold cursor-pointer">Keep me in the loop</Label>
+                                <p className="text-sm text-(--secondary-accent) mt-1">
+                                    We don&apos;t have a newsletter right now, but we might someday. Check this if you&apos;d be open to updates from us. No spam, and we won&apos;t contact you for any other reason.
+                                </p>
+                            </div>
                         </Field>
                     </Fieldset>
 

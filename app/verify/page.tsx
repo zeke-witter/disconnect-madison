@@ -13,6 +13,12 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
             <p className={`text-lg ${result.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
                 {result.message}
             </p>
+            {result.success && (
+                <p className="mt-6 text-base text-(--secondary-accent)">
+                    Have a story to share? Whether it&apos;s why you decided to make this change, or what you&apos;ve noticed since stepping away, we&apos;d love to hear it.{' '}
+                    <a href="/contact" className="underline text-(--primary-color)">Send us a message.</a>
+                </p>
+            )}
             <a
                 id="button-back-home"
                 href="/"

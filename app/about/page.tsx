@@ -73,8 +73,11 @@ export default function Page() {
             </section>
 
             <section className="w-full mb-8 text-center">
-                <p className="text-2xl">
-                    If any of this resonates with you, consider <Link href="/pledge">taking the pledge</Link>, or start by <Link href="/learn">learning</Link> why you might want to.
+                <p className="text-lg text-(--secondary-accent) mb-4">
+                    If any of this resonates with you, consider taking the <Link href="/pledge">pledge</Link>.
+                </p>
+                <p className="text-lg text-(--secondary-accent)">
+                    If you&apos;ve already stepped away and want to share your story, we&apos;d love to hear it. <Link href="/contact" className="underline text-(--primary-color)">Send us a message</Link>.
                 </p>
             </section>
         </div>
