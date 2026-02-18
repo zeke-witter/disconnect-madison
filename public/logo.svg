@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@700;800&amp;family=Space+Grotesk:wght@400;500&amp;display=swap');
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="#FAF6F0"/>
+  
+  <!-- Abstract open hand releasing upward — bold brushstroke style -->
+  
+  <!-- Palm base — thick organic stroke -->
+  <path d="M165 230 Q175 220 200 215 Q225 220 235 230" 
+        stroke="#3D2B1F" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Fingers opening outward like petals/branches -->
+  <!-- Thumb - left -->
+  <path d="M165 230 Q145 210 130 185 Q125 170 128 158" 
+        stroke="#3D2B1F" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Index finger -->
+  <path d="M175 220 Q165 190 158 160 Q155 140 158 125" 
+        stroke="#3D2B1F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Middle finger -->
+  <path d="M190 215 Q188 180 190 150 Q192 125 195 108" 
+        stroke="#3D2B1F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Ring finger -->
+  <path d="M210 215 Q215 180 220 150 Q224 130 225 115" 
+        stroke="#3D2B1F" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Pinky -->
+  <path d="M230 225 Q240 200 250 175 Q258 155 262 142" 
+        stroke="#3D2B1F" stroke-width="5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Small elements rising from fingertips — seeds, sparks, life -->
+  <circle cx="128" cy="152" r="4" fill="#6B8F3C" opacity="0.8"/>
+  <circle cx="156" cy="118" r="5" fill="#2D5016" opacity="0.7"/>
+  <circle cx="194" cy="100" r="6" fill="#C4956A" opacity="0.75"/>
+  <circle cx="226" cy="108" r="5" fill="#6B8F3C" opacity="0.7"/>
+  <circle cx="264" cy="135" r="4" fill="#2D5016" opacity="0.65"/>
+  
+  <!-- Tiny rising dots — things being released -->
+  <circle cx="125" cy="138" r="2" fill="#6B8F3C" opacity="0.4"/>
+  <circle cx="150" cy="102" r="2.5" fill="#C4956A" opacity="0.35"/>
+  <circle cx="190" cy="82" r="3" fill="#2D5016" opacity="0.3"/>
+  <circle cx="230" cy="92" r="2.5" fill="#6B8F3C" opacity="0.35"/>
+  <circle cx="270" cy="120" r="2" fill="#C4956A" opacity="0.3"/>
+  
+  <!-- Even smaller dots floating higher -->
+  <circle cx="140" cy="120" r="1.5" fill="#8B7355" opacity="0.25"/>
+  <circle cx="175" cy="80" r="1.5" fill="#8B7355" opacity="0.2"/>
+  <circle cx="210" cy="72" r="2" fill="#8B7355" opacity="0.2"/>
+  <circle cx="250" cy="100" r="1.5" fill="#8B7355" opacity="0.2"/>
+  
+  <!-- Wrist/arm — grounding element -->
+  <path d="M170 235 Q185 250 200 252 Q215 250 230 235" 
+        stroke="#3D2B1F" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M175 252 Q190 270 200 275 Q210 270 225 252" 
+        stroke="#3D2B1F" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Text using site fonts -->
+  <text x="200" y="328" text-anchor="middle" 
+        font-family="'Handjet', sans-serif" font-weight="800" 
+        font-size="42" fill="#2D3B1A" letter-spacing="4">
+    DISCONNECT
+  </text>
+  <text x="200" y="356" text-anchor="middle" 
+        font-family="'Space Grotesk', sans-serif" font-weight="400" 
+        font-size="15" fill="#8B7355" letter-spacing="7">
+    SOCIETY
+  </text>
+</svg>

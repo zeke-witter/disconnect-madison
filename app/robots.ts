@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/verify', '/add-news'],
+      disallow: ['/verify', '/add-news', '/login'],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
   }

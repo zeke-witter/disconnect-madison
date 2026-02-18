@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
+import { createServerAuthClient } from '@/lib/supabase-auth';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -65,6 +66,12 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
 }
 
 export async function addNewsArticleAction(initialState: any, formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) {
+        return { success: false, message: 'Unauthorized.' };
+    }
+
     const url = formData.get('url') as string;
 
     if (!url) {
@@ -118,7 +125,7 @@ export async function getNewsArticlesAction() {
         .from('news_articles')
         .select('id, url, title, image_url, created_at')
         .order('created_at', { ascending: false })
-        .limit(12);
+        .limit(10);
 
     if (error) {
         console.error('Supabase fetch error:', error);
