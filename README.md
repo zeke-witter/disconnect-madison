@@ -6,9 +6,15 @@ The pledge at the center of this project is voluntary and self-directed. We hope
 
 Visit us at [disconnectsociety.org](https://disconnectsociety.org).
 
-## Development
+## About the site
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org), deployed via Vercel to the domains disconnectmadison.org and disconnectsociety.org. Other notable libs/frameworks/tools:
+- [Supabase](https://supabase.com) DB layer
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.github.io/) for data visualizations
+- [Claude Code](https://code.claude.com/docs/en/overview) for development assistance
+
+## Development
 
 Run the site locally:
 
@@ -19,7 +25,3 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 If using an AI assistant like Claude Code, refer to CLAUDE.md for conventions.
-
-## Deployment
-
-The site is deployed with Vercel at the domains disconnectmadison.org disconnectsociety.org
