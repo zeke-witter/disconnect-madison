@@ -35,6 +35,7 @@ export default function Footer() {
                         <h2 className="font-bold mb-3">Get in touch</h2>
                         <ul className="space-y-2 text-sm">
                             <li><a href="/contact">Contact us</a></li>
+                            <li><a href="/grow">Help us grow</a></li>
                         </ul>
                     </div>
                 </div>
