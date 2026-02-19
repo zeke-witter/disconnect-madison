@@ -19,7 +19,7 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
-            <section aria-labelledby="grow-heading" className="w-full mb-16">
+            <section aria-labelledby="grow-heading" className="w-full mb-10">
                 <h1 id="grow-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
                     Help us grow
                 </h1>
@@ -28,9 +28,14 @@ export default function Page() {
                 </p>
             </section>
 
-            <section aria-labelledby="flyers-heading" className="w-full mb-16">
+            <section aria-labelledby="tell-a-friend-heading" className="w-full mb-10">
+                <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">Tell your friends</h2>
+                <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together.</p>
+            </section>
+
+            <section aria-labelledby="flyers-heading" className="w-full mb-10">
                 <h2 id="flyers-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
-                    Print a flyer
+                    Print and post a flyer
                 </h2>
                 <p className="text-(--secondary-accent) mb-8">
                     Print one out and post it somewhere people in your community will see it &mdash; a school hallway, library, coffee shop, gym, or community board. Click a flyer to open it as a PDF.
@@ -64,7 +69,7 @@ export default function Page() {
                 </div>
             </section>
 
-            <section aria-labelledby="ideas-heading" className="w-full mb-16">
+            <section aria-labelledby="ideas-heading" className="w-full mb-10">
                 <h2 id="ideas-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
                     Got an idea? Want to help?
                 </h2>
