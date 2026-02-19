@@ -8,7 +8,7 @@ Visit us at [disconnectsociety.org](https://disconnectsociety.org).
 
 ## About the site
 
-This is a [Next.js](https://nextjs.org), deployed via Vercel to the domains disconnectmadison.org and disconnectsociety.org. Other notable libs/frameworks/tools:
+This is a [Next.js](https://nextjs.org) project, deployed via Vercel to the domains disconnectmadison.org and disconnectsociety.org. Other notable libs/frameworks/tools:
 - [Supabase](https://supabase.com) DB layer
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Recharts](https://recharts.github.io/) for data visualizations
