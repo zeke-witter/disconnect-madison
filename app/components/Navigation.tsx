@@ -36,6 +36,9 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
                     <a href="/learn" className="hover:text-gray-300">Learn</a>
                 </li>
                 <li>
+                    <a href="/help-yourself" className="hover:text-gray-300">Now what?</a>
+                </li>
+                <li>
                     <a href="/about" className="hover:text-gray-300">About</a>
                 </li>
                 <li>
