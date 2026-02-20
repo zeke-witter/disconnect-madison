@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
             </p>
             {result.success && (
                 <>
-                    <BadgeShare pledgeAction={result.pledgeAction} />
+                    <BadgeShare pledgeAction={result.pledgeAction ?? ''} />
                     <p className="mt-8 text-base text-(--secondary-accent)">
                         Have a story to share? Whether it&apos;s why you decided to make this change, or what you&apos;ve noticed since stepping away, we&apos;d love to hear it.{' '}
                         <a href="/contact" className="underline text-(--primary-color)">Send us a message.</a>

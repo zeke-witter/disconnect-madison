@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <div id="hero" className="flex flex-col items-center text-center w-full font-space-grotesk text-xl">
       <div className="flex justify-center w-full max-w-7xl">
-        <h1 className="font-handjet text-4xl sm:text-6xl md:text-8xl font-bold py-8">WE WERE PROMISED CONNECTION<br/><span className="text-5xl sm:text-7xl md:text-9xl">WE GOT THE ATTENTION ECONOMY</span></h1>
+        <h1 className="font-handjet text-4xl sm:text-4xl md:text-7xl font-bold py-8">DISCONNECT FROM THE ATTENTION ECONOMY<br /><span className="text-5xl sm:text-5xl md:text-8xl">RECONNECT WITH THE WORLD AROUND YOU</span></h1>
       </div>
       <div className="flex justify-center w-full max-w-5xl">
         <p>Social media platforms were built to capture and monetize our attention at any cost. They have invested billions of dollars on technology that rewards outrage and disinformation, disrupts our mental wellbeing, and isolates us from our communities.</p>
