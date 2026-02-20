@@ -30,6 +30,9 @@ export default function Page() {
                 <p className="text-sm text-(--secondary-accent)">
                     Don&apos;t see it? Check your spam folder.
                 </p>
+                <p className="mt-6 text-sm text-(--secondary-accent)">
+                    While you wait — <a href="/help-yourself">read our guide on what actually helps</a> once you&apos;re ready to act.
+                </p>
                 <a
                     id="button-back-home"
                     href="/"
@@ -139,6 +142,11 @@ export default function Page() {
             </div>
 
             <aside className="lg:w-80 lg:mt-24 space-y-8 text-sm" aria-label="Guides for taking action">
+                <div>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Not sure what to do next?</h2>
+                    <p className="text-(--secondary-accent)">Our guide covers practical strategies for getting through the first two weeks, changing your environment, and staying off for good. <a href="/help-yourself">Read: How to Help Yourself →</a></p>
+                </div>
+
                 <div>
                     <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Reduce screen time</h2>
                     <ul className="space-y-2">

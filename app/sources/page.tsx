@@ -210,6 +210,35 @@ export default function Page() {
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <h2 className="font-bold text-xl mb-4 text-(--primary-accent)">Practical advice &amp; digital detox</h2>
+                        <ul className="list-disc pl-6 space-y-3">
+                            <li>
+                                &ldquo;Blocking mobile internet on smartphones improves sustained attention, mental health, and subjective well-being.&rdquo;
+                                <br /><em>PNAS Nexus</em>, 2025. [<a href="https://doi.org/10.1093/pnasnexus/pgaf017" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;True colors: Grayscale setting reduces screen time in college students.&rdquo;
+                                <br /><em>The Social Science Journal</em>, 2020. [<a href="https://doi.org/10.1080/03623319.2020.1737461" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Color me calm: Grayscale phone setting reduces anxiety and problematic smartphone use.&rdquo;
+                                <br /><em>Current Psychology</em>, 2023. [<a href="https://doi.org/10.1007/s12144-021-02020-y" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Is life brighter when your phone is not? The efficacy of a grayscale smartphone intervention addressing digital well-being.&rdquo;
+                                <br /><em>Mobile Media &amp; Communication</em>, 2024. [<a href="https://doi.org/10.1177/20501579231212062" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;An intervention utilizing the salience principle to reduce pharmacy students&rsquo; psychological attraction to smartphones.&rdquo;
+                                <br /><em>American Journal of Pharmaceutical Education</em>, 2022. [<a href="https://doi.org/10.5688/ajpe8717" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Time-specific digital detox interventions: Effects and effectiveness among college students.&rdquo;
+                                <br /><em>Technology, Mind, and Behavior</em>, 2025. [<a href="https://doi.org/10.1037/tmb0000173" target="_blank">link</a>]
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="mt-12 space-y-12">
                     <h2 className="font-bold text-xl mb-4 text-(--primary-accent)">Children &amp; adolescents</h2>
