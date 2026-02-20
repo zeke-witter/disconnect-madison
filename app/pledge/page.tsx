@@ -18,6 +18,28 @@ export default function Page() {
     const [state, formAction, isPending] = useActionState(submitPledgeAction, initialState);
     const [selectedPledgeAction, setSelectedPledgeAction] = useState(pledgeActions[0]);
     const [newsletterOptIn, setNewsletterOptIn] = useState(false);
+    const [email, setEmail] = useState('');
+
+    if (state.success) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
+                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">Check your inbox</h1>
+                <p className="text-lg text-(--secondary-accent) mb-2">
+                    We sent you a confirmation link. Click it to lock in your pledge.
+                </p>
+                <p className="text-sm text-(--secondary-accent)">
+                    Don&apos;t see it? Check your spam folder.
+                </p>
+                <a
+                    id="button-back-home"
+                    href="/"
+                    className="mt-10 inline-block rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover)"
+                >
+                    Back to home
+                </a>
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-[family-name:var(--font-space-grotesk)]">
@@ -70,6 +92,8 @@ export default function Page() {
                                 type="email"
                                 required
                                 placeholder="you@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
                             />
                             <p className="text-sm text-(--secondary-accent) mt-2">
@@ -106,8 +130,8 @@ export default function Page() {
                         {isPending ? 'Submitting...' : 'Submit my pledge'}
                     </Button>
 
-                    {state?.message && (
-                        <p className={`mt-4 text-center font-medium ${state.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
+                    {state?.message && !state.success && (
+                        <p className="mt-4 text-center font-medium text-(--primary-accent)">
                             {state.message}
                         </p>
                     )}
