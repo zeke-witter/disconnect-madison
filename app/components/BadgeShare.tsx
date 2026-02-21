@@ -46,29 +46,31 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
     if (!badge) return null;
 
     return (
-        <div className="flex flex-col items-center gap-8 w-full mt-8">
+        <div className="flex flex-col items-center gap-6 w-full mt-4">
 
             {/* Badge + share options */}
-            <div className="flex flex-col items-center gap-6 w-full">
-                <Image src={badge.src} alt={badge.alt} width={280} height={280} className="rounded-lg" />
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 w-full max-w-xl">
+                <Image src={badge.src} alt={badge.alt} width={160} height={160} className="rounded-lg opacity-90 shrink-0" />
 
-                {/* Option 1: share */}
-                <button
-                    onClick={shareBadge}
-                    className="w-full rounded-md bg-(--primary-color) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
-                >
-                    Share your badge
-                </button>
-
-                {/* Option 2: copy text */}
-                <div className="w-full rounded-md border border-(--secondary-accent) p-4 text-left">
-                    <p className="text-sm text-(--secondary-accent) italic mb-3">&ldquo;{SHARE_TEXT}&rdquo;</p>
+                <div className="flex flex-col gap-3 w-full">
+                    {/* Option 1: share */}
                     <button
-                        onClick={copyText}
-                        className="rounded-md bg-(--secondary-accent) px-4 py-2 font-handjet text-xl font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
+                        onClick={shareBadge}
+                        className="w-full rounded-md bg-(--primary-color) px-5 py-2.5 font-handjet text-xl font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
                     >
-                        {copied ? 'Copied!' : 'Copy text'}
+                        Share your badge
                     </button>
+
+                    {/* Option 2: copy text */}
+                    <div className="w-full rounded-md border border-(--secondary-accent) p-3 text-left">
+                        <p className="text-xs text-(--secondary-accent) italic mb-2">&ldquo;{SHARE_TEXT}&rdquo;</p>
+                        <button
+                            onClick={copyText}
+                            className="rounded-md bg-(--secondary-accent) px-3 py-1.5 font-handjet text-base font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
+                        >
+                            {copied ? 'Copied!' : 'Copy text'}
+                        </button>
+                    </div>
                 </div>
             </div>
 

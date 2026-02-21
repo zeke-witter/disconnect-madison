@@ -22,17 +22,25 @@ export default function Page() {
 
     if (state.success) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
+            <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-xl mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
                 <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">Check your inbox</h1>
-                <p className="text-lg text-(--secondary-accent) mb-2">
+                <p className="text-2xl text-(--secondary-accent) mb-2">
                     We sent you a confirmation link. Click it to lock in your pledge.
                 </p>
-                <p className="text-sm text-(--secondary-accent)">
-                    Don&apos;t see it? Check your spam folder.
+                <p className="text-sm text-(--secondary-accent) mb-4">
+                    Your pledge will not be counted until you confirm. This is necessary to ensure the integrity of the count. If you don&apos;t see the confirmation email, check your spam folder.
                 </p>
-                <p className="mt-6 text-sm text-(--secondary-accent)">
-                    While you wait — <a href="/help-yourself">read our guide on what actually helps</a> once you&apos;re ready to act.
-                </p>
+                <div className="grid grid-cols-1 gap-6">
+
+                    <div className="rounded-lg border border-(--secondary-accent) p-6 text-left flex flex-col gap-3">
+                        <h3 className="font-bold text-lg">What&apos;s next?</h3>
+                        <p className="text-sm text-(--secondary-accent) flex-1">Learn what actually helps. Read about practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
+                        <a href="/help-yourself" className="text-sm font-semibold text-(--primary-accent) hover:underline mt-2">
+                            Explore our guide &rarr;
+                        </a>
+                    </div>
+
+                </div>
                 <a
                     id="button-back-home"
                     href="/"
