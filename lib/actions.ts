@@ -229,10 +229,27 @@ export async function submitContactAction(initialState: any, formData: FormData)
  *
  * Marks the matching unconfirmed pledge row as confirmed. Returns an error if
  * the token is empty, already used, or not found.
+ *
+ * In non-production environments the following dummy tokens bypass Supabase so
+ * you can preview both UI states without going through the full email flow:
+ *   /verify?token=dev-reduce   → success (reduce_screen_time)
+ *   /verify?token=dev-break    → success (take_a_break)
+ *   /verify?token=dev-quit     → success (quit_for_good)
+ *   /verify?token=dev-fail     → failure
  */
 export async function verifyPledgeAction(token: string) {
     if (!token) {
         return { success: false, message: 'Invalid verification link.' };
+    }
+
+    if (process.env.VERCEL_ENV !== 'production') {
+        const devTokens: Record<string, { success: true; message: string; pledgeAction: string } | { success: false; message: string }> = {
+            'dev-reduce': { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'reduce_screen_time' },
+            'dev-break':  { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'take_a_break' },
+            'dev-quit':   { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'quit_for_good' },
+            'dev-fail':   { success: false, message: 'This link is invalid or your pledge has already been confirmed.' },
+        };
+        if (token in devTokens) return devTokens[token];
     }
 
     const { data, error } = await supabase
