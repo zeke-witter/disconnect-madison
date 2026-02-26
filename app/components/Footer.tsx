@@ -17,6 +17,8 @@ export default function Footer() {
                         <h2 className="font-bold mb-3">Pages</h2>
                         <ul className="space-y-2 text-sm">
                             <li><a href="/learn">Learn</a></li>
+                            <li><a href="/learn/kids">Effects on kids</a></li>
+                            <li><a href="/learn/dependency">Device dependency</a></li>
                             <li><a href="/help-yourself">How to help yourself</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/pledge">Take the Pledge</a></li>

@@ -52,6 +52,11 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
         return { success: false, message: 'Missing required info.' };
     }
 
+    const validPledgeActions = ['reduce_screen_time', 'take_a_break', 'quit_for_good'] as const;
+    if (!(validPledgeActions as readonly string[]).includes(pledgeAction)) {
+        return { success: false, message: 'Invalid pledge type.' };
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         return { success: false, message: 'Please enter a valid email address.' };
@@ -103,8 +108,8 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
  *
  * Requires an authenticated Supabase session. Fetches the target URL to extract
  * the og:title and og:image meta tags, then inserts the article into the
- * news_articles table. Falls back to the raw URL as the title if the fetch
- * fails. Revalidates the home page cache after a successful insert.
+ * news_articles table. Fails if the fetch errors or no og:image is found.
+ * Revalidates the home page cache after a successful insert.
  */
 export async function addNewsArticleAction(initialState: any, formData: FormData) {
     const authClient = await createServerAuthClient();
@@ -141,7 +146,11 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
             ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
         if (ogImage) imageUrl = ogImage[1];
     } catch {
-        // If fetch fails, we still insert with the URL as the title
+        return { success: false, message: 'Could not fetch the article. Please check the URL and try again.' };
+    }
+
+    if (!imageUrl) {
+        return { success: false, message: 'No og:image found for this URL. Cannot add article without a preview image.' };
     }
 
     const { error } = await supabase
@@ -203,17 +212,24 @@ export async function submitContactAction(initialState: any, formData: FormData)
         return { success: false, message: 'Please fill out all fields.' };
     }
 
+    if (name.length > 100 || email.length > 254 || message.length > 5000) {
+        return { success: false, message: 'One or more fields exceed the maximum allowed length.' };
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         return { success: false, message: 'Please enter a valid email address.' };
     }
 
+    // Strip CR/LF from name before it's interpolated into the email subject line
+    const safeName = name.replace(/[\r\n]/g, ' ').trim();
+
     const { error } = await resend.emails.send({
         from: 'Disconnect Society <noreply@disconnectsociety.org>',
         to: process.env.CONTACT_EMAIL!,
         replyTo: email,
-        subject: `Contact form: ${name}`,
-        text: `From: ${name} (${email})\n\n${message}`,
+        subject: `Contact form: ${safeName}`,
+        text: `From: ${safeName} (${email})\n\n${message}`,
     });
 
     if (error) {
@@ -340,4 +356,47 @@ export async function deleteAllPledgesAction() {
     if (process.env.VERCEL_ENV === 'production') return;
     await supabase.from('pledges').delete().in('confirmed', [true, false]);
     revalidatePath('/dev');
+}
+
+/**
+ * Dev/staging only: fetch all news article rows for the /dev management page.
+ * Returns an empty array in production.
+ */
+export async function getDevNewsArticlesAction() {
+    if (process.env.VERCEL_ENV === 'production') return [];
+
+    const { data, error } = await supabase
+        .from('news_articles')
+        .select('id, url, title, image_url, created_at')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error('getDevNewsArticlesAction error:', error);
+        return [];
+    }
+
+    return data;
+}
+
+/**
+ * Dev/staging only: delete a single news article row by id.
+ * No-ops in production.
+ */
+export async function deleteNewsArticleAction(formData: FormData) {
+    if (process.env.VERCEL_ENV === 'production') return;
+    const id = formData.get('id') as string;
+    await supabase.from('news_articles').delete().eq('id', id);
+    revalidatePath('/dev');
+    revalidatePath('/');
+}
+
+/**
+ * Dev/staging only: delete all news article rows.
+ * No-ops in production.
+ */
+export async function deleteAllNewsArticlesAction() {
+    if (process.env.VERCEL_ENV === 'production') return;
+    await supabase.from('news_articles').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+    revalidatePath('/dev');
+    revalidatePath('/');
 }
