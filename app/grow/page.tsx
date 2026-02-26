@@ -30,7 +30,7 @@ export default function Page() {
 
             <section aria-labelledby="tell-a-friend-heading" className="w-full mb-10">
                 <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">Tell your friends</h2>
-                <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together.</p>
+                <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together. <span className="font-bold">If you&apos;ve taken the pledge, share your badge on social media.</span> We recognize the irony, but sharing helps with accountability and encourages others to be brave. We aim to meet people where they are, and the people who stand to benefit most from being more intentional about their screen time are spending their time on Instagram, TikTok, Facebook, etc.</p>
             </section>
 
             <section aria-labelledby="flyers-heading" className="w-full mb-10">
@@ -48,7 +48,7 @@ export default function Page() {
                             href={file}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group block border border-(--secondary-accent) rounded-md overflow-hidden hover:border-(--primary-accent) transition-colors"
+                            className="link-card group block border border-(--secondary-accent) rounded-md overflow-hidden hover:border-(--primary-accent) transition-colors"
                         >
                             <div className="relative w-full overflow-hidden bg-(--secondary-accent)/10" style={{ aspectRatio: '8.5 / 11' }}>
                                 <iframe
