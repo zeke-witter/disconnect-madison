@@ -56,16 +56,21 @@ main {
       color: var(--foreground);
       text-decoration: none;
     }
+
+    &.link-card {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: inherit;
+      }
+    }
   }
 }
 
 nav {
   background: #1F3D3A;
   border-color: var(--secondary-accent);
-
-  li a {
-    border: 1px black
-  }
 }
 
 a[target="_blank"][href^="http"]:not([href*="disconnectsociety"]):not([href*="disconnectmadison"]):not(.link-news):not(.link-card)::after {

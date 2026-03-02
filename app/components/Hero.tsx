@@ -17,6 +17,7 @@ export default function Hero() {
         <p>Join us in opting out of the attention economy and rediscover what community really means.</p>
       </div>
       <a href="/pledge" id="pledge-button" className="font-handjet text-3xl sm:text-5xl font-bold px-6 py-4 border-3 text-(--foreground) rounded-md bg-(--primary-accent) hover:bg-(--primary-accent-hover) max-w-md">PLEDGE TODAY</a>
+      <a href="/quiz" className="mt-4 text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors">Not sure if it&apos;s affecting you? Take our quick quiz &rarr;</a>
     </div>
   );
 }
