@@ -45,7 +45,10 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
                     <a href="/grow" className="hover:text-gray-300">Help us grow</a>
                 </li>
                 <li>
-                    <a href="/pledge" className="hover:bg-emerald-400 text-stone-800 bg-emerald-500 px-4 py-2 rounded-sm">Take the Pledge</a>
+                    <a href="/quiz" className="border border-white/80 px-4 py-2 rounded-sm hover:border-white hover:bg-white/10 transition-colors">Take the quiz</a>
+                </li>
+                <li>
+                    <a href="/pledge" className="hover:bg-emerald-400 text-stone-800 bg-emerald-500 px-4 py-2 rounded-sm">Pledge Today</a>
                 </li>
             </ul>
         </nav>

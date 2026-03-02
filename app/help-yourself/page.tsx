@@ -18,7 +18,7 @@ export default function Page() {
                 </h1>
                 <div className="space-y-4">
                     <p className="text-lg text-(--secondary-accent)">
-                        Do you feel strong reluctance when you think about deleting your Tiktok or Instagram account? Have you tried to quit in the past, but it didn&apos;t stick? You&apos;re not alone.
+                        Do you feel strong reluctance when you think about deleting your Tiktok or Instagram account? Have you tried to quit in the past, but it didn&apos;t stick? You&apos;re not alone. If you&apos;re not yet sure how much social media is affecting you, <Link href="/quiz">our short quiz</Link> is a good place to start.
                     </p>
                     <p>
                         Reducing screen time (or quitting social media) is hard for a reason. The platforms we use were <span className="italic">designed</span> to make it hard to leave. What works is personal. It depends on why you&apos;re here, how deep the habit runs, and what your life looks like. Some of this advice is backed by research. Some of it is just what people who&apos;ve done this before say helped them. We&apos;ve tried to be honest about which is which.
