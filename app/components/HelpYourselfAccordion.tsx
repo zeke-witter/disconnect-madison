@@ -44,7 +44,7 @@ export default function HelpYourselfAccordion() {
                 </Subsection>
                 <Subsection title="Physical separation">
                     <p>
-                        The further your phone is from your body, the less you use it. This isn&apos;t a metaphor; it&apos;s documented. The &ldquo;Brain Drain&rdquo; study from the University of Texas found that even having your phone on the desk in front of you reduces your working memory and fluid intelligence...<span className="font-bold">even if it&apos;s face down, even if it&apos;s on silen</span>. The effect disappeared when the phone was in another room. When you&apos;re working, eating, reading, or spending time with someone you care about, put the phone somewhere you can&apos;t see it.
+                        The further your phone is from your body, the less you use it. This isn&apos;t a metaphor; it&apos;s documented. The &ldquo;Brain Drain&rdquo; study from the University of Texas found that even having your phone on the desk in front of you reduces your working memory and fluid intelligence...<span className="font-bold">even if it&apos;s face down, even if it&apos;s on silent</span>. The effect disappeared when the phone was in another room. When you&apos;re working, eating, reading, or spending time with someone you care about, put the phone somewhere you can&apos;t see it.
                     </p>
                 </Subsection>
                 <Subsection title="Timed lockboxes">
