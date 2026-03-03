@@ -13,6 +13,11 @@ const flyers = [
         name: "General flyer",
         description: "For schools, gyms, coffee shops, libraries — anywhere people gather.",
     },
+    {
+        file: "/flyer-mentalhealth.pdf",
+        name: "Mental health flyer",
+        description: "Focused on the mental health impacts of algorithm-driven social media.",
+    },
 ];
 
 export default function Page() {
@@ -39,6 +44,10 @@ export default function Page() {
                 </h2>
                 <p className="text-(--secondary-accent) mb-8">
                     Print one out and post it somewhere people in your community will see it &mdash; a school hallway, library, coffee shop, gym, or community board. Click a flyer to open it as a PDF.
+                </p>
+
+                <p className="text-sm text-(--secondary-accent) mb-6">
+                    The flyers say <span className="font-medium">disconnectmadison.org</span>, which redirects to this site. It&apos;s a local domain for Madison-area outreach. If you&apos;re outside Madison, WI and would prefer versions with a more generic URL, <Link href="/contact" className="underline hover:text-(--primary-color)">just ask</Link>.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
