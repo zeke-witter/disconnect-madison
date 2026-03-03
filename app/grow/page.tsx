@@ -1,34 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FlyerCarousel from "@/app/components/FlyerCarousel";
 
 export const metadata: Metadata = {
     title: "Help Us Grow",
     description: "Help Disconnect Society reach more people. Print a flyer, share your story, or get in touch with ideas.",
     alternates: { canonical: "/grow" },
 };
-
-const flyers = [
-    {
-        file: "/disconnect-flyer-generic.pdf",
-        name: "General flyer",
-        description: "For schools, gyms, coffee shops, libraries — anywhere people gather.",
-    },
-    {
-        file: "/flyer-mentalhealth.pdf",
-        name: "Mental health flyer",
-        description: "Focused on the mental health impacts of algorithm-driven social media.",
-    },
-    {
-        file: "/flyer-neighbors.pdf",
-        name: "Neighbors flyer",
-        description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
-    },
-    {
-        file: "/flyer-bookstore.pdf",
-        name: "Bookstore flyer",
-        description: "Tailored for independent bookstores and the community-minded people who frequent them.",
-    },
-];
 
 export default function Page() {
     return (
@@ -60,32 +38,7 @@ export default function Page() {
                     The flyers say <span className="font-medium">disconnectmadison.org</span>, which redirects to this site. It&apos;s a local domain for Madison-area outreach. If you&apos;re outside Madison, WI and would prefer versions with a more generic URL, <Link href="/contact" className="underline hover:text-(--primary-color)">just ask</Link>.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {flyers.map(({ file, name, description }) => (
-                        <a
-                            key={file}
-                            href={file}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="link-card group block border border-(--secondary-accent) rounded-md overflow-hidden hover:border-(--primary-accent) transition-colors"
-                        >
-                            <div className="relative w-full overflow-hidden bg-(--secondary-accent)/10" style={{ aspectRatio: '8.5 / 11' }}>
-                                <iframe
-                                    src={file}
-                                    className="w-full h-full pointer-events-none"
-                                    title={`${name} preview`}
-                                />
-                            </div>
-                            <div className="p-4 flex items-start justify-between gap-4">
-                                <div>
-                                    <p className="font-medium text-(--primary-color)">{name}</p>
-                                    <p className="text-sm text-(--secondary-accent) mt-0.5">{description}</p>
-                                </div>
-                                <span className="text-xs text-(--secondary-accent) shrink-0 mt-0.5">PDF</span>
-                            </div>
-                        </a>
-                    ))}
-                </div>
+                <FlyerCarousel />
             </section>
 
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
