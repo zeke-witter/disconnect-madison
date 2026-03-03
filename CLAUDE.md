@@ -11,6 +11,8 @@ The site is a Next.js application built and maintained by the founder. It does n
 - **/learn/kids** — Research specifically on how social media and screen time affect children and adolescents. A key concern of the project.
 - **/learn/dependency** — Deep dive on device dependency: cognitive offloading, the Google Effect, GPS and spatial memory, phone presence effects, and AI.
 - **/help-yourself** — Practical guide with strategies for reducing screen time, changing habits, and making the change stick.
+- **/faq** — Frequently asked questions covering who the project is for, what counts as social media, why pledge, how email is used, the name's meaning, the hypocrisy question, and how to get involved. Uses the shared Accordion component.
+- **/quiz** — A 10-question self-reflection quiz ("Is social media affecting you?"). No account needed, nothing recorded. Scores produce one of three result levels (low/medium/high) with tailored messaging and links to relevant pages. Displayed as a prominent secondary CTA on the homepage alongside the pledge button.
 - **/pledge** — The core action. Visitors pledge to do one of three things in the next 10 days: (1) reduce screen time, (2) step away (deactivate accounts), or (3) quit for good (permanently delete accounts). Emails are collected only for pledge integrity; they are never shared or used for marketing. As of late February 2026, the site has ~63 pledges.
 - **/sources** — Citations for all research claims made on the site.
 - **/about** — The founder's personal story: noticed negative changes in themselves (isolation, anxiety, anger, lost time, difficulty focusing), started deleting accounts one by one, and found life improved. Started the project to help others do the same.
@@ -80,6 +82,9 @@ app/
   learn/kids/PlatformUsageChart.tsx # Horizontal bar chart — platform usage by teens
   learn/kids/TeenDepressionChart.tsx # Area chart — CDC depression trends 2009–2023
   learn/dependency/page.tsx         # Device dependency and cognitive effects
+  faq/page.tsx                      # Frequently asked questions (accordion, server component)
+  quiz/page.tsx                     # Self-reflection quiz — 10 questions, scored results (client)
+  quiz/layout.tsx                   # Quiz page metadata layout
   pledge/page.tsx                   # Pledge form (client)
   pledge/layout.tsx                 # Pledge page metadata layout
   sources/page.tsx                  # Academic citations
@@ -134,6 +139,9 @@ middleware.ts                       # Redirects unauthenticated /add-news to /lo
 - Path alias `@/*` maps to the project root
 - No explicit return types on React components
 - Functional components only (no classes)
+
+### Copy & Tone
+- Avoid em dashes (—) in copy. They have become a recognizable marker of AI-generated text and the site's voice should feel human and personal. Use commas, colons, semicolons, parentheses, or restructured sentences instead.
 
 ### Current State
 - Database: Supabase PostgreSQL with two tables — `pledges` (email, pledge_action, confirmed, verification_token, newsletter_opt_in) and `news_articles` (url, title, image_url)
