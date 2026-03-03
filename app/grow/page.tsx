@@ -18,6 +18,11 @@ const flyers = [
         name: "Mental health flyer",
         description: "Focused on the mental health impacts of algorithm-driven social media.",
     },
+    {
+        file: "/flyer-neighbors.pdf",
+        name: "Neighbors flyer",
+        description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
+    },
 ];
 
 export default function Page() {
