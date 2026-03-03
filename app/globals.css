@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F6F4EF;
+  --background: #E8D9BC;
   --foreground: #1A1A1A;
-  --primary-color: #1F3D3A;
+  --primary-color: #1A7268;
   --primary-accent: #8C3A2B;
   --primary-accent-hover: #a84331;
-  --secondary-accent: #5C6F73;
+  --secondary-accent: #445D61;
+  --nav-background: #2B5250;
 }
 
 @theme inline {
@@ -26,6 +27,7 @@
     --primary-accent: #c6523d;
     --primary-color: #4a948d;
     --secondary-accent: #91b0b6;
+    --nav-background: #1F3D3A;
   }
 }
 
@@ -35,6 +37,7 @@
   --primary-accent: #c6523d;
   --primary-color: #4a948d;
   --secondary-accent: #91b0b6;
+  --nav-background: #1F3D3A;
 }
 
 body {
@@ -69,8 +72,9 @@ main {
 }
 
 nav {
-  background: #1F3D3A;
+  background: var(--nav-background);
   border-color: var(--secondary-accent);
+  color: #EDEBE6;
 }
 
 a[target="_blank"][href^="http"]:not([href*="disconnectsociety"]):not([href*="disconnectmadison"]):not(.link-news):not(.link-card)::after {

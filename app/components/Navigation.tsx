@@ -11,7 +11,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
             <div className="flex items-center gap-6">
                 <Link href="/" aria-label="Home">Disconnect Society</Link>
                 {totalPledges != null && (
-                    <span className="hidden lg:inline text-lg text-(--secondary-accent)">
+                    <span className="hidden lg:inline text-lg text-[#EDEBE6]/60">
                         {totalPledges.toLocaleString()} {totalPledges === 1 ? 'pledge' : 'pledges'}
                     </span>
                 )}
