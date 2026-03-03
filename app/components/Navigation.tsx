@@ -7,7 +7,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav aria-label="main site navigation" className="flex flex-wrap lg:flex-nowrap w-full justify-between items-center py-4 lg:py-6 px-6 lg:px-8 font-handjet text-2xl border-b-5">
+        <nav aria-label="main site navigation" className="relative flex w-full justify-between items-center py-4 lg:py-6 px-6 lg:px-8 font-handjet text-2xl border-b-5">
             <div className="flex items-center gap-6">
                 <Link href="/" aria-label="Home">Disconnect Society</Link>
                 {totalPledges != null && (
@@ -31,26 +31,32 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
                     )}
                 </svg>
             </button>
-            <ul className={`${isOpen ? 'flex' : 'hidden'} lg:flex flex-col lg:flex-row w-full lg:w-auto items-center gap-4 lg:gap-10 pt-4 lg:pt-0`}>
-                <li>
-                    <a href="/learn" className="hover:text-gray-300">Learn</a>
-                </li>
-                <li>
-                    <a href="/help-yourself" className="hover:text-gray-300">Now what?</a>
-                </li>
-                <li>
-                    <a href="/about" className="hover:text-gray-300">About</a>
-                </li>
-                <li>
-                    <a href="/grow" className="hover:text-gray-300">Help us grow</a>
-                </li>
-                <li>
-                    <a href="/quiz" className="border border-white/80 px-4 py-2 rounded-sm hover:border-white hover:bg-white/10 transition-colors">Take the quiz</a>
-                </li>
-                <li>
-                    <a href="/pledge" className="hover:bg-emerald-400 text-stone-800 bg-emerald-500 px-4 py-2 rounded-sm">Pledge Today</a>
-                </li>
+
+            {/* Desktop nav */}
+            <ul className="hidden lg:flex flex-row items-center gap-10">
+                <li><a href="/learn" className="hover:text-gray-300">Learn</a></li>
+                <li><a href="/help-yourself" className="hover:text-gray-300">Now what?</a></li>
+                <li><a href="/about" className="hover:text-gray-300">About</a></li>
+                <li><a href="/grow" className="hover:text-gray-300">Help us grow</a></li>
+                <li><a href="/quiz" className="border border-white/80 px-4 py-2 rounded-sm hover:border-white hover:bg-white/10 transition-colors">Take the quiz</a></li>
+                <li><a href="/pledge" className="hover:bg-emerald-400 text-stone-800 bg-emerald-500 px-4 py-2 rounded-sm">Pledge Today</a></li>
             </ul>
+
+            {/* Mobile dropdown panel */}
+            {isOpen && (
+                <div className="lg:hidden absolute top-full left-0 right-0 z-50 bg-(--nav-background) border-b-5">
+                    <ul className="flex flex-col px-6 py-2">
+                        <li><a href="/learn" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Learn</a></li>
+                        <li><a href="/help-yourself" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Now what?</a></li>
+                        <li><a href="/about" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">About</a></li>
+                        <li><a href="/grow" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Help us grow</a></li>
+                        <li className="flex flex-col gap-3 py-5">
+                            <a href="/quiz" onClick={() => setIsOpen(false)} className="text-center border border-[#EDEBE6]/60 px-4 py-3 rounded-sm hover:bg-[#EDEBE6]/10 transition-colors">Take the quiz</a>
+                            <a href="/pledge" onClick={() => setIsOpen(false)} className="text-center text-stone-800 bg-emerald-500 hover:bg-emerald-400 px-4 py-3 rounded-sm transition-colors">Pledge Today</a>
+                        </li>
+                    </ul>
+                </div>
+            )}
         </nav>
     )
 }
