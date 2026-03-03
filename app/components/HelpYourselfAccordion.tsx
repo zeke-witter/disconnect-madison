@@ -15,7 +15,7 @@ function Subsection({ title, children }: { title: string; children: React.ReactN
 export default function HelpYourselfAccordion() {
     return (
         <Accordion>
-            <Section title="Start with why">
+            <Section title="Start with why" defaultOpen>
                 <p className="mb-4">
                     Before you change a single setting on your phone, get clear on why you&apos;re doing this in a specific, honest way. For example:
                 </p>

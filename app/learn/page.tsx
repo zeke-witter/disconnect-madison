@@ -178,7 +178,7 @@ export default function Page() {
                     Share your story
                 </h2>
                 <p>
-                    Have you stepped away from social media, or are you thinking about it? We&apos;d like to hear from you &mdash; what drove the decision, what surprised you, what you miss (if anything), or what you got back. <Link href="/contact" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Send us a message.</Link>
+                    Have you stepped away from social media, or are you thinking about it? We&apos;d like to hear from you. What drove the decision? What surprised you? What do you miss (if anything). <Link href="/contact" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Send us a message.</Link>
                 </p>
             </section>
         </div>

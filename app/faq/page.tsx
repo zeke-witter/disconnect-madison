@@ -23,7 +23,7 @@ export default function Page() {
 
             <Accordion>
 
-                <AccordionItem title="Who is this for?">
+                <AccordionItem title="Who is this for?" defaultOpen>
                     <p className="mb-4">
                         Anyone. Disconnect Society isn&apos;t a club for people who&apos;ve already decided social media is ruining their lives. It&apos;s for anyone who&apos;s curious about the role these platforms play in their wellbeing and wants to think more intentionally about it.
                     </p>
@@ -53,6 +53,18 @@ export default function Page() {
                     </p>
                     <p>
                         The honest answer is that it&apos;s subjective, and what matters most is what <span className="italic">you</span> recognize as social media in your own life, and what you believe you could have a healthier relationship with. If a platform is eating your time, stoking anxiety, or keeping you from things that matter, it probably belongs in scope.
+                    </p>
+                </AccordionItem>
+
+                <AccordionItem title="What does this have to do with AI?">
+                    <p className="mb-4">
+                        More than you might expect. The algorithms that power social media feeds are AI: machine learning models trained to predict which content will keep you engaged the longest. When a platform surfaces something that makes you angry, anxious, or compelled to keep scrolling, that&apos;s AI doing exactly what it was designed to do. In that sense, AI is already at the center of what this project is about.
+                    </p>
+                    <p className="mb-4">
+                        AI tools like chatbots and writing assistants are a different thing. They don&apos;t have a feed optimized to maximize your time on platform. They don&apos;t surface content designed to provoke emotional reactions. They respond when you engage with them and go quiet when you don&apos;t. That&apos;s a fundamentally different relationship than the one social media has built with your attention.
+                    </p>
+                    <p>
+                        There&apos;s also a newer concern worth naming: AI-generated content is flooding social media platforms at scale, making feeds harder to trust and navigate. The signal-to-noise ratio is getting worse, and that&apos;s accelerating some of the same dynamics we&apos;re already worried about. Disconnect Society is skeptical of the attention economy, not technology in general.
                     </p>
                 </AccordionItem>
 
