@@ -8,7 +8,7 @@ export default function Hero() {
         <p>Most of us use it out of habit more than intention. And while social media can connect people, the platforms aren&apos;t designed around your wellbeing. They&apos;re built around your attention, and they&apos;re very good at keeping it.</p>
       </div>
       <div className="flex justify-center w-full max-w-5xl pt-6">
-        <p className="font-bold text-(--secondary-accent) text-2xl">The costs are hard to measure, but easy to feel.</p>
+        <p className="font-bold text-(--secondary-accent) text-2xl">The consequences are hard to measure, but easy to feel.</p>
       </div>
       <div className="flex justify-center w-full max-w-5xl py-6">
         <p>This project started with one person deleting accounts one by one, and finding that life quietly got better. It&apos;s grown into a small community of people making the same experiment, and we aim to help as many people as we can.</p>
