@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="flex justify-center w-full max-w-5xl py-6">
         <p>This project started with one person deleting accounts one by one, and finding that life quietly got better. It&apos;s grown into a small community of people making the same experiment, and we aim to help as many people as we can.</p>
       </div>
-      <div className="flex justify-center w-full max-w-5xl pb-6">
+      <div className="flex justify-center w-full max-w-5xl pb-8">
         <p>Take the quiz if you&apos;re curious where you stand. Make a pledge if you&apos;re ready to try something different.</p>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl justify-center">

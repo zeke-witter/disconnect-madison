@@ -100,7 +100,7 @@ export default function Page() {
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <section aria-labelledby="quiz-title" className="w-full mb-8">
                 <h1 id="quiz-title" className="font-handjet text-5xl lg:text-7xl font-bold mb-2">
-                    Is social media affecting you?
+                    How is your screen time affecting you?
                 </h1>
                 <p className="text-(--secondary-accent)">10 questions. No account needed. Nothing is recorded.</p>
                 {currentIndex === 0 && (

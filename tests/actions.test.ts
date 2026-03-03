@@ -40,7 +40,7 @@ vi.mock('resend', () => ({
     },
 }));
 
-vi.mock('next/cache', () => ({ revalidatePath: vi.fn() }));
+vi.mock('next/cache', () => ({ revalidatePath: vi.fn(), unstable_noStore: vi.fn() }));
 
 vi.mock('@/lib/supabase-auth', () => ({
     createServerAuthClient: vi.fn().mockResolvedValue({
@@ -297,7 +297,7 @@ describe('addNewsArticleAction', () => {
         vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
             text: () =>
                 Promise.resolve(
-                    '<html><head><meta property="og:title" content="Test Article" /></head></html>',
+                    '<html><head><meta property="og:title" content="Test Article" /><meta property="og:image" content="https://example.com/image.jpg" /></head></html>',
                 ),
             json: () => Promise.resolve({ success: true }),
         }));

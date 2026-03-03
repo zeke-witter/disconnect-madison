@@ -1,7 +1,7 @@
 export const questions = [
     {
         id: 'daily-time',
-        question: "How much time do you spend on social media on a typical day?",
+        question: "How much time do you spend on your phone on a typical day?",
         options: [
             { label: "Less than 30 minutes", value: 0 },
             { label: "Around an hour", value: 1 },
