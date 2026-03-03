@@ -23,6 +23,11 @@ const flyers = [
         name: "Neighbors flyer",
         description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
     },
+    {
+        file: "/flyer-bookstore.pdf",
+        name: "Bookstore flyer",
+        description: "Tailored for independent bookstores and the community-minded people who frequent them.",
+    },
 ];
 
 export default function Page() {
