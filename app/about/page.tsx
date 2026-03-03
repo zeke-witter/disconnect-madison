@@ -23,7 +23,7 @@ export default function Page() {
                     Our aim is simply to <span className="font-bold">help people</span> by reducing that dependency through intentional choice and solidarity.
                 </p>
                 <p>
-                    The pledge at the center of this project is voluntary and self-directed. We hope you&apos;ll join us in working toward a culture where we spend our most valuable resource (our time) in the real world, rather than the digital one. 
+                    The pledge at the center of this project is voluntary and self-directed. We hope you&apos;ll join us in working toward a culture where we spend our most valuable resource (our time) in the real world, rather than the digital one.
                 </p>
             </section>
 
@@ -63,7 +63,7 @@ export default function Page() {
                         Disconnect Society was founded by one person in Madison, WI. It is not funded by investors. It is not a political organization. It is not affiliated with any technology company or competitor. It is not selling a product.
                     </p>
                     <p className="mb-4">
-                        I started this project because I noticed changes in myself that I didn&apos;t like, and I <span className="italic">knew</span> those changes were directly connected to how I spent my time online. I felt more isolated than ever — more anxious, more depressed, and angrier. I was losing hours of my life to content that I wouldn&apos;t remember later that day, finding it harder to focus on one thing at a time, and getting less satisfaction from activities I used to love.
+                        I started this project because I noticed changes in myself that I didn&apos;t like, and I <span className="italic">knew</span> those changes were directly connected to how I spent my time online. I felt more isolated than ever, more anxious, more depressed, and angrier. I was losing hours of my life to content that I wouldn&apos;t remember later that day, finding it harder to focus on one thing at a time, and getting less satisfaction from activities I used to love.
                     </p>
                     <p className="mb-4">For several years I listened to the people in my life voice similar concerns, and I finally decided the price I was paying for dopamine on social media was too high. I started deleting accounts one at a time and found I didn&apos;t miss them, and in 2025 I finally deleted my last social media account. <span className="font-bold">I haven&apos;t looked back</span>.</p>
                     <p>

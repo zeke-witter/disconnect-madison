@@ -2,9 +2,9 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 
-export function AccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
+export function AccordionItem({ title, children, defaultOpen }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
     return (
-        <Disclosure as="div" className="border-b border-(--secondary-accent)/30">
+        <Disclosure as="div" defaultOpen={defaultOpen} className="border-b border-(--secondary-accent)/30">
             <DisclosureButton className="group flex w-full items-center justify-between py-5 text-left cursor-pointer">
                 <span className="font-bold text-lg text-(--primary-accent)">{title}</span>
                 <svg
