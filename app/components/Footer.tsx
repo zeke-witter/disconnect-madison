@@ -21,6 +21,7 @@ export default function Footer() {
                             <li><a href="/learn/dependency">Device dependency</a></li>
                             <li><a href="/help-yourself">How to help yourself</a></li>
                             <li><a href="/quiz">Take the quiz</a></li>
+                            <li><a href="/faq">FAQ</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/pledge">Take the Pledge</a></li>
                             <li><a href="/sources">Sources</a></li>
