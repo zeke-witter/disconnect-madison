@@ -6,6 +6,13 @@ export default function DarkModeToggle() {
     const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
+        try {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark' || stored === 'light') {
+                setIsDark(stored === 'dark');
+                return;
+            }
+        } catch { /* localStorage unavailable */ }
         const existing = document.documentElement.getAttribute('data-theme');
         if (existing === 'dark') {
             setIsDark(true);
@@ -18,7 +25,11 @@ export default function DarkModeToggle() {
 
     function toggle() {
         const next = !isDark;
-        document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+        const theme = next ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        try {
+            localStorage.setItem('theme', theme);
+        } catch { /* localStorage unavailable */ }
         setIsDark(next);
     }
 

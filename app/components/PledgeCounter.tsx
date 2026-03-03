@@ -9,7 +9,7 @@ export default async function PledgeCounter() {
                 <h2 id="pledged-to-reduce" className="text-2xl">Pledged to reduce screen time</h2>
             </div>
             <div className="text-center mx-8 max-w-70">
-                <p className="text-6xl text-(--secondary-accent)" aria-labelledby="pledged-to-step-away">{counts.take_a_break.toLocaleString()}</p>
+                <p className="text-6xl text-(--foreground)" aria-labelledby="pledged-to-step-away">{counts.take_a_break.toLocaleString()}</p>
                 <h2 id="pledged-to-step-away" className="text-2xl">Pledged to step away</h2>
             </div>
             <div className="text-center mx-8 max-w-70">
