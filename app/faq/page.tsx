@@ -113,6 +113,21 @@ export default function Page() {
                     </p>
                 </AccordionItem>
 
+                <AccordionItem title="Isn't reducing social media use a privilege? Not everyone can afford to disconnect.">
+                    <p className="mb-4">
+                        This question deserves serious consideration. Some people rely on Facebook groups for housing leads, mutual aid, or local resources. Some use these platforms to stay connected to communities they couldn&apos;t otherwise reach: people with disabilities or chronic illnesses who have found support groups and shared experience online, people in rural areas with limited in-person options, people whose circumstances have made it harder to maintain relationships the old-fashioned way. Those are just a few examples, and they&apos;re all worthy of acknowledgement. <span className="font-bold">This project doesn&apos;t ask anyone to walk away from tools they genuinely depend on.</span>
+                    </p>
+                    <p className="mb-4">
+                        But the broader argument, that stepping back is only realistic for certain kinds of people, runs into a problem: the research doesn&apos;t support it. The mental health impacts documented across years of longitudinal studies don&apos;t spare people because of their income or circumstances. If anything, people with fewer alternatives for social connection or entertainment tend to spend more time on these platforms, not less, which means the algorithm-driven dynamics this project is concerned about have more surface area to work with, not less.
+                    </p>
+                    <p className="mb-4">
+                        There&apos;s also something worth naming in the framing itself. The claim that certain groups of people are uniquely incapable of being more intentional about their screen time isn&apos;t an argument made in their defense. It&apos;s a low expectation dressed up as one. And it happens to be an argument the platforms themselves would gladly make, since their business models depend on maximizing time-on-app across every demographic.
+                    </p>
+                    <p>
+                        Disconnect Society isn&apos;t asking anyone to delete accounts or give up communities they rely on. The most common pledge is simply to reduce screen time. That doesn&apos;t require cutting off a single real resource. If the argument is that some people have legitimate reasons to stay on certain platforms, we agree completely. If the argument is that those people therefore can&apos;t benefit from being more intentional about how they use them, we don&apos;t.
+                    </p>
+                </AccordionItem>
+
                 <AccordionItem title="Will I lose touch with people if I step back from social media?">
                     <p className="mb-4">
                         Possibly, though usually less than people expect. What tends to happen is that some weaker connections fade, largely because they were sustained by passive engagement (likes, reactions, story views) rather than genuine contact, while relationships that actually matter in your life get <em>more</em> direct attention.

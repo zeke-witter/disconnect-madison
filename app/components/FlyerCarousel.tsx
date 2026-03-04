@@ -1,39 +1,16 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 
-const flyers = [
-    {
-        file: "/flyer-neighbors.pdf",
-        name: "Neighbors flyer",
-        description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
-    },
-    {
-        file: "/flyer-bookstore.pdf",
-        name: "Bookstore flyer",
-        description: "Tailored for independent bookstores and the community-minded people who frequent them.",
-    },
-    {
-        file: "/flyer-coffee.pdf",
-        name: "Coffee shop flyer",
-        description: "Tailored for independent coffee shops and cafes.",
-    },
-    {
-        file: "/flyer-mentalhealth.pdf",
-        name: "Mental health flyer",
-        description: "Focused on the mental health impacts of algorithm-driven social media.",
-    },
-    {
-        file: "/disconnect-flyer-generic.pdf",
-        name: "General flyer",
-        description: "For schools, gyms, coffee shops, libraries — anywhere people gather.",
-    },
-];
+export type Flyer = {
+    file: string;
+    name: string;
+    description: string;
+};
 
 const SCROLL_AMOUNT = 408; // card width (384) + gap (24)
 
-export default function FlyerCarousel() {
+export default function FlyerCarousel({ flyers, aspectRatio = '8.5 / 11' }: { flyers: Flyer[]; aspectRatio?: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
@@ -86,7 +63,7 @@ export default function FlyerCarousel() {
                         rel="noopener noreferrer"
                         className="link-card group flex-shrink-0 w-96 block border border-(--secondary-accent) rounded-md overflow-hidden hover:border-(--primary-accent) transition-colors"
                     >
-                        <div className="w-full overflow-hidden bg-(--secondary-accent)/10" style={{ aspectRatio: '8.5 / 11' }}>
+                        <div className="w-full overflow-hidden bg-(--secondary-accent)/10" style={{ aspectRatio }}>
                             <iframe
                                 src={file}
                                 className="w-full h-full pointer-events-none"

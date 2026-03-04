@@ -241,6 +241,25 @@ export async function submitContactAction(initialState: any, formData: FormData)
 }
 
 /**
+ * Server action: record how a pledger heard about the project.
+ *
+ * Updates the referral_source column on the pledge row matching the given
+ * verification token. Silently no-ops on invalid input — this is optional
+ * data and should never surface an error to the user.
+ */
+export async function submitReferralAction(token: string, source: string, otherText?: string) {
+    const validSources = ['word_of_mouth', 'flyer', 'social_media', 'web_search', 'other'];
+    if (!token || !validSources.includes(source)) return;
+
+    const value = source === 'other' ? (otherText || 'other') : source;
+
+    await supabase
+        .from('pledges')
+        .update({ referral_source: value })
+        .eq('verification_token', token);
+}
+
+/**
  * Server action: confirm a pledge via the emailed verification token.
  *
  * Marks the matching unconfirmed pledge row as confirmed. Returns an error if
