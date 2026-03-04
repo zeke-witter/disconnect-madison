@@ -14,6 +14,16 @@ const colorFlyers: Flyer[] = [
         description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
     },
     {
+        file: "/flyers/flyer-bartrivia.pdf",
+        name: "Neighborhood bar flyer",
+        description: "For locally owned bars, especially those with trivia nights or live music. Speaks to the kind of people who already choose real rooms over screens.",
+    },
+    {
+        file: "/flyers/flyer-mindfulness.pdf",
+        name: "Mindfulness flyer",
+        description: "For yoga studios, meditation centers, and mindfulness-oriented spaces. Connects intentional phone use to the practices their communities already value.",
+    },
+    {
         file: "/flyers/flyer-bookstore.pdf",
         name: "Bookstore flyer",
         description: "Tailored for independent bookstores and the community-minded people who frequent them.",
@@ -55,6 +65,16 @@ const bwFlyers: Flyer[] = [
         file: "/flyers/flyer-neighbors-bw.pdf",
         name: "Neighbors flyer",
         description: "Designed to prompt reflection and lead people to the quiz. Good for neighborhood boards, laundromats, community centers, and public spaces.",
+    },
+    {
+        file: "/flyers/flyer-bartrivia-bw.pdf",
+        name: "Neighborhood bar flyer",
+        description: "For locally owned bars, especially those with trivia nights or live music. Speaks to the kind of people who already choose real rooms over screens.",
+    },
+    {
+        file: "/flyers/flyer-mindfulness-bw.pdf",
+        name: "Mindfulness flyer",
+        description: "For yoga studios, meditation centers, and mindfulness-oriented spaces. Connects intentional phone use to the practices their communities already value.",
     },
     {
         file: "/flyers/flyer-bookstore-bw.pdf",

@@ -69,7 +69,7 @@ export default function Page() {
                         </div>
 
                         <div>
-                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do in the next 10 days?</p>
+                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next two weeks?</p>
                             <RadioGroup
                                 name="pledgeAction"
                                 value={selectedPledgeAction}
