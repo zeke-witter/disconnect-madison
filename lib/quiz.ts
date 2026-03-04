@@ -71,12 +71,12 @@ export const questions = [
     },
     {
         id: 'anxiety',
-        question: "Do you feel uneasy or anxious when you can't check your phone?",
+        question: "Picture locking your phone in a sealed box for 24 hours. No access, no exceptions. What do you feel right now, just imagining it?",
         options: [
-            { label: "No. I'm usually fine without it", value: 0 },
-            { label: "A little, sometimes", value: 1 },
-            { label: "Somewhat. I notice the urge", value: 2 },
-            { label: "Yes, it's hard to ignore", value: 3 },
+            { label: "Relieved, honestly. I could use the break.", value: 0 },
+            { label: "A little uneasy, if I'm honest.", value: 1 },
+            { label: "Uncomfortable. I'm already thinking of reasons I'd need it.", value: 2 },
+            { label: "Anxious. I can feel it just picturing it.", value: 3 },
         ],
     },
     {

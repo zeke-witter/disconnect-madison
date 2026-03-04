@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { RadioGroup, Radio } from '@headlessui/react'
 import { questions, results, getLevel } from '@/lib/quiz'
@@ -11,6 +11,31 @@ export default function Page() {
     const [selectedValue, setSelectedValue] = useState<number | null>(null)
     const [showResults, setShowResults] = useState(false)
     const [finalScore, setFinalScore] = useState(0)
+
+    // Restore progress from sessionStorage on mount (avoids hydration mismatch)
+    useEffect(() => {
+        const saved = sessionStorage.getItem('quiz-progress')
+        if (!saved) return
+        try {
+            const data = JSON.parse(saved)
+            setCurrentIndex(data.currentIndex ?? 0)
+            setAnswers(data.answers ?? [])
+            setSelectedValue(data.selectedValue ?? null)
+            setShowResults(data.showResults ?? false)
+            setFinalScore(data.finalScore ?? 0)
+        } catch {
+            sessionStorage.removeItem('quiz-progress')
+        }
+    }, [])
+
+    // Save progress whenever state changes, but skip the true initial state
+    // to avoid overwriting a restored save before the restore effect has applied it
+    useEffect(() => {
+        if (selectedValue === null && answers.length === 0 && !showResults) return
+        sessionStorage.setItem('quiz-progress', JSON.stringify({
+            currentIndex, answers, selectedValue, showResults, finalScore,
+        }))
+    }, [currentIndex, answers, selectedValue, showResults, finalScore])
 
     const total = questions.length
     const current = questions[currentIndex]
@@ -38,6 +63,7 @@ export default function Page() {
     }
 
     function handleReset() {
+        sessionStorage.removeItem('quiz-progress')
         setCurrentIndex(0)
         setAnswers([])
         setSelectedValue(null)
