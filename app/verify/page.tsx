@@ -1,5 +1,6 @@
 import { verifyPledgeAction } from '@/lib/actions';
 import BadgeShare from '@/app/components/BadgeShare';
+import ReferralQuestion from '@/app/components/ReferralQuestion';
 
 const nextSteps = [
     {
@@ -41,6 +42,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
 
             {result.success && (
                 <>
+                    <div className="mt-10 w-full max-w-md mx-auto text-center">
+                        <ReferralQuestion token={token ?? ''} />
+                    </div>
+
                     <div className="w-full mt-12">
                         <h2 className="font-handjet text-4xl lg:text-5xl font-bold mb-8 text-left">What&apos;s next?</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -111,6 +111,9 @@ lib/
   supabase-auth.ts                  # Supabase SSR auth client for Server Components
   supabase-browser.ts               # Supabase browser client (public key)
 middleware.ts                       # Redirects unauthenticated /add-news to /login
+public/
+  flyers/                           # Flyer PDFs (color and -bw black-and-white variants)
+  not-business-cards/               # Small hand-out card PDFs
 ```
 
 ## Conventions
