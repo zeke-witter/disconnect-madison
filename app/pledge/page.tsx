@@ -131,8 +131,6 @@ export default function Page() {
                         </Field>
                     </Fieldset>
 
-                    <div className="cf-turnstile mt-6" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
-
                     <Button
                         type="submit"
                         disabled={isPending}
@@ -142,9 +140,15 @@ export default function Page() {
                     </Button>
 
                     {state?.message && !state.success && (
-                        <p className="mt-4 text-center font-medium text-(--primary-accent)">
-                            {state.message}
-                        </p>
+                        <div className="mt-4 text-center">
+                            <p className="font-medium text-(--primary-accent)">{state.message}</p>
+                            <a
+                                href={`/contact?subject=${encodeURIComponent('Bug report: pledge form')}&message=${encodeURIComponent(`I ran into an error on the pledge page.\n\nPledge type selected: ${selectedPledgeAction.label}\nEmail entered: ${email}\nError message: ${state.message}\n\nDevice: (e.g. iPhone 15, Windows laptop)\nBrowser: (e.g. Safari, Chrome, Firefox)\nAnything else:`)}`}
+                                className="mt-2 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
+                            >
+                                Report this issue &rarr;
+                            </a>
+                        </div>
                     )}
                 </form>
             </div>
