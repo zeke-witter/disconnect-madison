@@ -170,23 +170,23 @@ export default function Page() {
                 <div>
                     <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Deactivate accounts</h2>
                     <ul className="space-y-2">
-                        <li><a href="https://www.facebook.com/help/214376678584711" target="_blank" rel="noopener noreferrer">Facebook &mdash; deactivate</a></li>
-                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Instagram &mdash; deactivate</a></li>
-                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">X (Twitter) &mdash; deactivate</a></li>
-                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Snapchat &mdash; deactivate</a></li>
-                        <li><a href="https://www.tiktok.com/community-guidelines/en/accounts-features" target="_blank" rel="noopener noreferrer">TikTok &mdash; deactivate</a></li>
+                        <li><a href="https://www.facebook.com/help/214376678584711" target="_blank" rel="noopener noreferrer">Deactivate Facebook</a></li>
+                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Deactivate Instagram</a></li>
+                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">Deactivate X (Twitter)</a></li>
+                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Deactivate Snapchat</a></li>
+                        <li><a href="https://www.tiktok.com/community-guidelines/en/accounts-features" target="_blank" rel="noopener noreferrer">Deactivate TikTok</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Delete accounts</h2>
                     <ul className="space-y-2">
-                        <li><a href="https://www.facebook.com/help/224562897555674" target="_blank" rel="noopener noreferrer">Facebook &mdash; permanently delete</a></li>
-                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Instagram &mdash; permanently delete</a></li>
-                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">X (Twitter) &mdash; permanently delete</a></li>
-                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Snapchat &mdash; permanently delete</a></li>
-                        <li><a href="https://support.tiktok.com/en/account-and-privacy/deleting-an-account" target="_blank" rel="noopener noreferrer">TikTok &mdash; permanently delete</a></li>
-                        <li><a href="https://www.reddit.com/settings" target="_blank" rel="noopener noreferrer">Reddit &mdash; permanently delete</a></li>
+                        <li><a href="https://www.facebook.com/help/224562897555674" target="_blank" rel="noopener noreferrer">Delete Facebook</a></li>
+                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Delete Instagram</a></li>
+                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">Delete X (Twitter)</a></li>
+                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Delete Snapchat</a></li>
+                        <li><a href="https://support.tiktok.com/en/account-and-privacy/deleting-an-account" target="_blank" rel="noopener noreferrer">Delete TikTok</a></li>
+                        <li><a href="https://www.reddit.com/settings" target="_blank" rel="noopener noreferrer">Delete Reddit</a></li>
                     </ul>
                 </div>
 

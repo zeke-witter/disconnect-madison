@@ -74,7 +74,7 @@ export default function Page() {
                 <div className="space-y-6">
                     <div className="border-l-4 border-(--primary-accent) pl-5">
                         <p className="mb-2">
-                            In 2023, the <strong>U.S. Surgeon General</strong> issued a formal advisory warning that social media poses a &ldquo;profound risk of harm&rdquo; to children and adolescents. The advisory called for health warning labels on social media platforms &mdash; the same mechanism used to communicate risks on tobacco and alcohol.
+                            In 2023, the <strong>U.S. Surgeon General</strong> issued a formal advisory warning that social media poses a &ldquo;profound risk of harm&rdquo; to children and adolescents. The advisory called for health warning labels on social media platforms, the same mechanism used to communicate risks on tobacco and alcohol.
                         </p>
                         <p className="text-sm text-(--secondary-accent)">
                             <em>Social Media and Youth Mental Health: The U.S. Surgeon General&apos;s Advisory</em>, 2023. [<a href="https://www.hhs.gov/sites/default/files/sg-youth-mental-health-social-media-advisory.pdf" target="_blank" rel="noopener noreferrer" className="underline">PDF</a>]
@@ -82,7 +82,7 @@ export default function Page() {
                     </div>
                     <div className="border-l-4 border-(--primary-accent) pl-5">
                         <p className="mb-2">
-                            The <strong>American Psychological Association</strong> issued its own health advisory in 2023 recommending that social media use by children under 14 be limited, and that minors have access to platforms only with appropriate safeguards &mdash; including parental monitoring, content filters, and protection from harmful recommendations.
+                            The <strong>American Psychological Association</strong> issued its own health advisory in 2023 recommending that social media use by children under 14 be limited, and that minors have access to platforms only with appropriate safeguards: parental monitoring, content filters, and protection from harmful recommendations.
                         </p>
                         <p className="text-sm text-(--secondary-accent)">
                             <em>Health Advisory on Social Media Use in Adolescence</em>, APA, 2023. [<a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use.pdf" target="_blank" rel="noopener noreferrer" className="underline">PDF</a>]
@@ -100,10 +100,10 @@ export default function Page() {
                         In 2024 the CDC published its first national survey of teen social media use, based on the Youth Risk Behavior Survey. Among its findings: teens who used social media frequently were significantly more likely to report being bullied, experiencing persistent sadness or hopelessness, and having seriously considered suicide.
                     </p>
                     <p>
-                        A 2024 review in <em>JAMA Network Open</em> found consistent associations between social media use and suicide risk in youth across multiple study designs and populations. A large nationwide study published in <em>Scientific Reports</em> in 2023 found a dose-response relationship between time spent on social media and self-harm among adolescents &mdash; meaning more time correlated with greater risk.
+                        A 2024 review in <em>JAMA Network Open</em> found consistent associations between social media use and suicide risk in youth across multiple study designs and populations. A large nationwide study published in <em>Scientific Reports</em> in 2023 found a dose-response relationship between time spent on social media and self-harm among adolescents, meaning more time correlated with greater risk.
                     </p>
                     <p>
-                        A 2018 analysis in <em>Clinical Psychological Science</em> documented a sharp rise in depressive symptoms, suicide-related outcomes, and suicide rates among U.S. adolescents beginning around 2012 &mdash; the same period when smartphone ownership and social media use became widespread in that age group.
+                        A 2018 analysis in <em>Clinical Psychological Science</em> documented a sharp rise in depressive symptoms, suicide-related outcomes, and suicide rates among U.S. adolescents beginning around 2012, the same period when smartphone ownership and social media use became widespread in that age group.
                     </p>
                 </div>
 
@@ -122,16 +122,16 @@ export default function Page() {
                 </h2>
                 <div className="space-y-4">
                     <p>
-                        Adolescence is a critical window for brain development &mdash; a period when the neural circuits governing emotion, identity, and social behavior are still being formed. Social media enters that window as a constant source of social feedback: likes, comments, shares, and the fear of missing out.
+                        Adolescence is a critical window for brain development, a period when the neural circuits governing emotion, identity, and social behavior are still being formed. Social media enters that window as a constant source of social feedback: likes, comments, shares, and the fear of missing out.
                     </p>
                     <p>
-                        A three-year brain imaging study published in <em>JAMA Pediatrics</em> in 2023 found that adolescents who checked social media more than fifteen times a day showed measurable changes in brain structure over time &mdash; specifically, increased neural sensitivity to social rewards and punishments. The brains of heavy users were becoming more reactive to the feedback loop, not less.
+                        A three-year brain imaging study published in <em>JAMA Pediatrics</em> in 2023 found that adolescents who checked social media more than fifteen times a day showed measurable changes in brain structure over time, specifically increased neural sensitivity to social rewards and punishments. The brains of heavy users were becoming more reactive to the feedback loop, not less.
                     </p>
                     <p>
-                        A 2022 study in <em>Nature Communications</em> identified specific developmental windows &mdash; particularly ages 10&ndash;12 and 14&ndash;15 &mdash; when the impact of social media on mental health is most acute. These are ages when many children are just beginning to use these platforms.
+                        A 2022 study in <em>Nature Communications</em> identified specific developmental windows, particularly ages 10&ndash;12 and 14&ndash;15, when the impact of social media on mental health is most acute. These are ages when many children are just beginning to use these platforms.
                     </p>
                     <p>
-                        A separate <em>Nature Communications</em> study from 2018 found that higher social media use in early adolescence predicted lower life satisfaction scores one year later &mdash; and that the reverse was not true. The platforms drive the outcome; the outcome does not drive the use.
+                        A separate <em>Nature Communications</em> study from 2018 found that higher social media use in early adolescence predicted lower life satisfaction scores one year later, and that the reverse was not true. The platforms drive the outcome; the outcome does not drive the use.
                     </p>
                 </div>
             </section>
@@ -142,13 +142,13 @@ export default function Page() {
                 </h2>
                 <div className="space-y-4">
                     <p>
-                        If you have children in your life, the most direct thing you can do is reduce social media&apos;s role in your household &mdash; and model that behavior yourself. Research consistently shows that parental attitudes and habits around screens are among the strongest predictors of children&apos;s own habits.
+                        If you have children in your life, the most direct thing you can do is reduce social media&apos;s role in your household, and model that behavior yourself. Research consistently shows that parental attitudes and habits around screens are among the strongest predictors of children&apos;s own habits.
                     </p>
                     <p>
                         If you don&apos;t have children, your choices still matter. A culture in which adults treat social media as normal and unavoidable makes it harder for young people to opt out. Every person who steps away changes that calculus a little.
                     </p>
                     <p>
-                        <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Take the pledge</Link> &mdash; reduce your use, step away, or quit for good. And if you know a young person who is struggling with social media, share what you&apos;ve learned here.
+                        <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good. And if you know a young person who is struggling with social media, share what you&apos;ve learned here.
                     </p>
                 </div>
             </section>

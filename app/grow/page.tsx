@@ -6,7 +6,7 @@ const colorFlyers: Flyer[] = [
     {
         file: "/flyers/flyer-generic.pdf",
         name: "General flyer",
-        description: "For schools, gyms, coffee shops, libraries — anywhere people gather.",
+        description: "For schools, gyms, coffee shops, libraries, and anywhere people gather.",
     },
     {
         file: "/flyers/flyer-neighbors.pdf",
@@ -145,7 +145,7 @@ export default function Page() {
                     Print and post a flyer
                 </h2>
                 <p className="text-(--secondary-accent) mb-8">
-                    Print one out and post it somewhere people in your community will see it &mdash; a school hallway, library, coffee shop, gym, or community board. Click a flyer to open it as a PDF.
+                    Print one out and post it somewhere people in your community will see it: a school hallway, library, coffee shop, gym, or community board. Click a flyer to open it as a PDF.
                 </p>
 
                 <p className="text-sm text-(--secondary-accent) mb-6">

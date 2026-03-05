@@ -34,7 +34,7 @@ export default function Page() {
 
                 <AccordionItem title={`Why "Disconnect Society"? Isn't the whole point connection?`}>
                     <p className="mb-4">
-                        The name works on a couple of levels. Most directly, it&apos;s about disconnecting from screens and from the algorithm-driven platforms that have come to dominate our social lives. But it&apos;s also a play on words: &ldquo;social&rdquo; media has turned out, for many people, to be deeply anti-social — isolating, divisive, and engineered to keep us staring at a screen instead of looking up at the world around us.
+                        The name works on a couple of levels. Most directly, it&apos;s about disconnecting from screens and from the algorithm-driven platforms that have come to dominate our social lives. But it&apos;s also a play on words: &ldquo;social&rdquo; media has turned out, for many people, to be deeply anti-social: isolating, divisive, and engineered to keep us staring at a screen instead of looking up at the world around us.
                     </p>
                     <p>
                         We connect by disconnecting.
