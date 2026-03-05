@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Learn",
-    description: "Explore the true costs of social media — research-backed insights on mental health, attention, privacy, and more.",
+    description: "Explore the true costs of social media: research-backed insights on mental health, attention, privacy, and more.",
     alternates: { canonical: "/learn" },
 };
 
