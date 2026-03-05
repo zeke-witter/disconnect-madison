@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Unit tests + build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+        env:
+          SUPABASE_URL: https://test.supabase.co
+          SUPABASE_SECRET_KEY: test-secret-key
+          NEXT_PUBLIC_SUPABASE_URL: https://test.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: test-anon-key
+          TURNSTILE_SECRET_KEY: 1x0000000000000000000000000000000AA
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+          RESEND_API_KEY: re_test_000000000000000000000000
+          NEXT_PUBLIC_BASE_URL: https://disconnectsociety.org
+          CONTACT_EMAIL: contact@example.com
