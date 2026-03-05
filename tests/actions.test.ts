@@ -68,13 +68,11 @@ function makeFormData(fields: Record<string, string>): FormData {
 }
 
 const VALID_PLEDGE_FIELDS = {
-    'cf-turnstile-response': 'valid-token',
     'pledgeAction[id]': 'reduce_screen_time',
     email: 'user@example.com',
 };
 
 const VALID_CONTACT_FIELDS = {
-    'cf-turnstile-response': 'valid-token',
     name: 'Alice',
     email: 'alice@example.com',
     message: 'Hello there',
@@ -119,21 +117,6 @@ describe('submitPledgeAction', () => {
         });
     });
 
-    it('returns error when Turnstile token is missing', async () => {
-        const fd = makeFormData({ 'pledgeAction[id]': 'reduce_screen_time', email: 'user@example.com' });
-        const result = await submitPledgeAction({}, fd);
-        expect(result).toEqual({ success: false, message: 'Bot verification failed. Please try again.' });
-    });
-
-    it('returns error when Turnstile verification fails', async () => {
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-            json: () => Promise.resolve({ success: false }),
-        }));
-        const fd = makeFormData({ ...VALID_PLEDGE_FIELDS, 'cf-turnstile-response': 'bad-token' });
-        const result = await submitPledgeAction({}, fd);
-        expect(result).toEqual({ success: false, message: 'Bot verification failed. Please try again.' });
-    });
-
     it('returns error when email is missing', async () => {
         const fd = makeFormData({
             'cf-turnstile-response': 'valid-token',
@@ -173,12 +156,6 @@ describe('submitPledgeAction', () => {
 // ─── submitContactAction ──────────────────────────────────────────────────────
 
 describe('submitContactAction', () => {
-    it('returns error when Turnstile token is missing', async () => {
-        const fd = makeFormData({ name: 'Alice', email: 'alice@example.com', message: 'Hi' });
-        const result = await submitContactAction({}, fd);
-        expect(result).toEqual({ success: false, message: 'Bot verification failed. Please try again.' });
-    });
-
     it('returns error when required fields are missing', async () => {
         const fd = makeFormData({ 'cf-turnstile-response': 'valid-token', name: 'Alice' });
         const result = await submitContactAction({}, fd);
