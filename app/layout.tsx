@@ -1,7 +1,6 @@
 export const dynamic = 'force-dynamic';
 
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono, Handjet, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import NavigationWrapper from "./components/NavigationWrapper";
@@ -48,7 +47,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
       </body>
     </html>
   );
