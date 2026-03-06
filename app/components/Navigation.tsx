@@ -35,6 +35,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
             {/* Desktop nav */}
             <ul className="hidden lg:flex flex-row items-center gap-10">
                 <li><a href="/learn" className="hover:text-gray-300">Learn</a></li>
+                <li><a href="/breathe" className="hover:text-gray-300">Breathe</a></li>
                 <li><a href="/help-yourself" className="hover:text-gray-300">Now what?</a></li>
                 <li><a href="/about" className="hover:text-gray-300">About</a></li>
                 <li><a href="/grow" className="hover:text-gray-300">Help us grow</a></li>
@@ -47,6 +48,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
                 <div className="lg:hidden absolute top-full left-0 right-0 z-50 bg-(--nav-background) border-b-5">
                     <ul className="flex flex-col px-6 py-2">
                         <li><a href="/learn" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Learn</a></li>
+                        <li><a href="/breathe" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Breathe</a></li>
                         <li><a href="/help-yourself" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Now what?</a></li>
                         <li><a href="/about" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">About</a></li>
                         <li><a href="/grow" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Help us grow</a></li>

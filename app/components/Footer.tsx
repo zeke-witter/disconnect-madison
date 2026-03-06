@@ -19,6 +19,7 @@ export default function Footer() {
                             <li><a href="/learn">Learn</a></li>
                             <li><a href="/learn/kids">Effects on kids</a></li>
                             <li><a href="/learn/dependency">Device dependency</a></li>
+                            <li><a href="/breathe">Breathe</a></li>
                             <li><a href="/help-yourself">How to help yourself</a></li>
                             <li><a href="/quiz">Take the quiz</a></li>
                             <li><a href="/faq">FAQ</a></li>
