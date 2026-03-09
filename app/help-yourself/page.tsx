@@ -41,7 +41,7 @@ export default function Page() {
             </section>
 
             <p className="w-full text-xs text-(--secondary-accent) pt-6 mb-8">
-                Disclosure: Disconnect Society is not affiliated with, sponsored by, or receiving compensation from any product or company mentioned on this page. We describe tools and products for informational purposes only. Inclusion is not an endorsement. We encourage you to research any product independently before purchasing.
+                Disclosure: Disconnect Madison is not affiliated with, sponsored by, or receiving compensation from any product or company mentioned on this page. We describe tools and products for informational purposes only. Inclusion is not an endorsement. We encourage you to research any product independently before purchasing.
             </p>
 
         </div>

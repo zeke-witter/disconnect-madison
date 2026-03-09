@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Contact",
-    description: "Get in touch with Disconnect Society. Questions, feedback, or ideas; we'd love to hear from you.",
+    description: "Get in touch with Disconnect Madison. Questions, feedback, or ideas; we'd love to hear from you.",
     alternates: { canonical: "/contact" },
 };
 

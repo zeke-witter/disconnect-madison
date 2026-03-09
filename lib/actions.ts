@@ -68,7 +68,7 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
     const verifyUrl = `${baseUrl}/verify?token=${verificationToken}`;
 
     const { error: emailError } = await resend.emails.send({
-        from: 'Disconnect Society <noreply@disconnectsociety.org>',
+        from: 'Disconnect Madison <hello@disconnectmadison.org>',
         to: email,
         subject: 'One step left: confirm your pledge',
         html: buildVerificationEmail(pledgeAction as typeof validPledgeActions[number], verifyUrl),
@@ -156,7 +156,7 @@ export async function resendVerificationAction(prevState: any, formData: FormDat
         const verifyUrl = `${baseUrl}/verify?token=${data.verification_token}`;
 
         await resend.emails.send({
-            from: 'Disconnect Society <noreply@disconnectsociety.org>',
+            from: 'Disconnect Madison <hello@disconnectmadison.org>',
             to: email,
             subject: 'One step left: confirm your pledge',
             html: buildVerificationEmail(data.pledge_action, verifyUrl),
@@ -284,7 +284,7 @@ export async function submitContactAction(initialState: any, formData: FormData)
     const safeName = name.replace(/[\r\n]/g, ' ').trim();
 
     const { error } = await resend.emails.send({
-        from: 'Disconnect Society <noreply@disconnectsociety.org>',
+        from: 'Disconnect Madison <hello@disconnectmadison.org>',
         to: process.env.CONTACT_EMAIL!,
         replyTo: email,
         subject: `Contact form: ${safeName}`,

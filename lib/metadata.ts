@@ -1,14 +1,14 @@
 import { Metadata } from 'next'
 
 export const siteConfig = {
-  name: 'Disconnect Society',
+  name: 'Disconnect Madison',
   description:
-    'On a mission to help people free themselves from the grip of social media and corporate tech',
-  url: 'https://disconnectsociety.org',
-  ogImage: 'https://disconnectsociety.org/og-image.png',
+    'A community project in Madison, WI helping people step back from algorithm-driven social media',
+  url: 'https://disconnectmadison.org',
+  ogImage: 'https://disconnectmadison.org/og-image.png',
   links: {
     linkedin: 'https://www.linkedin.com/in/davidewitter',
-    email: 'mailto:disconnectsociety@proton.me',
+    email: 'mailto:hello@disconnectmadison.org',
   },
 }
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Flyer Locations",
-    description: "Where Disconnect Society flyers have been posted around Madison, WI, and places we'd love help reaching.",
+    description: "Where Disconnect Madison flyers have been posted around Madison, WI, and places we'd love help reaching.",
     alternates: { canonical: "/grow/flyer-locations" },
 };
 
