@@ -6,8 +6,8 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                     <div>
-                        {/* <Image src="/logo.svg" alt="Disconnect Society logo" width={180} height={180} className="mb-3" /> */}
-                        <p className="font-handjet text-2xl font-bold mb-3">Disconnect Society</p>
+                        {/* <Image src="/logo.svg" alt="Disconnect Madison logo" width={180} height={180} className="mb-3" /> */}
+                        <p className="font-handjet text-2xl font-bold mb-3">Disconnect Madison</p>
                         <p className="text-sm text-(--secondary-accent)">
                             A community project encouraging intentional choices about social media and screen time.
                         </p>
@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-(--secondary-accent) pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-(--secondary-accent)">
-                    <p>Disconnect Society — Madison, WI</p>
+                    <p>Disconnect Madison — Madison, WI</p>
                     <p>This site does not use cookies or track your activity.</p>
                 </div>
             </div>

@@ -145,6 +145,7 @@ describe('submitPledgeAction', () => {
         expect(result).toEqual({
             success: true,
             message: 'Please check your email to confirm your pledge.',
+            email: 'user@example.com',
         });
         expect(mockResendSend).toHaveBeenCalledOnce();
         expect(mockResendSend).toHaveBeenCalledWith(

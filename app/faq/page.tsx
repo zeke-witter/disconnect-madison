@@ -4,7 +4,7 @@ import { Accordion, AccordionItem } from "@/app/components/Accordion";
 
 export const metadata: Metadata = {
     title: "Frequently Asked Questions",
-    description: "Common questions about Disconnect Society, the pledge, and what it means to step back from algorithm-driven social media.",
+    description: "Common questions about Disconnect Madison, the pledge, and what it means to step back from algorithm-driven social media.",
     alternates: { canonical: "/faq" },
 };
 
@@ -25,16 +25,16 @@ export default function Page() {
 
                 <AccordionItem title="Who is this for?" defaultOpen>
                     <p className="mb-4">
-                        Anyone. Disconnect Society isn&apos;t a club for people who&apos;ve already decided social media is ruining their lives. It&apos;s for anyone who&apos;s curious about the role these platforms play in their wellbeing and wants to think more intentionally about it.
+                        Anyone. Disconnect Madison isn&apos;t a club for people who&apos;ve already decided social media is ruining their lives. It&apos;s for anyone who&apos;s curious about the role these platforms play in their wellbeing and wants to think more intentionally about it.
                     </p>
                     <p>
                         That said, if you&apos;ve been feeling anxious, distracted, sleep-deprived, or vaguely unhappy and you haven&apos;t yet connected that to your phone habits, this is a good place to start. Not sure whether social media is affecting you? <Link href="/quiz">Our short quiz</Link> can help surface what you might already know on some level.
                     </p>
                 </AccordionItem>
 
-                <AccordionItem title={`Why "Disconnect Society"? Isn't the whole point connection?`}>
+                <AccordionItem title={`Why "Disconnect Madison"? Isn't the whole point connection?`}>
                     <p className="mb-4">
-                        The name works on a couple of levels. Most directly, it&apos;s about disconnecting from screens and from the algorithm-driven platforms that have come to dominate our social lives. But it&apos;s also a play on words: &ldquo;social&rdquo; media has turned out, for many people, to be deeply anti-social: isolating, divisive, and engineered to keep us staring at a screen instead of looking up at the world around us.
+                        The name works on a couple of levels. Most directly, it&apos;s about disconnecting from screens and from the algorithm-driven platforms that have come to dominate our social lives. But it&apos;s also a play on words: by disconnecting from our devices, we reconnect with the actual city around us, the people, places, and conversations that make Madison worth living in.
                     </p>
                     <p>
                         We connect by disconnecting.
@@ -43,7 +43,7 @@ export default function Page() {
 
                 <AccordionItem title="Is this a political or ideological movement?">
                     <p>
-                        No. Disconnect Society is deliberately nonpartisan and non-ideological. Concern about the effects of algorithm-driven social media cuts across every political persuasion and demographic. The research isn&apos;t politically charged. We are not affiliated with any political party, company, government agency, or competitor to social media platforms. We&apos;re a community of people who think it&apos;s worth reflecting on what these platforms are doing to us and making some conscious choices in response.
+                        No. Disconnect Madison is deliberately nonpartisan and non-ideological. Concern about the effects of algorithm-driven social media cuts across every political persuasion and demographic. The research isn&apos;t politically charged. We are not affiliated with any political party, company, government agency, or competitor to social media platforms. We&apos;re a community of people who think it&apos;s worth reflecting on what these platforms are doing to us and making some conscious choices in response.
                     </p>
                 </AccordionItem>
 
@@ -64,7 +64,7 @@ export default function Page() {
                         AI tools like chatbots and writing assistants are a different thing. They don&apos;t have a feed optimized to maximize your time on platform. They don&apos;t surface content designed to provoke emotional reactions. They respond when you engage with them and go quiet when you don&apos;t. That&apos;s a fundamentally different relationship than the one social media has built with your attention.
                     </p>
                     <p>
-                        There&apos;s also a newer concern worth naming: AI-generated content is flooding social media platforms at scale, making feeds harder to trust and navigate. The signal-to-noise ratio is getting worse, and that&apos;s accelerating some of the same dynamics we&apos;re already worried about. Disconnect Society is skeptical of the attention economy, not technology in general.
+                        There&apos;s also a newer concern worth naming: AI-generated content is flooding social media platforms at scale, making feeds harder to trust and navigate. The signal-to-noise ratio is getting worse, and that&apos;s accelerating some of the same dynamics we&apos;re already worried about. Disconnect Madison is skeptical of the attention economy, not technology in general.
                     </p>
                 </AccordionItem>
 
@@ -79,7 +79,7 @@ export default function Page() {
 
                 <AccordionItem title="I use social media for work. Can I still participate?">
                     <p className="mb-4">
-                        Of course. Disconnect Society isn&apos;t about moral purity or cold-turkey absolutes. If your job requires you to post, monitor, or engage on social platforms, that&apos;s a real constraint and we&apos;re not asking you to pretend otherwise.
+                        Of course. Disconnect Madison isn&apos;t about moral purity or cold-turkey absolutes. If your job requires you to post, monitor, or engage on social platforms, that&apos;s a real constraint and we&apos;re not asking you to pretend otherwise.
                     </p>
                     <p>
                         What we&apos;re after is intentionality, making sure you&apos;re in control of your relationship with these platforms, not the other way around. Many people who use social media professionally find it useful to clearly separate work use from personal use: specific times for each, work accounts off personal devices, and clear rules about when they&apos;re &ldquo;on&rdquo; and when they&apos;re not.
@@ -124,7 +124,7 @@ export default function Page() {
                         There&apos;s also something worth naming in the framing itself. The claim that certain groups of people are uniquely incapable of being more intentional about their screen time isn&apos;t an argument made in their defense. It&apos;s a low expectation dressed up as one. And it happens to be an argument the platforms themselves would gladly make, since their business models depend on maximizing time-on-app across every demographic.
                     </p>
                     <p>
-                        Disconnect Society isn&apos;t asking anyone to delete accounts or give up communities they rely on. The most common pledge is simply to reduce screen time. That doesn&apos;t require cutting off a single real resource. If the argument is that some people have legitimate reasons to stay on certain platforms, we agree completely. If the argument is that those people therefore can&apos;t benefit from being more intentional about how they use them, we don&apos;t.
+                        Disconnect Madison isn&apos;t asking anyone to delete accounts or give up communities they rely on. The most common pledge is simply to reduce screen time. That doesn&apos;t require cutting off a single real resource. If the argument is that some people have legitimate reasons to stay on certain platforms, we agree completely. If the argument is that those people therefore can&apos;t benefit from being more intentional about how they use them, we don&apos;t.
                     </p>
                 </AccordionItem>
 
@@ -154,7 +154,7 @@ export default function Page() {
                         We&apos;re glad you asked. Take a look at the <Link href="/grow">Grow page</Link> for a few specific ways to help, including a printable flyer you can post around your community. If you have skills you&apos;d like to contribute, especially in graphic design, community organizing, or outreach, <Link href="/contact">get in touch</Link> and tell us what you have in mind.
                     </p>
                     <p>
-                        Disconnect Society is run by one person with no budget. Any help, however small, is genuinely valued.
+                        Disconnect Madison is run by one person with no budget. Any help, however small, is genuinely valued.
                     </p>
                 </AccordionItem>
 

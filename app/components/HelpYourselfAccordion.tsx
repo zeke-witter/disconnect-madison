@@ -192,7 +192,7 @@ export default function HelpYourselfAccordion() {
                 <p className="mb-4">
                     This is the concern people raise most often: Won&apos;t I lose touch with everyone? It&apos;s an understandable concern. Social media has become the default infrastructure for organizing events and staying informed about the lives of people we care about. Leaving it can feel like unplugging from the social grid.
                 </p>
-                <p className="mb-4">This is one of the core reasons Disconnect Society exists. The more people who join us on this journey, the easier it is to connect in the real world.</p>
+                <p className="mb-4">This is one of the core reasons Disconnect Madison exists. The more people who join us on this journey, the easier it is to connect in the real world.</p>
                 <p>
                     People who&apos;ve done it tend to report: you lose touch with <span className="italic">some</span> people, <span className="font-bold">but the relationships that remain get deeper</span>.
                 </p>

@@ -9,7 +9,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
     return (
         <nav aria-label="main site navigation" className="relative flex w-full justify-between items-center py-4 lg:py-6 px-6 lg:px-8 font-handjet text-2xl border-b-5">
             <div className="flex items-center gap-6">
-                <Link href="/" aria-label="Home">Disconnect Society</Link>
+                <Link href="/" aria-label="Home">Disconnect Madison</Link>
                 {totalPledges != null && (
                     <span className="hidden lg:inline text-lg text-[#EDEBE6]/60">
                         {totalPledges.toLocaleString()} {totalPledges === 1 ? 'pledge' : 'pledges'}

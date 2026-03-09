@@ -77,7 +77,7 @@ nav {
   color: #EDEBE6;
 }
 
-a[target="_blank"][href^="http"]:not([href*="disconnectsociety"]):not([href*="disconnectmadison"]):not(.link-news):not(.link-card)::after {
+a[target="_blank"][href^="http"]:not([href*="disconnectmadison"]):not(.link-news):not(.link-card)::after {
   content: "";
   display: inline-block;
   width: 0.7em;

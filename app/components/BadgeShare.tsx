@@ -9,7 +9,7 @@ const BADGE_MAP: Record<string, { src: string; alt: string }> = {
     quit_for_good: { src: '/badges/badge-quit.png', alt: 'Quit for Good badge' },
 };
 
-const SHARE_TEXT = "I just pledged to disconnect from social media. If you've been thinking about it too, you're not alone. disconnectsociety.org";
+const SHARE_TEXT = "I just pledged to disconnect from social media. If you've been thinking about it too, you're not alone. disconnectmadison.org";
 
 export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
     const [copied, setCopied] = useState(false);

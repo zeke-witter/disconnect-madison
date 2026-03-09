@@ -118,7 +118,7 @@ const cards: Flyer[] = [
 
 export const metadata: Metadata = {
     title: "Help Us Grow",
-    description: "Help Disconnect Society reach more people. Print a flyer, share your story, or get in touch with ideas.",
+    description: "Help Disconnect Madison reach more people. Print a flyer, share your story, or get in touch with ideas.",
     alternates: { canonical: "/grow" },
 };
 
@@ -131,7 +131,7 @@ export default function Page() {
                     Help us grow
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">
-                    Disconnect Society is a community project operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
+                    Disconnect Madison is a community project operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
                 </p>
             </section>
 
