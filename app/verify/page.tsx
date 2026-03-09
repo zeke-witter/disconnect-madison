@@ -40,6 +40,15 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                 {result.message}
             </p>
 
+            {!result.success && (
+                <a
+                    href="/pledge"
+                    className="mt-6 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
+                >
+                    Go back and try again &rarr;
+                </a>
+            )}
+
             {result.success && (
                 <>
                     <div className="mt-10 w-full max-w-md mx-auto text-center">

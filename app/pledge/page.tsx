@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useActionState } from 'react';
-import { submitPledgeAction } from '@/lib/actions';
+import { submitPledgeAction, resendVerificationAction } from '@/lib/actions';
 import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react'
 
 const initialState = {
@@ -16,35 +16,48 @@ const pledgeActions = [
 
 export default function Page() {
     const [state, formAction, isPending] = useActionState(submitPledgeAction, initialState);
+    const [resendState, resendAction, isResendPending] = useActionState(resendVerificationAction, { message: '', success: false });
     const [selectedPledgeAction, setSelectedPledgeAction] = useState(pledgeActions[0]);
     const [newsletterOptIn, setNewsletterOptIn] = useState(false);
     const [email, setEmail] = useState('');
 
     if (state.success) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-xl mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
+            <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
                 <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">Check your inbox</h1>
-                <p className="text-2xl text-(--secondary-accent) mb-2">
-                    We sent you a confirmation link. Click it to lock in your pledge.
+                <p className="text-lg text-(--secondary-accent) mb-2">
+                    We sent a confirmation link to:
                 </p>
-                <p className="text-sm text-(--secondary-accent) mb-4">
-                    Your pledge will not be counted until you confirm. This is necessary to ensure the integrity of the count. If you don&apos;t see the confirmation email, check your spam folder.
-                </p>
-                <div className="grid grid-cols-1 gap-6">
+                <p className="font-bold text-lg mb-8">{email}</p>
 
-                    <div className="rounded-lg border border-(--secondary-accent) p-6 text-left flex flex-col gap-3">
-                        <h3 className="font-bold text-lg">What&apos;s next?</h3>
-                        <p className="text-sm text-(--secondary-accent) flex-1">Learn what actually helps. Read about practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
-                        <a href="/help-yourself" className="text-sm font-semibold text-(--primary-accent) hover:underline mt-2">
-                            Explore our guide &rarr;
-                        </a>
-                    </div>
-
+                <div className="w-full rounded-lg border-2 border-(--primary-accent) bg-(--primary-accent)/10 p-5 mb-8 text-left">
+                    <p className="font-bold mb-1">Your pledge won&apos;t count until you click the link.</p>
+                    <p className="text-sm text-(--secondary-accent) mt-1">
+                        Can&apos;t find it? Check your <strong>spam or junk folder</strong> before requesting a new one.
+                    </p>
                 </div>
+
+                <form action={resendAction} className="w-full mb-3">
+                    <input type="hidden" name="email" value={email} />
+                    <button
+                        type="submit"
+                        disabled={isResendPending || resendState.success}
+                        className="w-full rounded-md border border-(--secondary-accent) px-6 py-3 text-sm font-semibold text-(--secondary-accent) transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent) disabled:opacity-50"
+                    >
+                        {isResendPending ? 'Sending...' : 'Resend confirmation email'}
+                    </button>
+                </form>
+
+                {resendState.message && (
+                    <p className={`text-sm mb-4 ${resendState.success ? 'text-(--primary-color)' : 'text-(--primary-accent)'}`}>
+                        {resendState.message}
+                    </p>
+                )}
+
                 <a
                     id="button-back-home"
                     href="/"
-                    className="mt-10 inline-block rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover)"
+                    className="mt-6 inline-block rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover)"
                 >
                     Back to home
                 </a>
@@ -55,8 +68,8 @@ export default function Page() {
     return (
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <div className="flex-1 max-w-2xl">
-                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-2 w-full">Take the Pledge</h1>
-                <p className="text-(--secondary-accent) mb-10 w-full">A small step toward something better.</p>
+                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-2 w-full">Take the 10-Day Pledge</h1>
+                <p className="text-(--secondary-accent) mb-10 w-full">One step toward something better</p>
 
                 <form action={formAction} className="w-full">
                     <Fieldset className="space-y-8">
@@ -69,7 +82,7 @@ export default function Page() {
                         </div>
 
                         <div>
-                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next two weeks?</p>
+                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next 10 days?</p>
                             <RadioGroup
                                 name="pledgeAction"
                                 value={selectedPledgeAction}
@@ -108,7 +121,7 @@ export default function Page() {
                                 className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
                             />
                             <p className="text-sm text-(--secondary-accent) mt-2">
-                                Used only to confirm your pledge. Your email will never be shared with anyone.
+                                We&apos;ll send you a confirmation link. Your pledge won&apos;t count until you click it. Your email will never be shared.
                             </p>
                         </Field>
 

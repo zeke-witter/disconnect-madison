@@ -70,15 +70,101 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
     const { error: emailError } = await resend.emails.send({
         from: 'Disconnect Society <noreply@disconnectsociety.org>',
         to: email,
-        subject: 'Confirm your pledge — Disconnect Society',
-        text: `Thanks for pledging to disconnect!\n\nPlease confirm your pledge by clicking the link below:\n\n${verifyUrl}\n\nIf you didn't make this pledge, you can safely ignore this email.`,
+        subject: 'One step left: confirm your pledge',
+        html: buildVerificationEmail(pledgeAction as typeof validPledgeActions[number], verifyUrl),
+        text: `Thanks for pledging to disconnect.\n\nPlease confirm your pledge by clicking the link below:\n\n${verifyUrl}\n\nIf you didn't make this pledge, you can safely ignore this email. Your address will not be used for any other purpose.`,
     });
 
     if (emailError) {
         console.error('Resend error:', emailError);
     }
 
-    return { success: true, message: 'Please check your email to confirm your pledge.' };
+    return { success: true, message: 'Please check your email to confirm your pledge.', email };
+}
+
+const PLEDGE_LABELS: Record<string, string> = {
+    reduce_screen_time: 'reduce your screen time',
+    take_a_break: 'step away and deactivate one or more accounts',
+    quit_for_good: 'permanently delete one or more accounts',
+};
+
+function buildVerificationEmail(pledgeAction: string, verifyUrl: string): string {
+    const pledgeLabel = PLEDGE_LABELS[pledgeAction] ?? 'disconnect from social media';
+    return `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f0ece3;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0ece3;padding:32px 16px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;padding:40px;max-width:600px;">
+        <tr><td>
+          <p style="font-size:20px;font-weight:bold;color:#1A7268;margin:0 0 24px 0;">Disconnect Madison</p>
+          <h1 style="font-size:26px;color:#1A1A1A;margin:0 0 16px 0;">You pledged to ${pledgeLabel}.</h1>
+          <p style="font-size:16px;color:#445D61;line-height:1.6;margin:0 0 32px 0;">
+            That&rsquo;s a real step. Click the button below to lock in your pledge and make it official.
+            It won&rsquo;t count until you confirm.
+          </p>
+          <table cellpadding="0" cellspacing="0" style="margin:0 auto 32px auto;">
+            <tr><td align="center" bgcolor="#8C3A2B" style="border-radius:6px;">
+              <a href="${verifyUrl}" style="display:inline-block;padding:16px 36px;font-size:18px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:6px;background:#8C3A2B;">
+                Confirm my pledge
+              </a>
+            </td></tr>
+          </table>
+          <p style="font-size:13px;color:#888;margin:0 0 6px 0;">Button not working? Paste this link into your browser:</p>
+          <p style="font-size:12px;color:#888;word-break:break-all;margin:0 0 32px 0;">${verifyUrl}</p>
+          <hr style="border:none;border-top:1px solid #eee;margin:24px 0;">
+          <p style="font-size:12px;color:#bbb;margin:0;line-height:1.5;">
+            If you didn&rsquo;t make this pledge, you can safely ignore this email.
+            Your address will not be used for any other purpose.
+          </p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
+/**
+ * Server action: resend the verification email for an unconfirmed pledge.
+ *
+ * Looks up the most recent unconfirmed pledge row for the given email address
+ * and resends the verification email. Returns a generic success message whether
+ * or not a matching pledge was found (to avoid leaking whether an address is in
+ * the database).
+ */
+export async function resendVerificationAction(prevState: any, formData: FormData) {
+    const email = formData.get('email') as string;
+
+    if (!email) {
+        return { success: false, message: 'Missing email address.' };
+    }
+
+    const { data } = await supabase
+        .from('pledges')
+        .select('verification_token, pledge_action')
+        .eq('email', email)
+        .eq('confirmed', false)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+
+    if (data?.verification_token) {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+            ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+        const verifyUrl = `${baseUrl}/verify?token=${data.verification_token}`;
+
+        await resend.emails.send({
+            from: 'Disconnect Society <noreply@disconnectsociety.org>',
+            to: email,
+            subject: 'One step left: confirm your pledge',
+            html: buildVerificationEmail(data.pledge_action, verifyUrl),
+            text: `Here is your confirmation link:\n\n${verifyUrl}\n\nIf you didn't make this pledge, you can safely ignore this email.`,
+        });
+    }
+
+    return { success: true, message: 'Sent. Check your inbox (and spam folder) for a new confirmation link.' };
 }
 
 /**
@@ -253,9 +339,9 @@ export async function verifyPledgeAction(token: string) {
     if (process.env.VERCEL_ENV !== 'production') {
         const devTokens: Record<string, { success: true; message: string; pledgeAction: string } | { success: false; message: string }> = {
             'dev-reduce': { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'reduce_screen_time' },
-            'dev-break':  { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'take_a_break' },
-            'dev-quit':   { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'quit_for_good' },
-            'dev-fail':   { success: false, message: 'This link is invalid or your pledge has already been confirmed.' },
+            'dev-break': { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'take_a_break' },
+            'dev-quit': { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: 'quit_for_good' },
+            'dev-fail': { success: false, message: 'This link is invalid or your pledge has already been confirmed.' },
         };
         if (token in devTokens) return devTokens[token];
     }
