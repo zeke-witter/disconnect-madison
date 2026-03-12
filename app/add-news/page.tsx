@@ -22,17 +22,46 @@ export default function Page() {
                         name="url"
                         type="url"
                         required
+                        defaultValue={(state as any)?.url ?? ''}
                         placeholder="https://..."
                         className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
                     />
                 </Field>
+
+                {(state as any)?.needsManual && (
+                    <>
+                        <p className="text-sm text-(--secondary-accent)">{state.message}</p>
+                        <Field>
+                            <Label className="block mb-1">Title</Label>
+                            <Input
+                                name="manualTitle"
+                                type="text"
+                                required
+                                defaultValue={(state as any)?.title ?? ''}
+                                className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                            />
+                        </Field>
+                        <Field>
+                            <Label className="block mb-1">Image URL</Label>
+                            <Input
+                                name="manualImageUrl"
+                                type="url"
+                                required
+                                placeholder="https://..."
+                                className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                            />
+                        </Field>
+                    </>
+                )}
+
                 <Button
                     type="submit"
                     className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500"
                 >
-                    Add article
+                    {(state as any)?.needsManual ? 'Add manually' : 'Add article'}
                 </Button>
-                {state?.message && (
+
+                {state?.message && !(state as any)?.needsManual && (
                     <p style={{ color: state.success ? 'green' : 'red' }}>
                         {state.message}
                     </p>

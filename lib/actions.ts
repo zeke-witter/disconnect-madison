@@ -183,6 +183,8 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
     }
 
     const url = formData.get('url') as string;
+    const manualTitle = formData.get('manualTitle') as string | null;
+    const manualImageUrl = formData.get('manualImageUrl') as string | null;
 
     if (!url) {
         return { success: false, message: 'Please enter a URL.' };
@@ -191,30 +193,40 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
     let title = url;
     let imageUrl: string | null = null;
 
-    try {
-        const res = await fetch(url, {
-            headers: { 'User-Agent': 'bot' },
-            redirect: 'follow',
-        });
-        const html = await res.text();
+    if (manualTitle && manualImageUrl) {
+        title = manualTitle;
+        imageUrl = manualImageUrl;
+    } else {
+        try {
+            const res = await fetch(url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.5',
+                },
+                redirect: 'follow',
+            });
+            const html = await res.text();
 
-        const ogTitle = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
-            ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i);
-        if (ogTitle) title = ogTitle[1];
-        else {
-            const titleTag = html.match(/<title[^>]*>([^<]+)<\/title>/i);
-            if (titleTag) title = titleTag[1].trim();
+            const ogTitle = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
+                ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i);
+            if (ogTitle) title = ogTitle[1];
+            else {
+                const titleTag = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+                if (titleTag) title = titleTag[1].trim();
+            }
+
+            const ogImage = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+                ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+            if (ogImage) imageUrl = ogImage[1];
+        } catch (err) {
+            console.error('Article fetch error:', err);
+            return { success: false, needsManual: true, url, title: '', message: 'Could not fetch the article automatically. Enter the title and image URL manually.' };
         }
 
-        const ogImage = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
-            ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
-        if (ogImage) imageUrl = ogImage[1];
-    } catch {
-        return { success: false, message: 'Could not fetch the article. Please check the URL and try again.' };
-    }
-
-    if (!imageUrl) {
-        return { success: false, message: 'No og:image found for this URL. Cannot add article without a preview image.' };
+        if (!imageUrl) {
+            return { success: false, needsManual: true, url, title, message: 'No preview image found. Enter the image URL manually.' };
+        }
     }
 
     const { error } = await supabase
