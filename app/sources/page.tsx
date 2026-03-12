@@ -234,6 +234,45 @@ export default function Page() {
                         </ul>
                     </AccordionItem>
 
+                    <AccordionItem title="Distracted driving">
+                        <ul className="list-disc pl-6 space-y-3">
+                            <li>
+                                &ldquo;Distracted driving in 2023.&rdquo;
+                                <br /><em>National Center for Statistics and Analysis, NHTSA</em>, 2025. Report No. DOT HS 813 703. [<a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813703" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Distracted driving.&rdquo;
+                                <br /><em>National Highway Traffic Safety Administration</em>, 2024. [<a href="https://www.nhtsa.gov/risky-driving/distracted-driving" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Distracted driving research areas.&rdquo;
+                                <br /><em>Insurance Institute for Highway Safety</em>. [<a href="https://www.iihs.org/research-areas/distracted-driving" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Distracted driving fell 8.6% in 2024, preventing an estimated 105,000 crashes and 480 fatalities.&rdquo;
+                                <br /><em>Cambridge Mobile Telematics</em>, April 2025. [<a href="https://www.cmtelematics.com/news/distracted-driving-fell-8-6-in-2024-preventing-an-estimated-105000-crashes-and-480-fatalities/" target="_blank">link</a>]
+                            </li>
+                        </ul>
+                    </AccordionItem>
+
+                    <AccordionItem title="Data collection &amp; privacy">
+                        <p className="text-sm text-(--secondary-accent) mb-4">These sources are investigative and policy research rather than peer-reviewed clinical studies.</p>
+                        <ul className="list-disc pl-6 space-y-3">
+                            <li>
+                                &ldquo;TikTok&rsquo;s real privacy risks.&rdquo;
+                                <br /><em>Internet Safety Labs</em>, 2024. [<a href="https://internetsafetylabs.org/blog/research/tiktoks-real-privacy-risks/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Examining TikTok&rsquo;s potential engagement with data brokers.&rdquo;
+                                <br /><em>Tech Policy @ Sanford, Duke University</em>. [<a href="https://techpolicy.sanford.duke.edu/blog/examining-tiktoks-potential-engagement-with-data-brokers/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Demystifying TikTok data collection.&rdquo;
+                                <br /><em>PIRG</em>. [<a href="https://pirg.org/articles/demystifying-tiktok-data/" target="_blank">link</a>]
+                            </li>
+                        </ul>
+                    </AccordionItem>
+
                     <AccordionItem title="Children &amp; adolescents">
                         <div className="space-y-8">
                             <div>

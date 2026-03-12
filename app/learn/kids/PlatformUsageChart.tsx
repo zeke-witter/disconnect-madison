@@ -35,15 +35,15 @@ function readColors(): Colors {
         fg: get('--foreground') || '#1A1A1A',
         muted,
         gridLine: muted + '40',
-        tooltipBg: get('--background') || '#1F3D3A',
-        tooltipFg: get('--foreground') || '#EDEBE6',
+        tooltipBg: get('--nav-background') || '#2B5250',
+        tooltipFg: '#EDEBE6',
     };
 }
 
 export default function PlatformUsageChart() {
     const [colors, setColors] = useState<Colors>({
         accent: '#8C3A2B', fg: '#1A1A1A', muted: '#5C6F73',
-        gridLine: '#5C6F7340', tooltipBg: '#1F3D3A', tooltipFg: '#F6F4EF',
+        gridLine: '#5C6F7340', tooltipBg: '#2B5250', tooltipFg: '#EDEBE6',
     });
 
     useEffect(() => {
@@ -84,9 +84,10 @@ export default function PlatformUsageChart() {
                         background: colors.tooltipBg,
                         border: 'none',
                         borderRadius: '6px',
-                        color: colors.tooltipFg,
                         fontSize: 13,
                     }}
+                    labelStyle={{ color: colors.tooltipFg }}
+                    itemStyle={{ color: colors.tooltipFg }}
                     cursor={{ fill: colors.accent + '15' }}
                 />
                 <Bar dataKey="pct" radius={[0, 3, 3, 0]} fill={colors.accent} />

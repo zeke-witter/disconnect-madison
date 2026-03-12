@@ -142,7 +142,7 @@ export default function Page() {
                 </h2>
                 <div className="space-y-4">
                     <p>
-                        If you have children in your life, the most direct thing you can do is reduce social media&apos;s role in your household, and model that behavior yourself. Research consistently shows that parental attitudes and habits around screens are among the strongest predictors of children&apos;s own habits.
+                        If you have children in your life, first of all: give yourself some grace. Parenting was hard enough before the internet, and this is an especially difficult subject for any parent/guardian to navigate precisely <em>because</em> it&apos;s so new. There is no silver bullet. Do what you can, how you can, when you can. The most direct thing you can do is reduce social media&apos;s role in your household, and model that behavior yourself. Research consistently shows that parental attitudes and habits around screens are among the strongest predictors of children&apos;s own habits.
                     </p>
                     <p>
                         If you don&apos;t have children, your choices still matter. A culture in which adults treat social media as normal and unavoidable makes it harder for young people to opt out. Every person who steps away changes that calculus a little.
