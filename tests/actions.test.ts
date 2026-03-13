@@ -272,16 +272,22 @@ describe('addNewsArticleAction', () => {
 
     it('inserts article on success', async () => {
         mockGetUser.mockResolvedValueOnce({ data: { user: { id: 'admin-1' } } });
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-            text: () =>
-                Promise.resolve(
-                    '<html><head><meta property="og:title" content="Test Article" /><meta property="og:image" content="https://example.com/image.jpg" /></head></html>',
-                ),
-            json: () => Promise.resolve({ success: true }),
-        }));
+        vi.stubGlobal('fetch', vi.fn()
+            .mockResolvedValueOnce({
+                // og:title fetch
+                text: () =>
+                    Promise.resolve(
+                        '<html><head><meta property="og:title" content="Test Article" /><meta property="og:image" content="https://example.com/image.jpg" /></head></html>',
+                    ),
+            })
+            .mockResolvedValueOnce({
+                // Wayback Machine archive fetch
+                headers: { get: (name: string) => name === 'Content-Location' ? '/web/20240101000000/https://example.com/article' : null },
+            }),
+        );
         const fd = makeFormData({ url: 'https://example.com/article' });
         const result = await addNewsArticleAction({}, fd);
-        expect(result).toEqual({ success: true, message: 'Added: Test Article' });
+        expect(result).toEqual({ success: true, message: 'Added: Test Article — archived.' });
         expect(mockBuilder.insert).toHaveBeenCalledWith(
             expect.objectContaining({ url: 'https://example.com/article', title: 'Test Article' }),
         );

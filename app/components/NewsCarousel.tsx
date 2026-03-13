@@ -7,7 +7,7 @@ export default async function NewsCarousel() {
 
     return (
         <section aria-labelledby="news-heading" className="w-full">
-            <h2 id="what-happens" className="font-handjet text-5xl lg:text-7xl mb-8">In the news</h2>
+            <h2 id="news-heading" className="font-handjet text-5xl lg:text-7xl mb-8">In the news</h2>
             <div className="flex gap-6 overflow-x-auto pb-4">
                 {articles.map((article) => (
                     <a
@@ -20,7 +20,7 @@ export default async function NewsCarousel() {
                         {article.image_url ? (
                             <img
                                 src={article.image_url}
-                                alt=""
+                                alt={article.title}
                                 className="w-full h-36 object-cover"
                             />
                         ) : (

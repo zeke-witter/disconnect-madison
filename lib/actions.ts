@@ -8,6 +8,22 @@ import { createServerAuthClient } from '@/lib/supabase-auth';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 /**
+ * Decode HTML entities in a string (e.g. &#039; → ', &amp; → &).
+ * Handles named entities, decimal numeric entities, and hex numeric entities.
+ */
+function decodeHtmlEntities(str: string): string {
+    return str
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'")
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+        .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)));
+}
+
+/**
  * Server action: submit a new pledge.
  *
  * Validates the honeypot field, Turnstile token, email, and pledge type, then
@@ -210,10 +226,10 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
 
             const ogTitle = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
                 ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i);
-            if (ogTitle) title = ogTitle[1];
+            if (ogTitle) title = decodeHtmlEntities(ogTitle[1]);
             else {
                 const titleTag = html.match(/<title[^>]*>([^<]+)<\/title>/i);
-                if (titleTag) title = titleTag[1].trim();
+                if (titleTag) title = decodeHtmlEntities(titleTag[1].trim());
             }
 
             const ogImage = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
@@ -241,9 +257,30 @@ export async function addNewsArticleAction(initialState: any, formData: FormData
         return { success: false, message: 'Something went wrong. Please try again.' };
     }
 
-    revalidatePath('/');
+    // Submit to Wayback Machine — non-blocking, failure is acceptable
+    let archivedUrl: string | null = null;
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        const archiveRes = await fetch(`https://web.archive.org/save/${url}`, {
+            method: 'POST',
+            headers: { 'User-Agent': 'DisconnectMadison/1.0 (disconnectmadison.org)' },
+            signal: controller.signal,
+        });
+        clearTimeout(timeout);
+        const contentLocation = archiveRes.headers.get('Content-Location');
+        if (contentLocation) {
+            archivedUrl = `https://web.archive.org${contentLocation}`;
+            await supabase.from('news_articles').update({ archived_url: archivedUrl }).eq('url', url);
+        }
+    } catch (err) {
+        console.warn('Wayback Machine archive failed (non-fatal):', err);
+    }
 
-    return { success: true, message: `Added: ${title}` };
+    revalidatePath('/');
+    revalidatePath('/news');
+
+    return { success: true, message: `Added: ${title}${archivedUrl ? ' — archived.' : ' — archive pending or failed.'}` };
 }
 
 /**
@@ -446,6 +483,23 @@ export async function deleteAllPledgesAction() {
     if (process.env.VERCEL_ENV === 'production') return;
     await supabase.from('pledges').delete().in('confirmed', [true, false]);
     revalidatePath('/dev');
+}
+
+/**
+ * Public: fetch all news articles for the archive page, ordered newest first.
+ */
+export async function getAllNewsArticlesAction() {
+    const { data, error } = await supabase
+        .from('news_articles')
+        .select('id, url, title, image_url, created_at, archived_url')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error('getAllNewsArticlesAction error:', error);
+        return [];
+    }
+
+    return data;
 }
 
 /**
