@@ -84,7 +84,7 @@ export default function HelpYourselfAccordion() {
                         Both iOS (Screen Time) and Android (Digital Wellbeing) offer app timers, downtime scheduling, and usage reports. They&apos;re useful mostly as awareness tools: seeing that you spent three hours on TikTok yesterday is often more motivating than any advice. The time limits themselves are easy to override with a single tap, which makes them weaker as enforcement tools, but for some people, even that small speed bump is enough to trigger a moment of reflection.
                     </p>
                 </Subsection>
-                <Subsection title="Schedule Do Not Disturb">
+                <Subsection title="Schedule 'Do Not Disturb'">
                     <p>
                         Set your phone to enter Do Not Disturb mode automatically during times you want to protect: dinner, the hour before bed, the first hour after waking up, focused work sessions. Allow calls from favorites to come through for genuine emergencies. Everything else can wait.
                     </p>
@@ -133,7 +133,7 @@ export default function HelpYourselfAccordion() {
                 </Subsection>
             </Section>
 
-            <Section title="Getting Through the First Two Weeks">
+            <Section title="Getting through the first two weeks">
                 <p>
                     The first days without social media (or with dramatically reduced phone use) can feel genuinely uncomfortable. This is normal. Some people describe it as boredom; others call it restlessness, anxiety, or a low-grade feeling that something is missing. <span className="font-bold">If you experience these difficulties, it&apos;s a good sign that reducing/quitting is a great idea for you</span>.
                 </p>
@@ -159,7 +159,7 @@ export default function HelpYourselfAccordion() {
                 </Subsection>
             </Section>
 
-            <Section title="Mindfulness and Internal Work">
+            <Section title="Mindfulness and internal work">
                 <p>
                     The external changes (settings, tools, environment) are important, but they only address part of the problem. The harder part is answering the question: what am I looking for when I reach for my phone?
                 </p>
