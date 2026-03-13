@@ -1,33 +1,36 @@
 import Link from "next/link";
+import { getTranslations } from 'next-intl/server';
 
-const cards = [
-    {
-        number: '1',
-        heading: 'Understand the problem',
-        body: 'Read our summary of research findings on how algorithm-driven social media and device dependency affect mental health, attention, and civic life.',
-        cta: 'Explore the research',
-        href: '/learn',
-        emphasis: false,
-    },
-    {
-        number: '2',
-        heading: 'Learn how to help yourself',
-        body: 'Practical strategies for reducing your screen time, changing your environment, and making the change stick.',
-        cta: 'Read the guide',
-        href: '/help-yourself',
-        emphasis: false,
-    },
-    {
-        number: '3',
-        heading: 'Do it for the kids',
-        body: "Even if we were heavily influenced, most adults chose to join social media. Kids today were born into it. The research on how it's reshaping their brains and mental health is alarming, and everyone who has young people in their lives should know it.",
-        cta: 'Read what the research says about kids',
-        href: '/learn/kids',
-        emphasis: true,
-    },
-];
+export default async function KidsCallout() {
+    const t = await getTranslations('kidsCallout');
 
-export default function KidsCallout() {
+    const cards = [
+        {
+            number: '1',
+            heading: t('card1Heading'),
+            body: t('card1Body'),
+            cta: t('card1Cta'),
+            href: '/learn',
+            emphasis: false,
+        },
+        {
+            number: '2',
+            heading: t('card2Heading'),
+            body: t('card2Body'),
+            cta: t('card2Cta'),
+            href: '/help-yourself',
+            emphasis: false,
+        },
+        {
+            number: '3',
+            heading: t('card3Heading'),
+            body: t('card3Body'),
+            cta: t('card3Cta'),
+            href: '/learn/kids',
+            emphasis: true,
+        },
+    ];
+
     return (
         <section
             aria-labelledby="explore-heading"
@@ -37,7 +40,7 @@ export default function KidsCallout() {
                 id="explore-heading"
                 className="font-handjet text-4xl lg:text-5xl mb-8"
             >
-                What&apos;s next
+                {t('heading')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {cards.map((card) => (

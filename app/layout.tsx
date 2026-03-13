@@ -6,6 +6,8 @@ import "./globals.css";
 import NavigationWrapper from "./components/NavigationWrapper";
 import Footer from "./components/Footer";
 import { baseMetadata } from "@/lib/metadata";
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,26 +29,30 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = baseMetadata;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()` }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${handjet.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        <header>
-          <NavigationWrapper />
-        </header>
-        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-color-background sm:items-start">
-          {children}
-        </main>
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <header>
+            <NavigationWrapper />
+          </header>
+          <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-color-background sm:items-start">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

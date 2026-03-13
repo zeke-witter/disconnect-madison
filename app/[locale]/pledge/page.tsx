@@ -2,39 +2,41 @@
 
 import { useState, useActionState } from 'react';
 import { submitPledgeAction, resendVerificationAction } from '@/lib/actions';
-import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react'
+import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react';
+import { useTranslations } from 'next-intl';
 
 const initialState = {
     message: '',
     success: false
 };
-const pledgeActions = [
-    { label: 'Reduce screen time', subtitle: 'Set limits on daily social media use', id: 'reduce_screen_time' },
-    { label: 'Step away', subtitle: 'Deactivate one or more accounts', id: 'take_a_break' },
-    { label: 'Quit for good', subtitle: 'Permanently delete one or more accounts', id: 'quit_for_good' },
-];
 
 export default function Page() {
+    const t = useTranslations('pledge');
     const [state, formAction, isPending] = useActionState(submitPledgeAction, initialState);
     const [resendState, resendAction, isResendPending] = useActionState(resendVerificationAction, { message: '', success: false });
-    const [selectedPledgeAction, setSelectedPledgeAction] = useState(pledgeActions[0]);
+
+    const pledgeActions = [
+        { label: t('action1Label'), subtitle: t('action1Subtitle'), id: 'reduce_screen_time' },
+        { label: t('action2Label'), subtitle: t('action2Subtitle'), id: 'take_a_break' },
+        { label: t('action3Label'), subtitle: t('action3Subtitle'), id: 'quit_for_good' },
+    ];
+
+    const [selectedPledgeId, setSelectedPledgeId] = useState('reduce_screen_time');
     const [newsletterOptIn, setNewsletterOptIn] = useState(false);
     const [email, setEmail] = useState('');
+
+    const selectedPledgeAction = pledgeActions.find(a => a.id === selectedPledgeId) ?? pledgeActions[0];
 
     if (state.success) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
-                <h1 className="font-handjet text-5xl lg:text-7xl mb-4">Check your inbox</h1>
-                <p className="text-lg text-(--secondary-accent) mb-2">
-                    We sent a confirmation link to:
-                </p>
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-4">{t('successHeading')}</h1>
+                <p className="text-lg text-(--secondary-accent) mb-2">{t('successSentTo')}</p>
                 <p className="font-bold text-lg mb-8">{email}</p>
 
                 <div className="w-full rounded-lg border-2 border-(--primary-accent) bg-(--primary-accent)/10 p-5 mb-8 text-left">
-                    <p className="font-bold mb-1">Your pledge won&apos;t count until you click the link.</p>
-                    <p className="text-sm text-(--secondary-accent) mt-1">
-                        Can&apos;t find it? Check your <strong>spam or junk folder</strong> before requesting a new one.
-                    </p>
+                    <p className="font-bold mb-1">{t('successWarningHeading')}</p>
+                    <p className="text-sm text-(--secondary-accent) mt-1">{t('successWarningBody')}</p>
                 </div>
 
                 <form action={resendAction} className="w-full mb-3">
@@ -44,7 +46,7 @@ export default function Page() {
                         disabled={isResendPending || resendState.success}
                         className="w-full rounded-md border border-(--secondary-accent) px-6 py-3 text-sm font-semibold text-(--secondary-accent) transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent) disabled:opacity-50"
                     >
-                        {isResendPending ? 'Sending...' : 'Resend confirmation email'}
+                        {isResendPending ? t('resendSending') : t('resend')}
                     </button>
                 </form>
 
@@ -59,7 +61,7 @@ export default function Page() {
                     href="/"
                     className="mt-6 inline-block rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover)"
                 >
-                    Back to home
+                    {t('backToHome')}
                 </a>
             </div>
         );
@@ -68,12 +70,12 @@ export default function Page() {
     return (
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <div className="flex-1 max-w-2xl">
-                <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Take the 10-Day Pledge</h1>
-                <p className="text-(--secondary-accent) mb-10 w-full">One step toward something better</p>
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">{t('heading')}</h1>
+                <p className="text-(--secondary-accent) mb-10 w-full">{t('subheading')}</p>
 
                 <form action={formAction} className="w-full">
                     <Fieldset className="space-y-8">
-                        <Legend className="sr-only">Pledge to free yourself from social media</Legend>
+                        <Legend className="sr-only">{t('legend')}</Legend>
 
                         {/* Honeypot field — hidden from real users, filled by bots */}
                         <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
@@ -82,11 +84,11 @@ export default function Page() {
                         </div>
 
                         <div>
-                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next 10 days?</p>
+                            <p id="pledge-action-label" className="font-bold text-lg mb-4">{t('questionLabel')}</p>
                             <RadioGroup
                                 name="pledgeAction"
                                 value={selectedPledgeAction}
-                                onChange={setSelectedPledgeAction}
+                                onChange={(action) => setSelectedPledgeId(action.id)}
                                 aria-labelledby="pledge-action-label"
                                 className="space-y-3"
                             >
@@ -110,19 +112,17 @@ export default function Page() {
                         </div>
 
                         <Field>
-                            <Label className="block font-bold text-lg mb-2">Email address</Label>
+                            <Label className="block font-bold text-lg mb-2">{t('emailLabel')}</Label>
                             <Input
                                 name="email"
                                 type="email"
                                 required
-                                placeholder="you@example.com"
+                                placeholder={t('emailPlaceholder')}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
                             />
-                            <p className="text-sm text-(--secondary-accent) mt-2">
-                                We&apos;ll send you a confirmation link. Your pledge won&apos;t count until you click it. Your email will never be shared.
-                            </p>
+                            <p className="text-sm text-(--secondary-accent) mt-2">{t('emailHelp')}</p>
                         </Field>
 
                         <Field className="flex items-start gap-3">
@@ -136,10 +136,8 @@ export default function Page() {
                                 <span className="invisible size-2.5 rounded-sm bg-white group-data-checked:visible" />
                             </Checkbox>
                             <div>
-                                <Label className="font-bold cursor-pointer">Keep me in the loop</Label>
-                                <p className="text-sm text-(--secondary-accent) mt-1">
-                                    We don&apos;t have a newsletter right now, but we might someday. Check this if you&apos;d be open to updates from us. No spam, and we won&apos;t contact you for any other reason.
-                                </p>
+                                <Label className="font-bold cursor-pointer">{t('newsletterLabel')}</Label>
+                                <p className="text-sm text-(--secondary-accent) mt-1">{t('newsletterHelp')}</p>
                             </div>
                         </Field>
                     </Fieldset>
@@ -149,7 +147,7 @@ export default function Page() {
                         disabled={isPending}
                         className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-handjet text-2xl"
                     >
-                        {isPending ? 'Submitting...' : 'Submit my pledge'}
+                        {isPending ? t('submitting') : t('submit')}
                     </Button>
 
                     {state?.message && !state.success && (
@@ -159,7 +157,7 @@ export default function Page() {
                                 href={`/contact?subject=${encodeURIComponent('Bug report: pledge form')}&message=${encodeURIComponent(`I ran into an error on the pledge page.\n\nPledge type selected: ${selectedPledgeAction.label}\nEmail entered: ${email}\nError message: ${state.message}\n\nDevice: (e.g. iPhone 15, Windows laptop)\nBrowser: (e.g. Safari, Chrome, Firefox)\nAnything else:`)}`}
                                 className="mt-2 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
                             >
-                                Report this issue &rarr;
+                                {t('reportIssue')} &rarr;
                             </a>
                         </div>
                     )}
@@ -168,45 +166,43 @@ export default function Page() {
 
             <aside className="lg:w-80 lg:mt-24 space-y-8 text-sm" aria-label="Guides for taking action">
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Not sure what to do next?</h2>
-                    <p className="text-(--secondary-accent)">Our guide covers practical strategies for getting through the first two weeks, changing your environment, and staying off for good. <a href="/help-yourself">Read: How to Help Yourself →</a></p>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">{t('sidebarGuideHeading')}</h2>
+                    <p className="text-(--secondary-accent)">{t('sidebarGuideBody')} <a href="/help-yourself">{t('sidebarGuideLink')} →</a></p>
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Reduce screen time</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">{t('sidebarReduceHeading')}</h2>
                     <ul className="space-y-2">
-                        <li><a href="https://support.apple.com/guide/iphone/set-up-screen-time-iphbfa595995/ios" target="_blank" rel="noopener noreferrer">iPhone Screen Time settings</a></li>
-                        <li><a href="https://support.google.com/android/answer/9346420" target="_blank" rel="noopener noreferrer">Android Digital Wellbeing</a></li>
+                        <li><a href="https://support.apple.com/guide/iphone/set-up-screen-time-iphbfa595995/ios" target="_blank" rel="noopener noreferrer">{t('iPhoneScreenTime')}</a></li>
+                        <li><a href="https://support.google.com/android/answer/9346420" target="_blank" rel="noopener noreferrer">{t('androidWellbeing')}</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Deactivate accounts</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">{t('sidebarDeactivateHeading')}</h2>
                     <ul className="space-y-2">
-                        <li><a href="https://www.facebook.com/help/214376678584711" target="_blank" rel="noopener noreferrer">Deactivate Facebook</a></li>
-                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Deactivate Instagram</a></li>
-                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">Deactivate X (Twitter)</a></li>
-                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Deactivate Snapchat</a></li>
-                        <li><a href="https://www.tiktok.com/community-guidelines/en/accounts-features" target="_blank" rel="noopener noreferrer">Deactivate TikTok</a></li>
+                        <li><a href="https://www.facebook.com/help/214376678584711" target="_blank" rel="noopener noreferrer">{t('deactivateFacebook')}</a></li>
+                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">{t('deactivateInstagram')}</a></li>
+                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">{t('deactivateX')}</a></li>
+                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">{t('deactivateSnapchat')}</a></li>
+                        <li><a href="https://www.tiktok.com/community-guidelines/en/accounts-features" target="_blank" rel="noopener noreferrer">{t('deactivateTikTok')}</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Delete accounts</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">{t('sidebarDeleteHeading')}</h2>
                     <ul className="space-y-2">
-                        <li><a href="https://www.facebook.com/help/224562897555674" target="_blank" rel="noopener noreferrer">Delete Facebook</a></li>
-                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Delete Instagram</a></li>
-                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">Delete X (Twitter)</a></li>
-                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">Delete Snapchat</a></li>
-                        <li><a href="https://support.tiktok.com/en/account-and-privacy/deleting-an-account" target="_blank" rel="noopener noreferrer">Delete TikTok</a></li>
-                        <li><a href="https://www.reddit.com/settings" target="_blank" rel="noopener noreferrer">Delete Reddit</a></li>
+                        <li><a href="https://www.facebook.com/help/224562897555674" target="_blank" rel="noopener noreferrer">{t('deleteFacebook')}</a></li>
+                        <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">{t('deleteInstagram')}</a></li>
+                        <li><a href="https://help.x.com/en/managing-your-account/how-to-deactivate-x-account" target="_blank" rel="noopener noreferrer">{t('deleteX')}</a></li>
+                        <li><a href="https://support.snapchat.com/en-US/a/delete-my-account1" target="_blank" rel="noopener noreferrer">{t('deleteSnapchat')}</a></li>
+                        <li><a href="https://support.tiktok.com/en/account-and-privacy/deleting-an-account" target="_blank" rel="noopener noreferrer">{t('deleteTikTok')}</a></li>
+                        <li><a href="https://www.reddit.com/settings" target="_blank" rel="noopener noreferrer">{t('deleteReddit')}</a></li>
                     </ul>
                 </div>
 
-                <p className="text-xs text-(--secondary-accent)">
-                    Links point to official platform documentation. Verify steps on each platform, as processes may change.
-                </p>
+                <p className="text-xs text-(--secondary-accent)">{t('sidebarDisclaimer')}</p>
             </aside>
         </div>
-    )
+    );
 }

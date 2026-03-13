@@ -1,13 +1,17 @@
 import { getNewsArticlesAction } from "@/lib/actions";
+import { getTranslations } from 'next-intl/server';
 
 export default async function NewsCarousel() {
-    const articles = await getNewsArticlesAction();
+    const [articles, t] = await Promise.all([
+        getNewsArticlesAction(),
+        getTranslations('newsCarousel'),
+    ]);
 
     if (articles.length === 0) return null;
 
     return (
         <section aria-labelledby="news-heading" className="w-full">
-            <h2 id="what-happens" className="font-handjet text-5xl lg:text-7xl mb-8">In the news</h2>
+            <h2 id="what-happens" className="font-handjet text-5xl lg:text-7xl mb-8">{t('heading')}</h2>
             <div className="flex gap-6 overflow-x-auto pb-4">
                 {articles.map((article) => (
                     <a
