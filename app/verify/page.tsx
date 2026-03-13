@@ -20,9 +20,9 @@ const nextSteps = [
     {
         number: '3',
         heading: 'Spread the word',
-        body: 'Use your badge or the text snippet below to let people know you\'ve pledged. You might give someone else the courage to do the same.',
-        cta: 'See your badge below',
-        href: '#share',
+        body: "Use your badge or the text snippet above to let people know you've pledged. You might give someone else the courage to do the same.",
+        cta: 'See other ways to help',
+        href: '/grow',
     },
 ];
 
@@ -32,11 +32,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
     const result = await verifyPledgeAction(token ?? '');
 
     return (
-        <div className={`flex flex-col items-center min-h-[50vh] mx-auto text-center font-[family-name:var(--font-space-grotesk)] ${result.success ? 'max-w-4xl' : 'max-w-lg'}`}>
-            <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
+        <div className={`flex flex-col items-center w-full mx-auto font-[family-name:var(--font-space-grotesk)] ${result.success ? 'max-w-3xl' : 'max-w-lg'}`}>
+            <h1 className="font-handjet text-5xl lg:text-7xl mb-4 text-center">
                 {result.success ? 'Pledge Confirmed' : 'Verification Failed'}
             </h1>
-            <p className={`text-lg ${result.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
+            <p className={`text-lg text-center ${result.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
                 {result.message}
             </p>
 
@@ -51,15 +51,22 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
 
             {result.success && (
                 <>
-                    <div className="mt-10 w-full max-w-md mx-auto text-center">
+                    {/* Badge — prominent, near the top while excitement is high */}
+                    <div id="share" className="w-full mt-10">
+                        <BadgeShare pledgeAction={result.pledgeAction ?? ''} />
+                    </div>
+
+                    {/* Referral question — low-key, after the main moment */}
+                    <div className="w-full mt-10 pt-10 border-t border-(--secondary-accent)/20 text-center">
                         <ReferralQuestion token={token ?? ''} />
                     </div>
 
+                    {/* What's next */}
                     <div className="w-full mt-12">
-                        <h2 className="font-handjet text-4xl lg:text-5xl font-bold mb-8 text-left">What&apos;s next?</h2>
+                        <h2 className="font-handjet text-4xl lg:text-5xl mb-8">What&apos;s next?</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {nextSteps.map((step) => (
-                                <div key={step.number} className="rounded-lg border border-(--secondary-accent) p-6 text-left flex flex-col gap-3">
+                                <div key={step.number} className="rounded-lg border border-(--secondary-accent) p-6 flex flex-col gap-3">
                                     <span className="font-handjet text-7xl font-bold text-(--primary-accent) leading-none">{step.number}</span>
                                     <h3 className="font-bold text-lg">{step.heading}</h3>
                                     <p className="text-sm text-(--secondary-accent) flex-1">{step.body}</p>
@@ -70,19 +77,15 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                             ))}
                         </div>
                     </div>
-
-                    <div id="share" className="w-full mt-12">
-                        <BadgeShare pledgeAction={result.pledgeAction ?? ''} />
-                    </div>
                 </>
             )}
 
             <a
                 id="button-back-home"
                 href="/"
-                className="mt-8 mb-8 inline-block rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) font-handjet text-2xl"
+                className="mt-10 mb-8 text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
             >
-                Back to home
+                &larr; Back to home
             </a>
         </div>
     );

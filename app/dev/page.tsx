@@ -23,7 +23,7 @@ export default async function Page() {
         <div className="w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <div className="flex items-center justify-between mb-12">
                 <div>
-                    <h1 className="font-handjet text-5xl font-bold">Dev Tools</h1>
+                    <h1 className="font-handjet text-5xl">Dev Tools</h1>
                     <p className="text-sm text-(--secondary-accent) mt-1">Dev/staging only — not available in production.</p>
                 </div>
                 <DarkModeToggle />
@@ -32,7 +32,7 @@ export default async function Page() {
             {/* Pledges */}
             <section className="mb-16" aria-labelledby="pledges-heading">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 id="pledges-heading" className="font-handjet text-3xl font-bold">Pledges</h2>
+                    <h2 id="pledges-heading" className="font-handjet text-3xl">Pledges</h2>
                     {pledges.length > 0 && (
                         <form action={deleteAllPledgesAction}>
                             <button
@@ -92,7 +92,7 @@ export default async function Page() {
             {/* News Articles */}
             <section aria-labelledby="news-heading">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 id="news-heading" className="font-handjet text-3xl font-bold">News Articles</h2>
+                    <h2 id="news-heading" className="font-handjet text-3xl">News Articles</h2>
                     {articles.length > 0 && (
                         <form action={deleteAllNewsArticlesAction}>
                             <button

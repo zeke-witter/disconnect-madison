@@ -11,7 +11,7 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <section aria-labelledby="sources-heading" className="w-full">
-                <h1 id="sources-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-3">
+                <h1 id="sources-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
                     Research &amp; Sources
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -185,6 +185,7 @@ export default function Page() {
                     </AccordionItem>
 
                     <AccordionItem title="Data centers &amp; ecological impact">
+                        <p className="text-sm text-(--secondary-accent) mb-4">This section covers infrastructure-level environmental data. Most figures are drawn from company disclosures, IEA reports, and investigative journalism rather than peer-reviewed clinical studies.</p>
                         <ul className="list-disc pl-6 space-y-3">
                             <li>
                                 &ldquo;Recalibrating global data center energy-use estimates.&rdquo;
@@ -201,6 +202,59 @@ export default function Page() {
                             <li>
                                 &ldquo;The Energy Hunger of AI: Large Language Models as Challenges and Enablers for Sustainable Energy&rdquo;
                                 <br /><em>Energies</em>, 2025. [<a href="https://doi.org/10.3390/en18174701" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Electricity 2024: Analysis and forecast to 2026.&rdquo;
+                                <br /><em>International Energy Agency</em>, 2024. [<a href="https://www.iea.org/reports/electricity-2024" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Environmental Report 2023.&rdquo;
+                                <br /><em>Google LLC</em>, 2023. (Google&rsquo;s annual environmental sustainability report disclosing water and energy consumption.) [<a href="https://sustainability.google/reports/google-2023-environmental-report/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;2022 Environmental Sustainability Report.&rdquo;
+                                <br /><em>Microsoft</em>, 2022. (Discloses water consumption of 1.7 billion gallons, up 34% year over year.) [<a href="https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15mgm" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                Midwest data center market growth. <em>CBRE / Data Center Frontier</em> reporting. (The Midwest as a fast-growing data center market, driven by land availability, power infrastructure, and freshwater access.) No single canonical URL; see ongoing coverage from Data Center Frontier and CBRE research publications.
+                            </li>
+                            <li>
+                                &ldquo;Great Lakes-St. Lawrence River Basin Water Resources Compact.&rdquo;
+                                <br /><em>Great Lakes Commission</em>, 2008. (Regional compact governing water diversions from the Great Lakes basin.) [<a href="https://www.glc.org/work/glslrc" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                Cooling water and data center freshwater consumption. Multiple ongoing studies and investigative reports examine how data centers draw on municipal and aquifer water supplies. This is an active research area without a single definitive source; see work from the Pacific Institute, university water policy programs, and investigative outlets covering the tech industry.
+                            </li>
+                        </ul>
+                        <h3 className="font-semibold text-base mt-6 mb-3 text-(--secondary-accent)">Wisconsin: jobs, subsidies &amp; economic accountability</h3>
+                        <ul className="list-disc pl-6 space-y-3">
+                            <li>
+                                &ldquo;Local leaders see data centers as revenue boon, but critics say subsidy programs undermine those efforts.&rdquo;
+                                <br /><em>Wisconsin Public Radio</em>, 2025. (Covers the no-sunset provision in Wisconsin&rsquo;s tax exemption and quotes Good Jobs First analyst Kasia Tarczynska.) [<a href="https://www.wpr.org/news/wisconsin-data-centers-revenue-tax-subsidy-microsoft" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Data centers fuel $1 billion in Wisconsin business growth, but some question long-term impact.&rdquo;
+                                <br /><em>Wisconsin Watch</em>, March 2026. [<a href="https://wisconsinwatch.org/2026/03/wisconsin-data-centers-business-growth-economy-companies-power-impact/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Why does Wisconsin subsidize data centers?&rdquo;
+                                <br /><em>Isthmus (Madison)</em>, 2025. [<a href="https://isthmus.com/opinion/citizen-dave/why-does-wisconsin-subsidize-data-centers/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Will Huge Data Centers Boost Wisconsin&rsquo;s Tax Revenues?&rdquo;
+                                <br /><em>Urban Milwaukee</em>, May 2025. (Includes the $40 million 2024 subsidy figure and projected $100M+ per budget cycle.) [<a href="https://urbanmilwaukee.com/2025/05/14/will-huge-data-centers-boost-wisconsins-tax-revenues/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Data Center Sales and Use Tax Exemption.&rdquo;
+                                <br /><em>Wisconsin Economic Development Corporation (WEDC)</em>. (Official program page, includes investment thresholds and qualifying criteria.) [<a href="https://wedc.org/programs/data-center-sales-and-use-tax-exemption/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Meta to invest more than $1B in Wisconsin data center campus.&rdquo;
+                                <br /><em>Wisconsin Public Radio</em>, November 2025. (Documents ~1,000 construction jobs and ~100 permanent jobs for the Beaver Dam facility.) [<a href="https://www.wpr.org/news/meta-beaver-dam-data-center-campus" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                Good Jobs First subsidy tracker and data center reporting.
+                                <br /><em>Good Jobs First</em>. (Tracks corporate subsidy deals nationally; found data center exemption programs drained nearly $1.5 billion in state and local revenue in 2023.) [<a href="https://goodjobsfirst.org" target="_blank">link</a>]
                             </li>
                         </ul>
                     </AccordionItem>

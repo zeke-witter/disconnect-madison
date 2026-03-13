@@ -6,7 +6,7 @@ export default function BreathePage() {
     return (
         <div className="w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <section className="mb-10">
-                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">Breathe</h1>
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-4">Breathe</h1>
                 <p className="text-(--secondary-accent) text-lg leading-relaxed">
                     Small tools to help you step out of the feed and back into your body.
                     Start with a breath.

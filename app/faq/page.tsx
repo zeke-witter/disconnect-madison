@@ -13,7 +13,7 @@ export default function Page() {
         <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
             <section aria-labelledby="faq-title" className="w-full mb-10">
-                <h1 id="faq-title" className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
+                <h1 id="faq-title" className="font-handjet text-5xl lg:text-7xl mb-4">
                     Frequently asked questions
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">

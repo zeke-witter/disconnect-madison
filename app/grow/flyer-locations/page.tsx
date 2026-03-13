@@ -150,7 +150,7 @@ export default function Page() {
                         ← Back to Help Us Grow
                     </Link>
                 </div>
-                <h1 id="locations-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
+                <h1 id="locations-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
                     Flyer locations
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">
@@ -159,7 +159,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="posted-heading" className="w-full mb-12">
-                <h2 id="posted-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">Posted</h2>
+                <h2 id="posted-heading" className="font-handjet text-4xl lg:text-5xl mb-6">Posted</h2>
                 <div className="space-y-6">
                     {posted.map(({ category, locations }) => (
                         <div key={category}>
@@ -189,7 +189,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="wishlist-heading" className="w-full mb-10">
-                <h2 id="wishlist-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">On the list</h2>
+                <h2 id="wishlist-heading" className="font-handjet text-4xl lg:text-5xl mb-3">On the list</h2>
                 <p className="text-(--secondary-accent) mb-8">
                     These are spots we'd like to reach. If you're a regular at any of them, or you're willing to make a stop, printing a flyer and asking to put it up would make a real difference. You can <Link href="/grow" className="underline hover:text-(--primary-color)">download a flyer on the grow page</Link>. If you know of a local business or organization that should be on the list, please <Link href="/contact">let us know</Link>, or feel free to bring a flyer there on our behalf :).
                 </p>
@@ -197,7 +197,7 @@ export default function Page() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {wishlist.map(({ category, locations }) => (
                         <div key={category} className="border border-(--border-color) rounded-lg p-5">
-                            <h3 className="font-handjet text-xl font-bold mb-3">{category}</h3>
+                            <h3 className="font-handjet text-xl mb-3">{category}</h3>
                             <ul className="space-y-1">
                                 {locations.map((loc) => (
                                     <li key={loc} className="text-sm text-(--secondary-accent)">{loc}</li>

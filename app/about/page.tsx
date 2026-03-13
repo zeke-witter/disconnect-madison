@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-10 w-full">About Disconnect Madison</h1>
+            <h1 className="font-handjet text-5xl lg:text-7xl mb-10 w-full">About Disconnect Madison</h1>
 
             <section aria-labelledby="mission" className="w-full mb-12">
                 <h2 id="mission" className="font-bold text-2xl mb-4 text-(--primary-color)">Our mission</h2>

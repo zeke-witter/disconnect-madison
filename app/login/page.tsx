@@ -34,7 +34,7 @@ export default function Page() {
 
     return (
         <div className="w-full max-w-xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl font-bold mb-8">Login</h1>
+            <h1 className="font-handjet text-5xl mb-8">Login</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <Field>
                     <Label className="block mb-1">Email</Label>

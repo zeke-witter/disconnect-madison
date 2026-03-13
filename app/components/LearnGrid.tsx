@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
 const DistractedDrivingChart = dynamic(() => import('./DistractedDrivingChart'), { ssr: false });
@@ -14,6 +15,7 @@ type Card = {
     title: string;
     hook: string;
     bullets: string[];
+    href?: string;
 };
 
 const DATA_TAGS = [
@@ -127,9 +129,9 @@ const CARDS: Card[] = [
         title: 'Your Data',
         hook: 'Social media apps know more about you than most people realize, and much of it is collected even when you\'re not actively posting.',
         bullets: [
-            'When you use a social media app, you\'re sharing more than you might expect: your location, device identifiers, browsing history, contacts, message timing, scroll speed, and behavioral patterns like how long you pause on a post.',
-            'Most platforms say they don\'t sell your data. What they do is share it with advertisers, measurement firms, and business partners. In practice, that distinction matters less than it sounds.',
-            'You have little control over where that data eventually goes. Companies are acquired. Data brokers buy and resell profile information. Servers are breached. Data that seems harmless in isolation can become sensitive when combined.',
+            'Have you ever heard someone say the algorithm knows you better than you know yourself? When you use a social media app, you\'re sharing more than you might expect: your location, device identifiers, browsing history, contacts, message timing, scroll speed, behavioral patterns like how long you pause on a post, and more.',
+            'Most platforms say they don\'t sell your data, but they DO "share" it with advertisers, measurement firms, and business partners. In practice, that distinction matters less than it sounds.',
+            'You have little control over where that data eventually goes. Companies are acquired. Data brokers buy and resell profile information. Servers are breached. Data that seems harmless in isolation can become sensitive when changing hands.',
             'Many apps request permissions (microphone, camera, contacts) that go well beyond their core function. The average user would need roughly 76 work days per year to read all the privacy policies they encounter.',
             'This is not specific to any one platform. It is a structural feature of the attention economy\'s business model: your attention is the product, and your data is what proves you paid it.',
         ],
@@ -139,11 +141,13 @@ const CARDS: Card[] = [
         category: 'bigger-picture',
         title: 'Data Centers & Ecological Impact',
         hook: 'The infrastructure powering social media consumes enormous amounts of energy and water, and AI-driven content is accelerating that demand.',
+        href: '/learn/ecological-impact',
         bullets: [
             'Global data center electricity consumption reached an estimated 200 to 250 TWh in 2022, roughly 1% of worldwide demand, and the share is growing as AI workloads expand.',
             'Many data centers require millions of gallons of water per day for cooling. Microsoft, Google, and Meta have all reported significant increases in water consumption alongside AI expansion.',
             'Video streaming (a major component of social media feeds) accounts for roughly 60% of global internet traffic and a substantial share of the sector\'s carbon footprint.',
             'The environmental costs are largely invisible to end users. Nothing in a social media app signals the physical resources consumed to deliver it.',
+            'Data centers arrive with big promises about jobs. The permanent employment numbers rarely match the pitch: Meta\'s $1 billion Beaver Dam facility, for example, is expected to create roughly 100 long-term positions. The Brookings Institution has noted that the standard data center model delivers short-term construction work but little durable local economic upside.',
         ],
     },
 ];
@@ -217,6 +221,7 @@ function TiltCard({ onClick, children }: { onClick: () => void; children: React.
 }
 
 export default function LearnGrid() {
+    const router = useRouter();
     const [activeFilter, setActiveFilter] = useState<Category>('all');
     const [openCard, setOpenCard] = useState<Card | null>(null);
 
@@ -230,8 +235,8 @@ export default function LearnGrid() {
                         key={f.value}
                         onClick={() => setActiveFilter(f.value)}
                         className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${activeFilter === f.value
-                                ? 'bg-(--primary-color) border-(--primary-color) text-white'
-                                : 'border-(--secondary-accent) text-(--secondary-accent) hover:border-(--primary-color) hover:text-(--primary-color)'
+                            ? 'bg-(--primary-color) border-(--primary-color) text-white'
+                            : 'border-(--secondary-accent) text-(--secondary-accent) hover:border-(--primary-color) hover:text-(--primary-color)'
                             }`}
                     >
                         {f.label}
@@ -296,6 +301,17 @@ export default function LearnGrid() {
                                 <li key={i}>{b}</li>
                             ))}
                         </ul>
+                        {openCard?.href && (
+                            <p className="mt-5 text-sm">
+                                <a
+                                    href={openCard.href}
+                                    className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                                    onClick={() => setOpenCard(null)}
+                                >
+                                    There&apos;s more. Read the full breakdown →
+                                </a>
+                            </p>
+                        )}
                     </DialogPanel>
                 </div>
             </Dialog>
