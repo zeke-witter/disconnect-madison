@@ -46,7 +46,7 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl font-bold text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
                             <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
                             <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
                         </div>

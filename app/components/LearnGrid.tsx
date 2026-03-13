@@ -42,6 +42,7 @@ const CARDS: Card[] = [
         category: 'wellbeing',
         title: 'Sleep Disruption',
         hook: 'Nighttime scrolling consistently delays sleep onset. Poor sleep is one of the strongest predictors of diminished mental and physical health.',
+        href: '/learn/sleep',
         bullets: [
             'Blue light from phone screens suppresses melatonin production, delaying the body\'s sleep signal even at moderate brightness levels.',
             'Social media triggers cognitive arousal (excitement, anxiety, FOMO) that competes with the mental wind-down sleep requires. The content itself is the problem, not just the light.',

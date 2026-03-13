@@ -60,6 +60,26 @@ export default function Page() {
                                 &ldquo;Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness.&rdquo;
                                 <br /><em>Proceedings of the National Academy of Sciences</em>, 2014. [<a href="https://doi.org/10.1073/pnas.1418490112" target="_blank">link</a>]
                             </li>
+                            <li>
+                                &ldquo;Associations between social media use and sleep quality are explained by emotion regulation strategies.&rdquo;
+                                <br /><em>Sleep Health</em>, 2019. [<a href="https://doi.org/10.1016/j.sleh.2019.02.010" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;The effect of social media on sleep quality: A systematic review.&rdquo;
+                                <br /><em>International Journal of Environmental Research and Public Health</em>, 2021. [<a href="https://doi.org/10.3390/ijerph18073485" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Teens and sleep: Why school start time matters.&rdquo;
+                                <br /><em>American Academy of Sleep Medicine</em>. [<a href="https://aasm.org/advocacy/position-statements/school-start-times/" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Bidirectional associations between social media use and sleep disturbances: cross-lagged panel study.&rdquo;
+                                <br /><em>Journal of Medical Internet Research</em>, 2022. [<a href="https://doi.org/10.2196/33631" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;1 in 3 adults don&rsquo;t get enough sleep.&rdquo;
+                                <br /><em>CDC newsroom</em>, 2016. [<a href="https://www.cdc.gov/media/releases/2016/p0215-enough-sleep.html" target="_blank">link</a>]
+                            </li>
                         </ul>
                     </AccordionItem>
 
