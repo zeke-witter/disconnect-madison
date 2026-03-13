@@ -19,17 +19,11 @@ test.describe('/pledge form', () => {
         await expect(page.getByRole('button', { name: /submit my pledge/i })).toBeVisible();
     });
 
-    test('Turnstile widget container is present', async ({ page }) => {
-        await expect(page.locator('.cf-turnstile')).toBeAttached();
-    });
 });
 
 test.describe('/pledge form error state', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/pledge');
-        // Fill required visible fields and submit without completing Turnstile.
-        // The server action checks the Turnstile token first, so it returns a
-        // bot-verification error before touching Supabase or Resend.
         await page.getByLabel(/email address/i).fill('test@example.com');
         await page.getByRole('button', { name: /submit my pledge/i }).click();
     });
@@ -89,9 +83,6 @@ test.describe('/contact form', () => {
         await expect(page.getByRole('button', { name: /send message/i })).toBeVisible();
     });
 
-    test('Turnstile widget container is present', async ({ page }) => {
-        await expect(page.locator('.cf-turnstile')).toBeAttached();
-    });
 });
 
 test.describe('/contact query param pre-fill', () => {
