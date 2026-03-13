@@ -8,6 +8,7 @@
   --primary-accent-hover: #a84331;
   --secondary-accent: #445D61;
   --nav-background: #2B5250;
+  --pill-selected-text: white;
 }
 
 @theme inline {
@@ -24,20 +25,24 @@
   :root:not([data-theme="light"]) {
     --background: #141C1B;
     --foreground: #EDEBE6;
-    --primary-accent: #c6523d;
+    --primary-accent: #e06858;
+    --primary-accent-hover: #ea7a6c;
     --primary-color: #4a948d;
     --secondary-accent: #91b0b6;
     --nav-background: #1F3D3A;
+    --pill-selected-text: #141C1B;
   }
 }
 
 :root[data-theme="dark"] {
   --background: #141C1B;
   --foreground: #EDEBE6;
-  --primary-accent: #c6523d;
+  --primary-accent: #e06858;
+  --primary-accent-hover: #ea7a6c;
   --primary-color: #4a948d;
   --secondary-accent: #91b0b6;
   --nav-background: #1F3D3A;
+  --pill-selected-text: #141C1B;
 }
 
 body {

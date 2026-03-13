@@ -240,7 +240,7 @@ export default function LearnGrid() {
                         key={f.value}
                         onClick={() => setActiveFilter(f.value)}
                         className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${activeFilter === f.value
-                            ? 'bg-(--primary-color) border-(--primary-color) text-white'
+                            ? 'bg-(--primary-color) border-(--primary-color) text-(--pill-selected-text)'
                             : 'border-(--secondary-accent) text-(--secondary-accent) hover:border-(--primary-color) hover:text-(--primary-color)'
                             }`}
                     >
