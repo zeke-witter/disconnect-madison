@@ -43,6 +43,14 @@ export default function Page() {
                                 &ldquo;Association of screen time and depression in adolescence.&rdquo;
                                 <br /><em>JAMA Pediatrics</em>, 2019. [<a href="https://doi.org/10.1001/jamapediatrics.2019.1759" target="_blank">link</a>]
                             </li>
+                            <li>
+                                &ldquo;Social media use and mental health: A review.&rdquo;
+                                <br />Memon et al. <em>Psychiatria Danubina</em>, 2020. [<a href="https://www.psychiatria-danubina.com/UserDocsImages/pdf/dnb_vol32_no2/dnb_vol32_no2_211.pdf" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Reexamining whether, why, and how smartphone use is related to adolescent well-being.&rdquo;
+                                <br />Orben &amp; Przybylski. <em>Psychological Science</em>, 2019. [<a href="https://doi.org/10.1177/0956797619900345" target="_blank">link</a>]
+                            </li>
                         </ul>
                     </AccordionItem>
 
@@ -96,6 +104,18 @@ export default function Page() {
                             <li>
                                 &ldquo;The attentional cost of receiving a cell phone notification.&rdquo;
                                 <br /><em>Journal of Experimental Psychology: Human Perception and Performance</em>, 2015. [<a href="https://doi.org/10.1037/xhp0000100" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Attention span: Finding focus for a fulfilling life.&rdquo;
+                                <br />Gloria Mark. Hanover Square Press, 2023. (Book, no URL.)
+                            </li>
+                            <li>
+                                &ldquo;The cost of interrupted work: More speed and stress.&rdquo;
+                                <br />Mark, Gudith &amp; Klocke. <em>CHI</em>, 2008. [<a href="https://doi.org/10.1145/1357054.1357072" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;A wandering mind is an unhappy mind.&rdquo;
+                                <br />Killingsworth &amp; Gilbert. <em>Science</em>, 2010. [<a href="https://doi.org/10.1126/science.1192439" target="_blank">link</a>]
                             </li>
                         </ul>
                     </AccordionItem>
@@ -179,6 +199,21 @@ export default function Page() {
                             <li>
                                 &ldquo;A systematic review of the impact of the use of social networking sites on body image and disordered eating outcomes.&rdquo;
                                 <br /><em>Body Image</em>, 2016. [<a href="https://doi.org/10.1016/j.bodyim.2016.02.008" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Instagram #Instasad?: Exploring associations among instagram use, depressive symptoms, negative social comparison, and strangers followed.&rdquo;
+                                <br />Lup, Trub &amp; Rosenthal. <em>Cyberpsychology, Behavior, and Social Networking</em>, 2015. [<a href="https://doi.org/10.1089/cyber.2014.0560" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Effect of exposure to images on social media on body image concerns among early adolescents.&rdquo;
+                                <br /><em>Body Image</em>, 2021. [<a href="https://doi.org/10.1016/j.bodyim.2021.04.001" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Appearance-related social comparison to peers on social media: A cross-sectional study among adolescents.&rdquo;
+                                <br />Kleemans et al. <em>Body Image</em>, 2018. [<a href="https://doi.org/10.1016/j.bodyim.2018.01.008" target="_blank">link</a>]
+                            </li>
+                            <li>
+                                &ldquo;Windows of developmental sensitivity to social media.&rdquo; Orben, Tomova &amp; Blakemore. <em>Nature Communications</em>, 2022. See also: Children &amp; adolescents section.
                             </li>
                         </ul>
                     </AccordionItem>
