@@ -478,7 +478,7 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
             )}
 
             <div className="text-center mb-8 max-w-md">
-                <h2 className="font-handjet text-4xl lg:text-5xl font-bold mb-2">{exercise.name}</h2>
+                <h2 className="font-handjet text-4xl lg:text-5xl mb-2">{exercise.name}</h2>
                 <p className="text-(--secondary-accent) text-sm mb-3">{exercise.tagline}</p>
                 <p className="text-(--secondary-accent) text-sm leading-relaxed">{exercise.description}</p>
             </div>

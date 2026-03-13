@@ -4,7 +4,7 @@ export default function NotFound() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <section className="w-full mb-16">
-                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-4">
                     Page not found
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-8">

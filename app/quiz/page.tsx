@@ -91,7 +91,7 @@ export default function Page() {
                         />
                     </div>
 
-                    <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-6">{result.title}</h1>
+                    <h1 className="font-handjet text-5xl lg:text-7xl mb-6">{result.title}</h1>
                     <p className="text-lg text-(--secondary-accent) leading-relaxed mb-10">{result.body}</p>
 
                     <div className="space-y-3 mb-10">
@@ -125,7 +125,7 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <section aria-labelledby="quiz-title" className="w-full mb-8">
-                <h1 id="quiz-title" className="font-handjet text-5xl lg:text-7xl font-bold mb-2">
+                <h1 id="quiz-title" className="font-handjet text-5xl lg:text-7xl mb-2">
                     How is your screen time affecting you?
                 </h1>
                 <p className="text-(--secondary-accent)">10 questions. No account needed. Nothing is recorded.</p>

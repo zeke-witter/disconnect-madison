@@ -36,7 +36,7 @@ export default function Page() {
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
             <section aria-labelledby="kids-heading" className="w-full mb-4">
-                <h1 id="kids-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-3">
+                <h1 id="kids-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
                     What it&apos;s doing to kids
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -46,7 +46,7 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl font-bold text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
                             <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
                             <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
                         </div>
@@ -55,7 +55,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="platform-reach" className="w-full mb-16">
-                <h2 id="platform-reach" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
+                <h2 id="platform-reach" className="font-handjet text-4xl lg:text-5xl mb-3">
                     Which platforms are they on?
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -68,7 +68,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="experts" className="w-full mb-16">
-                <h2 id="experts" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="experts" className="font-handjet text-4xl lg:text-5xl mb-6">
                     What experts say
                 </h2>
                 <div className="space-y-6">
@@ -92,7 +92,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="mental-health" className="w-full mb-16">
-                <h2 id="mental-health" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="mental-health" className="font-handjet text-4xl lg:text-5xl mb-6">
                     Mental health and suicide risk
                 </h2>
                 <div className="space-y-4 mb-10">
@@ -117,7 +117,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="brain" className="w-full mb-16">
-                <h2 id="brain" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="brain" className="font-handjet text-4xl lg:text-5xl mb-6">
                     Risks to brain development
                 </h2>
                 <div className="space-y-4">
@@ -137,7 +137,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-to-do" className="w-full mb-16">
-                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl mb-6">
                     What you can do
                 </h2>
                 <div className="space-y-4">

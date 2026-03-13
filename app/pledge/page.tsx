@@ -24,7 +24,7 @@ export default function Page() {
     if (state.success) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-[family-name:var(--font-space-grotesk)]">
-                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-4">Check your inbox</h1>
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-4">Check your inbox</h1>
                 <p className="text-lg text-(--secondary-accent) mb-2">
                     We sent a confirmation link to:
                 </p>
@@ -68,7 +68,7 @@ export default function Page() {
     return (
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-[family-name:var(--font-space-grotesk)]">
             <div className="flex-1 max-w-2xl">
-                <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-2 w-full">Take the 10-Day Pledge</h1>
+                <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Take the 10-Day Pledge</h1>
                 <p className="text-(--secondary-accent) mb-10 w-full">One step toward something better</p>
 
                 <form action={formAction} className="w-full">

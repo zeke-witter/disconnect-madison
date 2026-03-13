@@ -127,7 +127,7 @@ export default function Page() {
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
             <section aria-labelledby="grow-heading" className="w-full mb-10">
-                <h1 id="grow-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-4">
+                <h1 id="grow-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
                     Help us grow
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">
@@ -136,12 +136,12 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="tell-a-friend-heading" className="w-full mb-10">
-                <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">Tell your friends</h2>
+                <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl mb-3">Tell your friends</h2>
                 <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together. <span className="font-bold">If you&apos;ve taken the pledge, share your badge on social media.</span> We recognize the irony, but sharing helps with accountability and encourages others to be brave. We aim to meet people where they are, and the people who stand to benefit most from being more intentional about their screen time are spending their time on Instagram, TikTok, Facebook, etc.</p>
             </section>
 
             <section aria-labelledby="flyers-heading" className="w-full mb-10">
-                <h2 id="flyers-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
+                <h2 id="flyers-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
                     Print and post a flyer
                 </h2>
                 <p className="text-(--secondary-accent) mb-8">
@@ -152,10 +152,10 @@ export default function Page() {
                     The flyers say <span className="font-medium">disconnectmadison.org</span>, which redirects to this site. It&apos;s a local domain for Madison-area outreach. If you&apos;re outside Madison, WI and would prefer versions with a more generic URL, <Link href="/contact" className="underline hover:text-(--primary-color)">just ask</Link>.
                 </p>
 
-                <h3 className="font-handjet text-2xl font-bold mb-4">Color</h3>
+                <h3 className="font-handjet text-2xl mb-4">Color</h3>
                 <FlyerCarousel flyers={colorFlyers} />
 
-                <h3 className="font-handjet text-2xl font-bold mt-10 mb-2">Black and white</h3>
+                <h3 className="font-handjet text-2xl mt-10 mb-2">Black and white</h3>
                 <p className="text-sm text-(--secondary-accent) mb-4">Cheaper to print at home or a copy shop.</p>
                 <FlyerCarousel flyers={bwFlyers} />
 
@@ -165,7 +165,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="cards-heading" className="w-full mb-10">
-                <h2 id="cards-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
+                <h2 id="cards-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
                     Cards
                 </h2>
                 <p className="text-(--secondary-accent) mb-8">
@@ -175,7 +175,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
-                <h2 id="ideas-heading" className="font-handjet text-4xl lg:text-5xl font-bold mb-3">
+                <h2 id="ideas-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
                     Got an idea? Want to help?
                 </h2>
                 <p className="text-(--secondary-accent) mb-4">

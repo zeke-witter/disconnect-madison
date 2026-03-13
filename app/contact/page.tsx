@@ -89,7 +89,7 @@ function ContactForm() {
 export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl font-bold mb-2 w-full">Contact</h1>
+            <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
             <p className="text-(--secondary-accent) mb-4 w-full">
                 Have a question, idea, or want to collaborate? Let us know.
             </p>

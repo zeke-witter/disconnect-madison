@@ -12,7 +12,7 @@ export default function Page() {
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
             <section aria-labelledby="dependency-heading" className="w-full mb-8">
-                <h1 id="dependency-heading" className="font-handjet text-5xl lg:text-7xl font-bold mb-3">
+                <h1 id="dependency-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
                     Are we too dependent on our devices?
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-4">
@@ -21,7 +21,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="cognitive-offloading" className="w-full mb-8">
-                <h2 id="cognitive-offloading" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="cognitive-offloading" className="font-handjet text-4xl lg:text-5xl mb-6">
                     Cognitive offloading: tool or crutch?
                 </h2>
                 <div className="space-y-4">
@@ -38,7 +38,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="google-effect" className="w-full mb-16">
-                <h2 id="google-effect" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="google-effect" className="font-handjet text-4xl lg:text-5xl mb-6">
                     The Google Effect
                 </h2>
                 <div className="space-y-4">
@@ -55,7 +55,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="gps" className="w-full mb-16">
-                <h2 id="gps" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="gps" className="font-handjet text-4xl lg:text-5xl mb-6">
                     Navigation and spatial memory
                 </h2>
                 <div className="space-y-4">
@@ -72,7 +72,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="phone-presence" className="w-full mb-16">
-                <h2 id="phone-presence" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="phone-presence" className="font-handjet text-4xl lg:text-5xl mb-6">
                     The cost of just having it nearby
                 </h2>
                 <div className="space-y-4">
@@ -91,7 +91,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="ai-frontier" className="w-full mb-16">
-                <h2 id="ai-frontier" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="ai-frontier" className="font-handjet text-4xl lg:text-5xl mb-6">
                     AI and the next frontier
                 </h2>
                 <div className="space-y-4">
@@ -108,7 +108,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-to-do" className="w-full mb-16">
-                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl font-bold mb-6">
+                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl mb-6">
                     What you can do
                 </h2>
                 <div className="space-y-4">
