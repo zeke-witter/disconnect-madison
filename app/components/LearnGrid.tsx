@@ -30,6 +30,7 @@ const CARDS: Card[] = [
         category: 'wellbeing',
         title: 'Depression & Anxiety',
         hook: 'Limiting daily social media use can measurably reduce depression and anxiety scores, an effect documented in randomized experiments, not just surveys.',
+        href: '/learn/depression',
         bullets: [
             'A 2018 randomized experiment at the University of Pennsylvania assigned participants to limit Instagram, Facebook, and Snapchat to 10 minutes each per day. After three weeks, they reported significant reductions in loneliness and depression compared to the control group.',
             'The relationship appears dose-dependent: the more time spent, the stronger the association with worse outcomes, particularly for passive use (scrolling without interacting or posting).',
@@ -67,6 +68,7 @@ const CARDS: Card[] = [
         category: 'wellbeing',
         title: 'Body Image & Self-Perception',
         hook: 'Image-heavy platforms increase body dissatisfaction, especially in adolescents. Major platforms have acknowledged this in their own internal research.',
+        href: '/learn/body-image',
         bullets: [
             'A 2021 Wall Street Journal investigation revealed that Facebook\'s own internal research found Instagram made body image worse for one in three teenage girls.',
             'A systematic review of 20 studies found consistent links between social media use and body image concerns, with the strongest effects on appearance-focused platforms like Instagram and TikTok.',
@@ -79,6 +81,7 @@ const CARDS: Card[] = [
         category: 'mind',
         title: 'Attention & Focus',
         hook: 'Your phone doesn\'t have to be in your hand to affect your thinking. Its mere presence on a desk reduces working memory and fluid intelligence.',
+        href: '/learn/attention',
         bullets: [
             'A University of Texas study found that leaving a phone in another room produced better cognitive performance than keeping it on a desk, face-down and silent. Out of sight produced meaningfully better results.',
             'Heavy media multitaskers show reduced ability to filter irrelevant information and maintain working memory compared to light multitaskers, even when they aren\'t multitasking at the time of testing.',
@@ -111,6 +114,7 @@ const CARDS: Card[] = [
             'A study on tweens (ages 10 to 12) found that heavier smartphone use was associated with reduced capacity for complex critical thinking.',
             'Calculator and spell-check dependency show similar patterns: when tools handle the operation, the underlying skill atrophies from disuse. Smartphones and AI assistants may be accelerating this across a much wider range of cognitive functions.',
         ],
+        href: '/learn/dependency',
     },
     {
         id: 'polarization',

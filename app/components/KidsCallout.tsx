@@ -35,7 +35,7 @@ export default function KidsCallout() {
         >
             <h2
                 id="explore-heading"
-                className="font-handjet text-4xl lg:text-5xl font-bold mb-8"
+                className="font-handjet text-4xl lg:text-5xl mb-8"
             >
                 What&apos;s next
             </h2>
