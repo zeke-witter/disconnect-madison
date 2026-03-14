@@ -34,8 +34,8 @@ export default function Page() {
                         In 2026, 95% of American teens use social media, and more than a third say they use it "almost constantly." Nearly 40% of children ages 8–12 are on platforms with a minimum age of 13. A three-year brain imaging study found that adolescents who checked social media more than fifteen times a day developed increasing neural sensitivity to social rewards and punishments. Their developing brains were being reshaped by the feedback loop.
                     </p>
                     <p>The CDC&apos;s first national survey of teen social media use, published in 2024, found that three in four high schoolers use platforms several times a day, and that frequent use was associated with higher rates of bullying, persistent sadness, and suicidal ideation.</p>
-                    <p>These aren&apos;t edge cases. This is the default childhood experience in America right now.</p>
-                    <p>If you aren&apos;t ready to quit for your own sake, do it for the kids.</p>
+                    <p className="font-bold">These aren&apos;t edge cases. This is the default childhood experience in America right now.</p>
+                    <p>Even if you&apos;re content with the role social media plays in your life, you may want to consider quitting for the kids.</p>
                     <p className="pt-2">
                         <Link href="/learn/kids" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Read the full breakdown of what the research says about kids and social media →</Link>
                     </p>

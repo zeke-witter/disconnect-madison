@@ -32,6 +32,13 @@ export default function Page() {
 
             <HelpYourselfAccordion />
 
+            <section aria-labelledby="next-step" className="w-full mt-10 p-6 rounded-md border border-(--secondary-accent)/30 bg-(--secondary-accent)/5">
+                <h2 id="next-step" className="font-bold text-base mb-2 text-(--primary-color)">Ready to take the next step?</h2>
+                <p className="text-sm text-(--secondary-accent)">
+                    If you&apos;re thinking about deactivating or deleting accounts, our <Link href="/before-you-go">Before You Go</Link> guide walks through saving your data, reaching out to contacts, and how to leave at your own pace.
+                </p>
+            </section>
+
             <section aria-labelledby="kids-sources" className="w-full mt-6 text-sm text-(--secondary-accent)">
                 <h2 id="kids-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
                 <p>

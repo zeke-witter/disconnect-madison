@@ -168,8 +168,15 @@ export default function Page() {
 
             <aside className="lg:w-80 lg:mt-24 space-y-8 text-sm" aria-label="Guides for taking action">
                 <div>
+                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Preparing to step away?</h2>
+                    <p className="text-(--secondary-accent)">Before you deactivate or delete, read our guide on saving your data, reaching out to contacts, and leaving at your own pace.</p>
+                    <p><a href="/before-you-go" target="_blank" rel="noopener noreferrer">Read: Before You Go →</a></p>
+                </div>
+
+                <div>
                     <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Not sure what to do next?</h2>
-                    <p className="text-(--secondary-accent)">Our guide covers practical strategies for getting through the first two weeks, changing your environment, and staying off for good. <a href="/help-yourself">Read: How to Help Yourself →</a></p>
+                    <p className="text-(--secondary-accent)">Check out our practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
+                    <p><a href="/help-yourself" target="_blank" rel="noopener noreferrer">Read: How to Help Yourself →</a></p>
                 </div>
 
                 <div>
@@ -203,8 +210,9 @@ export default function Page() {
                     </ul>
                 </div>
 
+                <p className="text-xs text-(--secondary-accent) mb-2">All links open in a new tab.</p>
                 <p className="text-xs text-(--secondary-accent)">
-                    Links point to official platform documentation. Verify steps on each platform, as processes may change.
+                    The icon <span id="external-icon"></span> indicates links to official platform documentation. Verify steps on each platform, as processes may change.
                 </p>
             </aside>
         </div>

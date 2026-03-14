@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getNewsArticlesAction } from "@/lib/actions";
 
 export default async function NewsCarousel() {
@@ -18,9 +19,11 @@ export default async function NewsCarousel() {
                         className="link-news flex-shrink-0 w-64 rounded-md border border-(--secondary-accent) overflow-hidden hover:opacity-80 transition-opacity"
                     >
                         {article.image_url ? (
-                            <img
+                            <Image
                                 src={article.image_url}
                                 alt={article.title}
+                                width={256}
+                                height={144}
                                 className="w-full h-36 object-cover"
                             />
                         ) : (

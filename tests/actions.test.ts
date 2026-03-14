@@ -98,7 +98,6 @@ beforeEach(() => {
 
     mockResendSend.mockResolvedValue({ data: {}, error: null });
 
-    // Default fetch: Turnstile passes
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         json: () => Promise.resolve({ success: true }),
         text: () => Promise.resolve(''),
@@ -119,7 +118,6 @@ describe('submitPledgeAction', () => {
 
     it('returns error when email is missing', async () => {
         const fd = makeFormData({
-            'cf-turnstile-response': 'valid-token',
             'pledgeAction[id]': 'reduce_screen_time',
         });
         const result = await submitPledgeAction({}, fd);
@@ -158,7 +156,7 @@ describe('submitPledgeAction', () => {
 
 describe('submitContactAction', () => {
     it('returns error when required fields are missing', async () => {
-        const fd = makeFormData({ 'cf-turnstile-response': 'valid-token', name: 'Alice' });
+        const fd = makeFormData({ name: 'Alice' });
         const result = await submitContactAction({}, fd);
         expect(result).toEqual({ success: false, message: 'Please fill out all fields.' });
     });
