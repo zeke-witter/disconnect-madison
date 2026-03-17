@@ -496,7 +496,7 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
                 onClick={status === 'idle' ? handleStart : handleStop}
                 className={`font-handjet text-2xl font-bold px-10 py-3 rounded-sm transition-colors mb-4 ${
                     status === 'idle'
-                        ? 'bg-(--primary-color) text-[#E8D9BC] hover:opacity-90'
+                        ? 'bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90'
                         : 'border border-(--secondary-accent) hover:border-(--primary-accent) hover:text-(--primary-accent)'
                 }`}
             >

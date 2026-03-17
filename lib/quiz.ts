@@ -123,6 +123,7 @@ export const results: Record<ResultLevel, { title: string; body: string; links: 
         body: "Some of your habits suggest that social media may be taking a quiet toll. It's not a crisis, but there are real benefits to being more intentional about how and when you use it. Many people in this range find that even modest changes make a noticeable difference in mood, sleep, and focus.",
         links: [
             { href: '/help-yourself', label: 'How to help yourself' },
+            { href: '/breathe', label: 'Try a breathing exercise' },
             { href: '/pledge', label: 'Take the pledge' },
             { href: '/learn', label: 'Read the research' },
         ],
@@ -131,6 +132,7 @@ export const results: Record<ResultLevel, { title: string; body: string; links: 
         title: "Your phone might be taking more than you realize",
         body: "Your responses suggest that social media is affecting your sleep, mood, focus, or time in ways worth taking seriously. You're not alone! These platforms are engineered to make this hard to notice and harder to change. The good news: most people who step back, even briefly, notice meaningful improvements within the first couple of weeks.",
         links: [
+            { href: '/breathe', label: 'Try a breathing exercise' },
             { href: '/help-yourself', label: 'How to help yourself' },
             { href: '/pledge', label: 'Take the pledge' },
             { href: '/learn', label: 'Read the research' },

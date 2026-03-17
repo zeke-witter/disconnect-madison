@@ -2,7 +2,7 @@
 
 import { useState, useActionState } from 'react';
 import { submitPledgeAction, resendVerificationAction } from '@/lib/actions';
-import { Field, Fieldset, Input, Label, Legend, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react'
+import { Field, Input, Label, Radio, RadioGroup, Button, Checkbox } from '@headlessui/react'
 
 const initialState = {
     message: '',
@@ -72,8 +72,8 @@ export default function Page() {
                 <p className="text-(--secondary-accent) mb-10 w-full">One step toward something better</p>
 
                 <form action={formAction} className="w-full">
-                    <Fieldset className="space-y-8">
-                        <Legend className="sr-only">Pledge to free yourself from social media</Legend>
+                    <fieldset className="space-y-8 border-0 p-0 m-0">
+                        <legend className="sr-only">Pledge to free yourself from social media</legend>
 
                         {/* Honeypot field — hidden from real users, filled by bots */}
                         <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
@@ -82,7 +82,7 @@ export default function Page() {
                         </div>
 
                         <div>
-                            <p id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next 10 days?</p>
+                            <h2 id="pledge-action-label" className="font-bold text-lg mb-4">What do you pledge to do for the next 10 days?</h2>
                             <RadioGroup
                                 name="pledgeAction"
                                 value={selectedPledgeAction}
@@ -91,20 +91,19 @@ export default function Page() {
                                 className="space-y-3"
                             >
                                 {pledgeActions.map((action) => (
-                                    <Field key={action.id}>
-                                        <Radio
-                                            value={action}
-                                            className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--secondary-accent) p-4 transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)/10"
-                                        >
-                                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--secondary-accent) group-data-checked:border-(--primary-accent)">
-                                                <span className="invisible size-2.5 rounded-full bg-(--primary-accent) group-data-checked:visible" />
-                                            </span>
-                                            <Label className="cursor-pointer">
-                                                <span className="font-bold">{action.label}</span>
-                                                <span className="block text-sm text-(--secondary-accent)">{action.subtitle}</span>
-                                            </Label>
-                                        </Radio>
-                                    </Field>
+                                    <Radio
+                                        key={action.id}
+                                        value={action}
+                                        className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--secondary-accent) p-4 transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)/10"
+                                    >
+                                        <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--secondary-accent) group-data-checked:border-(--primary-accent)">
+                                            <span className="invisible size-2.5 rounded-full bg-(--primary-accent) group-data-checked:visible" />
+                                        </span>
+                                        <span className="cursor-pointer">
+                                            <span className="font-bold block">{action.label}</span>
+                                            <span className="block text-sm text-(--secondary-accent)">{action.subtitle}</span>
+                                        </span>
+                                    </Radio>
                                 ))}
                             </RadioGroup>
                         </div>
@@ -131,23 +130,24 @@ export default function Page() {
                                 value="true"
                                 checked={newsletterOptIn}
                                 onChange={setNewsletterOptIn}
+                                aria-labelledby="newsletter-label"
                                 className="group mt-0.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded border border-(--secondary-accent) transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)"
                             >
                                 <span className="invisible size-2.5 rounded-sm bg-white group-data-checked:visible" />
                             </Checkbox>
                             <div>
-                                <Label className="font-bold cursor-pointer">Keep me in the loop</Label>
+                                <Label id="newsletter-label" className="font-bold cursor-pointer">Keep me in the loop</Label>
                                 <p className="text-sm text-(--secondary-accent) mt-1">
                                     We don&apos;t have a newsletter right now, but we might someday. Check this if you&apos;d be open to updates from us. No spam, and we won&apos;t contact you for any other reason.
                                 </p>
                             </div>
                         </Field>
-                    </Fieldset>
+                    </fieldset>
 
                     <Button
                         type="submit"
                         disabled={isPending}
-                        className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-handjet text-2xl"
+                        className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-xl text-(--on-accent) transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-handjet text-2xl"
                     >
                         {isPending ? 'Submitting...' : 'Submit my pledge'}
                     </Button>

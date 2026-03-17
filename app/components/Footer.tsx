@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -6,10 +5,9 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                     <div>
-                        {/* <Image src="/logo.svg" alt="Disconnect Madison logo" width={180} height={180} className="mb-3" /> */}
-                        <p className="font-handjet text-2xl font-bold mb-3">Disconnect Madison</p>
+                        <h2 className="font-handjet text-2xl font-bold mb-3">Disconnect Madison</h2>
                         <p className="text-sm text-(--secondary-accent)">
-                            A community project encouraging intentional choices about social media and screen time.
+                            A community project encouraging intentional choices about social media, AI, and screen time.
                         </p>
                     </div>
 

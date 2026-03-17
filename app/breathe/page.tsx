@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { exercises } from './exercises';
 import BreathingExerciseClient from './BreathingExerciseClient';
+import GroundingExercise from './GroundingExercise';
+import Reminders from './Reminders';
 
 export default function BreathePage() {
     return (
@@ -13,8 +15,21 @@ export default function BreathePage() {
                 </p>
             </section>
 
-            <section aria-label="Breathing exercises" className="mb-12">
+            <section aria-label="Breathing exercises" className="mb-16">
                 <BreathingExerciseClient exercises={exercises} />
+            </section>
+
+            <section aria-labelledby="grounding-heading" className="w-full border-t border-(--secondary-accent)/20 pt-10 mb-16">
+                <h2 id="grounding-heading" className="font-handjet text-4xl lg:text-5xl mb-2">Ground yourself</h2>
+                <p className="text-(--secondary-accent) text-sm mb-8">
+                    The 5-4-3-2-1 technique. One tap per thing you notice.
+                </p>
+                <GroundingExercise />
+            </section>
+
+            <section aria-labelledby="reminders-heading" className="w-full border-t border-(--secondary-accent)/20 pt-10 mb-16">
+                <h2 id="reminders-heading" className="font-handjet text-4xl lg:text-5xl mb-8">Worth remembering</h2>
+                <Reminders />
             </section>
 
             <p className="text-sm text-(--secondary-accent) border-t border-(--secondary-accent)/30 pt-6">

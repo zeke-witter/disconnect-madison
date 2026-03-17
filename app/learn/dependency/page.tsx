@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrainDrainChart } from "./ChartsWrapper";
 
 export const metadata: Metadata = {
     title: "Are we too dependent on our devices?",
@@ -7,17 +8,50 @@ export const metadata: Metadata = {
     alternates: { canonical: "/learn/dependency" },
 };
 
+const stats = [
+    {
+        figure: "~10%",
+        detail: "lower working memory when phone is visible vs in another room",
+        source: "Ward et al., 2017",
+    },
+    {
+        figure: "86%",
+        detail: "of study participants believed phone location didn't affect performance — but it measurably did",
+        source: "Ward et al., 2017",
+    },
+    {
+        figure: "96×",
+        detail: "times the average American checks their phone each day",
+        source: "Asurion, 2019",
+    },
+    {
+        figure: "~4 hrs",
+        detail: "average daily US adult smartphone screen time",
+        source: "eMarketer, 2023",
+    },
+];
+
 export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
 
-            <section aria-labelledby="dependency-heading" className="w-full mb-8">
+            <section aria-labelledby="dependency-heading" className="w-full mb-4">
                 <h1 id="dependency-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
                     Are we too dependent on our devices?
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-4">
+                <p className="text-lg text-(--secondary-accent) mb-10">
                     Do you feel like you&apos;ve gotten worse at remembering things, doing math in your head, navigating without GPS, or thinking through complex problems on your own? You aren&apos;t imagining it.
                 </p>
+
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    {stats.map(({ figure, detail, source }) => (
+                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        </div>
+                    ))}
+                </div>
             </section>
 
             <section aria-labelledby="cognitive-offloading" className="w-full mb-8">
@@ -86,6 +120,13 @@ export default function Page() {
                     </div>
                     <p>
                         The researchers called this &ldquo;brain drain&rdquo;. The phone doesn&apos;t have to be in use to pull your attention. The habit of checking, and the anticipation of checking, occupies mental resources even when you&apos;re trying to focus on something else. The same device is simultaneously a cognitive tool and a cognitive tax.
+                    </p>
+                    <p className="text-(--secondary-accent) text-sm mt-6 mb-2">
+                        Average working memory score by phone location (Experiment 1). Higher is better.
+                    </p>
+                    <BrainDrainChart />
+                    <p className="text-xs text-(--secondary-accent) mt-3 text-right">
+                        Source: Ward et al., &ldquo;Brain Drain,&rdquo; <em>Journal of the Association for Consumer Research</em>, 2017. Approximate means from Figure 1A.
                     </p>
                 </div>
             </section>

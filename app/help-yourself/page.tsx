@@ -26,7 +26,7 @@ export default function Page() {
                     <p>
                         One thing we can say with confidence: the discomfort is temporary. A Georgetown University study found that participants who cut internet access on their phones for two weeks experienced meaningful reductions in anxiety and depression (improvements comparable to cognitive-behavioral therapy) and gained an average of 20 extra minutes of sleep per night. <span className="font-bold">Their attention spans improved by the equivalent of reversing about a decade of age-related cognitive decline.</span>
                     </p>
-                    <p>Just like changing any other habit-forming behavior, the hard part isn&apos;t staying away for a long time. It&apos;s getting through the first week or two.</p>
+                    <p>Just like changing any other habit-forming behavior, the hard part isn&apos;t staying away for a long time. It&apos;s getting through the first week or two. When the urge to scroll hits, a <Link href="/breathe">breathing exercise</Link> can buy you a moment of space before you reach for the phone.</p>
                 </div>
             </section>
 
