@@ -104,6 +104,13 @@ export default function Page() {
                 </p>
             </section>
 
+            <section aria-labelledby="breathe-cta" className="w-full mb-16 p-6 rounded-md border border-(--secondary-accent)/30 bg-(--secondary-accent)/5">
+                <h2 id="breathe-cta" className="font-bold text-base mb-2 text-(--primary-color)">Want to try stepping back right now?</h2>
+                <p className="text-sm text-(--secondary-accent)">
+                    A short breathing exercise can create some distance between the urge to scroll and the moment you act on it. <Link href="/breathe" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Try one now.</Link>
+                </p>
+            </section>
+
             <section aria-labelledby="share-your-story" className="w-full mb-16">
                 <h2 id="share-your-story" className="font-handjet text-4xl lg:text-5xl mb-4">
                     Share your story

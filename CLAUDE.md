@@ -133,6 +133,9 @@ public/
 - Fonts loaded via `next/font/google` and applied as CSS variables (`--font-handjet`, `--font-space-grotesk`, etc.)
 
 ### Accessibility
+- Target: WCAG 2.4 (Navigable) compliance — covers bypass blocks, page titles, focus order, link purpose, headings/labels, focus visibility, and more. Key rules: all link text must be descriptive (never "link", "here", or "click here"); pages must have meaningful titles; focus order must be logical; focus must be visible
+- Contrast ratios: 4.5:1 minimum for normal text, 3:1 for large text (18pt+ or 14pt+ bold) and UI components
+- Use WAVE (wave.webaim.org) for manual auditing
 - Semantic HTML elements (`nav`, `main`, `header`, `footer`)
 - ARIA attributes: `aria-label`, `aria-labelledby` on interactive and landmark elements
 - Accessible form controls via Headless UI (`Field`, `Label`, `RadioGroup`, etc.)

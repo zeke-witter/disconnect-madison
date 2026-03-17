@@ -56,10 +56,14 @@ export default function BeforeYouGoPage() {
                             {[
                                 { platform: 'Facebook', href: 'https://www.facebook.com/help/212802592074644', label: 'Download your Facebook data' },
                                 { platform: 'Instagram', href: 'https://help.instagram.com/181231772500920', label: 'Download your Instagram data' },
+                                { platform: 'Threads', href: 'https://help.instagram.com/181231772500920', label: 'Download your Threads data (via Instagram/Meta settings)' },
                                 { platform: 'X (Twitter)', href: 'https://help.x.com/en/managing-your-account/how-to-download-your-twitter-archive', label: 'Download your X archive' },
                                 { platform: 'TikTok', href: 'https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data', label: 'Request your TikTok data' },
                                 { platform: 'Snapchat', href: 'https://support.snapchat.com/en-US/a/download-my-data', label: 'Download your Snapchat data' },
                                 { platform: 'Reddit', href: 'https://www.reddit.com/settings/data-request', label: 'Request your Reddit data' },
+                                { platform: 'YouTube', href: 'https://takeout.google.com', label: 'Download your YouTube data (Google Takeout)' },
+                                { platform: 'Pinterest', href: 'https://help.pinterest.com/en/article/download-your-pinterest-data', label: 'Download your Pinterest data' },
+                                { platform: 'WhatsApp', href: 'https://faq.whatsapp.com/general/account-and-profile/how-to-request-an-account-report/', label: 'Request your WhatsApp data' },
                             ].map(({ platform, href, label }) => (
                                 <div key={platform} className="flex items-center justify-between px-4 py-3 gap-4">
                                     <span className="font-medium">{platform}</span>
@@ -129,10 +133,13 @@ export default function BeforeYouGoPage() {
                             {[
                                 { platform: 'Facebook', deactivate: { href: 'https://www.facebook.com/help/214376678584711', label: 'Deactivate' }, remove: { href: 'https://www.facebook.com/help/224562897555674', label: 'Delete' } },
                                 { platform: 'Instagram', deactivate: { href: 'https://help.instagram.com/370452623149242', label: 'Deactivate' }, remove: { href: 'https://help.instagram.com/370452623149242', label: 'Delete' } },
+                                { platform: 'Threads', deactivate: { href: 'https://help.instagram.com/558007373138554/', label: 'Deactivate' }, remove: { href: 'https://help.instagram.com/313703828012423/', label: 'Delete' } },
                                 { platform: 'X (Twitter)', deactivate: { href: 'https://help.x.com/en/managing-your-account/how-to-deactivate-x-account', label: 'Deactivate' }, remove: { href: 'https://help.x.com/en/managing-your-account/how-to-deactivate-x-account', label: 'Delete' } },
                                 { platform: 'TikTok', deactivate: { href: 'https://www.tiktok.com/community-guidelines/en/accounts-features', label: 'Deactivate' }, remove: { href: 'https://support.tiktok.com/en/account-and-privacy/deleting-an-account', label: 'Delete' } },
                                 { platform: 'Snapchat', deactivate: { href: 'https://support.snapchat.com/en-US/a/delete-my-account1', label: 'Deactivate' }, remove: { href: 'https://support.snapchat.com/en-US/a/delete-my-account1', label: 'Delete' } },
                                 { platform: 'Reddit', deactivate: null, remove: { href: 'https://www.reddit.com/settings', label: 'Delete' } },
+                                { platform: 'Pinterest', deactivate: { href: 'https://help.pinterest.com/en/article/deactivate-or-close-your-account', label: 'Deactivate' }, remove: { href: 'https://help.pinterest.com/en/article/deactivate-or-close-your-account', label: 'Delete' } },
+                                { platform: 'WhatsApp', deactivate: null, remove: { href: 'https://faq.whatsapp.com/general/account-and-profile/how-to-delete-my-account/', label: 'Delete' } },
                             ].map(({ platform, deactivate, remove }) => (
                                 <div key={platform} className="flex items-center justify-between px-4 py-3 gap-4">
                                     <span className="font-medium">{platform}</span>
@@ -151,6 +158,9 @@ export default function BeforeYouGoPage() {
                         </div>
                         <p className="text-sm text-(--secondary-accent)">
                             Links point to official platform help pages. Verify steps on each platform, as processes may change.
+                        </p>
+                        <p className="text-sm text-(--secondary-accent)">
+                            <strong>YouTube:</strong> deleting your channel removes it permanently but leaves your Google account intact. If you want to delete your Google account entirely, that&apos;s a separate step. <strong>WhatsApp:</strong> account deletion is immediate and wipes your message history from the app, so export any conversations you want to keep first.
                         </p>
                         <p className="pt-2">
                             Ready to make it official? <Link href="/pledge">Take the 10-day pledge →</Link>

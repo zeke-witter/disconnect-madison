@@ -229,8 +229,7 @@ export default function Page() {
                         If you want to do something tangible: know what your region&apos;s data center development looks like and who is deciding it. Talk to people who depend on the Lakes. And reduce the demand signal you personally send to platforms that have externalized these costs onto your watershed.
                     </p>
                     <p>
-                        <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good. Full citations for the research referenced on this page are on the{" "}
-                        <Link href="/sources" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Sources page</Link>.
+                        <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good.
                     </p>
                 </div>
             </section>

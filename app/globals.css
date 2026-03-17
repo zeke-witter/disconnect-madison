@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #E8D9BC;
-  --foreground: #1A1A1A;
-  --primary-color: #1A7268;
-  --primary-accent: #8C3A2B;
-  --primary-accent-hover: #a84331;
-  --secondary-accent: #445D61;
-  --nav-background: #2B5250;
-  --pill-selected-text: white;
+  --background: #141C1B;
+  --foreground: #EDEBE6;
+  --primary-accent: #e06858;
+  --primary-accent-hover: #ea7a6c;
+  --primary-color: #4a948d;
+  --secondary-accent: #91b0b6;
+  --nav-background: #1F3D3A;
+  --pill-selected-text: #141C1B;
+  --on-accent: #141C1B;
 }
 
 @theme inline {
@@ -21,17 +22,30 @@
   --text-on-light: var(--text-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --background: #141C1B;
-    --foreground: #EDEBE6;
-    --primary-accent: #e06858;
-    --primary-accent-hover: #ea7a6c;
-    --primary-color: #4a948d;
-    --secondary-accent: #91b0b6;
-    --nav-background: #1F3D3A;
-    --pill-selected-text: #141C1B;
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --background: #E8D9BC;
+    --foreground: #1A1A1A;
+    --primary-color: #1A7268;
+    --primary-accent: #8C3A2B;
+    --primary-accent-hover: #a84331;
+    --secondary-accent: #445D61;
+    --nav-background: #2B5250;
+    --pill-selected-text: white;
+    --on-accent: white;
   }
+}
+
+:root[data-theme="light"] {
+  --background: #E8D9BC;
+  --foreground: #1A1A1A;
+  --primary-color: #1A7268;
+  --primary-accent: #8C3A2B;
+  --primary-accent-hover: #a84331;
+  --secondary-accent: #445D61;
+  --nav-background: #2B5250;
+  --pill-selected-text: white;
+  --on-accent: white;
 }
 
 :root[data-theme="dark"] {
@@ -43,6 +57,7 @@
   --secondary-accent: #91b0b6;
   --nav-background: #1F3D3A;
   --pill-selected-text: #141C1B;
+  --on-accent: #141C1B;
 }
 
 body {
@@ -80,6 +95,23 @@ nav {
   background: var(--nav-background);
   border-color: var(--secondary-accent);
   color: #EDEBE6;
+}
+
+@keyframes reminder-in {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reminder-in {
+  animation: reminder-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 a[target="_blank"][href^="http"]:not([href*="disconnectmadison"]):not(.link-news):not(.link-card)::after,
