@@ -1,8 +1,22 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { addNewsArticleAction } from '@/lib/actions';
 import { Field, Input, Label, Button } from '@headlessui/react';
+
+function SubmitButton({ label }: { label: string }) {
+    const { pending } = useFormStatus();
+    return (
+        <Button
+            type="submit"
+            disabled={pending}
+            className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+            {pending ? 'Working...' : label}
+        </Button>
+    );
+}
 
 const initialState = {
     message: '',
@@ -54,12 +68,7 @@ export default function Page() {
                     </>
                 )}
 
-                <Button
-                    type="submit"
-                    className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500"
-                >
-                    {(state as any)?.needsManual ? 'Add manually' : 'Add article'}
-                </Button>
+                <SubmitButton label={(state as any)?.needsManual ? 'Add manually' : 'Add article'} />
 
                 {state?.message && !(state as any)?.needsManual && (
                     <p style={{ color: state.success ? 'green' : 'red' }}>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TiltWrapper from "./TiltWrapper";
 
 const cards = [
     {
@@ -41,7 +42,7 @@ export default function KidsCallout() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {cards.map((card) => (
-                    <div
+                    <TiltWrapper
                         key={card.number}
                         className={`rounded-lg p-6 flex flex-col gap-3 border ${card.emphasis
                             ? 'border-white/30 bg-white/10'
@@ -59,7 +60,7 @@ export default function KidsCallout() {
                         >
                             {card.cta} &rarr;
                         </Link>
-                    </div>
+                    </TiltWrapper>
                 ))}
             </div>
         </section>
