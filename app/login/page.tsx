@@ -23,7 +23,14 @@ export default function Page() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
 
         if (error) {
-            setError(error.message);
+            const msg = error.message.toLowerCase();
+            if (msg.includes('fetch') || msg.includes('network') || msg.includes('connect')) {
+                setError('Unable to connect. Check your internet connection and try again.');
+            } else if (msg.includes('invalid') || msg.includes('credentials') || msg.includes('password')) {
+                setError('Incorrect email or password.');
+            } else {
+                setError('Sign-in failed. Please try again.');
+            }
             setLoading(false);
             return;
         }
@@ -57,7 +64,7 @@ export default function Page() {
                 <Button
                     type="submit"
                     disabled={loading}
-                    className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500 disabled:opacity-50"
+                    className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                     {loading ? 'Signing in...' : 'Sign in'}
                 </Button>
