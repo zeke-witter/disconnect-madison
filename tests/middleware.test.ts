@@ -77,7 +77,7 @@ describe('middleware', () => {
         expect(result).toHaveProperty('cookies');
     });
 
-    it('config.matcher only matches /add-news', () => {
-        expect(config.matcher).toEqual(['/add-news']);
+    it('config.matcher matches /add-news and /dev', () => {
+        expect(config.matcher).toEqual(['/add-news', '/dev']);
     });
 });
