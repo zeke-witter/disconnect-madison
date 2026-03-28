@@ -1,9 +1,9 @@
-import { notFound } from 'next/navigation';
 import {
     getDevPledgesAction, deletePledgeAction, deleteAllPledgesAction,
     getDevNewsArticlesAction, deleteNewsArticleAction, deleteAllNewsArticlesAction,
 } from '@/lib/actions';
 import DarkModeToggle from '@/app/components/DarkModeToggle';
+import LogoutButton from '@/app/components/LogoutButton';
 
 const PLEDGE_LABELS: Record<string, string> = {
     reduce_screen_time: 'Reduce screen time',
@@ -12,8 +12,6 @@ const PLEDGE_LABELS: Record<string, string> = {
 };
 
 export default async function Page() {
-    if (process.env.VERCEL_ENV === 'production') notFound();
-
     const [pledges, articles] = await Promise.all([
         getDevPledgesAction(),
         getDevNewsArticlesAction(),
@@ -24,9 +22,11 @@ export default async function Page() {
             <div className="flex items-center justify-between mb-12">
                 <div>
                     <h1 className="font-handjet text-5xl">Dev Tools</h1>
-                    <p className="text-sm text-(--secondary-accent) mt-1">Dev/staging only — not available in production.</p>
                 </div>
-                <DarkModeToggle />
+                <div className="flex items-center gap-3">
+                    <DarkModeToggle />
+                    <LogoutButton />
+                </div>
             </div>
 
             {/* Pledges */}
