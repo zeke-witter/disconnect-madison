@@ -12,6 +12,7 @@ const PLEDGE_LABELS: Record<string, string> = {
 };
 
 export default async function Page() {
+    const canDelete = !process.env.VERCEL_ENV;
     const [pledges, articles] = await Promise.all([
         getAllPledgesAction(),
         getAllNewsArticlesAction(),
@@ -33,7 +34,7 @@ export default async function Page() {
             <section className="mb-16" aria-labelledby="pledges-heading">
                 <div className="flex items-center justify-between mb-4">
                     <h2 id="pledges-heading" className="font-handjet text-3xl">Pledges</h2>
-                    {pledges.length > 0 && (
+                    {canDelete && pledges.length > 0 && (
                         <form action={deleteAllPledgesAction}>
                             <button
                                 type="submit"
@@ -71,17 +72,19 @@ export default async function Page() {
                                     <td className="py-3 pr-4 text-(--secondary-accent)">
                                         {new Date(pledge.created_at).toLocaleString()}
                                     </td>
-                                    <td className="py-3">
-                                        <form action={deletePledgeAction}>
-                                            <input type="hidden" name="id" value={pledge.id} />
-                                            <button
-                                                type="submit"
-                                                className="text-(--primary-accent) hover:underline cursor-pointer"
-                                            >
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
+                                    {canDelete && (
+                                        <td className="py-3">
+                                            <form action={deletePledgeAction}>
+                                                <input type="hidden" name="id" value={pledge.id} />
+                                                <button
+                                                    type="submit"
+                                                    className="text-(--primary-accent) hover:underline cursor-pointer"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>
@@ -93,7 +96,7 @@ export default async function Page() {
             <section aria-labelledby="news-heading">
                 <div className="flex items-center justify-between mb-4">
                     <h2 id="news-heading" className="font-handjet text-3xl">News Articles</h2>
-                    {articles.length > 0 && (
+                    {canDelete && articles.length > 0 && (
                         <form action={deleteAllNewsArticlesAction}>
                             <button
                                 type="submit"
@@ -144,17 +147,19 @@ export default async function Page() {
                                     <td className="py-3 pr-4 text-(--secondary-accent) whitespace-nowrap">
                                         {new Date(article.created_at).toLocaleString()}
                                     </td>
-                                    <td className="py-3">
-                                        <form action={deleteNewsArticleAction}>
-                                            <input type="hidden" name="id" value={article.id} />
-                                            <button
-                                                type="submit"
-                                                className="text-(--primary-accent) hover:underline cursor-pointer"
-                                            >
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
+                                    {canDelete && (
+                                        <td className="py-3">
+                                            <form action={deleteNewsArticleAction}>
+                                                <input type="hidden" name="id" value={article.id} />
+                                                <button
+                                                    type="submit"
+                                                    className="text-(--primary-accent) hover:underline cursor-pointer"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>
