@@ -448,8 +448,7 @@ export async function getPledgesAction() {
  * Dev/staging only: fetch all pledge rows for the /dev management page.
  * Returns an empty array in production.
  */
-export async function getDevPledgesAction() {
-    if (process.env.VERCEL_ENV === 'production') return [];
+export async function getAllPledgesAction() {
 
     const { data, error } = await supabase
         .from('pledges')
@@ -457,7 +456,7 @@ export async function getDevPledgesAction() {
         .order('created_at', { ascending: false });
 
     if (error) {
-        console.error('getDevPledgesAction error:', error);
+        console.error('getAllPledgesAction error:', error);
         return [];
     }
 
@@ -469,7 +468,7 @@ export async function getDevPledgesAction() {
  * No-ops in production.
  */
 export async function deletePledgeAction(formData: FormData) {
-    if (process.env.VERCEL_ENV === 'production') return;
+    if (process.env.VERCEL_ENV) return;
     const id = formData.get('id') as string;
     await supabase.from('pledges').delete().eq('id', id);
     revalidatePath('/dev');
@@ -480,7 +479,7 @@ export async function deletePledgeAction(formData: FormData) {
  * No-ops in production.
  */
 export async function deleteAllPledgesAction() {
-    if (process.env.VERCEL_ENV === 'production') return;
+    if (process.env.VERCEL_ENV) return;
     await supabase.from('pledges').delete().in('confirmed', [true, false]);
     revalidatePath('/dev');
 }
@@ -503,31 +502,11 @@ export async function getAllNewsArticlesAction() {
 }
 
 /**
- * Dev/staging only: fetch all news article rows for the /dev management page.
- * Returns an empty array in production.
- */
-export async function getDevNewsArticlesAction() {
-    if (process.env.VERCEL_ENV === 'production') return [];
-
-    const { data, error } = await supabase
-        .from('news_articles')
-        .select('id, url, title, image_url, created_at')
-        .order('created_at', { ascending: false });
-
-    if (error) {
-        console.error('getDevNewsArticlesAction error:', error);
-        return [];
-    }
-
-    return data;
-}
-
-/**
  * Dev/staging only: delete a single news article row by id.
  * No-ops in production.
  */
 export async function deleteNewsArticleAction(formData: FormData) {
-    if (process.env.VERCEL_ENV === 'production') return;
+    if (process.env.VERCEL_ENV) return;
     const id = formData.get('id') as string;
     await supabase.from('news_articles').delete().eq('id', id);
     revalidatePath('/dev');
@@ -539,7 +518,7 @@ export async function deleteNewsArticleAction(formData: FormData) {
  * No-ops in production.
  */
 export async function deleteAllNewsArticlesAction() {
-    if (process.env.VERCEL_ENV === 'production') return;
+    if (process.env.VERCEL_ENV) return;
     await supabase.from('news_articles').delete().neq('id', '00000000-0000-0000-0000-000000000000');
     revalidatePath('/dev');
     revalidatePath('/');
