@@ -7,6 +7,7 @@ import { Field, Input, Label, Button } from '@headlessui/react';
 
 export default function Page() {
     const [error, setError] = useState('');
+    const [rawError, setRawError] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const supabase = createBrowserClient();
@@ -23,6 +24,7 @@ export default function Page() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
 
         if (error) {
+            setRawError(error.message);
             const msg = error.message.toLowerCase();
             if (msg.includes('fetch') || msg.includes('network') || msg.includes('connect')) {
                 setError('Unable to connect. Check your internet connection and try again.');
@@ -69,7 +71,10 @@ export default function Page() {
                     {loading ? 'Signing in...' : 'Sign in'}
                 </Button>
                 {error && (
-                    <p style={{ color: 'red' }}>{error}</p>
+                    <div>
+                        <p style={{ color: 'red' }}>{error}</p>
+                        <p className="text-xs text-(--secondary-accent) mt-1">Details: {rawError}</p>
+                    </div>
                 )}
             </form>
         </div>
