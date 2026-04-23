@@ -67,7 +67,7 @@ body {
 }
 
 main {
-  a:not(#pledge-button, #button-back-home) {
+  a:not(#pledge-button, #button-back-home, #paypal-donate-button) {
     color: var(--primary-accent);
     text-decoration: underline;
 

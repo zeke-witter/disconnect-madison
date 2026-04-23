@@ -42,6 +42,7 @@ export default function Footer() {
                         <ul className="space-y-2 text-sm">
                             <li><a href="/contact">Contact us</a></li>
                             <li><a href="/grow">Help us grow</a></li>
+                            <li><a href="/donate">Donate</a></li>
                         </ul>
                     </div>
                 </div>
