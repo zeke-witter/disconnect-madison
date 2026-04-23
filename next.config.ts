@@ -6,12 +6,12 @@ import type { NextConfig } from "next";
 // nonces threaded through middleware. Maybe a down-the-road item.
 const CSP = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'",
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''} https://secure.givelively.org`,
+    "style-src 'self' 'unsafe-inline' https://secure.givelively.org",
+    "img-src 'self' data: blob: https://secure.givelively.org",
     "font-src 'self' https://fonts.gstatic.com",
-    `connect-src 'self' ${process.env.NEXT_PUBLIC_SUPABASE_URL}`,
-    "frame-src 'none'",
+    `connect-src 'self' ${process.env.NEXT_PUBLIC_SUPABASE_URL} https://secure.givelively.org`,
+    "frame-src https://secure.givelively.org",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",

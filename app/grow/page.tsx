@@ -174,6 +174,23 @@ export default function Page() {
                 <FlyerCarousel flyers={cards} aspectRatio="3.5 / 2" />
             </section>
 
+            <section aria-labelledby="donate-heading" className="w-full mb-10">
+                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                    Make a donation
+                </h2>
+                <p className="text-(--secondary-accent) mb-4">
+                    Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
+                </p>
+                <p>
+                    <Link
+                        href="/donate"
+                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                    >
+                        Visit the donate page →
+                    </Link>
+                </p>
+            </section>
+
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
                 <h2 id="ideas-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
                     Got an idea? Want to help?
