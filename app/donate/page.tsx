@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-const GIVE_LIVELY_WIDGET_URL = 'https://secure.givelively.org/widgets/simple_donation/disconnect-society-inc.js?show_suggested_amount_buttons=true&show_in_honor_of=true&address_required=false&has_required_custom_question=false&suggested_donation_amounts[]=10&suggested_donation_amounts[]=25&suggested_donation_amounts[]=50&suggested_donation_amounts[]=100';
+const GIVE_LIVELY_WIDGET_URL = 'https://secure.givelively.org/widgets/simple_donation/disconnect-society-inc.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=false&suggested_donation_amounts[]=10&suggested_donation_amounts[]=25&suggested_donation_amounts[]=50&suggested_donation_amounts[]=100';
 
 const PAYPAL_DONATE_URL = 'https://www.paypal.com/ncp/payment/2M95VS5D6F5WW';
 
