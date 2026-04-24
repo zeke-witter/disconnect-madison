@@ -43,7 +43,7 @@ export default function DonatePage() {
                     href={PAYPAL_DONATE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block border border-amber-400/70 text-amber-300 font-medium px-6 py-3 rounded-sm hover:border-amber-400 hover:bg-amber-400/10 transition-colors no-underline"
+                    className="inline-block border border-amber-700/70 text-amber-700 font-medium px-6 py-3 rounded-sm hover:border-amber-700 hover:bg-amber-700/10 transition-colors no-underline dark:border-amber-400/70 dark:text-amber-300 dark:hover:border-amber-400 dark:hover:bg-amber-400/10"
                 >
                     Donate with PayPal
                 </a>
