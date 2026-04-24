@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 const GIVE_LIVELY_WIDGET_URL = 'https://secure.givelively.org/widgets/simple_donation/disconnect-society-inc.js?show_suggested_amount_buttons=true&show_in_honor_of=false&address_required=false&has_required_custom_question=false&suggested_donation_amounts[]=10&suggested_donation_amounts[]=25&suggested_donation_amounts[]=50&suggested_donation_amounts[]=100';
 
@@ -38,15 +39,27 @@ export default function DonatePage() {
                 <p className="text-(--secondary-accent) mb-5">
                     You can also give through PayPal. All PayPal donations go to the same place and are equally tax-deductible.
                 </p>
-                <a
-                    id="paypal-donate-button"
-                    href={PAYPAL_DONATE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block border border-amber-700/70 text-amber-700 font-medium px-6 py-3 rounded-sm hover:border-amber-700 hover:bg-amber-700/10 transition-colors no-underline dark:border-amber-400/70 dark:text-amber-300 dark:hover:border-amber-400 dark:hover:bg-amber-400/10"
-                >
-                    Donate with PayPal
-                </a>
+                <div className="flex flex-col sm:flex-row items-start gap-6">
+                    <a
+                        id="paypal-donate-button"
+                        href={PAYPAL_DONATE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block border border-amber-400/70 text-amber-300 font-medium px-6 py-3 rounded-sm hover:border-amber-400 hover:bg-amber-400/10 transition-colors no-underline"
+                    >
+                        Donate with PayPal
+                    </a>
+                    <div className="flex flex-col items-center gap-2">
+                        <Image
+                            src="/paypal-qr.png"
+                            alt="PayPal QR code for donating to Disconnect Madison"
+                            width={120}
+                            height={120}
+                            className="rounded-sm"
+                        />
+                        <p className="text-xs text-(--secondary-accent)">Scan to donate</p>
+                    </div>
+                </div>
             </section>
 
         </div>
