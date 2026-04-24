@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/breathe`,                     lastModified: new Date('2026-03-16'), changeFrequency: 'yearly',  priority: 0.5 },
 
     // Community / info
-    { url: `${baseUrl}/about`,                       lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/about`,                       lastModified: new Date('2026-04-24'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/grow`,                        lastModified: new Date('2026-04-22'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/grow/flyer-locations`,        lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/faq`,                         lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.6 },
