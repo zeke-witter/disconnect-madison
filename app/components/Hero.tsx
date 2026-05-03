@@ -22,7 +22,7 @@ export default function Hero() {
       </div>
       <div className="flex justify-center w-full max-w-5xl pb-8">
         <p className="text-xs text-(--secondary-accent) pt-6">
-          Nothing to sell you, no tracking, no data collection, no spam. This is <em>truly</em> free.
+          A registered 501(c)(3) nonprofit. Nothing to sell you, no tracking, no data collection, no spam. This is <em>truly</em> free.
         </p>
       </div>
     </div>

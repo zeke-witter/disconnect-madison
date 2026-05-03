@@ -149,6 +149,12 @@ export default function Page() {
                     </p>
                 </AccordionItem>
 
+                <AccordionItem title="Is Disconnect Madison a nonprofit? Are donations tax-deductible?">
+                    <p>
+                        Yes. Disconnect Madison is a registered 501(c)(3) nonprofit organization (EIN: 41-4974551). Donations are tax-deductible to the extent permitted by law. You can donate through the <Link href="/donate">donate page</Link>, which accepts credit cards via Give Lively and PayPal.
+                    </p>
+                </AccordionItem>
+
                 <AccordionItem title="How can I help or get involved?">
                     <p className="mb-4">
                         We&apos;re glad you asked. Take a look at the <Link href="/grow">Grow page</Link> for a few specific ways to help, including a printable flyer you can post around your community. If you have skills you&apos;d like to contribute, especially in graphic design, community organizing, or outreach, <Link href="/contact">get in touch</Link> and tell us what you have in mind.

@@ -25,7 +25,7 @@ export default function DonatePage() {
                     Disconnect Madison is a 501(c)(3) nonprofit run by one person with no staff and no paid advertising. Your donation helps keep the site running, fund printed materials, and reach more people across Madison and beyond.
                 </p>
                 <p className="text-(--secondary-accent)">
-                    All donations are tax-deductible. Every dollar goes directly toward the work.
+                    All donations are tax-deductible to the extent permitted by law. EIN: 41-4974551. Every dollar goes directly toward the work.
                 </p>
             </section>
 

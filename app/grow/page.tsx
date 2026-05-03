@@ -131,7 +131,7 @@ export default function Page() {
                     Help us grow
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">
-                    Disconnect Madison is a community project operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
+                    Disconnect Madison is a registered 501(c)(3) nonprofit operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
                 </p>
             </section>
 
