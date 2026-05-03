@@ -7,7 +7,7 @@ export default function Footer() {
                     <div>
                         <h2 className="font-handjet text-2xl font-bold mb-3">Disconnect Madison</h2>
                         <p className="text-sm text-(--secondary-accent)">
-                            A community project encouraging intentional choices about social media, AI, and screen time.
+                            A registered 501(c)(3) nonprofit encouraging intentional choices about social media, AI, and screen time.
                         </p>
                     </div>
 

@@ -33,6 +33,7 @@ export default function Page() {
                     <div>
                         <h3 className="font-bold mb-2">This is:</h3>
                         <ul className="list-disc pl-6 space-y-1">
+                            <li>A registered 501(c)(3) nonprofit</li>
                             <li>A voluntary commitment</li>
                             <li>A civic experiment</li>
                             <li>A cultural statement</li>

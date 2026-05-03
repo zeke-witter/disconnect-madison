@@ -131,7 +131,24 @@ export default function Page() {
                     Help us grow
                 </h1>
                 <p className="text-lg text-(--secondary-accent)">
-                    Disconnect Madison is a community project operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
+                    Disconnect Madison is a registered 501(c)(3) nonprofit operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
+                </p>
+            </section>
+
+            <section aria-labelledby="donate-heading" className="w-full mb-10">
+                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                    Make a donation
+                </h2>
+                <p className="text-(--secondary-accent) mb-4">
+                    Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
+                </p>
+                <p>
+                    <Link
+                        href="/donate"
+                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                    >
+                        Visit the donate page →
+                    </Link>
                 </p>
             </section>
 
@@ -172,23 +189,6 @@ export default function Page() {
                     Small enough to keep in your pocket or wallet. Hand one to someone in conversation, or leave a few somewhere people might pick them up. Click a card to open it as a PDF. No littering!
                 </p>
                 <FlyerCarousel flyers={cards} aspectRatio="3.5 / 2" />
-            </section>
-
-            <section aria-labelledby="donate-heading" className="w-full mb-10">
-                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
-                    Make a donation
-                </h2>
-                <p className="text-(--secondary-accent) mb-4">
-                    Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
-                </p>
-                <p>
-                    <Link
-                        href="/donate"
-                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
-                    >
-                        Visit the donate page →
-                    </Link>
-                </p>
             </section>
 
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
