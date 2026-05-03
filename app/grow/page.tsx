@@ -135,6 +135,23 @@ export default function Page() {
                 </p>
             </section>
 
+            <section aria-labelledby="donate-heading" className="w-full mb-10">
+                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                    Make a donation
+                </h2>
+                <p className="text-(--secondary-accent) mb-4">
+                    Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
+                </p>
+                <p>
+                    <Link
+                        href="/donate"
+                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                    >
+                        Visit the donate page →
+                    </Link>
+                </p>
+            </section>
+
             <section aria-labelledby="tell-a-friend-heading" className="w-full mb-10">
                 <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl mb-3">Tell your friends</h2>
                 <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together. <span className="font-bold">If you&apos;ve taken the pledge, share your badge on social media.</span> We recognize the irony, but sharing helps with accountability and encourages others to be brave. We aim to meet people where they are, and the people who stand to benefit most from being more intentional about their screen time are spending their time on Instagram, TikTok, Facebook, etc.</p>
@@ -172,23 +189,6 @@ export default function Page() {
                     Small enough to keep in your pocket or wallet. Hand one to someone in conversation, or leave a few somewhere people might pick them up. Click a card to open it as a PDF. No littering!
                 </p>
                 <FlyerCarousel flyers={cards} aspectRatio="3.5 / 2" />
-            </section>
-
-            <section aria-labelledby="donate-heading" className="w-full mb-10">
-                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
-                    Make a donation
-                </h2>
-                <p className="text-(--secondary-accent) mb-4">
-                    Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
-                </p>
-                <p>
-                    <Link
-                        href="/donate"
-                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
-                    >
-                        Visit the donate page →
-                    </Link>
-                </p>
             </section>
 
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
