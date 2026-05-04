@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <div id="hero" className="flex flex-col items-center text-center w-full font-space-grotesk text-xl">
       <div className="flex justify-center w-full max-w-7xl">
-        <h1 className="font-handjet text-4xl sm:text-4xl md:text-7xl py-8">HELLO TANISHA<br /><span className="text-5xl sm:text-5xl md:text-8xl">WHAT IS IT GETTING FROM YOU?</span></h1>
+        <h1 className="font-handjet text-4xl sm:text-4xl md:text-7xl py-8">WHAT ARE YOU GETTING FROM SOCIAL MEDIA?<br /><span className="text-5xl sm:text-5xl md:text-8xl">WHAT IS IT GETTING FROM YOU?</span></h1>
       </div>
       <div className="flex justify-center w-full max-w-6xl">
         <p>Most of us use it out of habit or social pressure more than intention. While social media <em>can</em> connect people, the platforms aren&apos;t designed around your wellbeing. They&apos;re designed around your attention, and they&apos;re very good at keeping it.</p>
