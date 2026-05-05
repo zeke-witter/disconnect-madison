@@ -8,7 +8,7 @@ const CSP = [
     "default-src 'self'",
     `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''} https://secure.givelively.org`,
     "style-src 'self' 'unsafe-inline' https://secure.givelively.org",
-    "img-src 'self' data: blob: https://secure.givelively.org",
+    "img-src 'self' data: blob: https:",
     "font-src 'self' https://fonts.gstatic.com",
     `connect-src 'self' ${process.env.NEXT_PUBLIC_SUPABASE_URL} https://secure.givelively.org`,
     "frame-src https://secure.givelively.org",

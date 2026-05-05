@@ -37,5 +37,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/add-news', '/dev'],
+    matcher: ['/add-news', '/dev', '/events/add'],
 };

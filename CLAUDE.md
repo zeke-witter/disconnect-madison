@@ -151,8 +151,114 @@ public/
 
 ### Current State
 - Database: Supabase PostgreSQL with two tables — `pledges` (email, pledge_action, confirmed, verification_token, newsletter_opt_in) and `news_articles` (url, title, image_url)
-- Auth: Supabase Auth (password-based) protects `/add-news` via `middleware.ts`; `createServerAuthClient()` in `lib/supabase-auth.ts` handles SSR cookie-based sessions
-- Email: Resend sends pledge verification emails and contact form messages, all from `noreply@disconnectsociety.org`
+- Auth: Supabase Auth (password-based) protects `/add-news` and `/dev` via `middleware.ts`; `createServerAuthClient()` in `lib/supabase-auth.ts` handles SSR cookie-based sessions
+- Email: Resend sends pledge verification emails and contact form messages, all from `hello@disconnectmadison.org`
 - Bot protection: Cloudflare Turnstile on pledge and contact forms; honeypot field on pledge form
 - OG/Twitter metadata is complete in `lib/metadata.ts`
 - All pages are fully implemented
+
+---
+
+## Architecture
+
+### System Overview
+
+```mermaid
+graph TB
+    subgraph Browser["Browser"]
+        Visitor["Public Visitor"]
+        Admin["Admin User"]
+    end
+
+    subgraph Vercel["Vercel"]
+        Middleware["middleware.ts\nAuth guard"]
+        subgraph App["Next.js App Router"]
+            Public["Public Pages\n/, /learn, /pledge, /quiz\n/donate, /events, etc."]
+            Protected["Protected Pages\n/add-news, /dev, /admin/*"]
+            Actions["lib/actions.ts\nServer Actions"]
+        end
+    end
+
+    Supabase[("Supabase\nPostgreSQL + Auth")]
+    Resend["Resend\nEmail API"]
+    Turnstile["Cloudflare\nTurnstile"]
+    Wayback["Wayback Machine\n(non-blocking archival)"]
+
+    Visitor --> Public
+    Admin --> Middleware
+    Middleware -->|"valid session"| Protected
+    Middleware -->|"no session"| Login["/login redirect"]
+    Public --> Actions
+    Protected --> Actions
+    Actions --> Supabase
+    Actions --> Resend
+    Public --> Turnstile
+    Actions -.->|"non-blocking"| Wayback
+```
+
+### Database Schema
+
+Tables marked `[planned]` are defined in the events/email-list plan but not yet migrated.
+
+```mermaid
+erDiagram
+    pledges {
+        uuid id PK
+        text email
+        text pledge_action "reduce_screen_time|take_a_break|quit_for_good"
+        boolean confirmed
+        uuid verification_token UK
+        boolean newsletter_opt_in
+        text referral_source
+        timestamptz created_at
+    }
+
+    news_articles {
+        uuid id PK
+        text url UK
+        text title
+        text image_url
+        text archived_url
+        timestamptz created_at
+    }
+
+    events["events [planned]"] {
+        uuid id PK
+        text title
+        text description
+        timestamptz date
+        timestamptz end_date
+        text location_name
+        text location_address
+        boolean registration_required
+        integer capacity
+        text cover_image_url
+        boolean published
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    event_registrations["event_registrations [planned]"] {
+        uuid id PK
+        uuid event_id FK
+        text name
+        text email
+        uuid cancellation_token UK
+        boolean waitlisted
+        boolean cancelled
+        timestamptz created_at
+    }
+
+    email_drafts["email_drafts [planned]"] {
+        uuid id PK
+        uuid event_id FK
+        text subject
+        text body_html
+        text status "draft|sent"
+        timestamptz created_at
+        timestamptz sent_at
+    }
+
+    events ||--o{ event_registrations : "has registrations"
+    events ||--o{ email_drafts : "can generate"
+```

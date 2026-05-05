@@ -4,6 +4,7 @@ import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 import { createServerAuthClient } from '@/lib/supabase-auth';
+import type { EventRow } from '@/lib/types';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -522,4 +523,133 @@ export async function deleteAllNewsArticlesAction() {
     await supabase.from('news_articles').delete().neq('id', '00000000-0000-0000-0000-000000000000');
     revalidatePath('/dev');
     revalidatePath('/');
+}
+
+// ---------------------------------------------------------------------------
+// Events
+// ---------------------------------------------------------------------------
+
+/**
+ * Public: fetch all published events ordered by date ascending.
+ * Used on the public /events page.
+ */
+export async function getPublishedEventsAction(): Promise<EventRow[]> {
+    const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .eq('published', true)
+        .order('date', { ascending: true });
+
+    if (error) {
+        console.error('getPublishedEventsAction error:', error);
+        return [];
+    }
+    return data as EventRow[];
+}
+
+/**
+ * Public: fetch a single published event by id.
+ * Returns null if not found or not published.
+ */
+export async function getPublishedEventAction(id: string): Promise<EventRow | null> {
+    const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .eq('id', id)
+        .eq('published', true)
+        .single();
+
+    if (error) return null;
+    return data as EventRow;
+}
+
+/**
+ * Admin: fetch all events (published and draft) ordered by date ascending.
+ * Returns an empty array if not authenticated.
+ */
+export async function getAllEventsAction(): Promise<EventRow[]> {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return [];
+
+    const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .order('date', { ascending: true });
+
+    if (error) {
+        console.error('getAllEventsAction error:', error);
+        return [];
+    }
+    return data as EventRow[];
+}
+
+/**
+ * Admin: create or update an event.
+ *
+ * If formData contains a non-empty `id` field, the matching row is updated.
+ * Otherwise a new row is inserted. Requires an authenticated session.
+ * All times are stored as-entered (Central Time assumed by convention).
+ */
+export async function saveEventAction(prevState: any, formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return { success: false, message: 'Unauthorized.' };
+
+    const id = (formData.get('id') as string | null)?.trim() || null;
+    const title = (formData.get('title') as string).trim();
+    const date = (formData.get('date') as string).trim();
+    const end_date = (formData.get('end_date') as string).trim() || null;
+    const location_name = (formData.get('location_name') as string).trim();
+    const location_address = (formData.get('location_address') as string).trim() || null;
+    const description = (formData.get('description') as string).trim();
+    const capacityRaw = (formData.get('capacity') as string).trim();
+    const capacity = capacityRaw ? Number(capacityRaw) : null;
+    const registration_required = formData.get('registration_required') === 'on';
+    const cover_image_url = (formData.get('cover_image_url') as string).trim() || null;
+    const published = formData.get('published') === 'on';
+
+    if (!title) return { success: false, message: 'Title is required.' };
+    if (!date) return { success: false, message: 'Date is required.' };
+    if (!location_name) return { success: false, message: 'Location is required.' };
+
+    const payload = {
+        title, date, end_date, location_name, location_address,
+        description, capacity, registration_required, cover_image_url, published,
+    };
+
+    if (id) {
+        const { error } = await supabase.from('events').update(payload).eq('id', id);
+        if (error) {
+            console.error('saveEventAction update error:', error);
+            return { success: false, message: 'Failed to update event.' };
+        }
+    } else {
+        const { error } = await supabase.from('events').insert(payload);
+        if (error) {
+            console.error('saveEventAction insert error:', error);
+            return { success: false, message: 'Failed to create event.' };
+        }
+    }
+
+    revalidatePath('/events');
+    revalidatePath('/events/add');
+    return { success: true, message: id ? 'Event updated.' : 'Event created.' };
+}
+
+/**
+ * Admin: permanently delete an event by id.
+ * Requires an authenticated session.
+ */
+export async function deleteEventAction(formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return;
+
+    const id = formData.get('id') as string;
+    if (!id) return;
+
+    await supabase.from('events').delete().eq('id', id);
+    revalidatePath('/events');
+    revalidatePath('/events/add');
 }
