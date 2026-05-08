@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Link from 'next/link';
 import { marked } from 'marked';
-import { getAllEventsAction, saveEventAction, deleteEventAction } from '@/lib/actions';
+import { getAllEventsAction, saveEventAction, deleteEventAction, createEventEmailDraftAction } from '@/lib/actions';
 import type { EventRow } from '@/lib/types';
 
 marked.use({ breaks: true, gfm: true });
@@ -46,6 +47,8 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
+    const [draftingEmailFor, setDraftingEmailFor] = useState<string | null>(null);
+    const [draftResult, setDraftResult] = useState<{ id: string; success: boolean; message: string } | null>(null);
 
     const set = (field: string, value: any) =>
         setForm(prev => ({ ...prev, [field]: value }));
@@ -117,6 +120,15 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
         setMode('list');
     }
 
+    async function handleDraftEmail(eventId: string) {
+        setDraftingEmailFor(eventId);
+        setDraftResult(null);
+        const result = await createEventEmailDraftAction(eventId);
+        setDraftingEmailFor(null);
+        setDraftResult({ id: eventId, success: result?.success ?? false, message: result?.message ?? 'Something went wrong.' });
+        setTimeout(() => setDraftResult(null), 6000);
+    }
+
     const previewHtml = marked.parse(form.description || '') as string;
 
     if (mode === 'list') {
@@ -124,13 +136,30 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
             <div>
                 <div className="flex items-center justify-between mb-6">
                     <h1 className="font-handjet text-4xl lg:text-5xl">Events</h1>
-                    <button
-                        onClick={openCreate}
-                        className="rounded-md bg-(--primary-accent) px-4 py-2 font-handjet text-lg text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors"
-                    >
-                        New event
-                    </button>
+                    <div className="flex items-center gap-3">
+                        <Link
+                            href="/events/email"
+                            className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                        >
+                            Email drafts
+                        </Link>
+                        <button
+                            onClick={openCreate}
+                            className="rounded-md bg-(--primary-accent) px-4 py-2 font-handjet text-lg text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors"
+                        >
+                            New event
+                        </button>
+                    </div>
                 </div>
+
+                {draftResult && (
+                    <p className={`text-sm mb-4 ${draftResult.success ? 'text-emerald-400' : 'text-(--primary-accent)'}`}>
+                        {draftResult.message}
+                        {draftResult.success && (
+                            <> — <Link href="/events/email" className="underline">View drafts</Link></>
+                        )}
+                    </p>
+                )}
 
                 {events.length === 0 ? (
                     <p className="text-(--secondary-accent)">No events yet. Create your first one.</p>
@@ -145,6 +174,15 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                                 <span className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${event.published ? 'bg-emerald-500/20 text-emerald-400' : 'bg-(--secondary-accent)/20 text-(--secondary-accent)'}`}>
                                     {event.published ? 'Published' : 'Draft'}
                                 </span>
+                                {event.published && (
+                                    <button
+                                        onClick={() => handleDraftEmail(event.id)}
+                                        disabled={draftingEmailFor === event.id}
+                                        className="shrink-0 text-sm text-(--secondary-accent) hover:text-(--primary-color) transition-colors disabled:opacity-50"
+                                    >
+                                        {draftingEmailFor === event.id ? 'Drafting...' : 'Draft email'}
+                                    </button>
+                                )}
                                 <button
                                     onClick={() => openEdit(event)}
                                     className="shrink-0 text-sm text-(--secondary-accent) hover:text-(--primary-color) transition-colors"

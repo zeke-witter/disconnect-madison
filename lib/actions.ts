@@ -4,7 +4,8 @@ import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 import { createServerAuthClient } from '@/lib/supabase-auth';
-import type { EventRow } from '@/lib/types';
+import type { EventRow, EmailDraft } from '@/lib/types';
+import { buildEventAnnouncementEmail } from '@/lib/email-templates';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -412,7 +413,21 @@ export async function verifyPledgeAction(token: string) {
         return { success: false, message: 'This link is invalid or your pledge has already been confirmed.' };
     }
 
-    return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: data[0].pledge_action as string };
+    const confirmed = data[0] as { pledge_action: string; email: string; newsletter_opt_in: boolean };
+
+    if (confirmed.newsletter_opt_in && process.env.RESEND_AUDIENCE_ID) {
+        try {
+            await resend.contacts.create({
+                audienceId: process.env.RESEND_AUDIENCE_ID,
+                email: confirmed.email,
+                unsubscribed: false,
+            });
+        } catch (err) {
+            console.warn('Failed to add contact to Resend audience (non-fatal):', err);
+        }
+    }
+
+    return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: confirmed.pledge_action };
 }
 
 /**
@@ -652,4 +667,173 @@ export async function deleteEventAction(formData: FormData) {
     await supabase.from('events').delete().eq('id', id);
     revalidatePath('/events');
     revalidatePath('/events/add');
+}
+
+// ---------------------------------------------------------------------------
+// Email drafts / newsletter broadcasts
+// ---------------------------------------------------------------------------
+
+/**
+ * Admin: create an email draft for a published event.
+ * Generates the subject and HTML from the event data and stores it in email_drafts.
+ */
+export async function createEventEmailDraftAction(eventId: string) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return { success: false, message: 'Unauthorized.' };
+
+    const { data: event, error: eventError } = await supabase
+        .from('events')
+        .select('*')
+        .eq('id', eventId)
+        .single();
+
+    if (eventError || !event) {
+        return { success: false, message: 'Event not found.' };
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+        ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+    const { subject, html } = buildEventAnnouncementEmail(event as EventRow, baseUrl);
+
+    const { error } = await supabase
+        .from('email_drafts')
+        .insert({ subject, body_html: html, event_id: eventId, event_title: event.title, status: 'draft' });
+
+    if (error) {
+        console.error('createEventEmailDraftAction error:', error);
+        return { success: false, message: 'Failed to create draft.' };
+    }
+
+    revalidatePath('/events/email');
+    return { success: true, message: 'Email draft created.' };
+}
+
+/**
+ * Admin: fetch all email drafts ordered newest first.
+ */
+export async function getEmailDraftsAction(): Promise<EmailDraft[]> {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return [];
+
+    const { data, error } = await supabase
+        .from('email_drafts')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error('getEmailDraftsAction error:', error);
+        return [];
+    }
+
+    return data as EmailDraft[];
+}
+
+/**
+ * Admin: send an email draft as a Resend broadcast to the newsletter list.
+ * Requires RESEND_AUDIENCE_ID to be set. Marks the draft as sent on success.
+ */
+export async function sendEmailDraftAction(formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return { success: false, message: 'Unauthorized.' };
+
+    const audienceId = process.env.RESEND_AUDIENCE_ID;
+    if (!audienceId) return { success: false, message: 'RESEND_AUDIENCE_ID is not configured.' };
+
+    const id = formData.get('id') as string;
+    if (!id) return { success: false, message: 'Missing draft id.' };
+
+    const { data: draft, error: draftError } = await supabase
+        .from('email_drafts')
+        .select('*')
+        .eq('id', id)
+        .eq('status', 'draft')
+        .single();
+
+    if (draftError || !draft) {
+        return { success: false, message: 'Draft not found or already sent.' };
+    }
+
+    const { data: broadcast, error: broadcastError } = await resend.broadcasts.create({
+        audienceId,
+        from: 'Disconnect Madison <hello@disconnectmadison.org>',
+        subject: draft.subject,
+        html: draft.body_html,
+        send: true,
+    } as Parameters<typeof resend.broadcasts.create>[0]);
+
+    if (broadcastError || !broadcast) {
+        console.error('Resend broadcast error:', broadcastError);
+        return { success: false, message: 'Failed to send broadcast via Resend.' };
+    }
+
+    await supabase
+        .from('email_drafts')
+        .update({ status: 'sent', sent_at: new Date().toISOString() })
+        .eq('id', id);
+
+    revalidatePath('/events/email');
+    return { success: true, message: 'Email sent to the list.' };
+}
+
+/**
+ * Admin: send a test email for an event announcement template to the test address.
+ * Useful for previewing the email in a real client without broadcasting to the list.
+ */
+export async function sendTestEmailAction(formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return { success: false, message: 'Unauthorized.' };
+
+    const eventId = formData.get('eventId') as string;
+    if (!eventId) return { success: false, message: 'Missing event id.' };
+
+    const { data: event, error: eventError } = await supabase
+        .from('events')
+        .select('*')
+        .eq('id', eventId)
+        .single();
+
+    if (eventError || !event) {
+        return { success: false, message: 'Event not found.' };
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+        ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+    const { subject, html } = buildEventAnnouncementEmail(event as EventRow, baseUrl);
+    const testEmail = process.env.TEST_EMAIL ?? 'zeke@disconnectmadison.org';
+
+    const { error: emailError } = await resend.emails.send({
+        from: 'Disconnect Madison <hello@disconnectmadison.org>',
+        to: testEmail,
+        subject: `[TEST] ${subject}`,
+        html,
+        text: `Test preview for event: ${event.title}`,
+    });
+
+    if (emailError) {
+        console.error('sendTestEmailAction error:', emailError);
+        return { success: false, message: 'Failed to send test email.' };
+    }
+
+    return { success: true, message: `Sent to ${testEmail}.` };
+}
+
+/**
+ * Admin: delete an email draft.
+ */
+export async function deleteEmailDraftAction(formData: FormData) {
+    const authClient = await createServerAuthClient();
+    const { data: { user } } = await authClient.auth.getUser();
+    if (!user) return;
+
+    const id = formData.get('id') as string;
+    if (!id) return;
+
+    await supabase.from('email_drafts').delete().eq('id', id);
+    revalidatePath('/events/email');
 }

@@ -1,3 +1,14 @@
+export type EmailDraft = {
+    id: string;
+    subject: string;
+    body_html: string;
+    event_id: string | null;
+    event_title: string | null;
+    status: 'draft' | 'sent';
+    created_at: string;
+    sent_at: string | null;
+};
+
 export type EventRow = {
     id: string;
     title: string;
