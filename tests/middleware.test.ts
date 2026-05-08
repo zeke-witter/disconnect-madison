@@ -77,7 +77,7 @@ describe('middleware', () => {
         expect(result).toHaveProperty('cookies');
     });
 
-    it('config.matcher matches /add-news and /dev', () => {
-        expect(config.matcher).toEqual(['/add-news', '/dev']);
+    it('config.matcher covers all protected routes', () => {
+        expect(config.matcher).toEqual(['/add-news', '/dev', '/events/add', '/events/email', '/events/email/preview']);
     });
 });

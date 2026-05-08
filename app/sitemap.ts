@@ -26,6 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/before-you-go`,               lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/breathe`,                     lastModified: new Date('2026-03-16'), changeFrequency: 'yearly',  priority: 0.5 },
 
+    // Events
+    { url: `${baseUrl}/events`,                   lastModified: new Date('2026-05-05'), changeFrequency: 'weekly',  priority: 0.8 },
+
     // Community / info
     { url: `${baseUrl}/about`,                       lastModified: new Date('2026-04-27'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/grow`,                        lastModified: new Date('2026-05-02'), changeFrequency: 'monthly', priority: 0.6 },

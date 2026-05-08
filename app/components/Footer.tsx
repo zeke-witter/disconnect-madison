@@ -23,6 +23,7 @@ export default function Footer() {
                             <li><a href="/faq">FAQ</a></li>
                             <li><a href="/about">About</a></li>
                             <li><a href="/internship-2026">Internship 2026</a></li>
+                            <li><a href="/events">Events</a></li>
                             <li><a href="/pledge">Take the Pledge</a></li>
                             <li><a href="/before-you-go">Before You Go</a></li>
                             <li><a href="/sources">Sources</a></li>
