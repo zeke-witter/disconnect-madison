@@ -81,6 +81,18 @@ export async function submitPledgeAction(initialState: any, formData: FormData) 
         return { success: false, message: 'Something went wrong. Please try again.' };
     }
 
+    if (newsletterOptIn && process.env.RESEND_AUDIENCE_ID) {
+        try {
+            await resend.contacts.create({
+                audienceId: process.env.RESEND_AUDIENCE_ID,
+                email,
+                unsubscribed: false,
+            });
+        } catch (err) {
+            console.warn('Failed to add contact to Resend audience (non-fatal):', err);
+        }
+    }
+
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
         ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
     const verifyUrl = `${baseUrl}/verify?token=${verificationToken}`;
@@ -413,19 +425,7 @@ export async function verifyPledgeAction(token: string) {
         return { success: false, message: 'This link is invalid or your pledge has already been confirmed.' };
     }
 
-    const confirmed = data[0] as { pledge_action: string; email: string; newsletter_opt_in: boolean };
-
-    if (confirmed.newsletter_opt_in && process.env.RESEND_AUDIENCE_ID) {
-        try {
-            await resend.contacts.create({
-                audienceId: process.env.RESEND_AUDIENCE_ID,
-                email: confirmed.email,
-                unsubscribed: false,
-            });
-        } catch (err) {
-            console.warn('Failed to add contact to Resend audience (non-fatal):', err);
-        }
-    }
+    const confirmed = data[0] as { pledge_action: string };
 
     return { success: true, message: 'Your pledge has been confirmed. Thank you for disconnecting!', pledgeAction: confirmed.pledge_action };
 }
