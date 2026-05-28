@@ -2,7 +2,6 @@ import {
     getAllPledgesAction, deletePledgeAction, deleteAllPledgesAction,
     getAllNewsArticlesAction, deleteNewsArticleAction, deleteAllNewsArticlesAction,
 } from '@/lib/actions';
-import DarkModeToggle from '@/app/components/DarkModeToggle';
 import LogoutButton from '@/app/components/LogoutButton';
 
 const PLEDGE_LABELS: Record<string, string> = {
@@ -25,7 +24,6 @@ export default async function Page() {
                     <h1 className="font-handjet text-5xl">Dev Tools</h1>
                 </div>
                 <div className="flex items-center gap-3">
-                    <DarkModeToggle />
                     <LogoutButton />
                 </div>
             </div>
