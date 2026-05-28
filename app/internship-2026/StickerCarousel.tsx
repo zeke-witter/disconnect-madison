@@ -19,7 +19,7 @@ export default function StickerCarousel() {
                 <button
                     onClick={prev}
                     aria-label="Previous sticker"
-                    className="text-2xl text-(--secondary-accent) hover:text-(--foreground) transition-colors px-2"
+                    className="text-2xl text-(--accent-muted) hover:text-(--foreground) transition-colors px-2"
                 >
                     ←
                 </button>
@@ -36,7 +36,7 @@ export default function StickerCarousel() {
                 <button
                     onClick={next}
                     aria-label="Next sticker"
-                    className="text-2xl text-(--secondary-accent) hover:text-(--foreground) transition-colors px-2"
+                    className="text-2xl text-(--accent-muted) hover:text-(--foreground) transition-colors px-2"
                 >
                     →
                 </button>
@@ -48,12 +48,12 @@ export default function StickerCarousel() {
                         key={i}
                         onClick={() => setCurrent(i)}
                         aria-label={`View sticker ${i + 1}`}
-                        className={`w-2 h-2 rounded-full transition-opacity ${i === current ? 'bg-(--foreground) opacity-100' : 'bg-(--secondary-accent) opacity-50'}`}
+                        className={`w-2 h-2 rounded-full transition-opacity ${i === current ? 'bg-(--foreground) opacity-100' : 'bg-(--accent-muted) opacity-50'}`}
                     />
                 ))}
             </div>
 
-            <p className="text-sm text-(--secondary-accent)">{current + 1} of {stickers.length}</p>
+            <p className="text-sm text-(--accent-muted)">{current + 1} of {stickers.length}</p>
         </div>
     );
 }

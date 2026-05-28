@@ -21,11 +21,11 @@ export default async function EmailPreviewPage({
 
     return (
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-10 font-body">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-(--secondary-accent)/20">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-(--accent-muted)/20">
                 <div className="flex items-center gap-4">
                     <Link
                         href="/events/email"
-                        className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                        className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
                     >
                         ← Email drafts
                     </Link>
@@ -37,7 +37,7 @@ export default async function EmailPreviewPage({
                 <div>
                     <h1 className="font-display text-4xl lg:text-5xl mb-1">Email preview</h1>
                     {preview && (
-                        <p className="text-sm text-(--secondary-accent)">Subject: <span className="text-(--foreground)">{preview.subject}</span></p>
+                        <p className="text-sm text-(--accent-muted)">Subject: <span className="text-(--foreground)">{preview.subject}</span></p>
                     )}
                 </div>
                 {selected && <SendTestEmailForm eventId={selected.id} eventTitle={selected.title} />}
@@ -51,8 +51,8 @@ export default async function EmailPreviewPage({
                             href={`/events/email/preview?event=${e.id}`}
                             className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
                                 e.id === selected?.id
-                                    ? 'border-(--primary-color) text-(--primary-color)'
-                                    : 'border-(--secondary-accent)/40 text-(--secondary-accent) hover:border-(--secondary-accent)'
+                                    ? 'border-(--accent-muted) text-(--accent-muted)'
+                                    : 'border-(--accent-muted)/40 text-(--accent-muted) hover:border-(--accent-muted)'
                             }`}
                         >
                             {e.title}
@@ -62,11 +62,11 @@ export default async function EmailPreviewPage({
             )}
 
             {events.length === 0 ? (
-                <div className="rounded-lg border border-(--secondary-accent)/30 p-10 text-center">
-                    <p className="text-(--secondary-accent)">No published events. Publish an event to preview its announcement email.</p>
+                <div className="rounded-lg border border-(--accent-muted)/30 p-10 text-center">
+                    <p className="text-(--accent-muted)">No published events. Publish an event to preview its announcement email.</p>
                 </div>
             ) : (
-                <div className="rounded-lg border border-(--secondary-accent)/30 overflow-hidden">
+                <div className="rounded-lg border border-(--accent-muted)/30 overflow-hidden">
                     <iframe
                         srcDoc={preview?.html ?? ''}
                         title="Email template preview"
@@ -77,7 +77,7 @@ export default async function EmailPreviewPage({
                 </div>
             )}
 
-            <p className="text-xs text-(--secondary-accent) mt-3">
+            <p className="text-xs text-(--accent-muted) mt-3">
                 Refresh after editing <code className="font-mono">lib/email-templates.ts</code> to see changes. The <code className="font-mono">{'{{{unsubscribe}}}'}</code> placeholder is replaced by Resend when broadcasting.
             </p>
         </div>

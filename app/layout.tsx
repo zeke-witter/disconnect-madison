@@ -59,7 +59,7 @@ export default function RootLayout({
         <header>
           <NavigationWrapper />
         </header>
-        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-color-background sm:items-start">
+        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-background sm:items-start">
           {children}
         </main>
         <Footer />

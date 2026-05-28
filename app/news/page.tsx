@@ -41,29 +41,29 @@ export default async function NewsArchivePage() {
     return (
         <div className="w-full max-w-3xl mx-auto font-body">
             <h1 className="font-display text-5xl lg:text-7xl mb-4">News Archive</h1>
-            <p className="text-(--secondary-accent) mb-12 max-w-xl">
+            <p className="text-(--accent-muted) mb-12 max-w-xl">
                 Every article we have shared, in order. If a link has gone dark, the archived version should still work.
             </p>
 
             {articles.length === 0 && (
-                <p className="text-(--secondary-accent)">No articles yet.</p>
+                <p className="text-(--accent-muted)">No articles yet.</p>
             )}
 
             {years.map((year) => (
                 <section key={year} className="mb-12">
-                    <h2 className="font-display text-3xl mb-6 text-(--primary-color)">{year}</h2>
+                    <h2 className="font-display text-3xl mb-6 text-(--accent-muted)">{year}</h2>
                     <ul className="space-y-0">
                         {byYear[year].map((article) => (
-                            <li key={article.id} className="border-b border-(--secondary-accent)/20 py-4 first:border-t first:border-t-(--secondary-accent)/20">
+                            <li key={article.id} className="border-b border-(--accent-muted)/20 py-4 first:border-t first:border-t-(--accent-muted)/20">
                                 <a
                                     href={article.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="font-medium leading-snug hover:text-(--primary-accent) transition-colors"
+                                    className="font-medium leading-snug hover:text-(--accent) transition-colors"
                                 >
                                     {article.title}
                                 </a>
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-(--secondary-accent)">
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-(--accent-muted)">
                                     <span>{getDomain(article.url)}</span>
                                     {article.created_at && (
                                         <>
@@ -78,7 +78,7 @@ export default async function NewsArchivePage() {
                                                 href={article.archived_url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="hover:text-(--primary-accent) transition-colors underline underline-offset-2"
+                                                className="hover:text-(--accent) transition-colors underline underline-offset-2"
                                             >
                                                 archived
                                             </a>

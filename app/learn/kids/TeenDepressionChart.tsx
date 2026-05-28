@@ -30,13 +30,13 @@ interface Colors {
 function readColors(): Colors {
     const s = getComputedStyle(document.documentElement);
     const get = (v: string) => s.getPropertyValue(v).trim();
-    const muted = get('--secondary-accent') || '#5C6F73';
+    const muted = get('--accent-muted') || '#6A994E';
     return {
-        accent: get('--primary-accent') || '#8C3A2B',
+        accent: get('--accent') || '#386641',
         muted,
         gridLine: muted + '40',
-        tooltipBg: get('--nav-background') || '#2B5250',
-        tooltipFg: '#EDEBE6',
+        tooltipBg: get('--nav-background') || '#386641',
+        tooltipFg: get('--on-forest') || '#FEF8E8',
     };
 }
 
@@ -54,8 +54,8 @@ function RefLabel({ viewBox, fill }: { viewBox?: { x: number; y: number }; fill:
 export default function TeenDepressionChart() {
     const gradientId = useId();
     const [colors, setColors] = useState<Colors>({
-        accent: '#8C3A2B', muted: '#5C6F73',
-        gridLine: '#5C6F7340', tooltipBg: '#2B5250', tooltipFg: '#EDEBE6',
+        accent: '#386641', muted: '#6A994E',
+        gridLine: '#6A994E40', tooltipBg: '#386641', tooltipFg: '#FEF8E8',
     });
 
     useEffect(() => {

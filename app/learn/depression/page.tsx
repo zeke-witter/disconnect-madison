@@ -38,16 +38,16 @@ export default function Page() {
                 <h1 id="depression-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Depression &amp; anxiety
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--accent-muted) mb-10">
                     The research on social media and mental health is contested in the details but consistent in the direction. This page walks through what the evidence actually shows, who is most affected, and what tends to improve when people step back.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ export default function Page() {
                 <h2 id="correlation-question" className="font-display text-4xl lg:text-5xl mb-3">
                     The correlation question
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The debate about whether social media causes depression or depressed people simply use it more has real implications, but it should not be used to dismiss the evidence.
                 </p>
                 <div className="space-y-4">
@@ -77,7 +77,7 @@ export default function Page() {
                 <h2 id="changed-around-2012" className="font-display text-4xl lg:text-5xl mb-3">
                     What changed around 2012
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Teen mental health worsened significantly during the 2010s. Understanding when and how is central to evaluating the role of social media.
                 </p>
                 <div className="space-y-4">
@@ -94,7 +94,7 @@ export default function Page() {
                 <h2 id="passive-vs-active" className="font-display text-4xl lg:text-5xl mb-3">
                     Passive use vs. active use
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Not all social media use is equally harmful. How you use it matters, sometimes as much as how much.
                 </p>
                 <div className="space-y-4">
@@ -111,7 +111,7 @@ export default function Page() {
                 <h2 id="who-most-affected" className="font-display text-4xl lg:text-5xl mb-3">
                     Who is most affected
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The effects are not evenly distributed. Age and gender are the most consistent predictors of vulnerability.
                 </p>
                 <div className="space-y-4">
@@ -128,7 +128,7 @@ export default function Page() {
                 <h2 id="anxiety-dimension" className="font-display text-4xl lg:text-5xl mb-3">
                     The anxiety dimension
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Anxiety and depression are distinct conditions, but social media appears to worsen both through overlapping mechanisms.
                 </p>
                 <div className="space-y-4">
@@ -145,7 +145,7 @@ export default function Page() {
                 <h2 id="what-improves" className="font-display text-4xl lg:text-5xl mb-3">
                     What improves when you step back
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The same experimental designs that established the relationship between use and depression also show what happens on the other side.
                 </p>
                 <div className="space-y-4">
@@ -153,13 +153,13 @@ export default function Page() {
                         The Hunt et al. study found meaningful reductions in depression and loneliness after just three weeks of limited use. Other randomized trials have found similar results, and the improvements tend to be larger for participants who started with higher baseline distress. A 2020 study published in the American Economic Review (Allcott et al.) randomly assigned some Facebook users to deactivate their accounts for four weeks before the 2018 U.S. midterm elections. Deactivating Facebook reduced online activity and increased offline activities, and participants reported higher subjective well-being at the end of the period.
                     </p>
                     <p>
-                        These findings do not mean stepping back is easy, or that the improvements are permanent without continued behavior change. But they do suggest that the relationship is responsive: reduce the exposure, and the mental health indicators tend to follow. The <Link href="/help-yourself" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Help yourself page</Link> has practical strategies for making the change, and the <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">pledge</Link> is a way to commit to starting.
+                        These findings do not mean stepping back is easy, or that the improvements are permanent without continued behavior change. But they do suggest that the relationship is responsive: reduce the exposure, and the mental health indicators tend to follow. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">Help yourself page</Link> has practical strategies for making the change, and the <Link href="/pledge" className="underline text-(--accent) hover:text-(--accent-hover)">pledge</Link> is a way to commit to starting.
                     </p>
                 </div>
             </section>
 
-            <section aria-labelledby="depression-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="depression-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="depression-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
+                <h2 id="depression-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.{" "}

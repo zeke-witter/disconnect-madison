@@ -16,9 +16,16 @@
   --background:   var(--brand-cream);
   --foreground:   var(--brand-forest);
   --surface:      #F1ECDC;         /* card / panel surface (cream -5%) */
+  --heading:      var(--brand-forest);
   --border:       var(--brand-fern);
   --border-subtle: #D2DCBA;        /* fern 30% tint for dividers */
   --muted:        var(--brand-forest-hover);
+
+  /* Interactive accent — links, primary (forest) buttons, accents */
+  --accent:        var(--brand-forest);
+  --accent-hover:  var(--brand-forest-hover);
+  /* Secondary accent — secondary headings, supporting text, borders (Fern) */
+  --accent-muted:  var(--brand-fern);
 
   --cta-bg:       var(--brand-lime);
   --cta-bg-hover: var(--brand-lime-hover);
@@ -34,13 +41,6 @@
   --on-accent:   var(--brand-cream);
   --on-forest:   var(--brand-cream);
   --on-cta:      var(--brand-forest);
-
-  /* ─── Legacy aliases (removed in Phase 4) ──────────────────────────────── */
-  --primary-color:        var(--brand-fern);
-  --primary-accent:       var(--brand-forest);
-  --primary-accent-hover: var(--brand-forest-hover);
-  --secondary-accent:     var(--brand-fern);
-  --pill-selected-text:   var(--brand-cream);
 }
 
 @theme inline {
@@ -59,11 +59,16 @@
   --color-background:    var(--background);
   --color-foreground:    var(--foreground);
   --color-surface:       var(--surface);
+  --color-heading:       var(--heading);
   --color-border:        var(--border);
   --color-border-subtle: var(--border-subtle);
   --color-muted:         var(--muted);
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+  --color-accent-muted:  var(--accent-muted);
   --color-cta:           var(--cta-bg);
   --color-cta-hover:     var(--cta-bg-hover);
+  --color-accent-emotional: var(--accent-emotional);
   --color-on-accent:     var(--on-accent);
   --color-on-forest:     var(--on-forest);
   --color-on-cta:        var(--on-cta);
@@ -85,11 +90,11 @@ body {
 
 main {
   a:not(#pledge-button, #button-back-home, #paypal-donate-button, #portfolio-link) {
-    color: var(--primary-accent);
+    color: var(--accent);
     text-decoration: underline;
 
     &:hover {
-      color: var(--primary-accent-hover);
+      color: var(--accent-hover);
     }
 
     &.link-news {
@@ -110,21 +115,20 @@ main {
 
 nav {
   background: var(--nav-background);
-  border-color: var(--secondary-accent);
+  border-color: var(--accent-muted);
   color: var(--on-accent);
 }
 
-/* PayPal donate + portfolio link — amber accent, not yet converted to brand tokens.
-   Simplified to a static rule (no dark/light variants); revisit in Phase 4. */
+/* PayPal donate + portfolio link — Fern outline (brand tokens). */
 #paypal-donate-button,
 #portfolio-link {
-  border-color: rgb(180 83 9 / 0.7);
-  color: rgb(180 83 9);
+  border-color: var(--accent-muted);
+  color: var(--accent);
 }
 #paypal-donate-button:hover,
 #portfolio-link:hover {
-  border-color: rgb(180 83 9);
-  background-color: rgb(180 83 9 / 0.1);
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent-muted) 12%, transparent);
 }
 
 @keyframes reminder-in {

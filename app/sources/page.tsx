@@ -14,7 +14,7 @@ export default function Page() {
                 <h1 id="sources-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Research &amp; Sources
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--accent-muted) mb-10">
                     This page compiles peer-reviewed studies, major institutional reports, and large-scale data analyses referenced on the{" "}
                     <a href="/learn">Learn</a> page.
                 </p>
@@ -240,7 +240,7 @@ export default function Page() {
                     </AccordionItem>
 
                     <AccordionItem title="Data centers &amp; ecological impact">
-                        <p className="text-sm text-(--secondary-accent) mb-4">This section covers infrastructure-level environmental data. Most figures are drawn from company disclosures, IEA reports, and investigative journalism rather than peer-reviewed clinical studies.</p>
+                        <p className="text-sm text-(--accent-muted) mb-4">This section covers infrastructure-level environmental data. Most figures are drawn from company disclosures, IEA reports, and investigative journalism rather than peer-reviewed clinical studies.</p>
                         <ul className="list-disc pl-6 space-y-3">
                             <li>
                                 &ldquo;Recalibrating global data center energy-use estimates.&rdquo;
@@ -281,7 +281,7 @@ export default function Page() {
                                 Cooling water and data center freshwater consumption. Multiple ongoing studies and investigative reports examine how data centers draw on municipal and aquifer water supplies. This is an active research area without a single definitive source; see work from the Pacific Institute, university water policy programs, and investigative outlets covering the tech industry.
                             </li>
                         </ul>
-                        <h3 className="font-semibold text-base mt-6 mb-3 text-(--secondary-accent)">Wisconsin: jobs, subsidies &amp; economic accountability</h3>
+                        <h3 className="font-semibold text-base mt-6 mb-3 text-(--accent-muted)">Wisconsin: jobs, subsidies &amp; economic accountability</h3>
                         <ul className="list-disc pl-6 space-y-3">
                             <li>
                                 &ldquo;Local leaders see data centers as revenue boon, but critics say subsidy programs undermine those efforts.&rdquo;
@@ -365,7 +365,7 @@ export default function Page() {
                     </AccordionItem>
 
                     <AccordionItem title="Data collection &amp; privacy">
-                        <p className="text-sm text-(--secondary-accent) mb-4">These sources are investigative and policy research rather than peer-reviewed clinical studies.</p>
+                        <p className="text-sm text-(--accent-muted) mb-4">These sources are investigative and policy research rather than peer-reviewed clinical studies.</p>
                         <ul className="list-disc pl-6 space-y-3">
                             <li>
                                 &ldquo;TikTok&rsquo;s real privacy risks.&rdquo;
@@ -385,7 +385,7 @@ export default function Page() {
                     <AccordionItem title="Children &amp; adolescents">
                         <div className="space-y-8">
                             <div>
-                                <h3 className="font-semibold text-base mb-3 text-(--secondary-accent)">Institutional advisories</h3>
+                                <h3 className="font-semibold text-base mb-3 text-(--accent-muted)">Institutional advisories</h3>
                                 <ul className="list-disc pl-6 space-y-3">
                                     <li>
                                         &ldquo;Social Media and Youth Mental Health: The U.S. Surgeon General&rsquo;s Advisory.&rdquo;
@@ -399,7 +399,7 @@ export default function Page() {
                             </div>
 
                             <div>
-                                <h3 className="font-semibold text-base mb-3 text-(--secondary-accent)">Brain development</h3>
+                                <h3 className="font-semibold text-base mb-3 text-(--accent-muted)">Brain development</h3>
                                 <ul className="list-disc pl-6 space-y-3">
                                     <li>
                                         &ldquo;Association of habitual checking behaviors on social media with longitudinal functional brain development.&rdquo;
@@ -417,7 +417,7 @@ export default function Page() {
                             </div>
 
                             <div>
-                                <h3 className="font-semibold text-base mb-3 text-(--secondary-accent)">Mental health, self-harm &amp; suicide risk</h3>
+                                <h3 className="font-semibold text-base mb-3 text-(--accent-muted)">Mental health, self-harm &amp; suicide risk</h3>
                                 <ul className="list-disc pl-6 space-y-3">
                                     <li>
                                         &ldquo;Frequent social media use and experiences with bullying victimization, persistent feelings of sadness or hopelessness, and suicide risk among high school students &mdash; Youth Risk Behavior Survey, United States, 2023.&rdquo;
@@ -439,12 +439,12 @@ export default function Page() {
                             </div>
 
                             <div>
-                                <h3 className="font-semibold text-base mb-3 text-(--secondary-accent)">Body image</h3>
-                                <p className="text-(--secondary-accent)">See the Body image research section above.</p>
+                                <h3 className="font-semibold text-base mb-3 text-(--accent-muted)">Body image</h3>
+                                <p className="text-(--accent-muted)">See the Body image research section above.</p>
                             </div>
 
                             <div>
-                                <h3 className="font-semibold text-base mb-3 text-(--secondary-accent)">Usage &amp; prevalence</h3>
+                                <h3 className="font-semibold text-base mb-3 text-(--accent-muted)">Usage &amp; prevalence</h3>
                                 <ul className="list-disc pl-6 space-y-3">
                                     <li>
                                         &ldquo;Teens, social media and technology 2023.&rdquo;

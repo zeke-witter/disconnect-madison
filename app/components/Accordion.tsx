@@ -4,14 +4,14 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 
 export function AccordionItem({ title, children, defaultOpen }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
     return (
-        <Disclosure as="div" defaultOpen={defaultOpen} className="border-b border-(--secondary-accent)/30">
+        <Disclosure as="div" defaultOpen={defaultOpen} className="border-b border-(--accent-muted)/30">
             <DisclosureButton className="group flex w-full items-center justify-between py-5 text-left cursor-pointer">
-                <span className="font-bold text-lg text-(--primary-accent)">{title}</span>
+                <span className="font-bold text-lg text-(--accent)">{title}</span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    className="size-5 shrink-0 text-(--secondary-accent) transition-transform duration-200 group-data-[open]:rotate-180"
+                    className="size-5 shrink-0 text-(--accent-muted) transition-transform duration-200 group-data-[open]:rotate-180"
                     aria-hidden="true"
                 >
                     <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
@@ -29,7 +29,7 @@ export function AccordionItem({ title, children, defaultOpen }: { title: string;
 
 export function Accordion({ children }: { children: React.ReactNode }) {
     return (
-        <div className="w-full border-t border-(--secondary-accent)/30">
+        <div className="w-full border-t border-(--accent-muted)/30">
             {children}
         </div>
     );

@@ -111,18 +111,18 @@ export default function Reminders() {
                     <div
                         key={i}
                         className={`rounded-full transition-all duration-300 ${i === index
-                            ? 'w-5 h-1.5 bg-(--primary-color)'
-                            : 'w-1.5 h-1.5 bg-(--secondary-accent)/30'
+                            ? 'w-5 h-1.5 bg-(--accent-muted)'
+                            : 'w-1.5 h-1.5 bg-(--accent-muted)/30'
                             }`}
                     />
                 ))}
             </div>
 
-            <p className="text-xs text-(--secondary-accent)/60 mb-4">tap for another</p>
+            <p className="text-xs text-(--accent-muted)/60 mb-4">tap for another</p>
 
             <button
                 onClick={handleAudioToggle}
-                className="flex items-center gap-2 text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                className="flex items-center gap-2 text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
                 aria-label={audioEnabled ? 'Mute audio cues' : 'Enable audio cues'}
             >
                 {audioEnabled ? (

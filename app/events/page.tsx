@@ -29,7 +29,7 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
     return (
         <Link
             href={`/events/${event.id}`}
-            className={`link-card group flex flex-col sm:flex-row gap-0 rounded-lg border border-(--secondary-accent) overflow-hidden hover:border-(--primary-accent) transition-colors ${past ? 'opacity-60' : ''}`}
+            className={`link-card group flex flex-col sm:flex-row gap-0 rounded-lg border border-(--accent-muted) overflow-hidden hover:border-(--accent) transition-colors ${past ? 'opacity-60' : ''}`}
         >
             {event.cover_image_url && (
                 <div className="sm:w-48 sm:shrink-0 h-40 sm:h-auto overflow-hidden">
@@ -43,9 +43,9 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
                 </div>
             )}
             <div className="flex flex-col justify-center p-5 gap-1.5">
-                <h2 className="font-display text-2xl group-hover:text-(--primary-accent) transition-colors">{event.title}</h2>
-                <p className="text-sm text-(--secondary-accent)">{formatEventDate(event.date)}</p>
-                <p className="text-sm text-(--secondary-accent)">{event.location_name}{event.location_address ? ` — ${event.location_address}` : ''}</p>
+                <h2 className="font-display text-2xl group-hover:text-(--accent) transition-colors">{event.title}</h2>
+                <p className="text-sm text-(--accent-muted)">{formatEventDate(event.date)}</p>
+                <p className="text-sm text-(--accent-muted)">{event.location_name}{event.location_address ? ` — ${event.location_address}` : ''}</p>
                 {event.description && (
                     <p className="text-sm mt-1 line-clamp-2 text-(--foreground)/80">
                         {event.description.replace(/[#*_`[\]]/g, '').substring(0, 160)}
@@ -53,10 +53,10 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
                 )}
                 <div className="flex items-center gap-3 mt-1">
                     {event.registration_required && (
-                        <span className="text-xs font-semibold text-(--primary-accent)">Registration required</span>
+                        <span className="text-xs font-semibold text-(--accent)">Registration required</span>
                     )}
                     {event.capacity != null && (
-                        <span className="text-xs text-(--secondary-accent)">Capacity: {event.capacity}</span>
+                        <span className="text-xs text-(--accent-muted)">Capacity: {event.capacity}</span>
                     )}
                 </div>
             </div>
@@ -90,22 +90,22 @@ export default async function EventsPage() {
                     {isAdmin && (
                         <Link
                             href="/events/add"
-                            className="shrink-0 mt-2 rounded-md border border-(--secondary-accent) px-3 py-1.5 text-sm text-(--secondary-accent) hover:border-(--primary-color) hover:text-(--primary-color) transition-colors"
+                            className="shrink-0 mt-2 rounded-md border border-(--accent-muted) px-3 py-1.5 text-sm text-(--accent-muted) hover:border-(--accent-muted) hover:text-(--accent-muted) transition-colors"
                         >
                             Manage
                         </Link>
                     )}
                 </div>
-                <p className="text-lg text-(--secondary-accent)">
+                <p className="text-lg text-(--accent-muted)">
                     In-person gatherings in Madison, WI. Come meet the community.
                 </p>
             </section>
 
             <section aria-label="Upcoming events" className="w-full">
                 {upcoming.length === 0 ? (
-                    <div className="rounded-lg border border-(--secondary-accent)/30 p-8 text-center">
-                        <p className="text-(--secondary-accent)">No upcoming events right now.</p>
-                        <p className="text-sm text-(--secondary-accent) mt-2">Check back soon, or <Link href="/contact">reach out</Link> if you want to get involved.</p>
+                    <div className="rounded-lg border border-(--accent-muted)/30 p-8 text-center">
+                        <p className="text-(--accent-muted)">No upcoming events right now.</p>
+                        <p className="text-sm text-(--accent-muted) mt-2">Check back soon, or <Link href="/contact">reach out</Link> if you want to get involved.</p>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-4">
@@ -118,7 +118,7 @@ export default async function EventsPage() {
 
             {past.length > 0 && (
                 <section aria-labelledby="past-events-heading" className="w-full mt-16">
-                    <h2 id="past-events-heading" className="font-display text-3xl mb-6 text-(--secondary-accent)">Past events</h2>
+                    <h2 id="past-events-heading" className="font-display text-3xl mb-6 text-(--accent-muted)">Past events</h2>
                     <div className="flex flex-col gap-4">
                         {past.map(event => (
                             <EventCard key={event.id} event={event} past />

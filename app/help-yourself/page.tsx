@@ -17,7 +17,7 @@ export default function Page() {
                     How to help yourself
                 </h1>
                 <div className="space-y-4">
-                    <p className="text-lg text-(--secondary-accent)">
+                    <p className="text-lg text-(--accent-muted)">
                         Do you feel strong reluctance when you think about deleting your Tiktok or Instagram account? Have you tried to quit in the past, but it didn&apos;t stick? You&apos;re not alone. If you&apos;re not yet sure how much social media is affecting you, <Link href="/quiz">our short quiz</Link> is a good place to start.
                     </p>
                     <p>
@@ -32,22 +32,22 @@ export default function Page() {
 
             <HelpYourselfAccordion />
 
-            <section aria-labelledby="next-step" className="w-full mt-10 p-6 rounded-md border border-(--secondary-accent)/30 bg-(--secondary-accent)/5">
-                <h2 id="next-step" className="font-bold text-base mb-2 text-(--primary-color)">Ready to take the next step?</h2>
-                <p className="text-sm text-(--secondary-accent)">
+            <section aria-labelledby="next-step" className="w-full mt-10 p-6 rounded-md border border-(--accent-muted)/30 bg-(--accent-muted)/5">
+                <h2 id="next-step" className="font-bold text-base mb-2 text-(--accent-muted)">Ready to take the next step?</h2>
+                <p className="text-sm text-(--accent-muted)">
                     If you&apos;re thinking about deactivating or deleting accounts, our <Link href="/before-you-go">Before You Go</Link> guide walks through saving your data, reaching out to contacts, and how to leave at your own pace.
                 </p>
             </section>
 
-            <section aria-labelledby="kids-sources" className="w-full mt-6 text-sm text-(--secondary-accent)">
-                <h2 id="kids-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="kids-sources" className="w-full mt-6 text-sm text-(--accent-muted)">
+                <h2 id="kids-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.
                 </p>
             </section>
 
-            <p className="w-full text-xs text-(--secondary-accent) pt-6 mb-8">
+            <p className="w-full text-xs text-(--accent-muted) pt-6 mb-8">
                 Disclosure: Disconnect Madison is not affiliated with, sponsored by, or receiving compensation from any product or company mentioned on this page. We describe tools and products for informational purposes only. Inclusion is not an endorsement. We encourage you to research any product independently before purchasing.
             </p>
 

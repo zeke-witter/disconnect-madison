@@ -38,16 +38,16 @@ export default function Page() {
                 <h1 id="body-image-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Body image &amp; self-perception
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--accent-muted) mb-10">
                     Image-focused platforms are designed to surface content that captures attention. The body image research, including the companies&apos; own internal findings, shows what that design produces at scale.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ export default function Page() {
                 <h2 id="internal-research" className="font-display text-4xl lg:text-5xl mb-3">
                     What internal research revealed
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The most damning evidence about Instagram&apos;s effects on body image did not come from academics. It came from the company itself.
                 </p>
                 <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function Page() {
                 <h2 id="how-platforms-work-against-you" className="font-display text-4xl lg:text-5xl mb-3">
                     How image platforms work against you
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Body dissatisfaction from social media is not an accident or a side effect. It is an output of how the platforms are designed to operate.
                 </p>
                 <div className="space-y-4">
@@ -91,7 +91,7 @@ export default function Page() {
                 <h2 id="social-comparison" className="font-display text-4xl lg:text-5xl mb-3">
                     Social comparison theory
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Humans are wired to evaluate themselves relative to others. Social media provides an unprecedented volume of comparison targets, almost all of them curated to appear better than average.
                 </p>
                 <div className="space-y-4">
@@ -108,7 +108,7 @@ export default function Page() {
                 <h2 id="window-of-vulnerability" className="font-display text-4xl lg:text-5xl mb-3">
                     The window of vulnerability
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The effects are present across age groups, but they are most pronounced during a specific developmental window.
                 </p>
                 <div className="space-y-4">
@@ -125,7 +125,7 @@ export default function Page() {
                 <h2 id="boys-and-research-gap" className="font-display text-4xl lg:text-5xl mb-3">
                     Beyond girls: boys and the research gap
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The conversation about body image and social media has focused heavily on girls. Boys are also affected, and the research is catching up.
                 </p>
                 <div className="space-y-4">
@@ -142,7 +142,7 @@ export default function Page() {
                 <h2 id="filters-and-reality-gap" className="font-display text-4xl lg:text-5xl mb-3">
                     Filters, editing, and the reality gap
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     A significant portion of what people see on social media is not real. The gap between the presented image and reality is a structural feature of the medium.
                 </p>
                 <div className="space-y-4">
@@ -150,13 +150,13 @@ export default function Page() {
                         Image editing has always existed, but social media has made it ubiquitous, real-time, and available to everyone. The built-in filters and editing tools on Instagram, TikTok, and Snapchat allow users to smooth skin, reshape facial features, alter body proportions, and enhance lighting, often in ways that are not obviously detectable as edited. Research has found that beauty filter use is associated with increased body dissatisfaction, more negative self-evaluation, and greater consideration of cosmetic procedures among young women.
                     </p>
                     <p>
-                        A troubling downstream effect is that the prevalence of filtered images has begun to shift what people perceive as the baseline standard of appearance. Dermatologists and cosmetic surgeons have noted patients bringing in filtered selfies as reference images for procedures, requesting that their actual faces look like their filtered versions. This is a qualitatively new kind of appearance pressure, and it is being driven by platform design decisions that treat appearance modification as a default feature rather than an exceptional intervention. The <Link href="/help-yourself" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Help yourself page</Link> has practical strategies for stepping back, and the <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">pledge</Link> is a way to commit to starting.
+                        A troubling downstream effect is that the prevalence of filtered images has begun to shift what people perceive as the baseline standard of appearance. Dermatologists and cosmetic surgeons have noted patients bringing in filtered selfies as reference images for procedures, requesting that their actual faces look like their filtered versions. This is a qualitatively new kind of appearance pressure, and it is being driven by platform design decisions that treat appearance modification as a default feature rather than an exceptional intervention. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">Help yourself page</Link> has practical strategies for stepping back, and the <Link href="/pledge" className="underline text-(--accent) hover:text-(--accent-hover)">pledge</Link> is a way to commit to starting.
                     </p>
                 </div>
             </section>
 
-            <section aria-labelledby="body-image-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="body-image-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="body-image-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
+                <h2 id="body-image-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.{" "}

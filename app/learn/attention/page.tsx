@@ -38,16 +38,16 @@ export default function Page() {
                 <h1 id="attention-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Attention &amp; focus
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--accent-muted) mb-10">
                     Your attention is not just something you use. It is the resource platforms are built to extract, and the research on what that extraction costs is unusually consistent.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ export default function Page() {
                 <h2 id="attention-economy" className="font-display text-4xl lg:text-5xl mb-3">
                     The attention economy isn&apos;t a metaphor
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Your attention is not just something you use. It is what the platforms are selling.
                 </p>
                 <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function Page() {
                 <h2 id="interruptions-cost" className="font-display text-4xl lg:text-5xl mb-3">
                     What interruptions actually cost
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     A single notification does not just pause your work. It restructures your entire mental state.
                 </p>
                 <div className="space-y-4">
@@ -91,7 +91,7 @@ export default function Page() {
                 <h2 id="phone-on-desk" className="font-display text-4xl lg:text-5xl mb-3">
                     The phone on your desk
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     You do not have to be looking at your phone for it to affect your thinking.
                 </p>
                 <div className="space-y-4">
@@ -108,7 +108,7 @@ export default function Page() {
                 <h2 id="media-multitasking" className="font-display text-4xl lg:text-5xl mb-3">
                     Media multitasking and what it trains
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Doing several things at once feels productive. The research suggests it is teaching your brain something counterproductive.
                 </p>
                 <div className="space-y-4">
@@ -125,7 +125,7 @@ export default function Page() {
                 <h2 id="adolescents-attention" className="font-display text-4xl lg:text-5xl mb-3">
                     Adolescents and the developing attention system
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Sustained attention is a skill the brain builds during adolescence. The conditions it builds that skill in matter.
                 </p>
                 <div className="space-y-4">
@@ -142,7 +142,7 @@ export default function Page() {
                 <h2 id="sustained-attention-purpose" className="font-display text-4xl lg:text-5xl mb-3">
                     What sustained attention is for
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The ability to focus deeply on one thing for an extended period is not just useful for work. It is connected to meaning, satisfaction, and genuine skill.
                 </p>
                 <div className="space-y-4">
@@ -150,13 +150,13 @@ export default function Page() {
                         Cal Newport, a computer science professor and author who has written extensively on deep work, argues that the capacity for sustained, uninterrupted concentration is one of the most valuable skills a person can cultivate, and one of the most threatened. The things people report as most meaningful and satisfying, producing something, learning something difficult, being fully present with another person, tend to require the ability to hold attention on one thing long enough for genuine engagement to occur. Shallow, fragmented attention produces shallow, fragmented experience.
                     </p>
                     <p>
-                        The good news is that attention is trainable. People who deliberately create conditions for sustained focus, putting the phone in another room, working in sessions without notifications, building a practice of reading physical books, tend to report that the capacity recovers. It does not happen immediately, but it happens faster than most people expect. The <Link href="/help-yourself" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Help yourself page</Link> has practical strategies for making the change stick, and the <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">pledge</Link> is a way to commit to starting.
+                        The good news is that attention is trainable. People who deliberately create conditions for sustained focus, putting the phone in another room, working in sessions without notifications, building a practice of reading physical books, tend to report that the capacity recovers. It does not happen immediately, but it happens faster than most people expect. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">Help yourself page</Link> has practical strategies for making the change stick, and the <Link href="/pledge" className="underline text-(--accent) hover:text-(--accent-hover)">pledge</Link> is a way to commit to starting.
                     </p>
                 </div>
             </section>
 
-            <section aria-labelledby="attention-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="attention-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="attention-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
+                <h2 id="attention-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.{" "}

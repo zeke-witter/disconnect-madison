@@ -17,11 +17,11 @@ export default function Hero() {
         <p>Take the quiz if you&apos;re curious where you stand. Make a <span className="font-bold">FREE</span> pledge if you&apos;re ready to try something different.</p>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl justify-center">
-        <a href="/pledge" id="pledge-button" className="font-display text-3xl sm:text-4xl font-bold px-6 py-4 border-3 text-[#EDEBE6] rounded-md bg-(--primary-accent) hover:bg-(--primary-accent-hover) flex-1 text-center">PLEDGE TODAY</a>
-        <a href="/quiz" className="font-display text-3xl sm:text-4xl font-bold px-6 py-4 border-3 border-(--primary-accent) text-(--primary-accent) rounded-md hover:bg-(--primary-accent)/10 transition-colors flex-1 text-center">TAKE THE QUIZ</a>
+        <a href="/pledge" id="pledge-button" className="font-display text-3xl sm:text-4xl font-bold px-6 py-4 border-3 border-(--accent) text-(--on-cta) rounded-md bg-cta hover:bg-cta-hover flex-1 text-center">PLEDGE TODAY</a>
+        <a href="/quiz" className="font-display text-3xl sm:text-4xl font-bold px-6 py-4 border-3 border-(--accent) text-(--accent) rounded-md hover:bg-(--accent)/10 transition-colors flex-1 text-center">TAKE THE QUIZ</a>
       </div>
       <div className="flex justify-center w-full max-w-5xl pb-8">
-        <p className="text-xs text-(--secondary-accent) pt-6">
+        <p className="text-xs text-(--accent-muted) pt-6">
           A registered 501(c)(3) nonprofit. Nothing to sell you, no tracking, no data collection, no spam. This is <em>truly</em> free.
         </p>
       </div>

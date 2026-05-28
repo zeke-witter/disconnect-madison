@@ -7,12 +7,12 @@ export default function NotFound() {
                 <h1 className="font-display text-5xl lg:text-7xl mb-4">
                     Page not found
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-8">
+                <p className="text-lg text-(--accent-muted) mb-8">
                     The page you&apos;re looking for doesn&apos;t exist or has moved.
                 </p>
                 <Link
                     href="/"
-                    className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                    className="underline text-(--accent) hover:text-(--accent-hover)"
                 >
                     Go back home
                 </Link>

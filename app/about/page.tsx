@@ -15,7 +15,7 @@ export default function Page() {
             <h1 className="font-display text-5xl lg:text-7xl mb-10 w-full">About Disconnect Madison</h1>
 
             <section aria-labelledby="mission" className="w-full mb-12">
-                <h2 id="mission" className="font-bold text-2xl mb-4 text-(--primary-color)">Our mission</h2>
+                <h2 id="mission" className="font-bold text-2xl mb-4 text-(--accent-muted)">Our mission</h2>
                 <p className="mb-4">
                     We believe that widespread dependence on algorithm-driven social media is harming our wellbeing and eroding our ability to meaningfully connect with the world around us.
                 </p>
@@ -28,7 +28,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-this-is" className="w-full mb-12">
-                <h2 id="what-this-is" className="font-bold text-2xl mb-4 text-(--primary-color)">What this is and what it isn&apos;t</h2>
+                <h2 id="what-this-is" className="font-bold text-2xl mb-4 text-(--accent-muted)">What this is and what it isn&apos;t</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div>
                         <h3 className="font-bold mb-2">This is:</h3>
@@ -53,7 +53,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="who" className="w-full mb-12">
-                <h2 id="who" className="font-bold text-2xl mb-4 text-(--primary-color)">Who is Disconnect Madison?</h2>
+                <h2 id="who" className="font-bold text-2xl mb-4 text-(--accent-muted)">Who is Disconnect Madison?</h2>
                 <div>
                     <Image
                         src={founderPhoto}
@@ -77,11 +77,11 @@ export default function Page() {
             </section>
 
             <section className="w-full mb-8 text-center">
-                <p className="text-lg text-(--secondary-accent) mb-4">
+                <p className="text-lg text-(--accent-muted) mb-4">
                     If any of this resonates with you, consider taking the <Link href="/pledge">pledge</Link>.
                 </p>
-                <p className="text-lg text-(--secondary-accent)">
-                    If you&apos;ve already stepped away and want to share your story, we&apos;d love to hear it. <Link href="/contact" className="underline text-(--primary-color)">Send us a message</Link>.
+                <p className="text-lg text-(--accent-muted)">
+                    If you&apos;ve already stepped away and want to share your story, we&apos;d love to hear it. <Link href="/contact" className="underline text-(--accent-muted)">Send us a message</Link>.
                 </p>
             </section>
         </div>

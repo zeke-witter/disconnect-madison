@@ -14,10 +14,10 @@ export default async function EventsAddPage() {
 
     return (
         <div className="w-full max-w-5xl mx-auto font-body">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-(--secondary-accent)/30">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-(--accent-muted)/30">
                 <Link
                     href="/events"
-                    className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                    className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
                 >
                     &larr; Back to events
                 </Link>

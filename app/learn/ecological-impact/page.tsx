@@ -38,16 +38,16 @@ export default function Page() {
                 <h1 id="ecological-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     The ecological cost
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--accent-muted) mb-10">
                     The infrastructure that powers social media is physical. It consumes electricity, generates heat, and requires enormous amounts of water to cool. That cost is invisible inside the app, but it is real and it is growing.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ export default function Page() {
                 <h2 id="electricity" className="font-display text-4xl lg:text-5xl mb-3">
                     The electricity nobody sees
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Data centers are one of the fastest-growing categories of electricity demand on the planet.
                 </p>
                 <div className="space-y-4">
@@ -77,7 +77,7 @@ export default function Page() {
                 <h2 id="water" className="font-display text-4xl lg:text-5xl mb-3">
                     Water: the cost hidden in plain sight
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Keeping servers from overheating requires enormous quantities of water. Most of it evaporates and does not return to the source.
                 </p>
                 <div className="space-y-4">
@@ -97,7 +97,7 @@ export default function Page() {
                 <h2 id="ai-math" className="font-display text-4xl lg:text-5xl mb-3">
                     AI rewrites the math
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The shift from keyword search to AI-generated responses is not just a product change. It changes the energy equation significantly.
                 </p>
                 <div className="space-y-4">
@@ -117,7 +117,7 @@ export default function Page() {
                 <h2 id="great-lakes" className="font-display text-4xl lg:text-5xl mb-3">
                     The Great Lakes in the crosshairs
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     The Midwest is one of the fastest-growing data center markets in the country. The Great Lakes are part of why.
                 </p>
                 <div className="space-y-4">
@@ -141,7 +141,7 @@ export default function Page() {
                     The jobs promise
                 </h2>
                 <div className="space-y-4">
-                    <p className="text-(--secondary-accent)">
+                    <p className="text-(--accent-muted)">
                         When a data center developer comes to a city or county, the pitch usually leads with jobs. The math behind that pitch is worth examining closely.
                     </p>
                     <p>
@@ -175,7 +175,7 @@ export default function Page() {
                 <h2 id="social-piece" className="font-display text-4xl lg:text-5xl mb-3">
                     Social media&apos;s piece of the picture
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Not all internet traffic is equal. Video is the most energy-intensive content type, and it now dominates social feeds.
                 </p>
                 <div className="space-y-4">
@@ -192,7 +192,7 @@ export default function Page() {
                 <h2 id="industry-promises" className="font-display text-4xl lg:text-5xl mb-3">
                     What the industry is promising
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Major tech companies have made real commitments on sustainability. They have also obscured some important distinctions.
                 </p>
                 <div className="space-y-4">
@@ -215,7 +215,7 @@ export default function Page() {
                 <h2 id="what-to-do" className="font-display text-4xl lg:text-5xl mb-3">
                     What you can do with this
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--accent-muted) mb-6">
                     Individual choices are not going to solve infrastructure-scale problems. But that does not mean individual choices are irrelevant.
                 </p>
                 <div className="space-y-4">
@@ -229,13 +229,13 @@ export default function Page() {
                         If you want to do something tangible: know what your region&apos;s data center development looks like and who is deciding it. Talk to people who depend on the Lakes. And reduce the demand signal you personally send to platforms that have externalized these costs onto your watershed.
                     </p>
                     <p>
-                        <Link href="/pledge" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good.
+                        <Link href="/pledge" className="underline text-(--accent) hover:text-(--accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good.
                     </p>
                 </div>
             </section>
 
-            <section aria-labelledby="eco-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="eco-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="eco-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
+                <h2 id="eco-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
                 <p>
                     Full citations for every study and report referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.

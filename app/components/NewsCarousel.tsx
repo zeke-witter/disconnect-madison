@@ -16,7 +16,7 @@ export default async function NewsCarousel() {
                         href={article.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="link-news flex-shrink-0 w-64 rounded-md border border-(--secondary-accent) overflow-hidden hover:opacity-80 transition-opacity"
+                        className="link-news flex-shrink-0 w-64 rounded-md border border-(--accent-muted) overflow-hidden hover:opacity-80 transition-opacity"
                     >
                         {article.image_url ? (
                             <Image
@@ -27,7 +27,7 @@ export default async function NewsCarousel() {
                                 className="w-full h-36 object-cover"
                             />
                         ) : (
-                            <div className="w-full h-36 bg-(--secondary-accent) opacity-20" />
+                            <div className="w-full h-36 bg-(--accent-muted) opacity-20" />
                         )}
                         <p className="p-3 text-sm font-medium leading-snug">
                             {article.title}

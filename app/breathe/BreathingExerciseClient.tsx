@@ -32,7 +32,7 @@ function ArcVisual({ phase, elapsed, status, count }: VisualProps) {
             <circle
                 cx="120" cy="120" r="100"
                 fill="none" stroke="currentColor" strokeWidth="10"
-                className="text-(--secondary-accent)/20"
+                className="text-(--accent-muted)/20"
             />
             <circle
                 cx="120" cy="120" r="100"
@@ -40,7 +40,7 @@ function ArcVisual({ phase, elapsed, status, count }: VisualProps) {
                 strokeLinecap="round"
                 strokeDasharray={CIRCUMFERENCE}
                 strokeDashoffset={dashOffset}
-                className="text-(--primary-color)"
+                className="text-(--accent-muted)"
                 style={{
                     transform: 'rotate(-90deg)',
                     transformOrigin: '120px 120px',
@@ -88,7 +88,7 @@ function DiamondVisual({ phase, phaseIndex, elapsed, status, count }: VisualProp
                         x1={corner.x} y1={corner.y}
                         x2={next.x} y2={next.y}
                         stroke="currentColor" strokeWidth="2"
-                        className="text-(--secondary-accent)/25"
+                        className="text-(--accent-muted)/25"
                     />
                 );
             })}
@@ -105,7 +105,7 @@ function DiamondVisual({ phase, phaseIndex, elapsed, status, count }: VisualProp
                         y2={isCurrent ? dotY : next.y}
                         stroke="currentColor" strokeWidth="3"
                         strokeLinecap="round"
-                        className="text-(--primary-color)"
+                        className="text-(--accent-muted)"
                     />
                 );
             })}
@@ -114,7 +114,7 @@ function DiamondVisual({ phase, phaseIndex, elapsed, status, count }: VisualProp
                     key={`c-${i}`}
                     cx={corner.x} cy={corner.y} r="4"
                     fill="currentColor"
-                    className="text-(--secondary-accent)/40"
+                    className="text-(--accent-muted)/40"
                 />
             ))}
             <g style={{
@@ -124,7 +124,7 @@ function DiamondVisual({ phase, phaseIndex, elapsed, status, count }: VisualProp
                 <circle
                     cx="0" cy="0" r="7"
                     fill="currentColor"
-                    className={status === 'running' ? 'text-(--primary-color)' : 'text-(--secondary-accent)/50'}
+                    className={status === 'running' ? 'text-(--accent-muted)' : 'text-(--accent-muted)/50'}
                 />
             </g>
             <CenterText phase={phase} count={count} status={status} />
@@ -237,7 +237,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                 d={WAVE_PATH}
                 fill="none" stroke="currentColor" strokeWidth="2.5"
                 strokeLinecap="round" strokeLinejoin="round"
-                className="text-(--secondary-accent)/25"
+                className="text-(--accent-muted)/25"
             />
 
             {/* Lit trail */}
@@ -246,7 +246,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                     d={trailD}
                     fill="none" stroke="currentColor" strokeWidth="3"
                     strokeLinecap="round" strokeLinejoin="round"
-                    className="text-(--primary-color)"
+                    className="text-(--accent-muted)"
                 />
             )}
 
@@ -258,8 +258,8 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                     fill="currentColor"
                     className={
                         status === 'running' && phaseIndex > i
-                            ? 'text-(--primary-color)'
-                            : 'text-(--secondary-accent)/40'
+                            ? 'text-(--accent-muted)'
+                            : 'text-(--accent-muted)/40'
                     }
                 />
             ))}
@@ -268,17 +268,17 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
             {status !== 'running' && (
                 <>
                     <text x="15" y="118" fontSize="10" fill="currentColor"
-                        className="text-(--secondary-accent)/70"
+                        className="text-(--accent-muted)/70"
                         style={{ fontFamily: 'var(--font-body)' }}>
                         Sniff
                     </text>
                     <text x="67" y="79" fontSize="10" fill="currentColor"
-                        className="text-(--secondary-accent)/70"
+                        className="text-(--accent-muted)/70"
                         style={{ fontFamily: 'var(--font-body)' }}>
                         Inhale
                     </text>
                     <text x="155" y="13" fontSize="10" fill="currentColor"
-                        className="text-(--secondary-accent)/70"
+                        className="text-(--accent-muted)/70"
                         style={{ fontFamily: 'var(--font-body)' }}>
                         Exhale
                     </text>
@@ -294,7 +294,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                     <circle
                         cx="0" cy="0" r="7"
                         fill="currentColor"
-                        className={status === 'running' ? 'text-(--primary-color)' : 'text-(--secondary-accent)/50'}
+                        className={status === 'running' ? 'text-(--accent-muted)' : 'text-(--accent-muted)/50'}
                     />
                 </g>
             </g>
@@ -304,7 +304,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                 <>
                     <text x="160" y="150" textAnchor="middle" dominantBaseline="middle"
                         fontSize="14" fontWeight="600" fill="currentColor"
-                        className="text-(--secondary-accent)"
+                        className="text-(--accent-muted)"
                         style={{ fontFamily: 'var(--font-body)' }}>
                         {phase.label}
                     </text>
@@ -317,7 +317,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
             ) : (
                 <text x="160" y="160" textAnchor="middle" dominantBaseline="middle"
                     fontSize="14" fill="currentColor"
-                    className="text-(--secondary-accent)"
+                    className="text-(--accent-muted)"
                     style={{ fontFamily: 'var(--font-body)' }}>
                     Press start
                 </text>
@@ -333,7 +333,7 @@ function CenterText({ phase, count, status }: { phase: Phase; count: number; sta
         return (
             <text x="120" y="120" textAnchor="middle" dominantBaseline="middle"
                 fontSize="16" fill="currentColor"
-                className="text-(--secondary-accent)"
+                className="text-(--accent-muted)"
                 style={{ fontFamily: 'var(--font-body)' }}>
                 Press start
             </text>
@@ -343,7 +343,7 @@ function CenterText({ phase, count, status }: { phase: Phase; count: number; sta
         <>
             <text x="120" y="104" textAnchor="middle" dominantBaseline="middle"
                 fontSize="17" fontWeight="600" fill="currentColor"
-                className="text-(--secondary-accent)"
+                className="text-(--accent-muted)"
                 style={{ fontFamily: 'var(--font-body)' }}>
                 {phase.label}
             </text>
@@ -354,7 +354,7 @@ function CenterText({ phase, count, status }: { phase: Phase; count: number; sta
             </text>
             <text x="120" y="152" textAnchor="middle" dominantBaseline="middle"
                 fontSize="14" fill="currentColor"
-                className="text-(--secondary-accent)"
+                className="text-(--accent-muted)"
                 style={{ fontFamily: 'var(--font-body)' }}>
                 {phase.instruction}
             </text>
@@ -467,8 +467,8 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
                             onClick={() => { handleStop(); setSelectedId(ex.id); }}
                             className={`px-4 py-2 rounded-sm border text-sm font-semibold transition-colors ${
                                 selectedId === ex.id
-                                    ? 'border-(--primary-color) bg-(--primary-color)/10 text-(--primary-color)'
-                                    : 'border-(--secondary-accent) hover:border-(--primary-color)'
+                                    ? 'border-(--accent-muted) bg-(--accent-muted)/10 text-(--accent-muted)'
+                                    : 'border-(--accent-muted) hover:border-(--accent-muted)'
                             }`}
                         >
                             {ex.name}
@@ -479,8 +479,8 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
 
             <div className="text-center mb-8 max-w-md">
                 <h2 className="font-display text-4xl lg:text-5xl mb-2">{exercise.name}</h2>
-                <p className="text-(--secondary-accent) text-sm mb-3">{exercise.tagline}</p>
-                <p className="text-(--secondary-accent) text-sm leading-relaxed">{exercise.description}</p>
+                <p className="text-(--accent-muted) text-sm mb-3">{exercise.tagline}</p>
+                <p className="text-(--accent-muted) text-sm leading-relaxed">{exercise.description}</p>
             </div>
 
             <div className="relative mb-6" aria-live="polite" aria-atomic="true">
@@ -496,20 +496,20 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
                 onClick={status === 'idle' ? handleStart : handleStop}
                 className={`font-display text-2xl font-bold px-10 py-3 rounded-sm transition-colors mb-4 ${
                     status === 'idle'
-                        ? 'bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90'
-                        : 'border border-(--secondary-accent) hover:border-(--primary-accent) hover:text-(--primary-accent)'
+                        ? 'bg-(--accent-muted) text-(--on-accent) hover:opacity-90'
+                        : 'border border-(--accent-muted) hover:border-(--accent) hover:text-(--accent)'
                 }`}
             >
                 {status === 'idle' ? 'Start' : 'Stop'}
             </button>
 
-            <p className="text-sm text-(--secondary-accent) mb-6 h-5">
+            <p className="text-sm text-(--accent-muted) mb-6 h-5">
                 {cycleCount > 0 && `${cycleCount} ${cycleCount === 1 ? 'cycle' : 'cycles'} completed`}
             </p>
 
             <button
                 onClick={handleAudioToggle}
-                className="flex items-center gap-2 text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                className="flex items-center gap-2 text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
                 aria-label={audioEnabled ? 'Mute audio cues' : 'Enable audio cues'}
             >
                 {audioEnabled ? (

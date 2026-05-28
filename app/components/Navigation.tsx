@@ -14,7 +14,7 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
                     <Logo variant="inverted" height={40} alt="Disconnect Madison" bare priority />
                 </Link>
                 {totalPledges != null && (
-                    <span className="hidden lg:inline text-lg text-[#EDEBE6]/60">
+                    <span className="hidden lg:inline text-lg text-(--on-accent)/60">
                         {totalPledges.toLocaleString()} {totalPledges === 1 ? 'pledge' : 'pledges'}
                     </span>
                 )}
@@ -37,25 +37,25 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
 
             {/* Desktop nav */}
             <ul className="hidden lg:flex flex-row items-center gap-10">
-                <li><a href="/learn" className="hover:text-gray-300">Learn</a></li>
-                <li><a href="/help-yourself" className="hover:text-gray-300">Now what?</a></li>
-                <li><a href="/about" className="hover:text-gray-300">About</a></li>
-                <li><a href="/grow" className="hover:text-gray-300">Help us grow</a></li>
-                <li><a href="/donate" className="border border-amber-400/70 text-amber-300 px-4 py-2 rounded-sm hover:border-amber-400 hover:bg-amber-400/10 transition-colors">Donate</a></li>
-                <li><a href="/pledge" className="hover:bg-emerald-400 text-stone-800 bg-emerald-500 px-4 py-2 rounded-sm">Pledge Today</a></li>
+                <li><a href="/learn" className="hover:text-lime transition-colors">Learn</a></li>
+                <li><a href="/help-yourself" className="hover:text-lime transition-colors">Now what?</a></li>
+                <li><a href="/about" className="hover:text-lime transition-colors">About</a></li>
+                <li><a href="/grow" className="hover:text-lime transition-colors">Help us grow</a></li>
+                <li><a href="/donate" className="border border-lime/70 text-lime px-4 py-2 rounded-sm hover:border-lime hover:bg-lime/10 transition-colors">Donate</a></li>
+                <li><a href="/pledge" className="bg-cta text-on-cta hover:bg-cta-hover px-4 py-2 rounded-sm transition-colors">Pledge Today</a></li>
             </ul>
 
             {/* Mobile dropdown panel */}
             {isOpen && (
                 <div className="lg:hidden absolute top-full left-0 right-0 z-50 bg-(--nav-background) border-b-5">
                     <ul className="flex flex-col px-6 py-2">
-                        <li><a href="/learn" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Learn</a></li>
-                        <li><a href="/help-yourself" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Now what?</a></li>
-                        <li><a href="/about" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">About</a></li>
-                        <li><a href="/grow" onClick={() => setIsOpen(false)} className="block py-4 border-b border-[#EDEBE6]/15 hover:opacity-70 transition-opacity">Help us grow</a></li>
+                        <li><a href="/learn" onClick={() => setIsOpen(false)} className="block py-4 border-b border-(--on-accent)/15 hover:opacity-70 transition-opacity">Learn</a></li>
+                        <li><a href="/help-yourself" onClick={() => setIsOpen(false)} className="block py-4 border-b border-(--on-accent)/15 hover:opacity-70 transition-opacity">Now what?</a></li>
+                        <li><a href="/about" onClick={() => setIsOpen(false)} className="block py-4 border-b border-(--on-accent)/15 hover:opacity-70 transition-opacity">About</a></li>
+                        <li><a href="/grow" onClick={() => setIsOpen(false)} className="block py-4 border-b border-(--on-accent)/15 hover:opacity-70 transition-opacity">Help us grow</a></li>
                         <li className="flex flex-col gap-3 py-5">
-                            <a href="/donate" onClick={() => setIsOpen(false)} className="text-center border border-amber-400/70 text-amber-300 px-4 py-3 rounded-sm hover:border-amber-400 hover:bg-amber-400/10 transition-colors">Donate</a>
-                            <a href="/pledge" onClick={() => setIsOpen(false)} className="text-center text-stone-800 bg-emerald-500 hover:bg-emerald-400 px-4 py-3 rounded-sm transition-colors">Pledge Today</a>
+                            <a href="/donate" onClick={() => setIsOpen(false)} className="text-center border border-lime/70 text-lime px-4 py-3 rounded-sm hover:border-lime hover:bg-lime/10 transition-colors">Donate</a>
+                            <a href="/pledge" onClick={() => setIsOpen(false)} className="text-center bg-cta text-on-cta hover:bg-cta-hover px-4 py-3 rounded-sm transition-colors">Pledge Today</a>
                         </li>
                     </ul>
                 </div>

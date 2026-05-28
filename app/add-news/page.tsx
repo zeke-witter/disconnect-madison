@@ -11,7 +11,7 @@ function SubmitButton({ label }: { label: string }) {
         <Button
             type="submit"
             disabled={pending}
-            className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="rounded bg-(--accent) px-4 py-2 text-sm text-(--on-accent) data-active:bg-(--accent-hover) data-hover:bg-(--accent-hover) disabled:opacity-60 disabled:cursor-not-allowed"
         >
             {pending ? 'Working...' : label}
         </Button>
@@ -38,13 +38,13 @@ export default function Page() {
                         required
                         defaultValue={(state as any)?.url ?? ''}
                         placeholder="https://..."
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2"
                     />
                 </Field>
 
                 {(state as any)?.needsManual && (
                     <>
-                        <p className="text-sm text-(--secondary-accent)">{state.message}</p>
+                        <p className="text-sm text-(--accent-muted)">{state.message}</p>
                         <Field>
                             <Label className="block mb-1">Title</Label>
                             <Input
@@ -52,7 +52,7 @@ export default function Page() {
                                 type="text"
                                 required
                                 defaultValue={(state as any)?.title ?? ''}
-                                className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                                className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2"
                             />
                         </Field>
                         <Field>
@@ -62,7 +62,7 @@ export default function Page() {
                                 type="url"
                                 required
                                 placeholder="https://..."
-                                className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                                className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2"
                             />
                         </Field>
                     </>

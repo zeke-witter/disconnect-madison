@@ -15,8 +15,8 @@ export default function Page() {
                 <h1 id="at-a-glance" className="font-display text-5xl lg:text-7xl mb-3">
                     The cost of social media
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
-                    This summary of findings from clinical studies, longitudinal research, and large-scale public data details why we think it&apos;s a good idea to reduce social media use or quit altogether. <Link href="/sources" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">View sources</Link>.
+                <p className="text-lg text-(--accent-muted) mb-10">
+                    This summary of findings from clinical studies, longitudinal research, and large-scale public data details why we think it&apos;s a good idea to reduce social media use or quit altogether. <Link href="/sources" className="underline text-(--accent) hover:text-(--accent-hover)">View sources</Link>.
                 </p>
 
                 <LearnGrid />
@@ -27,7 +27,7 @@ export default function Page() {
                     What it&apos;s doing to kids
                 </h1>
                 <div className="space-y-4">
-                    <p className="text-lg text-(--secondary-accent)">
+                    <p className="text-lg text-(--accent-muted)">
                         Most adults chose social media. Kids didn&apos;t. They were born into it.
                     </p>
                     <p>
@@ -37,7 +37,7 @@ export default function Page() {
                     <p className="font-bold">These aren&apos;t edge cases. This is the default childhood experience in America right now.</p>
                     <p>Even if you&apos;re content with the role social media plays in your life, you may want to consider quitting for the kids.</p>
                     <p className="pt-2">
-                        <Link href="/learn/kids" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Read the full breakdown of what the research says about kids and social media →</Link>
+                        <Link href="/learn/kids" className="underline text-(--accent) hover:text-(--accent-hover)">Read the full breakdown of what the research says about kids and social media →</Link>
                     </p>
                 </div>
             </section>
@@ -47,7 +47,7 @@ export default function Page() {
                     The dependency question
                 </h1>
                 <div className="space-y-4">
-                    <p className="text-lg text-(--secondary-accent)">
+                    <p className="text-lg text-(--accent-muted)">
                         Do you feel like you&apos;ve gotten worse at remembering things, doing math in your head, navigating, or thinking through complex problems independently?
                     </p>
                     <p>
@@ -57,7 +57,7 @@ export default function Page() {
                         A growing body of evidence suggests we&apos;re already losing important life skills as a result of our dependency on phones, the internet, and the new world of AI assistants.
                     </p>
                     <p className="pt-2">
-                        <Link href="/learn/dependency" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Read what we&apos;re learning about device dependency and how it affects our brains →</Link>
+                        <Link href="/learn/dependency" className="underline text-(--accent) hover:text-(--accent-hover)">Read what we&apos;re learning about device dependency and how it affects our brains →</Link>
                     </p>
                 </div>
             </section>
@@ -69,7 +69,7 @@ export default function Page() {
 
                 <div className="space-y-10">
                     <div>
-                        <h3 className="font-bold text-xl mb-2 text-(--primary-color)">Mood improves</h3>
+                        <h3 className="font-bold text-xl mb-2 text-(--accent-muted)">Mood improves</h3>
                         <p className="mb-2">
                             Controlled studies have found that participants who reduced their social media use reported meaningful decreases in depressive symptoms over several weeks. Some randomized trials suggest that decreasing time on these platforms can also reduce loneliness.
                         </p>
@@ -79,7 +79,7 @@ export default function Page() {
                     </div>
 
                     <div>
-                        <h3 className="font-bold text-xl mb-2 text-(--primary-color)">Sleep and focus recover</h3>
+                        <h3 className="font-bold text-xl mb-2 text-(--accent-muted)">Sleep and focus recover</h3>
                         <p className="mb-2">
                             Reduced nighttime use is associated with improved sleep duration and quality. Better sleep, in turn, supports mood, physical health, and cognitive performance.
                         </p>
@@ -89,7 +89,7 @@ export default function Page() {
                     </div>
 
                     <div>
-                        <h3 className="font-bold text-xl mb-2 text-(--primary-color)">Time reappears</h3>
+                        <h3 className="font-bold text-xl mb-2 text-(--accent-muted)">Time reappears</h3>
                         <p className="mb-2">
                             Average daily usage can add up to many hours per week. Reducing or eliminating social media often frees meaningful blocks of time that were previously hard to account for.
                         </p>
@@ -104,10 +104,10 @@ export default function Page() {
                 </p>
             </section>
 
-            <section aria-labelledby="breathe-cta" className="w-full mb-16 p-6 rounded-md border border-(--secondary-accent)/30 bg-(--secondary-accent)/5">
-                <h2 id="breathe-cta" className="font-bold text-base mb-2 text-(--primary-color)">Want to try stepping back right now?</h2>
-                <p className="text-sm text-(--secondary-accent)">
-                    A short breathing exercise can create some distance between the urge to scroll and the moment you act on it. <Link href="/breathe" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Try one now.</Link>
+            <section aria-labelledby="breathe-cta" className="w-full mb-16 p-6 rounded-md border border-(--accent-muted)/30 bg-(--accent-muted)/5">
+                <h2 id="breathe-cta" className="font-bold text-base mb-2 text-(--accent-muted)">Want to try stepping back right now?</h2>
+                <p className="text-sm text-(--accent-muted)">
+                    A short breathing exercise can create some distance between the urge to scroll and the moment you act on it. <Link href="/breathe" className="underline text-(--accent) hover:text-(--accent-hover)">Try one now.</Link>
                 </p>
             </section>
 
@@ -116,7 +116,7 @@ export default function Page() {
                     Share your story
                 </h2>
                 <p>
-                    Have you stepped away from social media, or are you thinking about it? We&apos;d like to hear from you. What drove the decision? What surprised you? What do you miss (if anything). <Link href="/contact" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Send us a message.</Link>
+                    Have you stepped away from social media, or are you thinking about it? We&apos;d like to hear from you. What drove the decision? What surprised you? What do you miss (if anything). <Link href="/contact" className="underline text-(--accent) hover:text-(--accent-hover)">Send us a message.</Link>
                 </p>
             </section>
         </div>

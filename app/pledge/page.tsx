@@ -25,14 +25,14 @@ export default function Page() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh] max-w-lg mx-auto text-center font-body">
                 <h1 className="font-display text-5xl lg:text-7xl mb-4">Check your inbox</h1>
-                <p className="text-lg text-(--secondary-accent) mb-2">
+                <p className="text-lg text-(--accent-muted) mb-2">
                     We sent a confirmation link to:
                 </p>
                 <p className="font-bold text-lg mb-8">{email}</p>
 
-                <div className="w-full rounded-lg border-2 border-(--primary-accent) bg-(--primary-accent)/10 p-5 mb-8 text-left">
+                <div className="w-full rounded-lg border-2 border-(--accent) bg-(--accent)/10 p-5 mb-8 text-left">
                     <p className="font-bold mb-1">Your pledge won&apos;t count until you click the link.</p>
-                    <p className="text-sm text-(--secondary-accent) mt-1">
+                    <p className="text-sm text-(--accent-muted) mt-1">
                         Can&apos;t find it? Check your <strong>spam or junk folder</strong> before requesting a new one.
                     </p>
                 </div>
@@ -42,14 +42,14 @@ export default function Page() {
                     <button
                         type="submit"
                         disabled={isResendPending || resendState.success}
-                        className="w-full rounded-md border border-(--secondary-accent) px-6 py-3 text-sm font-semibold text-(--secondary-accent) transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent) disabled:opacity-50"
+                        className="w-full rounded-md border border-(--accent-muted) px-6 py-3 text-sm font-semibold text-(--accent-muted) transition-colors hover:border-(--accent) hover:text-(--accent) disabled:opacity-50"
                     >
                         {isResendPending ? 'Sending...' : 'Resend confirmation email'}
                     </button>
                 </form>
 
                 {resendState.message && (
-                    <p className={`text-sm mb-4 ${resendState.success ? 'text-(--primary-color)' : 'text-(--primary-accent)'}`}>
+                    <p className={`text-sm mb-4 ${resendState.success ? 'text-(--accent-muted)' : 'text-(--accent)'}`}>
                         {resendState.message}
                     </p>
                 )}
@@ -57,7 +57,7 @@ export default function Page() {
                 <a
                     id="button-back-home"
                     href="/"
-                    className="mt-6 inline-block rounded-md bg-(--primary-accent) px-6 py-3 font-display text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover)"
+                    className="mt-6 inline-block rounded-md bg-cta px-6 py-3 font-display text-2xl font-bold text-on-cta transition-colors hover:bg-cta-hover"
                 >
                     Back to home
                 </a>
@@ -69,7 +69,7 @@ export default function Page() {
         <div className="flex flex-col lg:flex-row gap-12 w-full max-w-6xl mx-auto font-body">
             <div className="flex-1 max-w-2xl">
                 <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Take the 10-Day Pledge</h1>
-                <p className="text-(--secondary-accent) mb-10 w-full">One step toward something better</p>
+                <p className="text-(--accent-muted) mb-10 w-full">One step toward something better</p>
 
                 <form action={formAction} className="w-full">
                     <fieldset className="space-y-8 border-0 p-0 m-0">
@@ -94,14 +94,14 @@ export default function Page() {
                                     <Radio
                                         key={action.id}
                                         value={action}
-                                        className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--secondary-accent) p-4 transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)/10"
+                                        className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--accent-muted) p-4 transition-colors data-checked:border-(--accent) data-checked:bg-(--accent)/10"
                                     >
-                                        <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--secondary-accent) group-data-checked:border-(--primary-accent)">
-                                            <span className="invisible size-2.5 rounded-full bg-(--primary-accent) group-data-checked:visible" />
+                                        <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--accent-muted) group-data-checked:border-(--accent)">
+                                            <span className="invisible size-2.5 rounded-full bg-(--accent) group-data-checked:visible" />
                                         </span>
                                         <span className="cursor-pointer">
                                             <span className="font-bold block">{action.label}</span>
-                                            <span className="block text-sm text-(--secondary-accent)">{action.subtitle}</span>
+                                            <span className="block text-sm text-(--accent-muted)">{action.subtitle}</span>
                                         </span>
                                     </Radio>
                                 ))}
@@ -117,9 +117,9 @@ export default function Page() {
                                 placeholder="you@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
+                                className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-4 py-3 focus:outline-none focus:border-(--accent) focus:ring-1 focus:ring-(--accent)"
                             />
-                            <p className="text-sm text-(--secondary-accent) mt-2">
+                            <p className="text-sm text-(--accent-muted) mt-2">
                                 We&apos;ll send you a confirmation link. Your pledge won&apos;t count until you click it. Your email will never be shared.
                             </p>
                         </Field>
@@ -131,13 +131,13 @@ export default function Page() {
                                 checked={newsletterOptIn}
                                 onChange={setNewsletterOptIn}
                                 aria-labelledby="newsletter-label"
-                                className="group mt-0.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded border border-(--secondary-accent) transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)"
+                                className="group mt-0.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded border border-(--accent-muted) transition-colors data-checked:border-(--accent) data-checked:bg-(--accent)"
                             >
-                                <span className="invisible size-2.5 rounded-sm bg-white group-data-checked:visible" />
+                                <span className="invisible size-2.5 rounded-sm bg-(--on-accent) group-data-checked:visible" />
                             </Checkbox>
                             <div>
                                 <Label id="newsletter-label" className="font-bold cursor-pointer">Keep me in the loop</Label>
-                                <p className="text-sm text-(--secondary-accent) mt-1">
+                                <p className="text-sm text-(--accent-muted) mt-1">
                                     We don&apos;t have a newsletter right now, but we might someday. Check this if you&apos;d be open to updates from us. No spam, and we won&apos;t contact you for any other reason.
                                 </p>
                             </div>
@@ -147,17 +147,17 @@ export default function Page() {
                     <Button
                         type="submit"
                         disabled={isPending}
-                        className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-xl text-(--on-accent) transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-display text-2xl"
+                        className="mt-8 w-full rounded-md bg-cta px-6 py-3 text-xl text-on-cta transition-colors hover:bg-cta-hover disabled:opacity-50 font-display text-2xl"
                     >
                         {isPending ? 'Submitting...' : 'Submit my pledge'}
                     </Button>
 
                     {state?.message && !state.success && (
                         <div className="mt-4 text-center">
-                            <p className="font-medium text-(--primary-accent)">{state.message}</p>
+                            <p className="font-medium text-(--accent)">{state.message}</p>
                             <a
                                 href={`/contact?subject=${encodeURIComponent('Bug report: pledge form')}&message=${encodeURIComponent(`I ran into an error on the pledge page.\n\nPledge type selected: ${selectedPledgeAction.label}\nEmail entered: ${email}\nError message: ${state.message}\n\nDevice: (e.g. iPhone 15, Windows laptop)\nBrowser: (e.g. Safari, Chrome, Firefox)\nAnything else:`)}`}
-                                className="mt-2 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
+                                className="mt-2 inline-block text-sm text-(--accent-muted) hover:text-(--accent) hover:underline"
                             >
                                 Report this issue &rarr;
                             </a>
@@ -168,19 +168,19 @@ export default function Page() {
 
             <aside className="lg:w-80 lg:mt-24 space-y-8 text-sm" aria-label="Guides for taking action">
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Preparing to step away?</h2>
-                    <p className="text-(--secondary-accent)">Before you deactivate or delete, read our guide on saving your data, reaching out to contacts, and leaving at your own pace.</p>
+                    <h2 className="font-bold text-lg mb-3 text-(--accent-muted)">Preparing to step away?</h2>
+                    <p className="text-(--accent-muted)">Before you deactivate or delete, read our guide on saving your data, reaching out to contacts, and leaving at your own pace.</p>
                     <p><a href="/before-you-go" target="_blank" rel="noopener noreferrer">Read: Before You Go →</a></p>
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Not sure what to do next?</h2>
-                    <p className="text-(--secondary-accent)">Check out our practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
+                    <h2 className="font-bold text-lg mb-3 text-(--accent-muted)">Not sure what to do next?</h2>
+                    <p className="text-(--accent-muted)">Check out our practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
                     <p><a href="/help-yourself" target="_blank" rel="noopener noreferrer">Read: How to Help Yourself →</a></p>
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Reduce screen time</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--accent-muted)">Reduce screen time</h2>
                     <ul className="space-y-2">
                         <li><a href="https://support.apple.com/guide/iphone/set-up-screen-time-iphbfa595995/ios" target="_blank" rel="noopener noreferrer">iPhone Screen Time settings</a></li>
                         <li><a href="https://support.google.com/android/answer/9346420" target="_blank" rel="noopener noreferrer">Android Digital Wellbeing</a></li>
@@ -188,7 +188,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Deactivate accounts</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--accent-muted)">Deactivate accounts</h2>
                     <ul className="space-y-2">
                         <li><a href="https://www.facebook.com/help/214376678584711" target="_blank" rel="noopener noreferrer">Deactivate Facebook</a></li>
                         <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Deactivate Instagram</a></li>
@@ -199,7 +199,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-lg mb-3 text-(--primary-color)">Delete accounts</h2>
+                    <h2 className="font-bold text-lg mb-3 text-(--accent-muted)">Delete accounts</h2>
                     <ul className="space-y-2">
                         <li><a href="https://www.facebook.com/help/224562897555674" target="_blank" rel="noopener noreferrer">Delete Facebook</a></li>
                         <li><a href="https://help.instagram.com/370452623149242" target="_blank" rel="noopener noreferrer">Delete Instagram</a></li>
@@ -210,8 +210,8 @@ export default function Page() {
                     </ul>
                 </div>
 
-                <p className="text-xs text-(--secondary-accent) mb-2">All links open in a new tab.</p>
-                <p className="text-xs text-(--secondary-accent)">
+                <p className="text-xs text-(--accent-muted) mb-2">All links open in a new tab.</p>
+                <p className="text-xs text-(--accent-muted)">
                     The icon <span id="external-icon"></span> indicates links to official platform documentation. Verify steps on each platform, as processes may change.
                 </p>
             </aside>
