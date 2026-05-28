@@ -30,7 +30,7 @@ export default function ReferralQuestion({ token }: { token: string }) {
     }
 
     if (submitted) {
-        return <p className="text-sm text-(--accent-muted)">Thanks for letting us know!</p>;
+        return <p className="text-sm text-(--muted)">Thanks for letting us know!</p>;
     }
 
     return (
@@ -44,7 +44,7 @@ export default function ReferralQuestion({ token }: { token: string }) {
                         className={`px-4 py-2 rounded-md border text-sm transition-colors cursor-pointer ${
                             selected === opt.id
                                 ? 'border-(--accent) bg-(--accent) text-(--on-accent)'
-                                : 'border-(--accent-muted) hover:border-(--accent) text-(--accent-muted) hover:text-(--accent-muted)'
+                                : 'border-(--accent-muted) hover:border-(--accent) text-(--muted) hover:text-(--muted)'
                         }`}
                     >
                         {opt.label}

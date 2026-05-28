@@ -79,10 +79,10 @@ export default function Page() {
         return (
             <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
                 <div className="w-full">
-                    <p className="text-sm text-(--accent-muted) mb-1">Your score</p>
+                    <p className="text-sm text-(--muted) mb-1">Your score</p>
                     <div className="flex items-baseline gap-3 mb-3">
                         <span className="font-display text-6xl font-bold text-(--accent)">{finalScore}</span>
-                        <span className="text-(--accent-muted) text-lg">out of 30</span>
+                        <span className="text-(--muted) text-lg">out of 30</span>
                     </div>
                     <div className="w-full bg-(--accent-muted)/20 rounded-full h-2 mb-10" role="meter" aria-valuenow={finalScore} aria-valuemin={0} aria-valuemax={30} aria-label={`Score: ${finalScore} out of 30`}>
                         <div
@@ -92,7 +92,7 @@ export default function Page() {
                     </div>
 
                     <h1 className="font-display text-5xl lg:text-7xl mb-6">{result.title}</h1>
-                    <p className="text-lg text-(--accent-muted) leading-relaxed mb-10">{result.body}</p>
+                    <p className="text-lg text-(--muted) leading-relaxed mb-10">{result.body}</p>
 
                     <div className="space-y-3 mb-10">
                         {result.links.map(link => (
@@ -101,21 +101,21 @@ export default function Page() {
                                 href={link.href}
                                 className="link-card flex items-center justify-between rounded-md border border-(--accent-muted) p-4 hover:border-(--accent) hover:bg-(--accent)/5 transition-colors group"
                             >
-                                <span className="font-semibold group-hover:text-(--accent-muted)">{link.label}</span>
-                                <span className="text-(--accent-muted)" aria-hidden="true">→</span>
+                                <span className="font-semibold group-hover:text-(--muted)">{link.label}</span>
+                                <span className="text-(--muted)" aria-hidden="true">→</span>
                             </Link>
                         ))}
                     </div>
 
                     <button
                         onClick={handleReset}
-                        className="text-sm text-(--accent-muted) underline hover:text-(--accent) transition-colors"
+                        className="text-sm text-(--muted) underline hover:text-(--accent) transition-colors"
                     >
                         Take the quiz again
                     </button>
                 </div>
 
-                <p className="w-full text-xs text-(--accent-muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
+                <p className="w-full text-xs text-(--muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
                     This quiz is meant to prompt self-reflection, not provide a diagnosis. It is not a clinical assessment tool.
                 </p>
             </div>
@@ -128,16 +128,16 @@ export default function Page() {
                 <h1 id="quiz-title" className="font-display text-5xl lg:text-7xl mb-2">
                     How is your screen time affecting you?
                 </h1>
-                <p className="text-(--accent-muted)">10 questions. No account needed. Nothing is recorded.</p>
+                <p className="text-(--muted)">10 questions. No account needed. Nothing is recorded.</p>
                 {currentIndex === 0 && (
-                    <p className="text-sm text-(--accent-muted) mt-3">
+                    <p className="text-sm text-(--muted) mt-3">
                         Answer honestly. There are no wrong answers here, and no one is keeping score but you. This isn&apos;t about feeling bad. It&apos;s about getting an honest look at what might be worth changing.
                     </p>
                 )}
             </section>
 
             <div className="w-full mb-8">
-                <div className="flex justify-between text-sm text-(--accent-muted) mb-2">
+                <div className="flex justify-between text-sm text-(--muted) mb-2">
                     <span>Question {currentIndex + 1} of {total}</span>
                 </div>
                 <div className="w-full bg-(--accent-muted)/20 rounded-full h-1.5" aria-hidden="true">
@@ -191,7 +191,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <p className="w-full text-xs text-(--accent-muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
+            <p className="w-full text-xs text-(--muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
                 This quiz is meant to prompt self-reflection, not provide a diagnosis. It is not a clinical assessment tool.
             </p>
         </div>

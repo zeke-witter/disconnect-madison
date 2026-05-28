@@ -39,7 +39,7 @@ export default function Page() {
                 <h1 id="kids-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     What it&apos;s doing to kids
                 </h1>
-                <p className="text-lg text-(--accent-muted) mb-10">
+                <p className="text-lg text-(--muted) mb-10">
                     Most adults chose to join social media. Children didn&apos;t. And the research on how it&apos;s affecting them is alarming.
                 </p>
 
@@ -47,8 +47,8 @@ export default function Page() {
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
                             <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
+                            <span className="text-sm font-medium text-(--muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -58,11 +58,11 @@ export default function Page() {
                 <h2 id="platform-reach" className="font-display text-4xl lg:text-5xl mb-3">
                     Which platforms are they on?
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Percentage of American teenagers who use each platform, as of 2023.
                 </p>
                 <PlatformUsageChart />
-                <p className="text-xs text-(--accent-muted) mt-3 text-right">
+                <p className="text-xs text-(--muted) mt-3 text-right">
                     Source: Pew Research Center, &ldquo;Teens, Social Media and Technology 2023&rdquo;
                 </p>
             </section>
@@ -76,7 +76,7 @@ export default function Page() {
                         <p className="mb-2">
                             In 2023, the <strong>U.S. Surgeon General</strong> issued a formal advisory warning that social media poses a &ldquo;profound risk of harm&rdquo; to children and adolescents. The advisory called for health warning labels on social media platforms, the same mechanism used to communicate risks on tobacco and alcohol.
                         </p>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             <em>Social Media and Youth Mental Health: The U.S. Surgeon General&apos;s Advisory</em>, 2023. [<a href="https://www.hhs.gov/sites/default/files/sg-youth-mental-health-social-media-advisory.pdf" target="_blank" rel="noopener noreferrer" className="underline">PDF</a>]
                         </p>
                     </div>
@@ -84,7 +84,7 @@ export default function Page() {
                         <p className="mb-2">
                             The <strong>American Psychological Association</strong> issued its own health advisory in 2023 recommending that social media use by children under 14 be limited, and that minors have access to platforms only with appropriate safeguards: parental monitoring, content filters, and protection from harmful recommendations.
                         </p>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             <em>Health Advisory on Social Media Use in Adolescence</em>, APA, 2023. [<a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use.pdf" target="_blank" rel="noopener noreferrer" className="underline">PDF</a>]
                         </p>
                     </div>
@@ -107,11 +107,11 @@ export default function Page() {
                     </p>
                 </div>
 
-                <h3 className="font-bold text-lg mb-3 text-(--accent-muted)">
+                <h3 className="font-bold text-lg mb-3 text-(--muted)">
                     Share of high schoolers reporting persistent sadness or hopelessness
                 </h3>
                 <TeenDepressionChart />
-                <p className="text-xs text-(--accent-muted) mt-3 text-right">
+                <p className="text-xs text-(--muted) mt-3 text-right">
                     Source: CDC Youth Risk Behavior Survey (YRBS), 2009&ndash;2023
                 </p>
             </section>
@@ -153,8 +153,8 @@ export default function Page() {
                 </div>
             </section>
 
-            <section aria-labelledby="kids-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
-                <h2 id="kids-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
+            <section aria-labelledby="kids-sources" className="w-full mb-8 text-sm text-(--muted)">
+                <h2 id="kids-sources" className="font-bold text-base mb-3 text-(--muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.

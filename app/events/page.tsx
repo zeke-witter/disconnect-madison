@@ -44,8 +44,8 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
             )}
             <div className="flex flex-col justify-center p-5 gap-1.5">
                 <h2 className="font-display text-2xl group-hover:text-(--accent) transition-colors">{event.title}</h2>
-                <p className="text-sm text-(--accent-muted)">{formatEventDate(event.date)}</p>
-                <p className="text-sm text-(--accent-muted)">{event.location_name}{event.location_address ? ` — ${event.location_address}` : ''}</p>
+                <p className="text-sm text-(--muted)">{formatEventDate(event.date)}</p>
+                <p className="text-sm text-(--muted)">{event.location_name}{event.location_address ? ` — ${event.location_address}` : ''}</p>
                 {event.description && (
                     <p className="text-sm mt-1 line-clamp-2 text-(--foreground)/80">
                         {event.description.replace(/[#*_`[\]]/g, '').substring(0, 160)}
@@ -56,7 +56,7 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
                         <span className="text-xs font-semibold text-(--accent)">Registration required</span>
                     )}
                     {event.capacity != null && (
-                        <span className="text-xs text-(--accent-muted)">Capacity: {event.capacity}</span>
+                        <span className="text-xs text-(--muted)">Capacity: {event.capacity}</span>
                     )}
                 </div>
             </div>
@@ -90,13 +90,13 @@ export default async function EventsPage() {
                     {isAdmin && (
                         <Link
                             href="/events/add"
-                            className="shrink-0 mt-2 rounded-md border border-(--accent-muted) px-3 py-1.5 text-sm text-(--accent-muted) hover:border-(--accent-muted) hover:text-(--accent-muted) transition-colors"
+                            className="shrink-0 mt-2 rounded-md border border-(--accent-muted) px-3 py-1.5 text-sm text-(--muted) hover:border-(--accent-muted) hover:text-(--muted) transition-colors"
                         >
                             Manage
                         </Link>
                     )}
                 </div>
-                <p className="text-lg text-(--accent-muted)">
+                <p className="text-lg text-(--muted)">
                     In-person gatherings in Madison, WI. Come meet the community.
                 </p>
             </section>
@@ -104,8 +104,8 @@ export default async function EventsPage() {
             <section aria-label="Upcoming events" className="w-full">
                 {upcoming.length === 0 ? (
                     <div className="rounded-lg border border-(--accent-muted)/30 p-8 text-center">
-                        <p className="text-(--accent-muted)">No upcoming events right now.</p>
-                        <p className="text-sm text-(--accent-muted) mt-2">Check back soon, or <Link href="/contact">reach out</Link> if you want to get involved.</p>
+                        <p className="text-(--muted)">No upcoming events right now.</p>
+                        <p className="text-sm text-(--muted) mt-2">Check back soon, or <Link href="/contact">reach out</Link> if you want to get involved.</p>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-4">

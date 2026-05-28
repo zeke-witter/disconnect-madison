@@ -63,14 +63,14 @@ export default async function EventDetailPage({ params }: Props) {
             )}
 
             <div className="mb-2">
-                <Link href="/events" className="text-sm text-(--accent-muted) hover:text-(--accent-muted) no-underline">
+                <Link href="/events" className="text-sm text-(--muted) hover:text-(--muted) no-underline">
                     &larr; All events
                 </Link>
             </div>
 
             <h1 className="font-display text-5xl lg:text-7xl mb-4">{event.title}</h1>
 
-            <div className="flex flex-col gap-2 mb-8 text-(--accent-muted)">
+            <div className="flex flex-col gap-2 mb-8 text-(--muted)">
                 <div className="flex items-start gap-2">
                     <span aria-hidden="true">📅</span>
                     <span>{formatEventDate(event.date)}{event.end_date ? ` – ${formatEventDate(event.end_date)}` : ''}</span>
@@ -111,12 +111,12 @@ export default async function EventDetailPage({ params }: Props) {
             {event.registration_required && (
                 <div id="register" className="mt-12 p-6 rounded-lg border border-(--accent-muted)/40 bg-(--accent-muted)/5">
                     <h2 className="font-display text-3xl mb-2">Register</h2>
-                    <p className="text-(--accent-muted) text-sm">Registration is coming soon. In the meantime, <Link href="/contact">send us a message</Link> to reserve your spot.</p>
+                    <p className="text-(--muted) text-sm">Registration is coming soon. In the meantime, <Link href="/contact">send us a message</Link> to reserve your spot.</p>
                 </div>
             )}
 
             <div className="mt-12 pt-8 border-t border-(--accent-muted)/20">
-                <Link href="/events" className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors">
+                <Link href="/events" className="text-sm text-(--muted) hover:text-(--foreground) transition-colors">
                     &larr; Back to all events
                 </Link>
             </div>

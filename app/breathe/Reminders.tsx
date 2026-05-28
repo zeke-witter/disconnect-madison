@@ -118,11 +118,11 @@ export default function Reminders() {
                 ))}
             </div>
 
-            <p className="text-xs text-(--accent-muted)/60 mb-4">tap for another</p>
+            <p className="text-xs text-(--muted)/60 mb-4">tap for another</p>
 
             <button
                 onClick={handleAudioToggle}
-                className="flex items-center gap-2 text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                className="flex items-center gap-2 text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                 aria-label={audioEnabled ? 'Mute audio cues' : 'Enable audio cues'}
             >
                 {audioEnabled ? (

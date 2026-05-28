@@ -73,7 +73,7 @@ export default function Page() {
                 {error && (
                     <div>
                         <p style={{ color: 'red' }}>{error}</p>
-                        <p className="text-xs text-(--accent-muted) mt-1">Details: {rawError}</p>
+                        <p className="text-xs text-(--muted) mt-1">Details: {rawError}</p>
                     </div>
                 )}
             </form>

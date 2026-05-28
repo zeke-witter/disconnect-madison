@@ -38,7 +38,7 @@ export default function Page() {
                 <h1 id="sleep-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Sleep disruption
                 </h1>
-                <p className="text-lg text-(--accent-muted) mb-10">
+                <p className="text-lg text-(--muted) mb-10">
                     Nighttime phone use doesn&apos;t just cost you sleep. It interferes with some of the most critical maintenance work your body and brain do in a 24-hour cycle. The research on this is consistent, and the path to improvement is one of the clearest in the field.
                 </p>
 
@@ -46,8 +46,8 @@ export default function Page() {
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
                             <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
+                            <span className="text-sm font-medium text-(--muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ export default function Page() {
                 <h2 id="sleep-optional" className="font-display text-4xl lg:text-5xl mb-3">
                     Why sleep is not optional
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Sleep is not rest. It is when the brain and body do their most important maintenance work.
                 </p>
                 <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function Page() {
                 <h2 id="blue-light" className="font-display text-4xl lg:text-5xl mb-3">
                     Blue light and the melatonin signal
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Your brain uses light to know when to sleep. Evening phone use sends the wrong signal at the wrong time.
                 </p>
                 <div className="space-y-4">
@@ -94,7 +94,7 @@ export default function Page() {
                 <h2 id="content-problem" className="font-display text-4xl lg:text-5xl mb-3">
                     The content problem
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Blue light is only part of the issue. What you&apos;re looking at matters as much as the light itself.
                 </p>
                 <div className="space-y-4">
@@ -111,7 +111,7 @@ export default function Page() {
                 <h2 id="adolescents" className="font-display text-4xl lg:text-5xl mb-3">
                     Adolescents carry a heavier burden
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Teenagers are not just adults who need more sleep. Their sleep biology is genuinely different, and disrupting it carries distinct consequences.
                 </p>
                 <div className="space-y-4">
@@ -131,7 +131,7 @@ export default function Page() {
                 <h2 id="feedback-loop" className="font-display text-4xl lg:text-5xl mb-3">
                     The feedback loop
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     Poor sleep and heavy social media use reinforce each other. It is harder to break the habit when you&apos;re already depleted.
                 </p>
                 <div className="space-y-4">
@@ -151,7 +151,7 @@ export default function Page() {
                 <h2 id="what-changes" className="font-display text-4xl lg:text-5xl mb-3">
                     What changes when you stop
                 </h2>
-                <p className="text-(--accent-muted) mb-6">
+                <p className="text-(--muted) mb-6">
                     The research on what improves when people step back from late-night phone use is consistent and encouraging.
                 </p>
                 <div className="space-y-4">
@@ -167,8 +167,8 @@ export default function Page() {
                 </div>
             </section>
 
-            <section aria-labelledby="sleep-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
-                <h2 id="sleep-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
+            <section aria-labelledby="sleep-sources" className="w-full mb-8 text-sm text-(--muted)">
+                <h2 id="sleep-sources" className="font-bold text-base mb-3 text-(--muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.{" "}

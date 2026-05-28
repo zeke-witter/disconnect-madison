@@ -21,10 +21,10 @@ export default function DonatePage() {
                 <h1 id="donate-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Support the mission
                 </h1>
-                <p className="text-lg text-(--accent-muted) mb-3">
+                <p className="text-lg text-(--muted) mb-3">
                     Disconnect Madison is a 501(c)(3) nonprofit run by one person with no staff and no paid advertising. Your donation helps keep the site running, fund printed materials, and reach more people across Madison and beyond.
                 </p>
-                <p className="text-(--accent-muted)">
+                <p className="text-(--muted)">
                     All donations are tax-deductible to the extent permitted by law. EIN: 41-4974551. Every dollar goes directly toward the work.
                 </p>
             </section>
@@ -36,7 +36,7 @@ export default function DonatePage() {
 
             <section aria-labelledby="paypal-heading" className="w-full border-t border-(--accent-muted) pt-8 mb-10">
                 <h2 id="paypal-heading" className="font-display text-3xl mb-3">Donate via PayPal</h2>
-                <p className="text-(--accent-muted) mb-5">
+                <p className="text-(--muted) mb-5">
                     You can also give through PayPal. All PayPal donations go to the same place and are equally tax-deductible.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-6">
@@ -57,7 +57,7 @@ export default function DonatePage() {
                             height={120}
                             className="rounded-sm"
                         />
-                        <p className="text-xs text-(--accent-muted)">Scan to donate</p>
+                        <p className="text-xs text-(--muted)">Scan to donate</p>
                     </div>
                 </div>
             </section>

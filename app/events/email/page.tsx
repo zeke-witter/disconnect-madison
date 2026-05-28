@@ -12,13 +12,13 @@ export default async function EmailPage() {
                 <div className="flex items-center gap-4">
                     <Link
                         href="/events/add"
-                        className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                        className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                     >
                         ← Events
                     </Link>
                     <Link
                         href="/events/email/preview"
-                        className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                        className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                     >
                         Preview template
                     </Link>

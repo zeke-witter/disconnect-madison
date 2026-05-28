@@ -240,8 +240,8 @@ export default function LearnGrid() {
                         key={f.value}
                         onClick={() => setActiveFilter(f.value)}
                         className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${activeFilter === f.value
-                            ? 'bg-(--accent-muted) border-(--accent-muted) text-(--on-accent)'
-                            : 'border-(--accent-muted) text-(--accent-muted) hover:border-(--accent-muted) hover:text-(--accent-muted)'
+                            ? 'bg-(--accent) border-(--accent) text-(--on-accent)'
+                            : 'border-(--accent-muted) text-(--muted) hover:border-(--accent-muted) hover:text-(--muted)'
                             }`}
                     >
                         {f.label}
@@ -252,9 +252,9 @@ export default function LearnGrid() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
                 {filtered.map(card => (
                     <TiltCard key={card.id} onClick={() => setOpenCard(card)}>
-                        <h2 className="font-bold text-lg mb-2 text-(--accent-muted) shrink-0">{card.title}</h2>
+                        <h2 className="font-bold text-lg mb-2 text-(--muted) shrink-0">{card.title}</h2>
                         <p className="text-sm font-semibold leading-snug mb-2 shrink-0">{card.hook}</p>
-                        <ul className="list-disc pl-5 space-y-1 text-sm text-(--accent-muted)">
+                        <ul className="list-disc pl-5 space-y-1 text-sm text-(--muted)">
                             {card.bullets.map((b, i) => (
                                 <li key={i}>{b}</li>
                             ))}
@@ -263,7 +263,7 @@ export default function LearnGrid() {
                             className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none flex items-end justify-end pb-4 pr-5"
                             style={{ background: 'linear-gradient(to top, var(--background) 40%, transparent)' }}
                         >
-                            <span className="text-xs font-semibold text-(--accent-muted) flex items-center gap-1">
+                            <span className="text-xs font-semibold text-(--muted) flex items-center gap-1">
                                 Read more <span aria-hidden="true">↓</span>
                             </span>
                         </div>
@@ -277,12 +277,12 @@ export default function LearnGrid() {
                     <DialogPanel className="w-full max-w-lg rounded-lg bg-(--background) p-8 shadow-2xl max-h-[90vh] overflow-y-auto border border-(--accent-muted)/30">
                         <div className="h-1 bg-(--accent-muted) -mx-8 -mt-8 mb-6 rounded-t-lg" />
                         <div className="flex items-start justify-between mb-4">
-                            <DialogTitle className="font-bold text-xl text-(--accent-muted)">
+                            <DialogTitle className="font-bold text-xl text-(--muted)">
                                 {openCard?.title}
                             </DialogTitle>
                             <button
                                 onClick={() => setOpenCard(null)}
-                                className="ml-4 text-(--accent-muted) hover:text-(--foreground) cursor-pointer shrink-0"
+                                className="ml-4 text-(--muted) hover:text-(--foreground) cursor-pointer shrink-0"
                                 aria-label="Close"
                             >
                                 ✕
@@ -291,10 +291,10 @@ export default function LearnGrid() {
                         {openCard?.id === 'driving' && <DistractedDrivingChart />}
                         {openCard?.id === 'data' && (
                             <div className="mb-5">
-                                <p className="text-xs font-semibold text-(--accent-muted) uppercase tracking-wide mb-2">Data collected during typical use</p>
+                                <p className="text-xs font-semibold text-(--muted) uppercase tracking-wide mb-2">Data collected during typical use</p>
                                 <div className="flex flex-wrap gap-2">
                                     {DATA_TAGS.map(tag => (
-                                        <span key={tag} className="px-2.5 py-1 text-xs rounded-full border border-(--accent-muted) text-(--accent-muted)">
+                                        <span key={tag} className="px-2.5 py-1 text-xs rounded-full border border-(--accent-muted) text-(--muted)">
                                             {tag}
                                         </span>
                                     ))}

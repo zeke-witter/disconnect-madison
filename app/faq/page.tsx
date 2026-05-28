@@ -16,7 +16,7 @@ export default function Page() {
                 <h1 id="faq-title" className="font-display text-5xl lg:text-7xl mb-4">
                     Frequently asked questions
                 </h1>
-                <p className="text-lg text-(--accent-muted)">
+                <p className="text-lg text-(--muted)">
                     Questions about the project, the pledge, and what it all means. If something isn&apos;t covered here, <Link href="/contact">reach out</Link>.
                 </p>
             </section>

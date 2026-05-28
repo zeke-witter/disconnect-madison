@@ -9,7 +9,7 @@ export default function BreathePage() {
         <div className="w-full max-w-2xl mx-auto font-body">
             <section className="mb-10">
                 <h1 className="font-display text-5xl lg:text-7xl mb-4">Breathe</h1>
-                <p className="text-(--accent-muted) text-lg leading-relaxed">
+                <p className="text-(--muted) text-lg leading-relaxed">
                     Small tools to help you step out of the feed and back into your body.
                     Start with a breath.
                 </p>
@@ -21,7 +21,7 @@ export default function BreathePage() {
 
             <section aria-labelledby="grounding-heading" className="w-full border-t border-(--accent-muted)/20 pt-10 mb-16">
                 <h2 id="grounding-heading" className="font-display text-4xl lg:text-5xl mb-2">Ground yourself</h2>
-                <p className="text-(--accent-muted) text-sm mb-8">
+                <p className="text-(--muted) text-sm mb-8">
                     The 5-4-3-2-1 technique. One tap per thing you notice.
                 </p>
                 <GroundingExercise />
@@ -32,7 +32,7 @@ export default function BreathePage() {
                 <Reminders />
             </section>
 
-            <p className="text-sm text-(--accent-muted) border-t border-(--accent-muted)/30 pt-6">
+            <p className="text-sm text-(--muted) border-t border-(--accent-muted)/30 pt-6">
                 Looking for more ways to reclaim your attention?{' '}
                 <Link href="/help-yourself">Read the practical guide</Link>.
             </p>

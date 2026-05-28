@@ -16,14 +16,23 @@ Five brand colors, light-only theme (Cream dominant background, Forest dominant 
 | `--brand-cream` | Cream | `#FEF8E8` | 254, 248, 232 | 0, 2, 9, 0 | Background: dominant surface. Warmth + readability. |
 | `--brand-blush` | Blush | `#E88FA5` | 232, 143, 165 | 0, 38, 29, 9 | Accent: human-touch moments, quotes, callouts. |
 
-### Contrast rules (WCAG AA)
+### Contrast rules (WCAG AA — measured ratios)
 
-- **Forest on Cream** (~7:1): Use for all body text and headings.
-- **Cream on Forest** (high): Use for text on dark/inverted sections, nav, footer.
-- **Fern on Cream** (~3:1): Large text, icons, borders only — not body copy.
-- **Lime as text**: Fails. Lime is a fill/background, never a text color.
-- **Lime background + Forest text**: Passes for CTAs.
-- **Blush as text**: Fails. Decorative fills only; pair with Forest text.
+| Pairing | Ratio | Use |
+|---|---|---|
+| Forest on Cream | 6.30 | ✅ All body text and headings |
+| Cream on Forest | 6.30 | ✅ Text on inverted sections, nav, footer |
+| Forest tint (`--muted` `#507855`) on Cream | 4.76 | ✅ Muted / supporting / caption body text |
+| Forest on Surface (`#F1ECDC`) | 5.65 | ✅ Text on cards |
+| Fern on Cream | 3.15 | ⚠️ Large text (≥24px), icons, borders only — **not body copy** |
+| Forest on Lime (CTA) | 3.54 | ⚠️ Large/bold only — fine for CTA buttons |
+| Lime on Forest | 3.54 | ⚠️ Large/bold only — nav Donate / link hover |
+| Lime as text on Cream | fail | ❌ Lime is a fill, never a text color |
+| Blush as text on Cream | 2.22 | ❌ Decorative fills only; pair with Forest text |
+
+**Token rule:** use `--accent-muted` (Fern) only for large secondary headings (`text-2xl`+), borders, and icons. For muted/supporting/caption text use `--muted` (Forest tint), which passes AA at any size.
+
+**Known exception:** the homepage "quit for good" pledge count renders in Blush (2.22, below AA) as a deliberate brand accent on a very large display number. It is the one intentional contrast exception; revisit if accessibility requirements tighten.
 
 ---
 

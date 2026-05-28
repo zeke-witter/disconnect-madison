@@ -69,13 +69,13 @@ function ContactForm() {
 
             {state?.message && (
                 <div className="mt-4 text-center">
-                    <p className={`font-medium ${state.success ? 'text-(--accent-muted)' : 'text-(--accent)'}`}>
+                    <p className={`font-medium ${state.success ? 'text-(--muted)' : 'text-(--accent)'}`}>
                         {state.message}
                     </p>
                     {!state.success && (
                         <a
                             href={mailtoHref}
-                            className="mt-2 inline-block text-sm text-(--accent-muted) hover:text-(--accent) hover:underline"
+                            className="mt-2 inline-block text-sm text-(--muted) hover:text-(--accent) hover:underline"
                         >
                             Try emailing us directly &rarr;
                         </a>
@@ -90,10 +90,10 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
             <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
-            <p className="text-(--accent-muted) mb-4 w-full">
+            <p className="text-(--muted) mb-4 w-full">
                 Have a question, idea, or want to collaborate? Let us know.
             </p>
-            <p className="text-(--accent-muted) mb-10 w-full">
+            <p className="text-(--muted) mb-10 w-full">
                 We&apos;d also love to hear your story about why you decided to step away from social media, what drove that choice, or what changed when you did. <span className="font-bold">Sharing your story helps others find the courage to try.</span>
             </p>
 

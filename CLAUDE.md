@@ -67,7 +67,7 @@ The site is a Next.js application built and maintained by the founder. It does n
 app/
   layout.tsx                        # Root layout (fonts, nav, Footer, Turnstile script)
   page.tsx                          # Home (PledgeCounter, Hero, KidsCallout, NewsCarousel)
-  globals.css                       # CSS variables, dark/light theme, Tailwind v4, external link icon
+  globals.css                       # Brand tokens (two-tier), light-only theme, Tailwind v4, external link icon
   not-found.tsx                     # 404 page
   robots.ts                         # robots.txt config
   sitemap.ts                        # XML sitemap
@@ -103,7 +103,7 @@ app/
     BadgeShare.tsx                  # Social sharing for pledge badges (client)
     Accordion.tsx                   # Reusable Headless UI disclosure component
     HelpYourselfAccordion.tsx       # Accordion content for /help-yourself
-    DarkModeToggle.tsx              # Light/dark override toggle (client, dev page only)
+    Logo.tsx                        # Brand logo component (variant + height, clear-space)
 lib/
   actions.ts                        # All server actions ('use server')
   metadata.ts                       # Site config and full SEO metadata (OG, Twitter)
@@ -128,9 +128,9 @@ public/
 
 ### Styling
 - Inline Tailwind utility classes directly on elements (no extracted component classes)
-- Design tokens defined as CSS custom properties in `globals.css` `:root` and referenced via `@theme inline`
-- Dark mode via `@media (prefers-color-scheme: dark)` overriding `:root` variables; dev-only `data-theme` attribute on `<html>` overrides system preference (`data-theme="dark"` or `"light"`)
-- Fonts loaded via `next/font/google` and applied as CSS variables (`--font-handjet`, `--font-space-grotesk`, etc.)
+- Two-tier design tokens (brand primitives + semantic) defined as CSS custom properties in `globals.css` `:root` and surfaced to Tailwind via `@theme inline`. Use semantic tokens in components (`--accent`, `--accent-muted`, `--cta-bg`, etc.); never raw Tailwind palette colors. Full reference: `BRAND.md` and the `/style-guide` route.
+- **Light-only brand theme.** No dark mode: no `dark:` utilities, no `prefers-color-scheme` blocks, no `data-theme`.
+- Three brand faces via `next/font/local`: `--font-display` (Built Titling), `--font-body` (Raleway), `--font-accent` (Sue Ellen Francisco). Use the `font-display`/`font-body`/`font-accent` utilities.
 
 ### Accessibility
 - Target: WCAG 2.4 (Navigable) compliance — covers bypass blocks, page titles, focus order, link purpose, headings/labels, focus visibility, and more. Key rules: all link text must be descriptive (never "link", "here", or "click here"); pages must have meaningful titles; focus order must be logical; focus must be visible

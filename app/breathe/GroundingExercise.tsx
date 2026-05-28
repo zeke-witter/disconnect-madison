@@ -84,12 +84,12 @@ export default function GroundingExercise() {
     if (!started) {
         return (
             <div className="flex flex-col items-center text-center">
-                <p className="text-sm text-(--accent-muted) mb-8 max-w-sm leading-relaxed">
+                <p className="text-sm text-(--muted) mb-8 max-w-sm leading-relaxed">
                     Tap once for each thing you notice. Work through all five senses to bring yourself back into the room.
                 </p>
                 <button
                     onClick={() => setStarted(true)}
-                    className="font-display text-2xl px-10 py-3 rounded-sm bg-(--accent-muted) text-(--on-accent) hover:opacity-90 transition-opacity"
+                    className="font-display text-2xl px-10 py-3 rounded-sm bg-(--accent) text-(--on-accent) hover:opacity-90 transition-opacity"
                 >
                     Start
                 </button>
@@ -101,10 +101,10 @@ export default function GroundingExercise() {
         return (
             <div className="flex flex-col items-center text-center">
                 <p className="font-display text-6xl mb-3 text-(--accent-muted)">Done.</p>
-                <p className="text-(--accent-muted) text-sm mb-8">You&apos;re trying to be present. That&apos;s good enough.</p>
+                <p className="text-(--muted) text-sm mb-8">You&apos;re trying to be present. That&apos;s good enough.</p>
                 <button
                     onClick={handleReset}
-                    className="text-sm text-(--accent-muted) underline hover:text-(--foreground) transition-colors"
+                    className="text-sm text-(--muted) underline hover:text-(--foreground) transition-colors"
                 >
                     Start over
                 </button>
@@ -133,7 +133,7 @@ export default function GroundingExercise() {
             <p className="font-display text-6xl lg:text-7xl text-(--accent-muted) mb-2">
                 {step.label}
             </p>
-            <p className="text-(--accent-muted) text-sm mb-10">{step.prompt}</p>
+            <p className="text-(--muted) text-sm mb-10">{step.prompt}</p>
 
             {/* Found dots */}
             <div className="flex gap-3 mb-10" aria-label={`${found} of ${step.count} found`}>
@@ -151,14 +151,14 @@ export default function GroundingExercise() {
             <button
                 onClick={handleFound}
                 aria-label={`Found one — ${step.count - found} remaining`}
-                className="font-display text-2xl px-10 py-3 rounded-sm bg-(--accent-muted) text-(--on-accent) hover:opacity-90 transition-opacity mb-6"
+                className="font-display text-2xl px-10 py-3 rounded-sm bg-(--accent) text-(--on-accent) hover:opacity-90 transition-opacity mb-6"
             >
                 Found one
             </button>
 
             <button
                 onClick={handleAudioToggle}
-                className="flex items-center gap-2 text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                className="flex items-center gap-2 text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                 aria-label={audioEnabled ? 'Mute audio cues' : 'Enable audio cues'}
             >
                 {audioEnabled ? (

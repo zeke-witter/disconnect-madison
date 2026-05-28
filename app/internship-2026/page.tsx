@@ -5,13 +5,13 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
             <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Tanisha Pathan</h1>
-            <p className="w-full text-(--accent-muted) text-lg mb-10">Design Intern, 2026</p>
+            <p className="w-full text-(--muted) text-lg mb-10">Design Intern, 2026</p>
 
             {/* Profile */}
             <section aria-labelledby="profile-heading" className="w-full mb-16">
                 <h2 id="profile-heading" className="sr-only">Profile</h2>
                 <div>
-                    <div className="float-left w-44 h-44 rounded-md mr-6 mb-4 bg-(--accent-muted)/20 border border-(--accent-muted)/40 flex items-center justify-center text-(--accent-muted) text-sm">
+                    <div className="float-left w-44 h-44 rounded-md mr-6 mb-4 bg-(--accent-muted)/20 border border-(--accent-muted)/40 flex items-center justify-center text-(--muted) text-sm">
                         Photo coming soon
                     </div>
                     <p className="mb-4">
@@ -38,7 +38,7 @@ export default function Page() {
             {/* Sticker designs */}
             <section aria-labelledby="stickers-heading" className="w-full mb-16">
                 <h2 id="stickers-heading" className="font-bold text-2xl mb-2 text-(--accent-muted)">Sticker designs</h2>
-                <p className="text-(--accent-muted) mb-8">
+                <p className="text-(--muted) mb-8">
                     Tanisha is designing a series of stickers for Disconnect Madison to use at events and in printed materials. More designs will be added as they&apos;re completed.
                 </p>
                 <StickerCarousel />
@@ -49,17 +49,17 @@ export default function Page() {
                 <div className="border border-dashed border-(--accent-muted)/50 rounded-md p-8">
                     <div className="flex items-center gap-3 mb-4">
                         <h2 id="brand-heading" className="font-bold text-2xl text-(--accent-muted)">Brand design</h2>
-                        <span className="text-xs font-medium border border-(--accent-muted)/60 text-(--accent-muted) px-2 py-0.5 rounded-full">
+                        <span className="text-xs font-medium border border-(--accent-muted)/60 text-(--muted) px-2 py-0.5 rounded-full">
                             Coming soon
                         </span>
                     </div>
-                    <p className="text-(--accent-muted)">
+                    <p className="text-(--muted)">
                         Tanisha will be leading a full visual identity refresh for Disconnect Madison, including a logo, color palette, and typography system. This section will showcase that work as it develops.
                     </p>
                 </div>
             </section>
 
-            <section className="w-full text-(--accent-muted) text-sm">
+            <section className="w-full text-(--muted) text-sm">
                 <p>
                     Interested in contributing to Disconnect Madison? <Link href="/grow">See how you can help</Link>.
                 </p>

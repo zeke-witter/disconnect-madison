@@ -9,7 +9,7 @@ export default function Footer() {
                         <h2 className="mb-3">
                             <Logo variant="primary" height={44} alt="Disconnect Madison" bare />
                         </h2>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             A registered 501(c)(3) nonprofit encouraging intentional choices about social media, AI, and screen time.
                         </p>
                     </div>
@@ -52,7 +52,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-(--accent-muted) pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-(--accent-muted)">
+                <div className="border-t border-(--accent-muted) pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-(--muted)">
                     <p>Disconnect Madison — Madison, WI</p>
                     <p>This site does not use cookies or track your activity.</p>
                 </div>

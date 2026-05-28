@@ -45,11 +45,11 @@ export default async function Page() {
                 </div>
 
                 {pledges.length === 0 ? (
-                    <p className="text-(--accent-muted)">No pledges in the database.</p>
+                    <p className="text-(--muted)">No pledges in the database.</p>
                 ) : (
                     <table className="w-full text-sm border-collapse">
                         <thead>
-                            <tr className="border-b border-(--accent-muted) text-left text-(--accent-muted)">
+                            <tr className="border-b border-(--accent-muted) text-left text-(--muted)">
                                 <th className="pb-2 pr-4 font-medium">Email</th>
                                 <th className="pb-2 pr-4 font-medium">Pledge</th>
                                 <th className="pb-2 pr-4 font-medium">Confirmed</th>
@@ -63,11 +63,11 @@ export default async function Page() {
                                     <td className="py-3 pr-4">{pledge.email}</td>
                                     <td className="py-3 pr-4">{PLEDGE_LABELS[pledge.pledge_action] ?? pledge.pledge_action}</td>
                                     <td className="py-3 pr-4">
-                                        <span className={`font-bold ${pledge.confirmed ? 'text-(--accent-muted)' : 'text-(--accent-muted)'}`}>
+                                        <span className={`font-bold ${pledge.confirmed ? 'text-(--muted)' : 'text-(--muted)'}`}>
                                             {pledge.confirmed ? 'Yes' : 'No'}
                                         </span>
                                     </td>
-                                    <td className="py-3 pr-4 text-(--accent-muted)">
+                                    <td className="py-3 pr-4 text-(--muted)">
                                         {new Date(pledge.created_at).toLocaleString()}
                                     </td>
                                     {canDelete && (
@@ -107,11 +107,11 @@ export default async function Page() {
                 </div>
 
                 {articles.length === 0 ? (
-                    <p className="text-(--accent-muted)">No articles in the database.</p>
+                    <p className="text-(--muted)">No articles in the database.</p>
                 ) : (
                     <table className="w-full text-sm border-collapse">
                         <thead>
-                            <tr className="border-b border-(--accent-muted) text-left text-(--accent-muted)">
+                            <tr className="border-b border-(--accent-muted) text-left text-(--muted)">
                                 <th className="pb-2 pr-4 font-medium">Image</th>
                                 <th className="pb-2 pr-4 font-medium">Title</th>
                                 <th className="pb-2 pr-4 font-medium">Created</th>
@@ -129,7 +129,7 @@ export default async function Page() {
                                                 className="w-16 h-10 object-cover rounded"
                                             />
                                         ) : (
-                                            <span className="text-(--accent-muted)">—</span>
+                                            <span className="text-(--muted)">—</span>
                                         )}
                                     </td>
                                     <td className="py-3 pr-4">
@@ -142,7 +142,7 @@ export default async function Page() {
                                             {article.title}
                                         </a>
                                     </td>
-                                    <td className="py-3 pr-4 text-(--accent-muted) whitespace-nowrap">
+                                    <td className="py-3 pr-4 text-(--muted) whitespace-nowrap">
                                         {new Date(article.created_at).toLocaleString()}
                                     </td>
                                     {canDelete && (

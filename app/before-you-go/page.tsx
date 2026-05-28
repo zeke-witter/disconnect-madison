@@ -8,7 +8,7 @@ export default function BeforeYouGoPage() {
                 <h1 id="before-you-go-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Before you go
                 </h1>
-                <div className="space-y-4 text-lg text-(--accent-muted)">
+                <div className="space-y-4 text-lg text-(--muted)">
                     <p>
                         You don&apos;t have to delete everything today. In fact, you probably shouldn&apos;t. Leaving thoughtfully means you won&apos;t regret it later, and you won&apos;t lose things you meant to save.
                     </p>
@@ -29,7 +29,7 @@ export default function BeforeYouGoPage() {
                             Before you do anything, spend a few minutes thinking honestly about what you would actually miss, not what you feel anxious about losing. There&apos;s a difference.
                         </p>
                         <p>Some useful questions:</p>
-                        <ul className="list-disc list-outside ml-5 space-y-2 text-(--accent-muted)">
+                        <ul className="list-disc list-outside ml-5 space-y-2 text-(--muted)">
                             <li>Are there photos or videos stored here that exist nowhere else?</li>
                             <li>Are there people you stay in touch with mostly or entirely through this platform?</li>
                             <li>Are there saved posts, bookmarks, or content you genuinely refer back to?</li>
@@ -78,7 +78,7 @@ export default function BeforeYouGoPage() {
                                 </div>
                             ))}
                         </div>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             Links point to official platform help pages. Steps may change as platforms update their interfaces.
                         </p>
                         <p>
@@ -145,7 +145,7 @@ export default function BeforeYouGoPage() {
                                     <span className="font-medium">{platform}</span>
                                     <div className="flex gap-4 shrink-0">
                                         {deactivate && (
-                                            <a href={deactivate.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--accent-muted)">
+                                            <a href={deactivate.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--muted)">
                                                 {deactivate.label}
                                             </a>
                                         )}
@@ -156,10 +156,10 @@ export default function BeforeYouGoPage() {
                                 </div>
                             ))}
                         </div>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             Links point to official platform help pages. Verify steps on each platform, as processes may change.
                         </p>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             <strong>YouTube:</strong> deleting your channel removes it permanently but leaves your Google account intact. If you want to delete your Google account entirely, that&apos;s a separate step. <strong>WhatsApp:</strong> account deletion is immediate and wipes your message history from the app, so export any conversations you want to keep first.
                         </p>
                         <p className="pt-2">
@@ -171,8 +171,8 @@ export default function BeforeYouGoPage() {
             </div>
 
             <section aria-labelledby="further-reading" className="w-full mt-12 pt-8 border-t border-(--accent-muted)/20">
-                <h2 id="further-reading" className="font-bold mb-3 text-(--accent-muted)">Further reading</h2>
-                <p className="text-sm text-(--accent-muted)">
+                <h2 id="further-reading" className="font-bold mb-3 text-(--muted)">Further reading</h2>
+                <p className="text-sm text-(--muted)">
                     Looking for strategies to reduce screen time, get through the first two weeks, or build habits that stick? See{' '}
                     <Link href="/help-yourself">How to Help Yourself</Link>.
                 </p>

@@ -44,7 +44,7 @@ export default function Page() {
 
                 {(state as any)?.needsManual && (
                     <>
-                        <p className="text-sm text-(--accent-muted)">{state.message}</p>
+                        <p className="text-sm text-(--muted)">{state.message}</p>
                         <Field>
                             <Label className="block mb-1">Title</Label>
                             <Input

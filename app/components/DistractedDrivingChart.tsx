@@ -93,7 +93,7 @@ export default function DistractedDrivingChart() {
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>
-            <p className="text-xs text-(--accent-muted) mt-1">Source: NHTSA, DOT HS 813 703 (2025)</p>
+            <p className="text-xs text-(--muted) mt-1">Source: NHTSA, DOT HS 813 703 (2025)</p>
         </div>
     );
 }

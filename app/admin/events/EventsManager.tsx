@@ -133,21 +133,21 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                 </div>
 
                 {events.length === 0 ? (
-                    <p className="text-(--accent-muted)">No events yet. Create your first one.</p>
+                    <p className="text-(--muted)">No events yet. Create your first one.</p>
                 ) : (
                     <div className="divide-y divide-(--accent-muted)/20">
                         {events.map(event => (
                             <div key={event.id} className="flex items-center justify-between py-4 gap-4">
                                 <div className="flex-1 min-w-0">
                                     <p className="font-semibold truncate">{event.title}</p>
-                                    <p className="text-sm text-(--accent-muted)">{formatDateShort(event.date)} — {event.location_name}</p>
+                                    <p className="text-sm text-(--muted)">{formatDateShort(event.date)} — {event.location_name}</p>
                                 </div>
-                                <span className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${event.published ? 'bg-(--cta-bg)/25 text-(--accent)' : 'bg-(--accent-muted)/20 text-(--accent-muted)'}`}>
+                                <span className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${event.published ? 'bg-(--cta-bg)/25 text-(--accent)' : 'bg-(--accent-muted)/20 text-(--muted)'}`}>
                                     {event.published ? 'Published' : 'Draft'}
                                 </span>
                                 <button
                                     onClick={() => openEdit(event)}
-                                    className="shrink-0 text-sm text-(--accent-muted) hover:text-(--accent-muted) transition-colors"
+                                    className="shrink-0 text-sm text-(--muted) hover:text-(--muted) transition-colors"
                                 >
                                     Edit
                                 </button>
@@ -165,7 +165,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                 <h1 className="font-display text-4xl lg:text-5xl">
                     {mode === 'create' ? 'New event' : 'Edit event'}
                 </h1>
-                <button onClick={cancel} className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors">
+                <button onClick={cancel} className="text-sm text-(--muted) hover:text-(--foreground) transition-colors">
                     Cancel
                 </button>
             </div>
@@ -199,7 +199,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">End date & time <span className="text-xs text-(--accent-muted)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">End date & time <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="end_date"
                             type="datetime-local"
@@ -223,7 +223,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Address <span className="text-xs text-(--accent-muted)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">Address <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="location_address"
                             type="text"
@@ -237,19 +237,19 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
 
                 <div>
                     <div className="flex items-center justify-between mb-1">
-                        <label className="text-sm font-medium">Description <span className="text-xs text-(--accent-muted)">(Markdown supported)</span></label>
+                        <label className="text-sm font-medium">Description <span className="text-xs text-(--muted)">(Markdown supported)</span></label>
                         <div className="flex text-xs border border-(--accent-muted)/40 rounded overflow-hidden">
                             <button
                                 type="button"
                                 onClick={() => setPreviewMode('write')}
-                                className={`px-3 py-1 transition-colors ${previewMode === 'write' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--accent-muted) hover:text-(--foreground)'}`}
+                                className={`px-3 py-1 transition-colors ${previewMode === 'write' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--muted) hover:text-(--foreground)'}`}
                             >
                                 Write
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setPreviewMode('preview')}
-                                className={`px-3 py-1 transition-colors ${previewMode === 'preview' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--accent-muted) hover:text-(--foreground)'}`}
+                                className={`px-3 py-1 transition-colors ${previewMode === 'preview' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--muted) hover:text-(--foreground)'}`}
                             >
                                 Preview
                             </button>
@@ -277,7 +277,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium mb-1">Capacity <span className="text-xs text-(--accent-muted)">(leave blank for unlimited)</span></label>
+                        <label className="block text-sm font-medium mb-1">Capacity <span className="text-xs text-(--muted)">(leave blank for unlimited)</span></label>
                         <input
                             name="capacity"
                             type="number"
@@ -289,7 +289,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Cover image URL <span className="text-xs text-(--accent-muted)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">Cover image URL <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="cover_image_url"
                             type="url"
@@ -321,14 +321,14 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                             onChange={e => set('published', e.target.checked)}
                             className="size-4 rounded border-(--accent-muted) accent-(--accent)"
                         />
-                        <span className="text-sm font-medium">Published <span className="text-xs text-(--accent-muted)">(visible on the public events page)</span></span>
+                        <span className="text-sm font-medium">Published <span className="text-xs text-(--muted)">(visible on the public events page)</span></span>
                     </label>
                 </div>
 
-                <p className="text-xs text-(--accent-muted)">All times are in Central Time (CT).</p>
+                <p className="text-xs text-(--muted)">All times are in Central Time (CT).</p>
 
                 {error && <p className="text-sm text-(--accent)">{error}</p>}
-                {successMsg && <p className="text-sm text-(--accent-muted)">{successMsg}</p>}
+                {successMsg && <p className="text-sm text-(--muted)">{successMsg}</p>}
 
                 <div className="flex gap-3 pt-2">
                     <button
@@ -341,7 +341,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                     <button
                         type="button"
                         onClick={cancel}
-                        className="rounded-md border border-(--accent-muted) px-5 py-2.5 text-sm text-(--accent-muted) hover:border-(--foreground) hover:text-(--foreground) transition-colors"
+                        className="rounded-md border border-(--accent-muted) px-5 py-2.5 text-sm text-(--muted) hover:border-(--foreground) hover:text-(--foreground) transition-colors"
                     >
                         Cancel
                     </button>

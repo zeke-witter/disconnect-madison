@@ -44,7 +44,7 @@ export default function FlyerCarousel({ flyers, aspectRatio = '8.5 / 11' }: { fl
             <button
                 onClick={() => scroll('left')}
                 aria-label="Scroll left"
-                className={`hidden md:flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-full border border-(--accent-muted) text-(--accent-muted) hover:border-(--accent) hover:text-(--accent-muted) transition-colors cursor-pointer ${!canScrollLeft ? 'invisible' : ''}`}
+                className={`hidden md:flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-full border border-(--accent-muted) text-(--muted) hover:border-(--accent) hover:text-(--muted) transition-colors cursor-pointer ${!canScrollLeft ? 'invisible' : ''}`}
             >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M10 4L6 8L10 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -72,10 +72,10 @@ export default function FlyerCarousel({ flyers, aspectRatio = '8.5 / 11' }: { fl
                         </div>
                         <div className="p-4 flex items-start justify-between gap-4">
                             <div>
-                                <p className="font-medium text-(--accent-muted)">{name}</p>
-                                <p className="text-sm text-(--accent-muted) mt-0.5">{description}</p>
+                                <p className="font-medium text-(--muted)">{name}</p>
+                                <p className="text-sm text-(--muted) mt-0.5">{description}</p>
                             </div>
-                            <span className="text-xs text-(--accent-muted) shrink-0 mt-0.5">PDF</span>
+                            <span className="text-xs text-(--muted) shrink-0 mt-0.5">PDF</span>
                         </div>
                     </a>
                 ))}
@@ -84,7 +84,7 @@ export default function FlyerCarousel({ flyers, aspectRatio = '8.5 / 11' }: { fl
             <button
                 onClick={() => scroll('right')}
                 aria-label="Scroll right"
-                className={`hidden md:flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-full border border-(--accent-muted) text-(--accent-muted) hover:border-(--accent) hover:text-(--accent-muted) transition-colors cursor-pointer ${!canScrollRight ? 'invisible' : ''}`}
+                className={`hidden md:flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-full border border-(--accent-muted) text-(--muted) hover:border-(--accent) hover:text-(--muted) transition-colors cursor-pointer ${!canScrollRight ? 'invisible' : ''}`}
             >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M10 4L6 8L10 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="rotate(180 8 8)" />

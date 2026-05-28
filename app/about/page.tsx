@@ -77,11 +77,11 @@ export default function Page() {
             </section>
 
             <section className="w-full mb-8 text-center">
-                <p className="text-lg text-(--accent-muted) mb-4">
+                <p className="text-lg text-(--muted) mb-4">
                     If any of this resonates with you, consider taking the <Link href="/pledge">pledge</Link>.
                 </p>
-                <p className="text-lg text-(--accent-muted)">
-                    If you&apos;ve already stepped away and want to share your story, we&apos;d love to hear it. <Link href="/contact" className="underline text-(--accent-muted)">Send us a message</Link>.
+                <p className="text-lg text-(--muted)">
+                    If you&apos;ve already stepped away and want to share your story, we&apos;d love to hear it. <Link href="/contact" className="underline text-(--muted)">Send us a message</Link>.
                 </p>
             </section>
         </div>

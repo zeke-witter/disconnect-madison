@@ -53,7 +53,7 @@ export default function StickerCarousel() {
                 ))}
             </div>
 
-            <p className="text-sm text-(--accent-muted)">{current + 1} of {stickers.length}</p>
+            <p className="text-sm text-(--muted)">{current + 1} of {stickers.length}</p>
         </div>
     );
 }

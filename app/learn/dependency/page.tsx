@@ -39,7 +39,7 @@ export default function Page() {
                 <h1 id="dependency-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Are we too dependent on our devices?
                 </h1>
-                <p className="text-lg text-(--accent-muted) mb-10">
+                <p className="text-lg text-(--muted) mb-10">
                     Do you feel like you&apos;ve gotten worse at remembering things, doing math in your head, navigating without GPS, or thinking through complex problems on your own? You aren&apos;t imagining it.
                 </p>
 
@@ -47,8 +47,8 @@ export default function Page() {
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
                             <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--accent-muted) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--accent-muted) mt-auto">{source}</span>
+                            <span className="text-sm font-medium text-(--muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
@@ -114,18 +114,18 @@ export default function Page() {
                         <p className="mb-2">
                             A 2017 study by Adrian Ward and colleagues at the University of Texas found that the <em>mere presence</em> of a smartphone on a desk (silent, face-down, not being used) measurably reduced participants&apos; available working memory and fluid intelligence. The effect was dose-dependent: the more participants relied on their phones in daily life, the greater the cognitive drain from its presence.
                         </p>
-                        <p className="text-sm text-(--accent-muted)">
+                        <p className="text-sm text-(--muted)">
                             Ward, A.F. et al. <em>Brain Drain: The Mere Presence of One&apos;s Own Smartphone Reduces Available Cognitive Capacity.</em> Journal of the Association for Consumer Research, 2017.
                         </p>
                     </div>
                     <p>
                         The researchers called this &ldquo;brain drain&rdquo;. The phone doesn&apos;t have to be in use to pull your attention. The habit of checking, and the anticipation of checking, occupies mental resources even when you&apos;re trying to focus on something else. The same device is simultaneously a cognitive tool and a cognitive tax.
                     </p>
-                    <p className="text-(--accent-muted) text-sm mt-6 mb-2">
+                    <p className="text-(--muted) text-sm mt-6 mb-2">
                         Average working memory score by phone location (Experiment 1). Higher is better.
                     </p>
                     <BrainDrainChart />
-                    <p className="text-xs text-(--accent-muted) mt-3 text-right">
+                    <p className="text-xs text-(--muted) mt-3 text-right">
                         Source: Ward et al., &ldquo;Brain Drain,&rdquo; <em>Journal of the Association for Consumer Research</em>, 2017. Approximate means from Figure 1A.
                     </p>
                 </div>
@@ -168,8 +168,8 @@ export default function Page() {
                 </div>
             </section>
 
-            <section aria-labelledby="dependency-sources" className="w-full mb-8 text-sm text-(--accent-muted)">
-                <h2 id="dependency-sources" className="font-bold text-base mb-3 text-(--accent-muted)">Sources</h2>
+            <section aria-labelledby="dependency-sources" className="w-full mb-8 text-sm text-(--muted)">
+                <h2 id="dependency-sources" className="font-bold text-base mb-3 text-(--muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.

@@ -25,7 +25,7 @@ export default async function EmailPreviewPage({
                 <div className="flex items-center gap-4">
                     <Link
                         href="/events/email"
-                        className="text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                        className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                     >
                         ← Email drafts
                     </Link>
@@ -37,7 +37,7 @@ export default async function EmailPreviewPage({
                 <div>
                     <h1 className="font-display text-4xl lg:text-5xl mb-1">Email preview</h1>
                     {preview && (
-                        <p className="text-sm text-(--accent-muted)">Subject: <span className="text-(--foreground)">{preview.subject}</span></p>
+                        <p className="text-sm text-(--muted)">Subject: <span className="text-(--foreground)">{preview.subject}</span></p>
                     )}
                 </div>
                 {selected && <SendTestEmailForm eventId={selected.id} eventTitle={selected.title} />}
@@ -51,8 +51,8 @@ export default async function EmailPreviewPage({
                             href={`/events/email/preview?event=${e.id}`}
                             className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
                                 e.id === selected?.id
-                                    ? 'border-(--accent-muted) text-(--accent-muted)'
-                                    : 'border-(--accent-muted)/40 text-(--accent-muted) hover:border-(--accent-muted)'
+                                    ? 'border-(--accent-muted) text-(--muted)'
+                                    : 'border-(--accent-muted)/40 text-(--muted) hover:border-(--accent-muted)'
                             }`}
                         >
                             {e.title}
@@ -63,7 +63,7 @@ export default async function EmailPreviewPage({
 
             {events.length === 0 ? (
                 <div className="rounded-lg border border-(--accent-muted)/30 p-10 text-center">
-                    <p className="text-(--accent-muted)">No published events. Publish an event to preview its announcement email.</p>
+                    <p className="text-(--muted)">No published events. Publish an event to preview its announcement email.</p>
                 </div>
             ) : (
                 <div className="rounded-lg border border-(--accent-muted)/30 overflow-hidden">
@@ -77,7 +77,7 @@ export default async function EmailPreviewPage({
                 </div>
             )}
 
-            <p className="text-xs text-(--accent-muted) mt-3">
+            <p className="text-xs text-(--muted) mt-3">
                 Refresh after editing <code className="font-mono">lib/email-templates.ts</code> to see changes. The <code className="font-mono">{'{{{unsubscribe}}}'}</code> placeholder is replaced by Resend when broadcasting.
             </p>
         </div>

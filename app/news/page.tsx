@@ -41,12 +41,12 @@ export default async function NewsArchivePage() {
     return (
         <div className="w-full max-w-3xl mx-auto font-body">
             <h1 className="font-display text-5xl lg:text-7xl mb-4">News Archive</h1>
-            <p className="text-(--accent-muted) mb-12 max-w-xl">
+            <p className="text-(--muted) mb-12 max-w-xl">
                 Every article we have shared, in order. If a link has gone dark, the archived version should still work.
             </p>
 
             {articles.length === 0 && (
-                <p className="text-(--accent-muted)">No articles yet.</p>
+                <p className="text-(--muted)">No articles yet.</p>
             )}
 
             {years.map((year) => (
@@ -63,7 +63,7 @@ export default async function NewsArchivePage() {
                                 >
                                     {article.title}
                                 </a>
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-(--accent-muted)">
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-(--muted)">
                                     <span>{getDomain(article.url)}</span>
                                     {article.created_at && (
                                         <>

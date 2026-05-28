@@ -62,16 +62,16 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
             <div className="flex flex-col gap-3 w-full max-w-xs">
                 <button
                     onClick={shareBadge}
-                    className="w-full rounded-md bg-(--accent-muted) px-5 py-2.5 font-display text-xl font-bold text-(--on-accent) transition-colors hover:opacity-90 cursor-pointer"
+                    className="w-full rounded-md bg-(--accent) px-5 py-2.5 font-display text-xl font-bold text-(--on-accent) transition-colors hover:opacity-90 cursor-pointer"
                 >
                     Share your badge
                 </button>
 
                 <div className="w-full rounded-md border border-(--accent-muted) p-3 text-left">
-                    <p className="text-xs text-(--accent-muted) italic mb-2">&ldquo;{SHARE_TEXT}&rdquo;</p>
+                    <p className="text-xs text-(--muted) italic mb-2">&ldquo;{SHARE_TEXT}&rdquo;</p>
                     <button
                         onClick={copyText}
-                        className="rounded-md bg-(--accent-muted) px-3 py-1.5 font-display text-base font-bold text-(--on-accent) transition-colors hover:opacity-90 cursor-pointer"
+                        className="rounded-md bg-(--accent) px-3 py-1.5 font-display text-base font-bold text-(--on-accent) transition-colors hover:opacity-90 cursor-pointer"
                     >
                         {copied ? 'Copied!' : 'Copy text'}
                     </button>
@@ -80,8 +80,8 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
 
             {/* Irony note */}
             <div className="w-full border-l-4 border-(--accent-muted) pl-4 text-left">
-                <p className="font-display text-lg font-bold text-(--accent-muted) mb-2">A NOTE ON THE IRONY</p>
-                <p className="text-sm text-(--accent-muted) leading-relaxed">
+                <p className="font-display text-lg font-bold text-(--muted) mb-2">A NOTE ON THE IRONY</p>
+                <p className="text-sm text-(--muted) leading-relaxed">
                     We understand posting about disconnecting from social media on social media feels a little
                     contradictory, but we also live in reality. This isn&apos;t about purity. It&apos;s about direction.
                     If posting this badge is one of the last things you do before quitting or taking a break, that

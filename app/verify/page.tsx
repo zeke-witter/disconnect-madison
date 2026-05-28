@@ -36,14 +36,14 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
             <h1 className="font-display text-5xl lg:text-7xl mb-4 text-center">
                 {result.success ? 'Pledge Confirmed' : 'Verification Failed'}
             </h1>
-            <p className={`text-lg text-center ${result.success ? 'text-(--accent-muted)' : 'text-(--accent)'}`}>
+            <p className={`text-lg text-center ${result.success ? 'text-(--muted)' : 'text-(--accent)'}`}>
                 {result.message}
             </p>
 
             {!result.success && (
                 <a
                     href="/pledge"
-                    className="mt-6 inline-block text-sm text-(--accent-muted) hover:text-(--accent) hover:underline"
+                    className="mt-6 inline-block text-sm text-(--muted) hover:text-(--accent) hover:underline"
                 >
                     Go back and try again &rarr;
                 </a>
@@ -69,7 +69,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                                 <div key={step.number} className="rounded-lg border border-(--accent-muted) p-6 flex flex-col gap-3">
                                     <span className="font-display text-7xl font-bold text-(--accent) leading-none">{step.number}</span>
                                     <h3 className="font-bold text-lg">{step.heading}</h3>
-                                    <p className="text-sm text-(--accent-muted) flex-1">{step.body}</p>
+                                    <p className="text-sm text-(--muted) flex-1">{step.body}</p>
                                     <a href={step.href} className="text-sm font-semibold text-(--accent) hover:underline mt-2">
                                         {step.cta} &rarr;
                                     </a>
@@ -83,7 +83,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
             <a
                 id="button-back-home"
                 href="/"
-                className="mt-10 mb-8 text-sm text-(--accent-muted) hover:text-(--foreground) transition-colors"
+                className="mt-10 mb-8 text-sm text-(--muted) hover:text-(--foreground) transition-colors"
             >
                 &larr; Back to home
             </a>
