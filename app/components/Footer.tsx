@@ -1,3 +1,4 @@
+import Logo from "./Logo";
 
 export default function Footer() {
     return (
@@ -5,7 +6,9 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                     <div>
-                        <h2 className="font-display text-2xl font-bold mb-3">Disconnect Madison</h2>
+                        <h2 className="mb-3">
+                            <Logo variant="primary" height={44} alt="Disconnect Madison" bare />
+                        </h2>
                         <p className="text-sm text-(--secondary-accent)">
                             A registered 501(c)(3) nonprofit encouraging intentional choices about social media, AI, and screen time.
                         </p>

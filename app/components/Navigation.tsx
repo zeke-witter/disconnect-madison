@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Navigation({ totalPledges }: { totalPledges?: number }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,9 @@ export default function Navigation({ totalPledges }: { totalPledges?: number }) 
     return (
         <nav aria-label="main site navigation" className="relative flex w-full justify-between items-center py-4 lg:py-6 px-6 lg:px-8 font-display text-2xl border-b-5">
             <div className="flex items-center gap-6">
-                <Link href="/" aria-label="Home">Disconnect Madison</Link>
+                <Link href="/" aria-label="Disconnect Madison home" className="inline-flex items-center">
+                    <Logo variant="inverted" height={40} alt="Disconnect Madison" bare priority />
+                </Link>
                 {totalPledges != null && (
                     <span className="hidden lg:inline text-lg text-[#EDEBE6]/60">
                         {totalPledges.toLocaleString()} {totalPledges === 1 ? 'pledge' : 'pledges'}

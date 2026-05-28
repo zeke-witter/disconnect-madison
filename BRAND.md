@@ -60,19 +60,53 @@ Three typefaces, each with a distinct role.
 
 ## Logos
 
-Files live in `public/brand/logos/`. All variants are Forest `#386641` on transparent.
+Files live in `public/brand/logos/`. Every variant except `Inverted` is Forest
+`#386641` on transparent; `Inverted` is white `#fff` on transparent.
 
-| File | Variant | When to use |
-|---|---|---|
-| `Primary Logo.svg` | Full lockup | Default on Cream backgrounds |
-| `Secondary Logo.svg` | Alternate lockup | Secondary placements |
-| `Wordmark.svg` | Type-only | Tight horizontal spaces |
-| `Icon.svg` | Mark only | Compact / app icon contexts |
-| `Favicon.svg` | Simplified mark | Browser favicon |
-| `Monochrome.svg` | Single-color | Single-ink print, low-color contexts |
-| `Inverted.svg` | Light-on-dark | On Forest / photographic backgrounds |
+| File | `variant` prop | Color | When to use |
+|---|---|---|---|
+| `Primary Logo.svg` | `primary` | Forest | Default on Cream backgrounds |
+| `Secondary Logo.svg` | `secondary` | Forest | Stacked lockup, secondary placements |
+| `Wordmark.svg` | `wordmark` | Forest | Type-only, tight horizontal spaces |
+| `Icon.svg` | `icon` | Forest | Mark only, compact / app-icon contexts |
+| `Favicon.svg` | — | Forest | Browser favicon (see below) |
+| `Monochrome.svg` | `mono` | Black | Single-ink print, low-color contexts |
+| `Inverted.svg` | `inverted` | White | On Forest / photographic backgrounds |
 
-Use the `<Logo>` component (Phase 3) — it enforces clear-space and the correct variant.
+### The `<Logo>` component (`app/components/Logo.tsx`)
+
+```tsx
+<Logo variant="primary" height={44} />        // forest lockup on cream
+<Logo variant="inverted" height={40} bare />  // cream lockup on forest (nav)
+```
+
+- **Pick the variant by background, not by preference.** Forest variants on
+  Cream/light surfaces; `inverted` on Forest or photos. Never place a Forest
+  variant on Forest (invisible).
+- `height` sets the rendered height in px; width scales to preserve the
+  viewBox aspect ratio. `alt` defaults to "Disconnect Madison"; pass `alt=""`
+  when adjacent text already names the logo.
+- **Clear-space** is enforced by a wrapper that pads ~25% of the mark height on
+  all sides. Pass `bare` to opt out when the surrounding layout already
+  provides spacing (e.g. the nav bar).
+- Current placements: `inverted` in `Navigation`, `primary` in `Footer`.
+
+### Favicon & social card
+
+- Favicon is the brand mark via file conventions: `app/icon.svg` (modern SVG),
+  `app/apple-icon.png` (180px), and `public/favicon.ico` (legacy 32px). The
+  raster files are regenerated from `Favicon.svg` with `sharp`.
+- The OG / Twitter card is generated at `app/opengraph-image.tsx` (Forest
+  field, Lime accent, Cream wordmark). It uses **Raleway** rather than Built
+  Titling: satori (the `next/og` renderer) can't parse Built Titling's OTF/CFF
+  outlines or the Raleway *variable* font, so static Raleway instances live in
+  `app/fonts/raleway-static/` (generated with `fonttools varLib.instancer`).
+
+### Asset note
+
+`Inverted.svg` as delivered carried a full-bleed black `<rect>` background
+(an export artifact); it was removed so the variant is white-on-transparent and
+sits correctly on Forest.
 
 ---
 
