@@ -53,7 +53,7 @@ export default function EmailManager({ initialDrafts }: { initialDrafts: EmailDr
         return (
             <div>
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="font-handjet text-4xl lg:text-5xl">Email preview</h1>
+                    <h1 className="font-display text-4xl lg:text-5xl">Email preview</h1>
                     <button
                         onClick={() => setPreviewId(null)}
                         className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
@@ -77,7 +77,7 @@ export default function EmailManager({ initialDrafts }: { initialDrafts: EmailDr
     return (
         <div>
             <div className="flex items-center justify-between mb-6">
-                <h1 className="font-handjet text-4xl lg:text-5xl">Email drafts</h1>
+                <h1 className="font-display text-4xl lg:text-5xl">Email drafts</h1>
             </div>
 
             {message && (

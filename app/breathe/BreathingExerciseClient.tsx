@@ -269,17 +269,17 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                 <>
                     <text x="15" y="118" fontSize="10" fill="currentColor"
                         className="text-(--secondary-accent)/70"
-                        style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        style={{ fontFamily: 'var(--font-body)' }}>
                         Sniff
                     </text>
                     <text x="67" y="79" fontSize="10" fill="currentColor"
                         className="text-(--secondary-accent)/70"
-                        style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        style={{ fontFamily: 'var(--font-body)' }}>
                         Inhale
                     </text>
                     <text x="155" y="13" fontSize="10" fill="currentColor"
                         className="text-(--secondary-accent)/70"
-                        style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        style={{ fontFamily: 'var(--font-body)' }}>
                         Exhale
                     </text>
                 </>
@@ -305,12 +305,12 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                     <text x="160" y="150" textAnchor="middle" dominantBaseline="middle"
                         fontSize="14" fontWeight="600" fill="currentColor"
                         className="text-(--secondary-accent)"
-                        style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        style={{ fontFamily: 'var(--font-body)' }}>
                         {phase.label}
                     </text>
                     <text x="160" y="170" textAnchor="middle" dominantBaseline="middle"
                         fontSize="26" fontWeight="700" fill="currentColor"
-                        style={{ fontFamily: 'var(--font-handjet)' }}>
+                        style={{ fontFamily: 'var(--font-display)' }}>
                         {count}
                     </text>
                 </>
@@ -318,7 +318,7 @@ function SighVisual({ phase, phaseIndex, elapsed, status, count }: VisualProps) 
                 <text x="160" y="160" textAnchor="middle" dominantBaseline="middle"
                     fontSize="14" fill="currentColor"
                     className="text-(--secondary-accent)"
-                    style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                    style={{ fontFamily: 'var(--font-body)' }}>
                     Press start
                 </text>
             )}
@@ -334,7 +334,7 @@ function CenterText({ phase, count, status }: { phase: Phase; count: number; sta
             <text x="120" y="120" textAnchor="middle" dominantBaseline="middle"
                 fontSize="16" fill="currentColor"
                 className="text-(--secondary-accent)"
-                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                style={{ fontFamily: 'var(--font-body)' }}>
                 Press start
             </text>
         );
@@ -344,18 +344,18 @@ function CenterText({ phase, count, status }: { phase: Phase; count: number; sta
             <text x="120" y="104" textAnchor="middle" dominantBaseline="middle"
                 fontSize="17" fontWeight="600" fill="currentColor"
                 className="text-(--secondary-accent)"
-                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                style={{ fontFamily: 'var(--font-body)' }}>
                 {phase.label}
             </text>
             <text x="120" y="128" textAnchor="middle" dominantBaseline="middle"
                 fontSize="42" fontWeight="700" fill="currentColor"
-                style={{ fontFamily: 'var(--font-handjet)' }}>
+                style={{ fontFamily: 'var(--font-display)' }}>
                 {count}
             </text>
             <text x="120" y="152" textAnchor="middle" dominantBaseline="middle"
                 fontSize="14" fill="currentColor"
                 className="text-(--secondary-accent)"
-                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                style={{ fontFamily: 'var(--font-body)' }}>
                 {phase.instruction}
             </text>
         </>
@@ -458,7 +458,7 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
     };
 
     return (
-        <div className="flex flex-col items-center w-full font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full font-body">
             {exercises.length > 1 && (
                 <div className="flex gap-3 mb-8 flex-wrap justify-center">
                     {exercises.map(ex => (
@@ -478,7 +478,7 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
             )}
 
             <div className="text-center mb-8 max-w-md">
-                <h2 className="font-handjet text-4xl lg:text-5xl mb-2">{exercise.name}</h2>
+                <h2 className="font-display text-4xl lg:text-5xl mb-2">{exercise.name}</h2>
                 <p className="text-(--secondary-accent) text-sm mb-3">{exercise.tagline}</p>
                 <p className="text-(--secondary-accent) text-sm leading-relaxed">{exercise.description}</p>
             </div>
@@ -494,7 +494,7 @@ export default function BreathingExerciseClient({ exercises }: { exercises: Exer
 
             <button
                 onClick={status === 'idle' ? handleStart : handleStop}
-                className={`font-handjet text-2xl font-bold px-10 py-3 rounded-sm transition-colors mb-4 ${
+                className={`font-display text-2xl font-bold px-10 py-3 rounded-sm transition-colors mb-4 ${
                     status === 'idle'
                         ? 'bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90'
                         : 'border border-(--secondary-accent) hover:border-(--primary-accent) hover:text-(--primary-accent)'

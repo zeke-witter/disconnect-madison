@@ -43,7 +43,7 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
                 </div>
             )}
             <div className="flex flex-col justify-center p-5 gap-1.5">
-                <h2 className="font-handjet text-2xl group-hover:text-(--primary-accent) transition-colors">{event.title}</h2>
+                <h2 className="font-display text-2xl group-hover:text-(--primary-accent) transition-colors">{event.title}</h2>
                 <p className="text-sm text-(--secondary-accent)">{formatEventDate(event.date)}</p>
                 <p className="text-sm text-(--secondary-accent)">{event.location_name}{event.location_address ? ` — ${event.location_address}` : ''}</p>
                 {event.description && (
@@ -83,10 +83,10 @@ export default async function EventsPage() {
     }).reverse();
 
     return (
-        <div className="flex flex-col w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col w-full max-w-3xl mx-auto font-body">
             <section aria-labelledby="events-heading" className="w-full mb-10">
                 <div className="flex items-start justify-between gap-4">
-                    <h1 id="events-heading" className="font-handjet text-5xl lg:text-7xl mb-4">Events</h1>
+                    <h1 id="events-heading" className="font-display text-5xl lg:text-7xl mb-4">Events</h1>
                     {isAdmin && (
                         <Link
                             href="/events/add"
@@ -118,7 +118,7 @@ export default async function EventsPage() {
 
             {past.length > 0 && (
                 <section aria-labelledby="past-events-heading" className="w-full mt-16">
-                    <h2 id="past-events-heading" className="font-handjet text-3xl mb-6 text-(--secondary-accent)">Past events</h2>
+                    <h2 id="past-events-heading" className="font-display text-3xl mb-6 text-(--secondary-accent)">Past events</h2>
                     <div className="flex flex-col gap-4">
                         {past.map(event => (
                             <EventCard key={event.id} event={event} past />

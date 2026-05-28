@@ -32,10 +32,10 @@ const stats = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="ecological-heading" className="w-full mb-4">
-                <h1 id="ecological-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="ecological-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     The ecological cost
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -45,7 +45,7 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
                             <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
                             <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
                         </div>
@@ -54,7 +54,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="electricity" className="w-full mb-16">
-                <h2 id="electricity" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="electricity" className="font-display text-4xl lg:text-5xl mb-3">
                     The electricity nobody sees
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -74,7 +74,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="water" className="w-full mb-16">
-                <h2 id="water" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="water" className="font-display text-4xl lg:text-5xl mb-3">
                     Water: the cost hidden in plain sight
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -94,7 +94,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="ai-math" className="w-full mb-16">
-                <h2 id="ai-math" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="ai-math" className="font-display text-4xl lg:text-5xl mb-3">
                     AI rewrites the math
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -114,7 +114,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="great-lakes" className="w-full mb-16">
-                <h2 id="great-lakes" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="great-lakes" className="font-display text-4xl lg:text-5xl mb-3">
                     The Great Lakes in the crosshairs
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -137,7 +137,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="jobs" className="w-full mb-16">
-                <h2 id="jobs" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="jobs" className="font-display text-4xl lg:text-5xl mb-3">
                     The jobs promise
                 </h2>
                 <div className="space-y-4">
@@ -172,7 +172,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="social-piece" className="w-full mb-16">
-                <h2 id="social-piece" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="social-piece" className="font-display text-4xl lg:text-5xl mb-3">
                     Social media&apos;s piece of the picture
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -189,7 +189,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="industry-promises" className="w-full mb-16">
-                <h2 id="industry-promises" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="industry-promises" className="font-display text-4xl lg:text-5xl mb-3">
                     What the industry is promising
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -212,7 +212,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-to-do" className="w-full mb-16">
-                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="what-to-do" className="font-display text-4xl lg:text-5xl mb-3">
                     What you can do with this
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">

@@ -27,8 +27,8 @@ export default function Page() {
     const [state, formAction] = useActionState(addNewsArticleAction, initialState);
 
     return (
-        <div className="w-full max-w-xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl mb-8">Add news article</h1>
+        <div className="w-full max-w-xl mx-auto font-body">
+            <h1 className="font-display text-5xl mb-8">Add news article</h1>
             <form action={formAction} className="space-y-6">
                 <Field>
                     <Label className="block mb-1">Article URL</Label>

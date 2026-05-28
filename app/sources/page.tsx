@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
             <section aria-labelledby="sources-heading" className="w-full">
-                <h1 id="sources-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="sources-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Research &amp; Sources
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">

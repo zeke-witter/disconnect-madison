@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-5xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-5xl mx-auto font-body">
             <section aria-labelledby="at-a-glance" className="w-full mb-8">
-                <h1 id="at-a-glance" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="at-a-glance" className="font-display text-5xl lg:text-7xl mb-3">
                     The cost of social media
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -23,7 +23,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="effect-on-kids" className="w-full mb-16">
-                <h1 id="effect-on-kids" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="effect-on-kids" className="font-display text-5xl lg:text-7xl mb-3">
                     What it&apos;s doing to kids
                 </h1>
                 <div className="space-y-4">
@@ -43,7 +43,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="device-dependency" className="w-full mb-16">
-                <h1 id="device-dependency" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="device-dependency" className="font-display text-5xl lg:text-7xl mb-3">
                     The dependency question
                 </h1>
                 <div className="space-y-4">
@@ -63,7 +63,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-happens" className="w-full mb-16">
-                <h2 id="what-happens" className="font-handjet text-5xl lg:text-7xl mb-8">
+                <h2 id="what-happens" className="font-display text-5xl lg:text-7xl mb-8">
                     What happens when you step away
                 </h2>
 
@@ -112,7 +112,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="share-your-story" className="w-full mb-16">
-                <h2 id="share-your-story" className="font-handjet text-4xl lg:text-5xl mb-4">
+                <h2 id="share-your-story" className="font-display text-4xl lg:text-5xl mb-4">
                     Share your story
                 </h2>
                 <p>

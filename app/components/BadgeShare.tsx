@@ -62,7 +62,7 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
             <div className="flex flex-col gap-3 w-full max-w-xs">
                 <button
                     onClick={shareBadge}
-                    className="w-full rounded-md bg-(--primary-color) px-5 py-2.5 font-handjet text-xl font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
+                    className="w-full rounded-md bg-(--primary-color) px-5 py-2.5 font-display text-xl font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
                 >
                     Share your badge
                 </button>
@@ -71,7 +71,7 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
                     <p className="text-xs text-(--secondary-accent) italic mb-2">&ldquo;{SHARE_TEXT}&rdquo;</p>
                     <button
                         onClick={copyText}
-                        className="rounded-md bg-(--secondary-accent) px-3 py-1.5 font-handjet text-base font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
+                        className="rounded-md bg-(--secondary-accent) px-3 py-1.5 font-display text-base font-bold text-white transition-colors hover:opacity-90 cursor-pointer"
                     >
                         {copied ? 'Copied!' : 'Copy text'}
                     </button>
@@ -80,7 +80,7 @@ export default function BadgeShare({ pledgeAction }: { pledgeAction: string }) {
 
             {/* Irony note */}
             <div className="w-full border-l-4 border-(--primary-color) pl-4 text-left">
-                <p className="font-handjet text-lg font-bold text-(--primary-color) mb-2">A NOTE ON THE IRONY</p>
+                <p className="font-display text-lg font-bold text-(--primary-color) mb-2">A NOTE ON THE IRONY</p>
                 <p className="text-sm text-(--secondary-accent) leading-relaxed">
                     We understand posting about disconnecting from social media on social media feels a little
                     contradictory, but we also live in reality. This isn&apos;t about purity. It&apos;s about direction.

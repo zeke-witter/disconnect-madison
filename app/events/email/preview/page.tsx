@@ -20,7 +20,7 @@ export default async function EmailPreviewPage({
     const preview = selected ? buildEventAnnouncementEmail(selected, baseUrl) : null;
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-10 font-[family-name:var(--font-space-grotesk)]">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-10 font-body">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-(--secondary-accent)/20">
                 <div className="flex items-center gap-4">
                     <Link
@@ -35,7 +35,7 @@ export default async function EmailPreviewPage({
 
             <div className="flex items-start justify-between gap-6 mb-6">
                 <div>
-                    <h1 className="font-handjet text-4xl lg:text-5xl mb-1">Email preview</h1>
+                    <h1 className="font-display text-4xl lg:text-5xl mb-1">Email preview</h1>
                     {preview && (
                         <p className="text-sm text-(--secondary-accent)">Subject: <span className="text-(--foreground)">{preview.subject}</span></p>
                     )}

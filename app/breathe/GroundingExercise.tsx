@@ -89,7 +89,7 @@ export default function GroundingExercise() {
                 </p>
                 <button
                     onClick={() => setStarted(true)}
-                    className="font-handjet text-2xl px-10 py-3 rounded-sm bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90 transition-opacity"
+                    className="font-display text-2xl px-10 py-3 rounded-sm bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90 transition-opacity"
                 >
                     Start
                 </button>
@@ -100,7 +100,7 @@ export default function GroundingExercise() {
     if (done) {
         return (
             <div className="flex flex-col items-center text-center">
-                <p className="font-handjet text-6xl mb-3 text-(--primary-color)">Done.</p>
+                <p className="font-display text-6xl mb-3 text-(--primary-color)">Done.</p>
                 <p className="text-(--secondary-accent) text-sm mb-8">You&apos;re trying to be present. That&apos;s good enough.</p>
                 <button
                     onClick={handleReset}
@@ -130,7 +130,7 @@ export default function GroundingExercise() {
             </div>
 
             {/* Sense */}
-            <p className="font-handjet text-6xl lg:text-7xl text-(--primary-color) mb-2">
+            <p className="font-display text-6xl lg:text-7xl text-(--primary-color) mb-2">
                 {step.label}
             </p>
             <p className="text-(--secondary-accent) text-sm mb-10">{step.prompt}</p>
@@ -151,7 +151,7 @@ export default function GroundingExercise() {
             <button
                 onClick={handleFound}
                 aria-label={`Found one — ${step.count - found} remaining`}
-                className="font-handjet text-2xl px-10 py-3 rounded-sm bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90 transition-opacity mb-6"
+                className="font-display text-2xl px-10 py-3 rounded-sm bg-(--primary-color) text-(--pill-selected-text) hover:opacity-90 transition-opacity mb-6"
             >
                 Found one
             </button>

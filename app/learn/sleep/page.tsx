@@ -32,10 +32,10 @@ const stats = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="sleep-heading" className="w-full mb-4">
-                <h1 id="sleep-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="sleep-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Sleep disruption
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -45,7 +45,7 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
                             <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
                             <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
                         </div>
@@ -54,7 +54,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="sleep-optional" className="w-full mb-16">
-                <h2 id="sleep-optional" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="sleep-optional" className="font-display text-4xl lg:text-5xl mb-3">
                     Why sleep is not optional
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -71,7 +71,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="blue-light" className="w-full mb-16">
-                <h2 id="blue-light" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="blue-light" className="font-display text-4xl lg:text-5xl mb-3">
                     Blue light and the melatonin signal
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -91,7 +91,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="content-problem" className="w-full mb-16">
-                <h2 id="content-problem" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="content-problem" className="font-display text-4xl lg:text-5xl mb-3">
                     The content problem
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -108,7 +108,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="adolescents" className="w-full mb-16">
-                <h2 id="adolescents" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="adolescents" className="font-display text-4xl lg:text-5xl mb-3">
                     Adolescents carry a heavier burden
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -128,7 +128,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="feedback-loop" className="w-full mb-16">
-                <h2 id="feedback-loop" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="feedback-loop" className="font-display text-4xl lg:text-5xl mb-3">
                     The feedback loop
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -148,7 +148,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-changes" className="w-full mb-16">
-                <h2 id="what-changes" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="what-changes" className="font-display text-4xl lg:text-5xl mb-3">
                     What changes when you stop
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">

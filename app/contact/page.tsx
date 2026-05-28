@@ -62,7 +62,7 @@ function ContactForm() {
             <Button
                 type="submit"
                 disabled={isPending}
-                className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-handjet text-2xl"
+                className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-display text-2xl"
             >
                 {isPending ? 'Sending...' : 'Send message'}
             </Button>
@@ -88,8 +88,8 @@ function ContactForm() {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
+            <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
             <p className="text-(--secondary-accent) mb-4 w-full">
                 Have a question, idea, or want to collaborate? Let us know.
             </p>

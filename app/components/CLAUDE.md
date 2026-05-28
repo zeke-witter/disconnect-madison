@@ -31,7 +31,7 @@ All components here are shared across multiple pages. Page-specific components (
 **`PledgeCounter.tsx`** — Server Component
 - Calls `getPledgesAction()` directly (no props)
 - Displays 3 counts: reduce / step away / quit for good
-- Uses `font-handjet` for numbers, `text-(--primary-color)` for reduce count, `text-(--primary-accent)` for quit count
+- Uses `font-display` for numbers, `text-(--primary-color)` for reduce count, `text-(--primary-accent)` for quit count
 
 **`NewsCarousel.tsx`** — Server Component
 - Calls `getNewsArticlesAction()` (returns up to 10 articles)

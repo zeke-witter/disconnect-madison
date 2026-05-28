@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/events`,                   lastModified: new Date('2026-05-05'), changeFrequency: 'weekly',  priority: 0.8 },
 
     // Community / info
-    { url: `${baseUrl}/about`,                       lastModified: new Date('2026-04-27'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/about`,                       lastModified: new Date('2026-05-28'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/grow`,                        lastModified: new Date('2026-05-02'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/grow/flyer-locations`,        lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/faq`,                         lastModified: new Date('2026-04-27'), changeFrequency: 'monthly', priority: 0.6 },

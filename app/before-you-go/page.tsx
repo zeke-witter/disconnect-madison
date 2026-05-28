@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function BeforeYouGoPage() {
     return (
-        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-body">
 
             <section aria-labelledby="before-you-go-heading" className="w-full mb-10">
-                <h1 id="before-you-go-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
+                <h1 id="before-you-go-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Before you go
                 </h1>
                 <div className="space-y-4 text-lg text-(--secondary-accent)">
@@ -21,7 +21,7 @@ export default function BeforeYouGoPage() {
             <div className="w-full space-y-12">
 
                 <section aria-labelledby="decide-heading" className="w-full">
-                    <h2 id="decide-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="decide-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--primary-color)">
                         Start by deciding what matters to you
                     </h2>
                     <div className="space-y-4">
@@ -42,7 +42,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="save-heading" className="w-full">
-                    <h2 id="save-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="save-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--primary-color)">
                         Save what you want to keep
                     </h2>
                     <div className="space-y-4">
@@ -88,7 +88,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="connections-heading" className="w-full">
-                    <h2 id="connections-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="connections-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--primary-color)">
                         Reach out before you leave
                     </h2>
                     <div className="space-y-4">
@@ -105,7 +105,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="pace-heading" className="w-full">
-                    <h2 id="pace-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="pace-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--primary-color)">
                         You don&apos;t have to do it all at once
                     </h2>
                     <div className="space-y-4">
@@ -122,7 +122,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="ready-heading" className="w-full">
-                    <h2 id="ready-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="ready-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--primary-color)">
                         When you&apos;re ready
                     </h2>
                     <div className="space-y-4">

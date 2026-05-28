@@ -47,7 +47,7 @@ export default async function EventDetailPage({ params }: Props) {
         : null;
 
     return (
-        <div className="flex flex-col w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col w-full max-w-3xl mx-auto font-body">
 
             {event.cover_image_url && (
                 <div className="w-full aspect-video rounded-lg overflow-hidden mb-8">
@@ -68,7 +68,7 @@ export default async function EventDetailPage({ params }: Props) {
                 </Link>
             </div>
 
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-4">{event.title}</h1>
+            <h1 className="font-display text-5xl lg:text-7xl mb-4">{event.title}</h1>
 
             <div className="flex flex-col gap-2 mb-8 text-(--secondary-accent)">
                 <div className="flex items-start gap-2">
@@ -103,14 +103,14 @@ export default async function EventDetailPage({ params }: Props) {
 
             {event.description && (
                 <div
-                    className="prose prose-invert max-w-none text-base leading-relaxed [&_h1]:font-handjet [&_h2]:font-handjet [&_h3]:font-handjet [&_a]:text-(--primary-accent) [&_a:hover]:text-(--primary-accent-hover)"
+                    className="prose prose-invert max-w-none text-base leading-relaxed [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_a]:text-(--primary-accent) [&_a:hover]:text-(--primary-accent-hover)"
                     dangerouslySetInnerHTML={{ __html: descriptionHtml }}
                 />
             )}
 
             {event.registration_required && (
                 <div id="register" className="mt-12 p-6 rounded-lg border border-(--secondary-accent)/40 bg-(--secondary-accent)/5">
-                    <h2 className="font-handjet text-3xl mb-2">Register</h2>
+                    <h2 className="font-display text-3xl mb-2">Register</h2>
                     <p className="text-(--secondary-accent) text-sm">Registration is coming soon. In the meantime, <Link href="/contact">send us a message</Link> to reserve your spot.</p>
                 </div>
             )}

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-10 w-full">About Disconnect Madison</h1>
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
+            <h1 className="font-display text-5xl lg:text-7xl mb-10 w-full">About Disconnect Madison</h1>
 
             <section aria-labelledby="mission" className="w-full mb-12">
                 <h2 id="mission" className="font-bold text-2xl mb-4 text-(--primary-color)">Our mission</h2>
@@ -49,7 +49,7 @@ export default function Page() {
                         </ul>
                     </div>
                 </div>
-                <p className="mt-4">This is about <span className="italic">helping</span> people, not judging them. We&apos;re all in this boat together.</p>
+                <p className="font-accent text-3xl sm:text-4xl text-center mt-8 text-forest">This is about helping people, not judging them. We&apos;re all in this boat together.</p>
             </section>
 
             <section aria-labelledby="who" className="w-full mb-12">

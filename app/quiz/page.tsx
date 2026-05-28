@@ -77,11 +77,11 @@ export default function Page() {
         const pct = Math.round((finalScore / 30) * 100)
 
         return (
-            <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+            <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
                 <div className="w-full">
                     <p className="text-sm text-(--secondary-accent) mb-1">Your score</p>
                     <div className="flex items-baseline gap-3 mb-3">
-                        <span className="font-handjet text-6xl font-bold text-(--primary-accent)">{finalScore}</span>
+                        <span className="font-display text-6xl font-bold text-(--primary-accent)">{finalScore}</span>
                         <span className="text-(--secondary-accent) text-lg">out of 30</span>
                     </div>
                     <div className="w-full bg-(--secondary-accent)/20 rounded-full h-2 mb-10" role="meter" aria-valuenow={finalScore} aria-valuemin={0} aria-valuemax={30} aria-label={`Score: ${finalScore} out of 30`}>
@@ -91,7 +91,7 @@ export default function Page() {
                         />
                     </div>
 
-                    <h1 className="font-handjet text-5xl lg:text-7xl mb-6">{result.title}</h1>
+                    <h1 className="font-display text-5xl lg:text-7xl mb-6">{result.title}</h1>
                     <p className="text-lg text-(--secondary-accent) leading-relaxed mb-10">{result.body}</p>
 
                     <div className="space-y-3 mb-10">
@@ -123,9 +123,9 @@ export default function Page() {
     }
 
     return (
-        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
             <section aria-labelledby="quiz-title" className="w-full mb-8">
-                <h1 id="quiz-title" className="font-handjet text-5xl lg:text-7xl mb-2">
+                <h1 id="quiz-title" className="font-display text-5xl lg:text-7xl mb-2">
                     How is your screen time affecting you?
                 </h1>
                 <p className="text-(--secondary-accent)">10 questions. No account needed. Nothing is recorded.</p>
@@ -176,7 +176,7 @@ export default function Page() {
                     {currentIndex > 0 && (
                         <button
                             onClick={handlePrevious}
-                            className="rounded-md border border-(--secondary-accent) px-5 py-3 font-handjet text-2xl font-bold transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent)"
+                            className="rounded-md border border-(--secondary-accent) px-5 py-3 font-display text-2xl font-bold transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent)"
                         >
                             ← Previous
                         </button>
@@ -184,7 +184,7 @@ export default function Page() {
                     <button
                         onClick={handleNext}
                         disabled={selectedValue === null}
-                        className="flex-1 rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-30"
+                        className="flex-1 rounded-md bg-(--primary-accent) px-6 py-3 font-display text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-30"
                     >
                         {currentIndex < total - 1 ? 'Next' : 'See my results'}
                     </button>

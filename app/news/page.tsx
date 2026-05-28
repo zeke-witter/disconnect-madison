@@ -39,8 +39,8 @@ export default async function NewsArchivePage() {
     const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
 
     return (
-        <div className="w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-4">News Archive</h1>
+        <div className="w-full max-w-3xl mx-auto font-body">
+            <h1 className="font-display text-5xl lg:text-7xl mb-4">News Archive</h1>
             <p className="text-(--secondary-accent) mb-12 max-w-xl">
                 Every article we have shared, in order. If a link has gone dark, the archived version should still work.
             </p>
@@ -51,7 +51,7 @@ export default async function NewsArchivePage() {
 
             {years.map((year) => (
                 <section key={year} className="mb-12">
-                    <h2 className="font-handjet text-3xl mb-6 text-(--primary-color)">{year}</h2>
+                    <h2 className="font-display text-3xl mb-6 text-(--primary-color)">{year}</h2>
                     <ul className="space-y-0">
                         {byYear[year].map((article) => (
                             <li key={article.id} className="border-b border-(--secondary-accent)/20 py-4 first:border-t first:border-t-(--secondary-accent)/20">

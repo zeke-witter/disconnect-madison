@@ -68,10 +68,10 @@
   --color-on-forest:     var(--on-forest);
   --color-on-cta:        var(--on-cta);
 
-  /* Font tokens (Phase 2 wires brand faces; old vars kept for now) */
-  --font-sans:    var(--font-geist-sans);
-  --font-mono:    var(--font-geist-mono);
-  --font-handjet: var(--font-handjet);
+  /* Brand typography → Tailwind utilities (font-display, font-body, font-accent) */
+  --font-display: var(--font-display);
+  --font-body:    var(--font-body);
+  --font-accent:  var(--font-accent);
 
   --text-on-dark:  var(--on-accent);
   --text-on-light: var(--foreground);
@@ -80,7 +80,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-body);
 }
 
 main {

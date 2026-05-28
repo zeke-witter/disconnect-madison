@@ -32,10 +32,10 @@ const stats = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="attention-heading" className="w-full mb-4">
-                <h1 id="attention-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="attention-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Attention &amp; focus
                 </h1>
                 <p className="text-lg text-(--secondary-accent) mb-10">
@@ -45,7 +45,7 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
                         <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
+                            <span className="font-display text-5xl text-(--primary-accent) leading-none">{figure}</span>
                             <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
                             <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
                         </div>
@@ -54,7 +54,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="attention-economy" className="w-full mb-16">
-                <h2 id="attention-economy" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="attention-economy" className="font-display text-4xl lg:text-5xl mb-3">
                     The attention economy isn&apos;t a metaphor
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -71,7 +71,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="interruptions-cost" className="w-full mb-16">
-                <h2 id="interruptions-cost" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="interruptions-cost" className="font-display text-4xl lg:text-5xl mb-3">
                     What interruptions actually cost
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -88,7 +88,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="phone-on-desk" className="w-full mb-16">
-                <h2 id="phone-on-desk" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="phone-on-desk" className="font-display text-4xl lg:text-5xl mb-3">
                     The phone on your desk
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -105,7 +105,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="media-multitasking" className="w-full mb-16">
-                <h2 id="media-multitasking" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="media-multitasking" className="font-display text-4xl lg:text-5xl mb-3">
                     Media multitasking and what it trains
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -122,7 +122,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="adolescents-attention" className="w-full mb-16">
-                <h2 id="adolescents-attention" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="adolescents-attention" className="font-display text-4xl lg:text-5xl mb-3">
                     Adolescents and the developing attention system
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">
@@ -139,7 +139,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="sustained-attention-purpose" className="w-full mb-16">
-                <h2 id="sustained-attention-purpose" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="sustained-attention-purpose" className="font-display text-4xl lg:text-5xl mb-3">
                     What sustained attention is for
                 </h2>
                 <p className="text-(--secondary-accent) mb-6">

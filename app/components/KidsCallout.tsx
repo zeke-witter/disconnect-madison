@@ -36,7 +36,7 @@ export default function KidsCallout() {
         >
             <h2
                 id="explore-heading"
-                className="font-handjet text-4xl lg:text-5xl mb-8"
+                className="font-display text-4xl lg:text-5xl mb-8"
             >
                 What&apos;s next
             </h2>
@@ -49,7 +49,7 @@ export default function KidsCallout() {
                             : 'border-white/15 bg-white/5'
                             }`}
                     >
-                        <span className={`font-handjet text-7xl font-bold leading-none ${card.emphasis ? 'text-white/70' : 'text-white/40'}`}>
+                        <span className={`font-display text-7xl font-bold leading-none ${card.emphasis ? 'text-white/70' : 'text-white/40'}`}>
                             {card.number}
                         </span>
                         <h3 className="font-bold text-lg">{card.heading}</h3>

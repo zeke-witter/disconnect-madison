@@ -123,10 +123,10 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
         return (
             <div>
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="font-handjet text-4xl lg:text-5xl">Events</h1>
+                    <h1 className="font-display text-4xl lg:text-5xl">Events</h1>
                     <button
                         onClick={openCreate}
-                        className="rounded-md bg-(--primary-accent) px-4 py-2 font-handjet text-lg text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors"
+                        className="rounded-md bg-(--primary-accent) px-4 py-2 font-display text-lg text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors"
                     >
                         New event
                     </button>
@@ -162,7 +162,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
     return (
         <div>
             <div className="flex items-center justify-between mb-6">
-                <h1 className="font-handjet text-4xl lg:text-5xl">
+                <h1 className="font-display text-4xl lg:text-5xl">
                     {mode === 'create' ? 'New event' : 'Edit event'}
                 </h1>
                 <button onClick={cancel} className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors">

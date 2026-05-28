@@ -3,8 +3,8 @@ import StickerCarousel from "./StickerCarousel";
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Tanisha Pathan</h1>
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
+            <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Tanisha Pathan</h1>
             <p className="w-full text-(--secondary-accent) text-lg mb-10">Design Intern, 2026</p>
 
             {/* Profile */}
