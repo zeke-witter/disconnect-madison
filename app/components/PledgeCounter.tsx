@@ -13,7 +13,7 @@ export default async function PledgeCounter() {
                 <p id="pledged-to-step-away" className="text-2xl">Pledged to step away</p>
             </div>
             <div className="text-center mx-8 max-w-70">
-                <p className="text-6xl text-(--accent)" aria-labelledby="pledged-to-quit">{counts.quit_for_good.toLocaleString()}</p>
+                <p className="text-6xl text-(--accent-emotional)" aria-labelledby="pledged-to-quit">{counts.quit_for_good.toLocaleString()}</p>
                 <p id="pledged-to-quit" className="text-2xl">Pledged to quit for good</p>
             </div>
         </div>
