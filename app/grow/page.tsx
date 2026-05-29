@@ -124,28 +124,28 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="grow-heading" className="w-full mb-10">
-                <h1 id="grow-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
+                <h1 id="grow-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Help us grow
                 </h1>
-                <p className="text-lg text-(--secondary-accent)">
+                <p className="text-lg text-(--muted)">
                     Disconnect Madison is a registered 501(c)(3) nonprofit operated by one person with no marketing budget and no paid staff. Here&apos;s how you can help.
                 </p>
             </section>
 
             <section aria-labelledby="donate-heading" className="w-full mb-10">
-                <h2 id="donate-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="donate-heading" className="font-display text-4xl lg:text-5xl mb-3">
                     Make a donation
                 </h2>
-                <p className="text-(--secondary-accent) mb-4">
+                <p className="text-(--muted) mb-4">
                     Disconnect Madison is a 501(c)(3) nonprofit. If you&apos;d like to support the work financially, every dollar helps cover hosting, printing, and outreach. Donations are tax-deductible.
                 </p>
                 <p>
                     <Link
                         href="/donate"
-                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                        className="underline text-(--accent) hover:text-(--accent-hover)"
                     >
                         Visit the donate page →
                     </Link>
@@ -153,56 +153,56 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="tell-a-friend-heading" className="w-full mb-10">
-                <h2 id="tell-a-friend-heading" className="font-handjet text-4xl lg:text-5xl mb-3">Tell your friends</h2>
-                <p className="text-(--secondary-accent)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together. <span className="font-bold">If you&apos;ve taken the pledge, share your badge on social media.</span> We recognize the irony, but sharing helps with accountability and encourages others to be brave. We aim to meet people where they are, and the people who stand to benefit most from being more intentional about their screen time are spending their time on Instagram, TikTok, Facebook, etc.</p>
+                <h2 id="tell-a-friend-heading" className="font-display text-4xl lg:text-5xl mb-3">Tell your friends</h2>
+                <p className="text-(--muted)">The single most important factor in our growth is word-of-mouth. Start a dialogue with people in your life. Tell them what you&apos;ve learned. Take the pledge together. <span className="font-bold">If you&apos;ve taken the pledge, share your badge on social media.</span> We recognize the irony, but sharing helps with accountability and encourages others to be brave. We aim to meet people where they are, and the people who stand to benefit most from being more intentional about their screen time are spending their time on Instagram, TikTok, Facebook, etc.</p>
             </section>
 
             <section aria-labelledby="flyers-heading" className="w-full mb-10">
-                <h2 id="flyers-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="flyers-heading" className="font-display text-4xl lg:text-5xl mb-3">
                     Print and post a flyer
                 </h2>
-                <p className="text-(--secondary-accent) mb-8">
+                <p className="text-(--muted) mb-8">
                     Print one out and post it somewhere people in your community will see it: a school hallway, library, coffee shop, gym, or community board. Click a flyer to open it as a PDF.
                 </p>
 
-                <p className="text-sm text-(--secondary-accent) mb-6">
-                    The flyers say <span className="font-medium">disconnectmadison.org</span>, which redirects to this site. It&apos;s a local domain for Madison-area outreach. If you&apos;re outside Madison, WI and would prefer versions with a more generic URL, <Link href="/contact" className="underline hover:text-(--primary-color)">just ask</Link>.
+                <p className="text-sm text-(--muted) mb-6">
+                    The flyers say <span className="font-medium">disconnectmadison.org</span>, which redirects to this site. It&apos;s a local domain for Madison-area outreach. If you&apos;re outside Madison, WI and would prefer versions with a more generic URL, <Link href="/contact" className="underline hover:text-(--muted)">just ask</Link>.
                 </p>
 
-                <h3 className="font-handjet text-2xl mb-4">Color</h3>
+                <h3 className="font-display text-2xl mb-4">Color</h3>
                 <FlyerCarousel flyers={colorFlyers} />
 
-                <h3 className="font-handjet text-2xl mt-10 mb-2">Black and white</h3>
-                <p className="text-sm text-(--secondary-accent) mb-4">Cheaper to print at home or a copy shop.</p>
+                <h3 className="font-display text-2xl mt-10 mb-2">Black and white</h3>
+                <p className="text-sm text-(--muted) mb-4">Cheaper to print at home or a copy shop.</p>
                 <FlyerCarousel flyers={bwFlyers} />
 
-                <p className="text-(--secondary-accent) mt-8">
-                    Want to help post flyers around Madison? <Link href="/grow/flyer-locations" className="underline hover:text-(--primary-color)">See where we&apos;ve been and where we still need help.</Link>
+                <p className="text-(--muted) mt-8">
+                    Want to help post flyers around Madison? <Link href="/grow/flyer-locations" className="underline hover:text-(--muted)">See where we&apos;ve been and where we still need help.</Link>
                 </p>
             </section>
 
             <section aria-labelledby="cards-heading" className="w-full mb-10">
-                <h2 id="cards-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="cards-heading" className="font-display text-4xl lg:text-5xl mb-3">
                     Cards
                 </h2>
-                <p className="text-(--secondary-accent) mb-8">
+                <p className="text-(--muted) mb-8">
                     Small enough to keep in your pocket or wallet. Hand one to someone in conversation, or leave a few somewhere people might pick them up. Click a card to open it as a PDF. No littering!
                 </p>
                 <FlyerCarousel flyers={cards} aspectRatio="3.5 / 2" />
             </section>
 
             <section aria-labelledby="ideas-heading" className="w-full mb-10">
-                <h2 id="ideas-heading" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="ideas-heading" className="font-display text-4xl lg:text-5xl mb-3">
                     Got an idea? Want to help?
                 </h2>
-                <p className="text-(--secondary-accent) mb-4">
+                <p className="text-(--muted) mb-4">
                     We&apos;re always open to new ideas, better ways to spread the message, partnerships, events, content, or anything else you think could move the needle. If you want to get involved in any capacity, we&apos;d love to hear from you.
                 </p>
                 <p className="mb-4">We&apos;re especially in need of assistance from graphic designers (can you tell?) and people with experience in community organizing.</p>
                 <p>
                     <Link
                         href="/contact"
-                        className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)"
+                        className="underline text-(--accent) hover:text-(--accent-hover)"
                     >
                         Send us a message through the contact form →
                     </Link>

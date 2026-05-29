@@ -31,7 +31,7 @@ function ContactForm() {
                         name="name"
                         required
                         defaultValue={defaultName}
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-4 py-3 focus:outline-none focus:border-(--accent) focus:ring-1 focus:ring-(--accent)"
                     />
                 </Field>
 
@@ -43,7 +43,7 @@ function ContactForm() {
                         required
                         placeholder="you@example.com"
                         defaultValue={defaultEmail}
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent)"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-4 py-3 focus:outline-none focus:border-(--accent) focus:ring-1 focus:ring-(--accent)"
                     />
                 </Field>
 
@@ -54,7 +54,7 @@ function ContactForm() {
                         required
                         rows={6}
                         defaultValue={defaultMessage}
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-4 py-3 focus:outline-none focus:border-(--primary-accent) focus:ring-1 focus:ring-(--primary-accent) resize-y"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-4 py-3 focus:outline-none focus:border-(--accent) focus:ring-1 focus:ring-(--accent) resize-y"
                     />
                 </Field>
             </Fieldset>
@@ -62,20 +62,20 @@ function ContactForm() {
             <Button
                 type="submit"
                 disabled={isPending}
-                className="mt-8 w-full rounded-md bg-(--primary-accent) px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-50 font-handjet text-2xl"
+                className="mt-8 w-full rounded-md bg-cta px-6 py-3 text-lg font-bold text-on-cta transition-colors hover:bg-cta-hover disabled:opacity-50 font-display text-2xl"
             >
                 {isPending ? 'Sending...' : 'Send message'}
             </Button>
 
             {state?.message && (
                 <div className="mt-4 text-center">
-                    <p className={`font-medium ${state.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
+                    <p className={`font-medium ${state.success ? 'text-(--muted)' : 'text-(--accent)'}`}>
                         {state.message}
                     </p>
                     {!state.success && (
                         <a
                             href={mailtoHref}
-                            className="mt-2 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
+                            className="mt-2 inline-block text-sm text-(--muted) hover:text-(--accent) hover:underline"
                         >
                             Try emailing us directly &rarr;
                         </a>
@@ -88,12 +88,12 @@ function ContactForm() {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
-            <p className="text-(--secondary-accent) mb-4 w-full">
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
+            <h1 className="font-display text-5xl lg:text-7xl mb-2 w-full">Contact</h1>
+            <p className="text-(--muted) mb-4 w-full">
                 Have a question, idea, or want to collaborate? Let us know.
             </p>
-            <p className="text-(--secondary-accent) mb-10 w-full">
+            <p className="text-(--muted) mb-10 w-full">
                 We&apos;d also love to hear your story about why you decided to step away from social media, what drove that choice, or what changed when you did. <span className="font-bold">Sharing your story helps others find the courage to try.</span>
             </p>
 

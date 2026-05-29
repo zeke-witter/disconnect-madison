@@ -29,8 +29,8 @@ Server Actions live in `lib/actions.ts` with `'use server'`. They are called fro
 ## Root Layout Details (`app/layout.tsx`)
 
 - `export const dynamic = 'force-dynamic'` disables static caching globally (required for live pledge counts in nav)
-- Fonts: Geist Sans, Geist Mono, Handjet, Space Grotesk loaded via `next/font/google`
-- Theme initialization: inline script in `<head>` reads `localStorage.getItem('theme')` and sets `data-theme` attribute on `<html>` before paint (avoids flash)
+- Fonts: the three brand faces via `next/font/local` (see BRAND.md) — Built Titling → `--font-display`, Raleway (variable) → `--font-body`, Sue Ellen Francisco → `--font-accent`. Body defaults to `--font-body`.
+- Light-only theme: no dark mode, no theme-init script, no `data-theme` toggle (all removed in the brand overhaul).
 - Main content area: `<main id="main-content">` with horizontal padding at `px-4 sm:px-8 lg:px-16`
 
 ## Route Protection
@@ -68,46 +68,36 @@ const [state, formAction, isPending] = useActionState(serverAction, initialState
 
 ## Styling System (`globals.css`)
 
-### Design Tokens (CSS Custom Properties)
+**Light-only brand theme.** Full reference: `BRAND.md` and the live `/style-guide` route (noindex). The token system is two tiers, both in `:root` and surfaced to Tailwind v4 via `@theme inline`.
 
-Defined in `:root`. Referenced in Tailwind via `text-(--var-name)`, `bg-(--var-name)`, `border-(--var-name)`.
+### Tier 1 — brand primitives
 
-| Token | Dark (default) | Light |
+Raw palette; never reference directly in components. `--brand-forest` `#386641`, `--brand-fern` `#6A994E`, `--brand-lime` `#A7C957`, `--brand-cream` `#FEF8E8`, `--brand-blush` `#E88FA5`, plus tints/shades (`--brand-forest-hover`, `--brand-lime-hover`, `--brand-blush-light`, etc.).
+
+### Tier 2 — semantic tokens (use these)
+
+Referenced via arbitrary syntax `text-(--token)` / `bg-(--token)` / `border-(--token)`, or the named utilities exposed in `@theme inline` (`bg-forest`, `text-cream`, `bg-cta`, `text-on-cta`, etc.).
+
+| Token | Maps to | Role |
 |---|---|---|
-| `--background` | `#141C1B` | `#E8D9BC` |
-| `--foreground` | `#EDEBE6` | `#1A1A1A` |
-| `--primary-accent` | `#e06858` | `#8C3A2B` |
-| `--primary-accent-hover` | `#ea7a6c` | `#a84331` |
-| `--primary-color` | `#4a948d` | `#1A7268` |
-| `--secondary-accent` | `#91b0b6` | `#445D61` |
-| `--nav-background` | `#1F3D3A` | `#2B5250` |
-| `--on-accent` | `#141C1B` | `white` |
+| `--background` | cream | Page background |
+| `--foreground` | forest | Body text |
+| `--surface` | cream −5% | Cards / panels |
+| `--heading` | forest | Headings |
+| `--accent` / `--accent-hover` | forest | Links, primary forest buttons |
+| `--accent-muted` | fern | Secondary headings, supporting text, borders |
+| `--border` / `--border-subtle` | fern / fern tint | Borders, dividers |
+| `--muted` | forest tint | Muted text |
+| `--cta-bg` / `--cta-bg-hover` / `--cta-text` | lime / forest | Primary CTAs (lime fill, forest text) |
+| `--accent-emotional` | blush | Quotes / human-touch accents |
+| `--nav-background` | forest | Nav + inverted sections |
+| `--on-accent` / `--on-forest` / `--on-cta` | cream / forest | Text on colored surfaces |
 
-### Dark Mode
-
-**Important:** Tailwind's `dark:` variants only respond to `prefers-color-scheme: dark` (OS preference). They do NOT respond to the `data-theme` dev toggle. Never use `dark:` utilities in this codebase.
-
-Instead, all dark/light variations are handled via CSS custom properties. The `data-theme` attribute (set via `DarkModeToggle` in dev) overrides the media query via `:root[data-theme="dark"]` and `:root[data-theme="light"]` selectors.
-
-### Light Mode Override Pattern
-
-When an element needs a hard-coded color override in light mode that can't be expressed as a CSS variable (e.g., the PayPal button's amber color), use this double-rule pattern:
-
-```css
-/* Responds to OS preference (covers production users) */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) #element-id { ... }
-}
-
-/* Responds to dev toggle */
-:root[data-theme="light"] #element-id { ... }
-```
-
-Currently applies to: `#paypal-donate-button`, `#portfolio-link`.
+No dark mode: no `dark:` utilities, no `prefers-color-scheme` blocks, no `data-theme`. The PayPal/portfolio links (`#paypal-donate-button`, `#portfolio-link`) use a static Fern-outline rule.
 
 ### Global Link Styling
 
-`main a:not(...)` applies `color: var(--primary-accent)` and `text-decoration: underline` to all links inside `<main>`.
+`main a:not(...)` applies `color: var(--accent)` and `text-decoration: underline` to all links inside `<main>` (hover → `var(--accent-hover)`).
 
 To opt out of this styling:
 - Add the element's `id` to the `:not()` list
@@ -151,4 +141,5 @@ Links with `target="_blank"` and `href` starting with `http` (not `disconnectmad
 | `/pledge` | Client | Pledge form |
 | `/quiz` | Client | Self-reflection quiz |
 | `/sources` | Server | Academic citations |
+| `/style-guide` | Server | Internal brand reference (noindex): colors, type, logos, buttons |
 | `/verify` | Server | Email verification + badge share |

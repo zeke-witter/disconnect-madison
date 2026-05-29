@@ -77,45 +77,45 @@ export default function Page() {
         const pct = Math.round((finalScore / 30) * 100)
 
         return (
-            <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+            <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
                 <div className="w-full">
-                    <p className="text-sm text-(--secondary-accent) mb-1">Your score</p>
+                    <p className="text-sm text-(--muted) mb-1">Your score</p>
                     <div className="flex items-baseline gap-3 mb-3">
-                        <span className="font-handjet text-6xl font-bold text-(--primary-accent)">{finalScore}</span>
-                        <span className="text-(--secondary-accent) text-lg">out of 30</span>
+                        <span className="font-display text-6xl font-bold text-(--accent)">{finalScore}</span>
+                        <span className="text-(--muted) text-lg">out of 30</span>
                     </div>
-                    <div className="w-full bg-(--secondary-accent)/20 rounded-full h-2 mb-10" role="meter" aria-valuenow={finalScore} aria-valuemin={0} aria-valuemax={30} aria-label={`Score: ${finalScore} out of 30`}>
+                    <div className="w-full bg-(--accent-muted)/20 rounded-full h-2 mb-10" role="meter" aria-valuenow={finalScore} aria-valuemin={0} aria-valuemax={30} aria-label={`Score: ${finalScore} out of 30`}>
                         <div
-                            className="bg-(--primary-accent) h-2 rounded-full transition-all duration-700"
+                            className="bg-(--accent) h-2 rounded-full transition-all duration-700"
                             style={{ width: `${pct}%` }}
                         />
                     </div>
 
-                    <h1 className="font-handjet text-5xl lg:text-7xl mb-6">{result.title}</h1>
-                    <p className="text-lg text-(--secondary-accent) leading-relaxed mb-10">{result.body}</p>
+                    <h1 className="font-display text-5xl lg:text-7xl mb-6">{result.title}</h1>
+                    <p className="text-lg text-(--muted) leading-relaxed mb-10">{result.body}</p>
 
                     <div className="space-y-3 mb-10">
                         {result.links.map(link => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="link-card flex items-center justify-between rounded-md border border-(--secondary-accent) p-4 hover:border-(--primary-accent) hover:bg-(--primary-accent)/5 transition-colors group"
+                                className="link-card flex items-center justify-between rounded-md border border-(--accent-muted) p-4 hover:border-(--accent) hover:bg-(--accent)/5 transition-colors group"
                             >
-                                <span className="font-semibold group-hover:text-(--primary-color)">{link.label}</span>
-                                <span className="text-(--secondary-accent)" aria-hidden="true">→</span>
+                                <span className="font-semibold group-hover:text-(--muted)">{link.label}</span>
+                                <span className="text-(--muted)" aria-hidden="true">→</span>
                             </Link>
                         ))}
                     </div>
 
                     <button
                         onClick={handleReset}
-                        className="text-sm text-(--secondary-accent) underline hover:text-(--primary-accent) transition-colors"
+                        className="text-sm text-(--muted) underline hover:text-(--accent) transition-colors"
                     >
                         Take the quiz again
                     </button>
                 </div>
 
-                <p className="w-full text-xs text-(--secondary-accent) mt-12 pt-6 border-t border-(--secondary-accent)/30">
+                <p className="w-full text-xs text-(--muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
                     This quiz is meant to prompt self-reflection, not provide a diagnosis. It is not a clinical assessment tool.
                 </p>
             </div>
@@ -123,26 +123,26 @@ export default function Page() {
     }
 
     return (
-        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto font-body">
             <section aria-labelledby="quiz-title" className="w-full mb-8">
-                <h1 id="quiz-title" className="font-handjet text-5xl lg:text-7xl mb-2">
+                <h1 id="quiz-title" className="font-display text-5xl lg:text-7xl mb-2">
                     How is your screen time affecting you?
                 </h1>
-                <p className="text-(--secondary-accent)">10 questions. No account needed. Nothing is recorded.</p>
+                <p className="text-(--muted)">10 questions. No account needed. Nothing is recorded.</p>
                 {currentIndex === 0 && (
-                    <p className="text-sm text-(--secondary-accent) mt-3">
+                    <p className="text-sm text-(--muted) mt-3">
                         Answer honestly. There are no wrong answers here, and no one is keeping score but you. This isn&apos;t about feeling bad. It&apos;s about getting an honest look at what might be worth changing.
                     </p>
                 )}
             </section>
 
             <div className="w-full mb-8">
-                <div className="flex justify-between text-sm text-(--secondary-accent) mb-2">
+                <div className="flex justify-between text-sm text-(--muted) mb-2">
                     <span>Question {currentIndex + 1} of {total}</span>
                 </div>
-                <div className="w-full bg-(--secondary-accent)/20 rounded-full h-1.5" aria-hidden="true">
+                <div className="w-full bg-(--accent-muted)/20 rounded-full h-1.5" aria-hidden="true">
                     <div
-                        className="bg-(--primary-accent) h-1.5 rounded-full transition-all duration-300"
+                        className="bg-(--accent) h-1.5 rounded-full transition-all duration-300"
                         style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
                     />
                 </div>
@@ -162,10 +162,10 @@ export default function Page() {
                         <Radio
                             key={option.value}
                             value={option.value}
-                            className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--secondary-accent) p-4 transition-colors data-checked:border-(--primary-accent) data-checked:bg-(--primary-accent)/10 w-full text-left"
+                            className="group flex items-center gap-3 cursor-pointer rounded-md border border-(--accent-muted) p-4 transition-colors data-checked:border-(--accent) data-checked:bg-(--accent)/10 w-full text-left"
                         >
-                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--secondary-accent) group-data-checked:border-(--primary-accent)">
-                                <span className="invisible size-2.5 rounded-full bg-(--primary-accent) group-data-checked:visible" />
+                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-(--accent-muted) group-data-checked:border-(--accent)">
+                                <span className="invisible size-2.5 rounded-full bg-(--accent) group-data-checked:visible" />
                             </span>
                             <span>{option.label}</span>
                         </Radio>
@@ -176,7 +176,7 @@ export default function Page() {
                     {currentIndex > 0 && (
                         <button
                             onClick={handlePrevious}
-                            className="rounded-md border border-(--secondary-accent) px-5 py-3 font-handjet text-2xl font-bold transition-colors hover:border-(--primary-accent) hover:text-(--primary-accent)"
+                            className="rounded-md border border-(--accent-muted) px-5 py-3 font-display text-2xl font-bold transition-colors hover:border-(--accent) hover:text-(--accent)"
                         >
                             ← Previous
                         </button>
@@ -184,14 +184,14 @@ export default function Page() {
                     <button
                         onClick={handleNext}
                         disabled={selectedValue === null}
-                        className="flex-1 rounded-md bg-(--primary-accent) px-6 py-3 font-handjet text-2xl font-bold text-white transition-colors hover:bg-(--primary-accent-hover) disabled:opacity-30"
+                        className="flex-1 rounded-md bg-cta px-6 py-3 font-display text-2xl font-bold text-on-cta transition-colors hover:bg-cta-hover disabled:opacity-30"
                     >
                         {currentIndex < total - 1 ? 'Next' : 'See my results'}
                     </button>
                 </div>
             </div>
 
-            <p className="w-full text-xs text-(--secondary-accent) mt-12 pt-6 border-t border-(--secondary-accent)/30">
+            <p className="w-full text-xs text-(--muted) mt-12 pt-6 border-t border-(--accent-muted)/30">
                 This quiz is meant to prompt self-reflection, not provide a diagnosis. It is not a clinical assessment tool.
             </p>
         </div>

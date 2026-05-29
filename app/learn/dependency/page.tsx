@@ -33,29 +33,29 @@ const stats = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="dependency-heading" className="w-full mb-4">
-                <h1 id="dependency-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="dependency-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Are we too dependent on our devices?
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--muted) mb-10">
                     Do you feel like you&apos;ve gotten worse at remembering things, doing math in your head, navigating without GPS, or thinking through complex problems on your own? You aren&apos;t imagining it.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
             </section>
 
             <section aria-labelledby="cognitive-offloading" className="w-full mb-8">
-                <h2 id="cognitive-offloading" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="cognitive-offloading" className="font-display text-4xl lg:text-5xl mb-6">
                     Cognitive offloading: tool or crutch?
                 </h2>
                 <div className="space-y-4">
@@ -72,7 +72,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="google-effect" className="w-full mb-16">
-                <h2 id="google-effect" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="google-effect" className="font-display text-4xl lg:text-5xl mb-6">
                     The Google Effect
                 </h2>
                 <div className="space-y-4">
@@ -89,7 +89,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="gps" className="w-full mb-16">
-                <h2 id="gps" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="gps" className="font-display text-4xl lg:text-5xl mb-6">
                     Navigation and spatial memory
                 </h2>
                 <div className="space-y-4">
@@ -106,33 +106,33 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="phone-presence" className="w-full mb-16">
-                <h2 id="phone-presence" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="phone-presence" className="font-display text-4xl lg:text-5xl mb-6">
                     The cost of just having it nearby
                 </h2>
                 <div className="space-y-4">
-                    <div className="border-l-4 border-(--primary-accent) pl-5">
+                    <div className="border-l-4 border-(--accent) pl-5">
                         <p className="mb-2">
                             A 2017 study by Adrian Ward and colleagues at the University of Texas found that the <em>mere presence</em> of a smartphone on a desk (silent, face-down, not being used) measurably reduced participants&apos; available working memory and fluid intelligence. The effect was dose-dependent: the more participants relied on their phones in daily life, the greater the cognitive drain from its presence.
                         </p>
-                        <p className="text-sm text-(--secondary-accent)">
+                        <p className="text-sm text-(--muted)">
                             Ward, A.F. et al. <em>Brain Drain: The Mere Presence of One&apos;s Own Smartphone Reduces Available Cognitive Capacity.</em> Journal of the Association for Consumer Research, 2017.
                         </p>
                     </div>
                     <p>
                         The researchers called this &ldquo;brain drain&rdquo;. The phone doesn&apos;t have to be in use to pull your attention. The habit of checking, and the anticipation of checking, occupies mental resources even when you&apos;re trying to focus on something else. The same device is simultaneously a cognitive tool and a cognitive tax.
                     </p>
-                    <p className="text-(--secondary-accent) text-sm mt-6 mb-2">
+                    <p className="text-(--muted) text-sm mt-6 mb-2">
                         Average working memory score by phone location (Experiment 1). Higher is better.
                     </p>
                     <BrainDrainChart />
-                    <p className="text-xs text-(--secondary-accent) mt-3 text-right">
+                    <p className="text-xs text-(--muted) mt-3 text-right">
                         Source: Ward et al., &ldquo;Brain Drain,&rdquo; <em>Journal of the Association for Consumer Research</em>, 2017. Approximate means from Figure 1A.
                     </p>
                 </div>
             </section>
 
             <section aria-labelledby="ai-frontier" className="w-full mb-16">
-                <h2 id="ai-frontier" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="ai-frontier" className="font-display text-4xl lg:text-5xl mb-6">
                     AI and the next frontier
                 </h2>
                 <div className="space-y-4">
@@ -149,7 +149,7 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-to-do" className="w-full mb-16">
-                <h2 id="what-to-do" className="font-handjet text-4xl lg:text-5xl mb-6">
+                <h2 id="what-to-do" className="font-display text-4xl lg:text-5xl mb-6">
                     What you can do
                 </h2>
                 <div className="space-y-4">
@@ -168,8 +168,8 @@ export default function Page() {
                 </div>
             </section>
 
-            <section aria-labelledby="dependency-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="dependency-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="dependency-sources" className="w-full mb-8 text-sm text-(--muted)">
+                <h2 id="dependency-sources" className="font-bold text-base mb-3 text-(--muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.

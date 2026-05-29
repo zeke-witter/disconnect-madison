@@ -53,16 +53,16 @@ export default function EmailManager({ initialDrafts }: { initialDrafts: EmailDr
         return (
             <div>
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="font-handjet text-4xl lg:text-5xl">Email preview</h1>
+                    <h1 className="font-display text-4xl lg:text-5xl">Email preview</h1>
                     <button
                         onClick={() => setPreviewId(null)}
-                        className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                        className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                     >
                         ← Back
                     </button>
                 </div>
-                <p className="text-sm text-(--secondary-accent) mb-2">Subject: <span className="text-(--foreground)">{previewing.subject}</span></p>
-                <div className="rounded-lg border border-(--secondary-accent)/30 overflow-hidden mt-4">
+                <p className="text-sm text-(--muted) mb-2">Subject: <span className="text-(--foreground)">{previewing.subject}</span></p>
+                <div className="rounded-lg border border-(--accent-muted)/30 overflow-hidden mt-4">
                     <iframe
                         srcDoc={previewing.body_html}
                         title="Email preview"
@@ -77,43 +77,43 @@ export default function EmailManager({ initialDrafts }: { initialDrafts: EmailDr
     return (
         <div>
             <div className="flex items-center justify-between mb-6">
-                <h1 className="font-handjet text-4xl lg:text-5xl">Email drafts</h1>
+                <h1 className="font-display text-4xl lg:text-5xl">Email drafts</h1>
             </div>
 
             {message && (
-                <p className={`text-sm mb-4 ${isError ? 'text-(--primary-accent)' : 'text-emerald-400'}`}>{message}</p>
+                <p className={`text-sm mb-4 ${isError ? 'text-(--accent)' : 'text-(--muted)'}`}>{message}</p>
             )}
 
             {!process.env.NEXT_PUBLIC_BASE_URL && (
-                <div className="mb-6 rounded-md border border-(--secondary-accent)/30 bg-(--secondary-accent)/5 px-4 py-3 text-sm text-(--secondary-accent)">
+                <div className="mb-6 rounded-md border border-(--accent-muted)/30 bg-(--accent-muted)/5 px-4 py-3 text-sm text-(--muted)">
                     <strong className="text-(--foreground)">RESEND_AUDIENCE_ID required.</strong> Add this env var before sending broadcasts.
                 </div>
             )}
 
             {drafts.length === 0 ? (
-                <p className="text-(--secondary-accent)">No drafts yet. Open an event in the editor and click &ldquo;Draft announcement email&rdquo; to create one.</p>
+                <p className="text-(--muted)">No drafts yet. Open an event in the editor and click &ldquo;Draft announcement email&rdquo; to create one.</p>
             ) : (
-                <div className="divide-y divide-(--secondary-accent)/20">
+                <div className="divide-y divide-(--accent-muted)/20">
                     {drafts.map(draft => (
                         <div key={draft.id} className="py-5">
                             <div className="flex items-start justify-between gap-4">
                                 <div className="flex-1 min-w-0">
                                     <p className="font-semibold truncate">{draft.subject}</p>
                                     {draft.event_title && (
-                                        <p className="text-sm text-(--secondary-accent) mt-0.5">Event: {draft.event_title}</p>
+                                        <p className="text-sm text-(--muted) mt-0.5">Event: {draft.event_title}</p>
                                     )}
-                                    <p className="text-xs text-(--secondary-accent) mt-1">Created {formatDate(draft.created_at)}</p>
+                                    <p className="text-xs text-(--muted) mt-1">Created {formatDate(draft.created_at)}</p>
                                     {draft.status === 'sent' && draft.sent_at && (
-                                        <p className="text-xs text-emerald-400 mt-0.5">Sent {formatDate(draft.sent_at)}</p>
+                                        <p className="text-xs text-(--muted) mt-0.5">Sent {formatDate(draft.sent_at)}</p>
                                     )}
                                 </div>
                                 <div className="flex items-center gap-3 shrink-0">
-                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${draft.status === 'sent' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-(--secondary-accent)/20 text-(--secondary-accent)'}`}>
+                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${draft.status === 'sent' ? 'bg-(--cta-bg)/25 text-(--accent)' : 'bg-(--accent-muted)/20 text-(--muted)'}`}>
                                         {draft.status === 'sent' ? 'Sent' : 'Draft'}
                                     </span>
                                     <button
                                         onClick={() => setPreviewId(draft.id)}
-                                        className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                                        className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                                     >
                                         Preview
                                     </button>
@@ -121,14 +121,14 @@ export default function EmailManager({ initialDrafts }: { initialDrafts: EmailDr
                                         <button
                                             onClick={() => handleSend(draft)}
                                             disabled={sending === draft.id}
-                                            className="text-sm font-medium text-(--primary-color) hover:text-(--foreground) transition-colors disabled:opacity-50"
+                                            className="text-sm font-medium text-(--muted) hover:text-(--foreground) transition-colors disabled:opacity-50"
                                         >
                                             {sending === draft.id ? 'Sending...' : 'Send to list'}
                                         </button>
                                     )}
                                     <button
                                         onClick={() => handleDelete(draft)}
-                                        className="text-sm text-(--secondary-accent)/60 hover:text-(--primary-accent) transition-colors"
+                                        className="text-sm text-(--muted)/60 hover:text-(--accent) transition-colors"
                                     >
                                         Delete
                                     </button>

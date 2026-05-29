@@ -31,7 +31,7 @@ All components here are shared across multiple pages. Page-specific components (
 **`PledgeCounter.tsx`** — Server Component
 - Calls `getPledgesAction()` directly (no props)
 - Displays 3 counts: reduce / step away / quit for good
-- Uses `font-handjet` for numbers, `text-(--primary-color)` for reduce count, `text-(--primary-accent)` for quit count
+- Uses `font-display` for numbers, `text-(--primary-color)` for reduce count, `text-(--primary-accent)` for quit count
 
 **`NewsCarousel.tsx`** — Server Component
 - Calls `getNewsArticlesAction()` (returns up to 10 articles)
@@ -80,10 +80,10 @@ All components here are shared across multiple pages. Page-specific components (
 - Scroll amount: 408px (384px card + 24px gap)
 - Used on `/grow` for color flyers, B&W flyers, and hand-out cards
 
-**`DarkModeToggle.tsx`** — Client Component (`'use client'`)
-- Dev-only: used only on `/dev` page
-- Cycles through system/light/dark by writing to `localStorage` and setting `data-theme` on `<html>`
-- **Not** used on public pages; do not add it to the nav or public UI
+**`Logo.tsx`** — Server Component
+- Props: `variant` (`primary | secondary | wordmark | icon | mono | inverted`), `height`, `alt`, `bare`, `priority`
+- Renders the matching pre-colored SVG from `public/brand/logos/` via `next/image`; enforces clear-space via a padding wrapper (`bare` opts out)
+- Pick the variant by background: forest variants on cream, `inverted` (cream) on forest. Used: `inverted` in `Navigation`, `primary` in `Footer`. See BRAND.md.
 
 **`TiltWrapper.tsx`** — Client Component (`'use client'`)
 - Props: `children: React.ReactNode`, `className?: string`
@@ -104,7 +104,7 @@ All components here are shared across multiple pages. Page-specific components (
 ## Styling Notes
 
 - All components use Tailwind utility classes inline (no extracted CSS classes)
-- Design tokens via CSS custom properties: `text-(--primary-accent)`, `border-(--secondary-accent)`, etc.
-- Dark mode: handled by `globals.css` CSS custom properties — never use Tailwind `dark:` variants (they only respond to OS media query, not the `data-theme` dev toggle)
-- Light-mode overrides for specific elements (`#paypal-donate-button`, `#portfolio-link`) use the double-rule pattern in `globals.css`
+- Light-only brand theme. Use the semantic tokens (`text-(--accent)`, `text-(--accent-muted)`, `bg-(--surface)`, `border-(--border-subtle)`, etc.) or the named utilities (`bg-cta`, `text-on-cta`, `bg-forest`, `text-cream`). Never use raw Tailwind palette colors (`emerald-*`, `amber-*`, `gray-*`, `white`, `black`) or `dark:` variants. Full reference: `BRAND.md` and `/style-guide`.
+- Primary CTAs are lime fill + forest text (`bg-cta text-on-cta`); secondary/ghost actions use forest/fern. Emotional accents (quotes) use `--accent-emotional` (blush) or `font-accent`.
+- The PayPal/portfolio links (`#paypal-donate-button`, `#portfolio-link`) use a static Fern-outline rule in `globals.css`.
 - The `globals.css` `main a:not(...)` rule applies underline + accent color to all links in `<main>`. To opt out, add the element's id to the `:not()` list, or use the `.link-news` or `.link-card` CSS classes.

@@ -32,18 +32,18 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
     const result = await verifyPledgeAction(token ?? '');
 
     return (
-        <div className={`flex flex-col items-center w-full mx-auto font-[family-name:var(--font-space-grotesk)] ${result.success ? 'max-w-3xl' : 'max-w-lg'}`}>
-            <h1 className="font-handjet text-5xl lg:text-7xl mb-4 text-center">
+        <div className={`flex flex-col items-center w-full mx-auto font-body ${result.success ? 'max-w-3xl' : 'max-w-lg'}`}>
+            <h1 className="font-display text-5xl lg:text-7xl mb-4 text-center">
                 {result.success ? 'Pledge Confirmed' : 'Verification Failed'}
             </h1>
-            <p className={`text-lg text-center ${result.success ? 'text-emerald-600' : 'text-(--primary-accent)'}`}>
+            <p className={`text-lg text-center ${result.success ? 'text-(--muted)' : 'text-(--accent)'}`}>
                 {result.message}
             </p>
 
             {!result.success && (
                 <a
                     href="/pledge"
-                    className="mt-6 inline-block text-sm text-(--secondary-accent) hover:text-(--primary-accent) hover:underline"
+                    className="mt-6 inline-block text-sm text-(--muted) hover:text-(--accent) hover:underline"
                 >
                     Go back and try again &rarr;
                 </a>
@@ -57,20 +57,20 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                     </div>
 
                     {/* Referral question — low-key, after the main moment */}
-                    <div className="w-full mt-10 pt-10 border-t border-(--secondary-accent)/20 text-center">
+                    <div className="w-full mt-10 pt-10 border-t border-(--accent-muted)/20 text-center">
                         <ReferralQuestion token={token ?? ''} />
                     </div>
 
                     {/* What's next */}
                     <div className="w-full mt-12">
-                        <h2 className="font-handjet text-4xl lg:text-5xl mb-8">What&apos;s next?</h2>
+                        <h2 className="font-display text-4xl lg:text-5xl mb-8">What&apos;s next?</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {nextSteps.map((step) => (
-                                <div key={step.number} className="rounded-lg border border-(--secondary-accent) p-6 flex flex-col gap-3">
-                                    <span className="font-handjet text-7xl font-bold text-(--primary-accent) leading-none">{step.number}</span>
+                                <div key={step.number} className="rounded-lg border border-(--accent-muted) p-6 flex flex-col gap-3">
+                                    <span className="font-display text-7xl font-bold text-(--accent) leading-none">{step.number}</span>
                                     <h3 className="font-bold text-lg">{step.heading}</h3>
-                                    <p className="text-sm text-(--secondary-accent) flex-1">{step.body}</p>
-                                    <a href={step.href} className="text-sm font-semibold text-(--primary-accent) hover:underline mt-2">
+                                    <p className="text-sm text-(--muted) flex-1">{step.body}</p>
+                                    <a href={step.href} className="text-sm font-semibold text-(--accent) hover:underline mt-2">
                                         {step.cta} &rarr;
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
             <a
                 id="button-back-home"
                 href="/"
-                className="mt-10 mb-8 text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                className="mt-10 mb-8 text-sm text-(--muted) hover:text-(--foreground) transition-colors"
             >
                 &larr; Back to home
             </a>

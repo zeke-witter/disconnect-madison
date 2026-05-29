@@ -25,12 +25,12 @@ export default function SendTestEmailForm({ eventId, eventTitle }: { eventId: st
             <button
                 onClick={handleSend}
                 disabled={sending}
-                className="rounded-md border border-(--secondary-accent) px-4 py-2 text-sm text-(--secondary-accent) hover:border-(--foreground) hover:text-(--foreground) transition-colors disabled:opacity-50"
+                className="rounded-md border border-(--accent-muted) px-4 py-2 text-sm text-(--muted) hover:border-(--foreground) hover:text-(--foreground) transition-colors disabled:opacity-50"
             >
                 {sending ? 'Sending...' : 'Send test email'}
             </button>
             {result && (
-                <p className={`text-xs ${isError ? 'text-(--primary-accent)' : 'text-emerald-400'}`}>{result}</p>
+                <p className={`text-xs ${isError ? 'text-(--accent)' : 'text-(--muted)'}`}>{result}</p>
             )}
         </div>
     );

@@ -135,17 +135,17 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
         return (
             <div>
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="font-handjet text-4xl lg:text-5xl">Events</h1>
+                    <h1 className="font-display text-4xl lg:text-5xl">Events</h1>
                     <div className="flex items-center gap-3">
                         <Link
                             href="/events/email"
-                            className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors"
+                            className="text-sm text-(--muted) hover:text-(--foreground) transition-colors"
                         >
                             Email drafts
                         </Link>
                         <button
                             onClick={openCreate}
-                            className="rounded-md bg-(--primary-accent) px-4 py-2 font-handjet text-lg text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors"
+                            className="rounded-md bg-(--accent) px-4 py-2 font-display text-lg text-(--on-accent) hover:bg-(--accent-hover) transition-colors"
                         >
                             New event
                         </button>
@@ -153,7 +153,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                 </div>
 
                 {draftResult && (
-                    <p className={`text-sm mb-4 ${draftResult.success ? 'text-emerald-400' : 'text-(--primary-accent)'}`}>
+                    <p className={`text-sm mb-4 ${draftResult.success ? 'text-(--muted)' : 'text-(--accent)'}`}>
                         {draftResult.message}
                         {draftResult.success && (
                             <> — <Link href="/events/email" className="underline">View drafts</Link></>
@@ -162,30 +162,30 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                 )}
 
                 {events.length === 0 ? (
-                    <p className="text-(--secondary-accent)">No events yet. Create your first one.</p>
+                    <p className="text-(--muted)">No events yet. Create your first one.</p>
                 ) : (
-                    <div className="divide-y divide-(--secondary-accent)/20">
+                    <div className="divide-y divide-(--accent-muted)/20">
                         {events.map(event => (
                             <div key={event.id} className="flex items-center justify-between py-4 gap-4">
                                 <div className="flex-1 min-w-0">
                                     <p className="font-semibold truncate">{event.title}</p>
-                                    <p className="text-sm text-(--secondary-accent)">{formatDateShort(event.date)} — {event.location_name}</p>
+                                    <p className="text-sm text-(--muted)">{formatDateShort(event.date)} — {event.location_name}</p>
                                 </div>
-                                <span className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${event.published ? 'bg-emerald-500/20 text-emerald-400' : 'bg-(--secondary-accent)/20 text-(--secondary-accent)'}`}>
+                                <span className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${event.published ? 'bg-(--cta-bg)/25 text-(--accent)' : 'bg-(--accent-muted)/20 text-(--muted)'}`}>
                                     {event.published ? 'Published' : 'Draft'}
                                 </span>
                                 {event.published && (
                                     <button
                                         onClick={() => handleDraftEmail(event.id)}
                                         disabled={draftingEmailFor === event.id}
-                                        className="shrink-0 text-sm text-(--secondary-accent) hover:text-(--primary-color) transition-colors disabled:opacity-50"
+                                        className="shrink-0 text-sm text-(--muted) hover:text-(--muted) transition-colors disabled:opacity-50"
                                     >
                                         {draftingEmailFor === event.id ? 'Drafting...' : 'Draft email'}
                                     </button>
                                 )}
                                 <button
                                     onClick={() => openEdit(event)}
-                                    className="shrink-0 text-sm text-(--secondary-accent) hover:text-(--primary-color) transition-colors"
+                                    className="shrink-0 text-sm text-(--muted) hover:text-(--muted) transition-colors"
                                 >
                                     Edit
                                 </button>
@@ -200,10 +200,10 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
     return (
         <div>
             <div className="flex items-center justify-between mb-6">
-                <h1 className="font-handjet text-4xl lg:text-5xl">
+                <h1 className="font-display text-4xl lg:text-5xl">
                     {mode === 'create' ? 'New event' : 'Edit event'}
                 </h1>
-                <button onClick={cancel} className="text-sm text-(--secondary-accent) hover:text-(--foreground) transition-colors">
+                <button onClick={cancel} className="text-sm text-(--muted) hover:text-(--foreground) transition-colors">
                     Cancel
                 </button>
             </div>
@@ -213,42 +213,42 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium mb-1">Title <span className="text-(--primary-accent)">*</span></label>
+                        <label className="block text-sm font-medium mb-1">Title <span className="text-(--accent)">*</span></label>
                         <input
                             name="title"
                             type="text"
                             required
                             value={form.title}
                             onChange={e => set('title', e.target.value)}
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent)"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Start date & time <span className="text-(--primary-accent)">*</span></label>
+                        <label className="block text-sm font-medium mb-1">Start date & time <span className="text-(--accent)">*</span></label>
                         <input
                             name="date"
                             type="datetime-local"
                             required
                             value={form.date}
                             onChange={e => set('date', e.target.value)}
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent) [color-scheme:dark]"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent) [color-scheme:dark]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">End date & time <span className="text-xs text-(--secondary-accent)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">End date & time <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="end_date"
                             type="datetime-local"
                             value={form.end_date}
                             onChange={e => set('end_date', e.target.value)}
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent) [color-scheme:dark]"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent) [color-scheme:dark]"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Location name <span className="text-(--primary-accent)">*</span></label>
+                        <label className="block text-sm font-medium mb-1">Location name <span className="text-(--accent)">*</span></label>
                         <input
                             name="location_name"
                             type="text"
@@ -256,38 +256,38 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                             value={form.location_name}
                             onChange={e => set('location_name', e.target.value)}
                             placeholder="e.g. Willy Street Co-op East"
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent)"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Address <span className="text-xs text-(--secondary-accent)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">Address <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="location_address"
                             type="text"
                             value={form.location_address}
                             onChange={e => set('location_address', e.target.value)}
                             placeholder="e.g. 1221 Williamson St, Madison WI"
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent)"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
                         />
                     </div>
                 </div>
 
                 <div>
                     <div className="flex items-center justify-between mb-1">
-                        <label className="text-sm font-medium">Description <span className="text-xs text-(--secondary-accent)">(Markdown supported)</span></label>
-                        <div className="flex text-xs border border-(--secondary-accent)/40 rounded overflow-hidden">
+                        <label className="text-sm font-medium">Description <span className="text-xs text-(--muted)">(Markdown supported)</span></label>
+                        <div className="flex text-xs border border-(--accent-muted)/40 rounded overflow-hidden">
                             <button
                                 type="button"
                                 onClick={() => setPreviewMode('write')}
-                                className={`px-3 py-1 transition-colors ${previewMode === 'write' ? 'bg-(--secondary-accent)/20 text-(--foreground)' : 'text-(--secondary-accent) hover:text-(--foreground)'}`}
+                                className={`px-3 py-1 transition-colors ${previewMode === 'write' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--muted) hover:text-(--foreground)'}`}
                             >
                                 Write
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setPreviewMode('preview')}
-                                className={`px-3 py-1 transition-colors ${previewMode === 'preview' ? 'bg-(--secondary-accent)/20 text-(--foreground)' : 'text-(--secondary-accent) hover:text-(--foreground)'}`}
+                                className={`px-3 py-1 transition-colors ${previewMode === 'preview' ? 'bg-(--accent-muted)/20 text-(--foreground)' : 'text-(--muted) hover:text-(--foreground)'}`}
                             >
                                 Preview
                             </button>
@@ -300,14 +300,14 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                             rows={10}
                             value={form.description}
                             onChange={e => set('description', e.target.value)}
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent) font-mono text-sm resize-y"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent) font-mono text-sm resize-y"
                         />
                     ) : (
                         <>
                             <input type="hidden" name="description" value={form.description} />
                             <div
-                                className="min-h-48 w-full rounded-md border border-(--secondary-accent)/40 bg-(--secondary-accent)/5 px-4 py-3 prose prose-sm prose-invert max-w-none"
-                                dangerouslySetInnerHTML={{ __html: previewHtml || '<p class="text-gray-500 italic">Nothing to preview.</p>' }}
+                                className="min-h-48 w-full rounded-md border border-(--accent-muted)/40 bg-(--accent-muted)/5 px-4 py-3 prose prose-sm prose-invert max-w-none"
+                                dangerouslySetInnerHTML={{ __html: previewHtml || '<p class="text-(--muted) italic">Nothing to preview.</p>' }}
                             />
                         </>
                     )}
@@ -315,26 +315,26 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium mb-1">Capacity <span className="text-xs text-(--secondary-accent)">(leave blank for unlimited)</span></label>
+                        <label className="block text-sm font-medium mb-1">Capacity <span className="text-xs text-(--muted)">(leave blank for unlimited)</span></label>
                         <input
                             name="capacity"
                             type="number"
                             min="1"
                             value={form.capacity}
                             onChange={e => set('capacity', e.target.value)}
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent)"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Cover image URL <span className="text-xs text-(--secondary-accent)">(optional)</span></label>
+                        <label className="block text-sm font-medium mb-1">Cover image URL <span className="text-xs text-(--muted)">(optional)</span></label>
                         <input
                             name="cover_image_url"
                             type="url"
                             value={form.cover_image_url}
                             onChange={e => set('cover_image_url', e.target.value)}
                             placeholder="https://..."
-                            className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2 focus:outline-none focus:border-(--primary-accent)"
+                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
                         />
                     </div>
                 </div>
@@ -346,7 +346,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                             name="registration_required"
                             checked={form.registration_required}
                             onChange={e => set('registration_required', e.target.checked)}
-                            className="size-4 rounded border-(--secondary-accent) accent-(--primary-accent)"
+                            className="size-4 rounded border-(--accent-muted) accent-(--accent)"
                         />
                         <span className="text-sm font-medium">Registration required</span>
                     </label>
@@ -357,29 +357,29 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                             name="published"
                             checked={form.published}
                             onChange={e => set('published', e.target.checked)}
-                            className="size-4 rounded border-(--secondary-accent) accent-(--primary-accent)"
+                            className="size-4 rounded border-(--accent-muted) accent-(--accent)"
                         />
-                        <span className="text-sm font-medium">Published <span className="text-xs text-(--secondary-accent)">(visible on the public events page)</span></span>
+                        <span className="text-sm font-medium">Published <span className="text-xs text-(--muted)">(visible on the public events page)</span></span>
                     </label>
                 </div>
 
-                <p className="text-xs text-(--secondary-accent)">All times are in Central Time (CT).</p>
+                <p className="text-xs text-(--muted)">All times are in Central Time (CT).</p>
 
-                {error && <p className="text-sm text-(--primary-accent)">{error}</p>}
-                {successMsg && <p className="text-sm text-emerald-400">{successMsg}</p>}
+                {error && <p className="text-sm text-(--accent)">{error}</p>}
+                {successMsg && <p className="text-sm text-(--muted)">{successMsg}</p>}
 
                 <div className="flex gap-3 pt-2">
                     <button
                         type="submit"
                         disabled={saving}
-                        className="rounded-md bg-(--primary-accent) px-5 py-2.5 font-semibold text-(--on-accent) hover:bg-(--primary-accent-hover) transition-colors disabled:opacity-50"
+                        className="rounded-md bg-(--accent) px-5 py-2.5 font-semibold text-(--on-accent) hover:bg-(--accent-hover) transition-colors disabled:opacity-50"
                     >
                         {saving ? 'Saving...' : 'Save event'}
                     </button>
                     <button
                         type="button"
                         onClick={cancel}
-                        className="rounded-md border border-(--secondary-accent) px-5 py-2.5 text-sm text-(--secondary-accent) hover:border-(--foreground) hover:text-(--foreground) transition-colors"
+                        className="rounded-md border border-(--accent-muted) px-5 py-2.5 text-sm text-(--muted) hover:border-(--foreground) hover:text-(--foreground) transition-colors"
                     >
                         Cancel
                     </button>
@@ -387,7 +387,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                         <button
                             type="button"
                             onClick={handleDelete}
-                            className="ml-auto rounded-md border border-(--primary-accent)/40 px-4 py-2.5 text-sm text-(--primary-accent) hover:border-(--primary-accent) hover:bg-(--primary-accent)/10 transition-colors"
+                            className="ml-auto rounded-md border border-(--accent)/40 px-4 py-2.5 text-sm text-(--accent) hover:border-(--accent) hover:bg-(--accent)/10 transition-colors"
                         >
                             Delete event
                         </button>

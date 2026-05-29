@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-body">
 
             <section aria-labelledby="faq-title" className="w-full mb-10">
-                <h1 id="faq-title" className="font-handjet text-5xl lg:text-7xl mb-4">
+                <h1 id="faq-title" className="font-display text-5xl lg:text-7xl mb-4">
                     Frequently asked questions
                 </h1>
-                <p className="text-lg text-(--secondary-accent)">
+                <p className="text-lg text-(--muted)">
                     Questions about the project, the pledge, and what it all means. If something isn&apos;t covered here, <Link href="/contact">reach out</Link>.
                 </p>
             </section>

@@ -42,8 +42,8 @@ export default function Page() {
     }
 
     return (
-        <div className="w-full max-w-xl mx-auto font-[family-name:var(--font-space-grotesk)]">
-            <h1 className="font-handjet text-5xl mb-8">Login</h1>
+        <div className="w-full max-w-xl mx-auto font-body">
+            <h1 className="font-display text-5xl mb-8">Login</h1>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <Field>
                     <Label className="block mb-1">Email</Label>
@@ -51,7 +51,7 @@ export default function Page() {
                         name="email"
                         type="email"
                         required
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2"
                     />
                 </Field>
                 <Field>
@@ -60,20 +60,20 @@ export default function Page() {
                         name="password"
                         type="password"
                         required
-                        className="block w-full rounded-md border border-(--secondary-accent) bg-transparent px-3 py-2"
+                        className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2"
                     />
                 </Field>
                 <Button
                     type="submit"
                     disabled={loading}
-                    className="rounded bg-sky-600 px-4 py-2 text-sm text-white data-active:bg-sky-700 data-hover:bg-sky-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="rounded bg-(--accent) px-4 py-2 text-sm text-(--on-accent) data-active:bg-(--accent-hover) data-hover:bg-(--accent-hover) disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                     {loading ? 'Signing in...' : 'Sign in'}
                 </Button>
                 {error && (
                     <div>
                         <p style={{ color: 'red' }}>{error}</p>
-                        <p className="text-xs text-(--secondary-accent) mt-1">Details: {rawError}</p>
+                        <p className="text-xs text-(--muted) mt-1">Details: {rawError}</p>
                     </div>
                 )}
             </form>

@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 export default function BeforeYouGoPage() {
     return (
-        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-3xl mx-auto font-body">
 
             <section aria-labelledby="before-you-go-heading" className="w-full mb-10">
-                <h1 id="before-you-go-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
+                <h1 id="before-you-go-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Before you go
                 </h1>
-                <div className="space-y-4 text-lg text-(--secondary-accent)">
+                <div className="space-y-4 text-lg text-(--muted)">
                     <p>
                         You don&apos;t have to delete everything today. In fact, you probably shouldn&apos;t. Leaving thoughtfully means you won&apos;t regret it later, and you won&apos;t lose things you meant to save.
                     </p>
@@ -21,7 +21,7 @@ export default function BeforeYouGoPage() {
             <div className="w-full space-y-12">
 
                 <section aria-labelledby="decide-heading" className="w-full">
-                    <h2 id="decide-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="decide-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--accent-muted)">
                         Start by deciding what matters to you
                     </h2>
                     <div className="space-y-4">
@@ -29,7 +29,7 @@ export default function BeforeYouGoPage() {
                             Before you do anything, spend a few minutes thinking honestly about what you would actually miss, not what you feel anxious about losing. There&apos;s a difference.
                         </p>
                         <p>Some useful questions:</p>
-                        <ul className="list-disc list-outside ml-5 space-y-2 text-(--secondary-accent)">
+                        <ul className="list-disc list-outside ml-5 space-y-2 text-(--muted)">
                             <li>Are there photos or videos stored here that exist nowhere else?</li>
                             <li>Are there people you stay in touch with mostly or entirely through this platform?</li>
                             <li>Are there saved posts, bookmarks, or content you genuinely refer back to?</li>
@@ -42,7 +42,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="save-heading" className="w-full">
-                    <h2 id="save-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="save-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--accent-muted)">
                         Save what you want to keep
                     </h2>
                     <div className="space-y-4">
@@ -52,7 +52,7 @@ export default function BeforeYouGoPage() {
                         <p>
                             The process takes a few minutes to request and usually a few hours (sometimes longer) for the platform to prepare your file. Plan ahead.
                         </p>
-                        <div className="rounded-md border border-(--secondary-accent)/30 divide-y divide-(--secondary-accent)/20 text-sm mt-4">
+                        <div className="rounded-md border border-(--accent-muted)/30 divide-y divide-(--accent-muted)/20 text-sm mt-4">
                             {[
                                 { platform: 'Facebook', href: 'https://www.facebook.com/help/212802592074644', label: 'Download your Facebook data' },
                                 { platform: 'Instagram', href: 'https://help.instagram.com/181231772500920', label: 'Download your Instagram data' },
@@ -71,14 +71,14 @@ export default function BeforeYouGoPage() {
                                         href={href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-(--primary-accent) underline underline-offset-2 shrink-0"
+                                        className="text-(--accent) underline underline-offset-2 shrink-0"
                                     >
                                         {label}
                                     </a>
                                 </div>
                             ))}
                         </div>
-                        <p className="text-sm text-(--secondary-accent)">
+                        <p className="text-sm text-(--muted)">
                             Links point to official platform help pages. Steps may change as platforms update their interfaces.
                         </p>
                         <p>
@@ -88,7 +88,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="connections-heading" className="w-full">
-                    <h2 id="connections-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="connections-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--accent-muted)">
                         Reach out before you leave
                     </h2>
                     <div className="space-y-4">
@@ -105,7 +105,7 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="pace-heading" className="w-full">
-                    <h2 id="pace-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="pace-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--accent-muted)">
                         You don&apos;t have to do it all at once
                     </h2>
                     <div className="space-y-4">
@@ -122,14 +122,14 @@ export default function BeforeYouGoPage() {
                 </section>
 
                 <section aria-labelledby="ready-heading" className="w-full">
-                    <h2 id="ready-heading" className="font-handjet text-3xl lg:text-4xl mb-4 text-(--primary-color)">
+                    <h2 id="ready-heading" className="font-display text-3xl lg:text-4xl mb-4 text-(--accent-muted)">
                         When you&apos;re ready
                     </h2>
                     <div className="space-y-4">
                         <p>
                             Official guides for deactivating or deleting accounts on each platform:
                         </p>
-                        <div className="rounded-md border border-(--secondary-accent)/30 divide-y divide-(--secondary-accent)/20 text-sm">
+                        <div className="rounded-md border border-(--accent-muted)/30 divide-y divide-(--accent-muted)/20 text-sm">
                             {[
                                 { platform: 'Facebook', deactivate: { href: 'https://www.facebook.com/help/214376678584711', label: 'Deactivate' }, remove: { href: 'https://www.facebook.com/help/224562897555674', label: 'Delete' } },
                                 { platform: 'Instagram', deactivate: { href: 'https://help.instagram.com/370452623149242', label: 'Deactivate' }, remove: { href: 'https://help.instagram.com/370452623149242', label: 'Delete' } },
@@ -145,21 +145,21 @@ export default function BeforeYouGoPage() {
                                     <span className="font-medium">{platform}</span>
                                     <div className="flex gap-4 shrink-0">
                                         {deactivate && (
-                                            <a href={deactivate.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--secondary-accent)">
+                                            <a href={deactivate.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--muted)">
                                                 {deactivate.label}
                                             </a>
                                         )}
-                                        <a href={remove.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--primary-accent)">
+                                        <a href={remove.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-(--accent)">
                                             {remove.label}
                                         </a>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <p className="text-sm text-(--secondary-accent)">
+                        <p className="text-sm text-(--muted)">
                             Links point to official platform help pages. Verify steps on each platform, as processes may change.
                         </p>
-                        <p className="text-sm text-(--secondary-accent)">
+                        <p className="text-sm text-(--muted)">
                             <strong>YouTube:</strong> deleting your channel removes it permanently but leaves your Google account intact. If you want to delete your Google account entirely, that&apos;s a separate step. <strong>WhatsApp:</strong> account deletion is immediate and wipes your message history from the app, so export any conversations you want to keep first.
                         </p>
                         <p className="pt-2">
@@ -170,9 +170,9 @@ export default function BeforeYouGoPage() {
 
             </div>
 
-            <section aria-labelledby="further-reading" className="w-full mt-12 pt-8 border-t border-(--secondary-accent)/20">
-                <h2 id="further-reading" className="font-bold mb-3 text-(--primary-color)">Further reading</h2>
-                <p className="text-sm text-(--secondary-accent)">
+            <section aria-labelledby="further-reading" className="w-full mt-12 pt-8 border-t border-(--accent-muted)/20">
+                <h2 id="further-reading" className="font-bold mb-3 text-(--muted)">Further reading</h2>
+                <p className="text-sm text-(--muted)">
                     Looking for strategies to reduce screen time, get through the first two weeks, or build habits that stick? See{' '}
                     <Link href="/help-yourself">How to Help Yourself</Link>.
                 </p>

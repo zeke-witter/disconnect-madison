@@ -32,11 +32,11 @@ export default function KidsCallout() {
     return (
         <section
             aria-labelledby="explore-heading"
-            className="bg-[#1F3D3A] text-[#F6F4EF] -mx-4 sm:-mx-8 lg:-mx-16 px-4 sm:px-8 lg:px-16 py-14 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)]"
+            className="bg-forest text-(--on-forest) -mx-4 sm:-mx-8 lg:-mx-16 px-4 sm:px-8 lg:px-16 py-14 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)]"
         >
             <h2
                 id="explore-heading"
-                className="font-handjet text-4xl lg:text-5xl mb-8"
+                className="font-display text-4xl lg:text-5xl mb-8"
             >
                 What&apos;s next
             </h2>
@@ -45,18 +45,18 @@ export default function KidsCallout() {
                     <TiltWrapper
                         key={card.number}
                         className={`rounded-lg p-6 flex flex-col gap-3 border ${card.emphasis
-                            ? 'border-white/30 bg-white/10'
-                            : 'border-white/15 bg-white/5'
+                            ? 'border-(--on-forest)/30 bg-(--on-forest)/10'
+                            : 'border-(--on-forest)/15 bg-(--on-forest)/5'
                             }`}
                     >
-                        <span className={`font-handjet text-7xl font-bold leading-none ${card.emphasis ? 'text-white/70' : 'text-white/40'}`}>
+                        <span className={`font-display text-7xl font-bold leading-none ${card.emphasis ? 'text-(--on-forest)/70' : 'text-(--on-forest)/40'}`}>
                             {card.number}
                         </span>
                         <h3 className="font-bold text-lg">{card.heading}</h3>
-                        <p className="text-sm text-white/70 flex-1">{card.body}</p>
+                        <p className="text-sm text-(--on-forest)/70 flex-1">{card.body}</p>
                         <Link
                             href={card.href}
-                            className="text-sm font-semibold mt-2 !text-[#F6F4EF] hover:!text-white hover:underline"
+                            className="text-sm font-semibold mt-2 !text-(--on-forest) hover:!text-lime hover:underline"
                         >
                             {card.cta} &rarr;
                         </Link>

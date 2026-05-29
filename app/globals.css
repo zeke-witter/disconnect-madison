@@ -1,102 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  --background: #141C1B;
-  --foreground: #EDEBE6;
-  --primary-accent: #e06858;
-  --primary-accent-hover: #ea7a6c;
-  --primary-color: #4a948d;
-  --secondary-accent: #91b0b6;
-  --nav-background: #1F3D3A;
-  --pill-selected-text: #141C1B;
-  --on-accent: #141C1B;
+  /* ─── Tier 1: Brand primitives ─────────────────────────────────────────── */
+  --brand-forest:       #386641;
+  --brand-forest-dark:  #315A39;   /* pressed / active states */
+  --brand-forest-hover: #507855;   /* hover on forest surfaces */
+  --brand-fern:         #6A994E;
+  --brand-lime:         #A7C957;
+  --brand-lime-hover:   #96B54E;
+  --brand-cream:        #FEF8E8;
+  --brand-blush:        #E88FA5;
+  --brand-blush-light:  #ECA4B2;   /* quote / callout backgrounds */
+
+  /* ─── Tier 2: Semantic tokens ───────────────────────────────────────────── */
+  --background:   var(--brand-cream);
+  --foreground:   var(--brand-forest);
+  --surface:      #F1ECDC;         /* card / panel surface (cream -5%) */
+  --heading:      var(--brand-forest);
+  --border:       var(--brand-fern);
+  --border-subtle: #D2DCBA;        /* fern 30% tint for dividers */
+  --muted:        var(--brand-forest-hover);
+
+  /* Interactive accent — links, primary (forest) buttons, accents */
+  --accent:        var(--brand-forest);
+  --accent-hover:  var(--brand-forest-hover);
+  /* Secondary accent — secondary headings, supporting text, borders (Fern) */
+  --accent-muted:  var(--brand-fern);
+
+  --cta-bg:       var(--brand-lime);
+  --cta-bg-hover: var(--brand-lime-hover);
+  --cta-text:     var(--brand-forest);
+
+  --accent-emotional:       var(--brand-blush);
+  --accent-emotional-light: var(--brand-blush-light);
+
+  /* Navigation */
+  --nav-background: var(--brand-forest);
+
+  /* Text on inverted (forest) surfaces */
+  --on-accent:   var(--brand-cream);
+  --on-forest:   var(--brand-cream);
+  --on-cta:      var(--brand-forest);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-handjet: var(--font-handjet);
-  --text-on-dark: var(--background);
-  --text-on-light: var(--text-color);
-}
+  /* Brand primitives → Tailwind utilities (bg-forest, text-fern, etc.) */
+  --color-forest:        var(--brand-forest);
+  --color-forest-dark:   var(--brand-forest-dark);
+  --color-forest-hover:  var(--brand-forest-hover);
+  --color-fern:          var(--brand-fern);
+  --color-lime:          var(--brand-lime);
+  --color-lime-hover:    var(--brand-lime-hover);
+  --color-cream:         var(--brand-cream);
+  --color-blush:         var(--brand-blush);
+  --color-blush-light:   var(--brand-blush-light);
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) #paypal-donate-button,
-  :root:not([data-theme="dark"]) #portfolio-link {
-    border-color: rgb(180 83 9 / 0.7);
-    color: rgb(180 83 9);
-  }
-  :root:not([data-theme="dark"]) #paypal-donate-button:hover,
-  :root:not([data-theme="dark"]) #portfolio-link:hover {
-    border-color: rgb(180 83 9);
-    background-color: rgb(180 83 9 / 0.1);
-  }
-}
+  /* Semantic utilities */
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-surface:       var(--surface);
+  --color-heading:       var(--heading);
+  --color-border:        var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-muted:         var(--muted);
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+  --color-accent-muted:  var(--accent-muted);
+  --color-cta:           var(--cta-bg);
+  --color-cta-hover:     var(--cta-bg-hover);
+  --color-accent-emotional: var(--accent-emotional);
+  --color-on-accent:     var(--on-accent);
+  --color-on-forest:     var(--on-forest);
+  --color-on-cta:        var(--on-cta);
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --background: #E8D9BC;
-    --foreground: #1A1A1A;
-    --primary-color: #1A7268;
-    --primary-accent: #8C3A2B;
-    --primary-accent-hover: #a84331;
-    --secondary-accent: #445D61;
-    --nav-background: #2B5250;
-    --pill-selected-text: white;
-    --on-accent: white;
-  }
-}
+  /* Brand typography → Tailwind utilities (font-display, font-body, font-accent) */
+  --font-display: var(--font-display);
+  --font-body:    var(--font-body);
+  --font-accent:  var(--font-accent);
 
-:root[data-theme="light"] #paypal-donate-button,
-:root[data-theme="light"] #portfolio-link {
-  border-color: rgb(180 83 9 / 0.7);
-  color: rgb(180 83 9);
-}
-:root[data-theme="light"] #paypal-donate-button:hover,
-:root[data-theme="light"] #portfolio-link:hover {
-  border-color: rgb(180 83 9);
-  background-color: rgb(180 83 9 / 0.1);
-}
-
-:root[data-theme="light"] {
-  --background: #E8D9BC;
-  --foreground: #1A1A1A;
-  --primary-color: #1A7268;
-  --primary-accent: #8C3A2B;
-  --primary-accent-hover: #a84331;
-  --secondary-accent: #445D61;
-  --nav-background: #2B5250;
-  --pill-selected-text: white;
-  --on-accent: white;
-}
-
-:root[data-theme="dark"] {
-  --background: #141C1B;
-  --foreground: #EDEBE6;
-  --primary-accent: #e06858;
-  --primary-accent-hover: #ea7a6c;
-  --primary-color: #4a948d;
-  --secondary-accent: #91b0b6;
-  --nav-background: #1F3D3A;
-  --pill-selected-text: #141C1B;
-  --on-accent: #141C1B;
+  --text-on-dark:  var(--on-accent);
+  --text-on-light: var(--foreground);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-body);
 }
 
 main {
   a:not(#pledge-button, #button-back-home, #paypal-donate-button, #portfolio-link) {
-    color: var(--primary-accent);
+    color: var(--accent);
     text-decoration: underline;
 
     &:hover {
-      color: var(--primary-accent-hover);
+      color: var(--accent-hover);
     }
 
     &.link-news {
@@ -115,10 +113,23 @@ main {
   }
 }
 
-nav {
+/* Top bar only — the sidebar is also a <nav> and must stay on cream. */
+#top-nav {
   background: var(--nav-background);
-  border-color: var(--secondary-accent);
-  color: #EDEBE6;
+  border-color: var(--accent-muted);
+  color: var(--on-accent);
+}
+
+/* PayPal donate + portfolio link — Fern outline (brand tokens). */
+#paypal-donate-button,
+#portfolio-link {
+  border-color: var(--accent-muted);
+  color: var(--accent);
+}
+#paypal-donate-button:hover,
+#portfolio-link:hover {
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent-muted) 12%, transparent);
 }
 
 @keyframes reminder-in {

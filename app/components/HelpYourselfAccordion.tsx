@@ -6,7 +6,7 @@ const Section = AccordionItem;
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
     return (
         <div className="pt-4">
-            <h3 className="font-bold text-base mb-2 text-(--primary-color)">{title}</h3>
+            <h3 className="font-bold text-base mb-2 text-(--muted)">{title}</h3>
             <div className="space-y-3">{children}</div>
         </div>
     );
@@ -67,10 +67,10 @@ export default function HelpYourselfAccordion() {
                     <p>
                         This is the single cheapest, simplest intervention with actual scientific support. Switching your phone display to black and white (grayscale mode, found in your accessibility settings) makes the screen less visually stimulating. Multiple studies have found it reduces daily screen time by roughly 20 to 50 minutes. The bright colors on your apps aren&apos;t aesthetic choices. They&apos;re designed to trigger dopamine responses. When you remove the color, the slot machine doesn&apos;t feel so urgent.
                     </p>
-                    <p className="text-(--secondary-accent)">
+                    <p className="text-(--muted)">
                         On iPhone: Settings &rarr; Accessibility &rarr; Display &amp; Text Size &rarr; Color Filters &rarr; Grayscale. You can set a triple-click shortcut to toggle it on and off when you actually need color (for photos, maps, etc.).
                     </p>
-                    <p className="text-(--secondary-accent)">
+                    <p className="text-(--muted)">
                         On Android: Settings &rarr; Accessibility &rarr; Color &amp; Motion (or Visibility Enhancements on Samsung) &rarr; Color Correction &rarr; Grayscale.
                     </p>
                 </Subsection>
@@ -95,7 +95,7 @@ export default function HelpYourselfAccordion() {
                 <p className="mb-4">
                     There&apos;s some irony in using an app to get off your phone, and we acknowledge it. But if you&apos;re not ready to go cold turkey, tools that add friction or limit access can serve as useful stepping stones.
                 </p>
-                <p className="text-xs text-(--secondary-accent)">
+                <p className="text-xs text-(--muted)">
                     We are not affiliated with, sponsored by, or receiving compensation from any of the products mentioned here. We describe what they do so you can make your own informed decision. Inclusion is not an endorsement.
                 </p>
                 <Subsection title="App blockers">

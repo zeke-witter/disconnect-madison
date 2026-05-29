@@ -142,32 +142,32 @@ const wishlist = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="locations-heading" className="w-full mb-10">
                 <div className="mb-6">
-                    <Link href="/grow" className="text-sm text-(--secondary-accent) hover:text-(--primary-color) underline">
+                    <Link href="/grow" className="text-sm text-(--muted) hover:text-(--muted) underline">
                         ← Back to Help Us Grow
                     </Link>
                 </div>
-                <h1 id="locations-heading" className="font-handjet text-5xl lg:text-7xl mb-4">
+                <h1 id="locations-heading" className="font-display text-5xl lg:text-7xl mb-4">
                     Flyer locations
                 </h1>
-                <p className="text-lg text-(--secondary-accent)">
-                    A running log of where flyers have been posted around Madison, and places that are still on the list. If any of these are near you, we'd love help getting a flyer up. <Link href="/contact" className="underline hover:text-(--primary-color)">Let us know</Link> if you do.
+                <p className="text-lg text-(--muted)">
+                    A running log of where flyers have been posted around Madison, and places that are still on the list. If any of these are near you, we'd love help getting a flyer up. <Link href="/contact" className="underline hover:text-(--muted)">Let us know</Link> if you do.
                 </p>
             </section>
 
             <section aria-labelledby="posted-heading" className="w-full mb-12">
-                <h2 id="posted-heading" className="font-handjet text-4xl lg:text-5xl mb-6">Posted</h2>
+                <h2 id="posted-heading" className="font-display text-4xl lg:text-5xl mb-6">Posted</h2>
                 <div className="space-y-6">
                     {posted.map(({ category, locations }) => (
                         <div key={category}>
-                            <h3 className="text-sm font-semibold uppercase tracking-wide text-(--secondary-accent) mb-2">{category}</h3>
+                            <h3 className="text-sm font-semibold uppercase tracking-wide text-(--muted) mb-2">{category}</h3>
                             <ul className="space-y-1">
                                 {locations.map((loc) => (
-                                    <li key={loc} className="flex items-center gap-2 text-(--secondary-accent)">
-                                        <span className="text-green-600 dark:text-green-400 font-bold shrink-0" aria-hidden="true">✓</span>
+                                    <li key={loc} className="flex items-center gap-2 text-(--muted)">
+                                        <span className="text-(--muted) font-bold shrink-0" aria-hidden="true">✓</span>
                                         {loc}
                                     </li>
                                 ))}
@@ -178,10 +178,10 @@ export default function Page() {
 
                 {uncertain.length > 0 && (
                     <div className="mt-8 pt-6 border-t border-(--border-color)">
-                        <h3 className="text-sm font-semibold uppercase tracking-wide text-(--secondary-accent) mb-2">Possibly posted</h3>
+                        <h3 className="text-sm font-semibold uppercase tracking-wide text-(--muted) mb-2">Possibly posted</h3>
                         <ul className="space-y-1">
                             {uncertain.map((loc) => (
-                                <li key={loc} className="text-sm text-(--secondary-accent)">{loc}</li>
+                                <li key={loc} className="text-sm text-(--muted)">{loc}</li>
                             ))}
                         </ul>
                     </div>
@@ -189,18 +189,18 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="wishlist-heading" className="w-full mb-10">
-                <h2 id="wishlist-heading" className="font-handjet text-4xl lg:text-5xl mb-3">On the list</h2>
-                <p className="text-(--secondary-accent) mb-8">
-                    These are spots we'd like to reach. If you're a regular at any of them, or you're willing to make a stop, printing a flyer and asking to put it up would make a real difference. You can <Link href="/grow" className="underline hover:text-(--primary-color)">download a flyer on the grow page</Link>. If you know of a local business or organization that should be on the list, please <Link href="/contact">let us know</Link>, or feel free to bring a flyer there on our behalf :).
+                <h2 id="wishlist-heading" className="font-display text-4xl lg:text-5xl mb-3">On the list</h2>
+                <p className="text-(--muted) mb-8">
+                    These are spots we'd like to reach. If you're a regular at any of them, or you're willing to make a stop, printing a flyer and asking to put it up would make a real difference. You can <Link href="/grow" className="underline hover:text-(--muted)">download a flyer on the grow page</Link>. If you know of a local business or organization that should be on the list, please <Link href="/contact">let us know</Link>, or feel free to bring a flyer there on our behalf :).
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {wishlist.map(({ category, locations }) => (
                         <div key={category} className="border border-(--border-color) rounded-lg p-5">
-                            <h3 className="font-handjet text-xl mb-3">{category}</h3>
+                            <h3 className="font-display text-xl mb-3">{category}</h3>
                             <ul className="space-y-1">
                                 {locations.map((loc) => (
-                                    <li key={loc} className="text-sm text-(--secondary-accent)">{loc}</li>
+                                    <li key={loc} className="text-sm text-(--muted)">{loc}</li>
                                 ))}
                             </ul>
                         </div>

@@ -32,32 +32,32 @@ const stats = [
 
 export default function Page() {
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-[family-name:var(--font-space-grotesk)]">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto font-body">
 
             <section aria-labelledby="sleep-heading" className="w-full mb-4">
-                <h1 id="sleep-heading" className="font-handjet text-5xl lg:text-7xl mb-3">
+                <h1 id="sleep-heading" className="font-display text-5xl lg:text-7xl mb-3">
                     Sleep disruption
                 </h1>
-                <p className="text-lg text-(--secondary-accent) mb-10">
+                <p className="text-lg text-(--muted) mb-10">
                     Nighttime phone use doesn&apos;t just cost you sleep. It interferes with some of the most critical maintenance work your body and brain do in a 24-hour cycle. The research on this is consistent, and the path to improvement is one of the clearest in the field.
                 </p>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {stats.map(({ figure, detail, source }) => (
-                        <div key={figure} className="border border-(--secondary-accent) rounded-md p-5 flex flex-col gap-2">
-                            <span className="font-handjet text-5xl text-(--primary-accent) leading-none">{figure}</span>
-                            <span className="text-sm font-medium text-(--primary-color) leading-snug">{detail}</span>
-                            <span className="text-xs text-(--secondary-accent) mt-auto">{source}</span>
+                        <div key={figure} className="border border-(--accent-muted) rounded-md p-5 flex flex-col gap-2">
+                            <span className="font-display text-5xl text-(--accent) leading-none">{figure}</span>
+                            <span className="text-sm font-medium text-(--muted) leading-snug">{detail}</span>
+                            <span className="text-xs text-(--muted) mt-auto">{source}</span>
                         </div>
                     ))}
                 </div>
             </section>
 
             <section aria-labelledby="sleep-optional" className="w-full mb-16">
-                <h2 id="sleep-optional" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="sleep-optional" className="font-display text-4xl lg:text-5xl mb-3">
                     Why sleep is not optional
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     Sleep is not rest. It is when the brain and body do their most important maintenance work.
                 </p>
                 <div className="space-y-4">
@@ -71,10 +71,10 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="blue-light" className="w-full mb-16">
-                <h2 id="blue-light" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="blue-light" className="font-display text-4xl lg:text-5xl mb-3">
                     Blue light and the melatonin signal
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     Your brain uses light to know when to sleep. Evening phone use sends the wrong signal at the wrong time.
                 </p>
                 <div className="space-y-4">
@@ -91,10 +91,10 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="content-problem" className="w-full mb-16">
-                <h2 id="content-problem" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="content-problem" className="font-display text-4xl lg:text-5xl mb-3">
                     The content problem
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     Blue light is only part of the issue. What you&apos;re looking at matters as much as the light itself.
                 </p>
                 <div className="space-y-4">
@@ -108,10 +108,10 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="adolescents" className="w-full mb-16">
-                <h2 id="adolescents" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="adolescents" className="font-display text-4xl lg:text-5xl mb-3">
                     Adolescents carry a heavier burden
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     Teenagers are not just adults who need more sleep. Their sleep biology is genuinely different, and disrupting it carries distinct consequences.
                 </p>
                 <div className="space-y-4">
@@ -128,10 +128,10 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="feedback-loop" className="w-full mb-16">
-                <h2 id="feedback-loop" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="feedback-loop" className="font-display text-4xl lg:text-5xl mb-3">
                     The feedback loop
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     Poor sleep and heavy social media use reinforce each other. It is harder to break the habit when you&apos;re already depleted.
                 </p>
                 <div className="space-y-4">
@@ -148,10 +148,10 @@ export default function Page() {
             </section>
 
             <section aria-labelledby="what-changes" className="w-full mb-16">
-                <h2 id="what-changes" className="font-handjet text-4xl lg:text-5xl mb-3">
+                <h2 id="what-changes" className="font-display text-4xl lg:text-5xl mb-3">
                     What changes when you stop
                 </h2>
-                <p className="text-(--secondary-accent) mb-6">
+                <p className="text-(--muted) mb-6">
                     The research on what improves when people step back from late-night phone use is consistent and encouraging.
                 </p>
                 <div className="space-y-4">
@@ -162,13 +162,13 @@ export default function Page() {
                         People who remove devices from the bedroom report falling asleep faster and waking less during the night. Some report a gradual shift in their natural sleep and wake timing back toward an earlier, more restorative pattern as the circadian delay resolves.
                     </p>
                     <p>
-                        Better sleep compounds: improved mood, lower anxiety, better focus, and more patience are all reliably associated with adequate rest. These are not small effects. For many people, fixing sleep is the most direct path to meaningful improvement in daily functioning, and reducing nighttime phone use is one of the clearest, most evidence-supported ways to start. The <Link href="/help-yourself" className="underline text-(--primary-accent) hover:text-(--primary-accent-hover)">Help yourself page</Link> has practical strategies for making the change stick.
+                        Better sleep compounds: improved mood, lower anxiety, better focus, and more patience are all reliably associated with adequate rest. These are not small effects. For many people, fixing sleep is the most direct path to meaningful improvement in daily functioning, and reducing nighttime phone use is one of the clearest, most evidence-supported ways to start. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">Help yourself page</Link> has practical strategies for making the change stick.
                     </p>
                 </div>
             </section>
 
-            <section aria-labelledby="sleep-sources" className="w-full mb-8 text-sm text-(--secondary-accent)">
-                <h2 id="sleep-sources" className="font-bold text-base mb-3 text-(--primary-color)">Sources</h2>
+            <section aria-labelledby="sleep-sources" className="w-full mb-8 text-sm text-(--muted)">
+                <h2 id="sleep-sources" className="font-bold text-base mb-3 text-(--muted)">Sources</h2>
                 <p>
                     Full citations for every study referenced on this page are available on the{" "}
                     <Link href="/sources" className="underline">Sources page</Link>.{" "}
