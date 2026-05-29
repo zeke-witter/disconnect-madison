@@ -113,7 +113,8 @@ main {
   }
 }
 
-nav {
+/* Top bar only — the sidebar is also a <nav> and must stay on cream. */
+#top-nav {
   background: var(--nav-background);
   border-color: var(--accent-muted);
   color: var(--on-accent);

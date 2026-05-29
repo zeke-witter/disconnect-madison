@@ -3,9 +3,10 @@ export const dynamic = 'force-dynamic';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import NavigationWrapper from "./components/NavigationWrapper";
+import AppShell from "./components/AppShell";
 import Footer from "./components/Footer";
 import { baseMetadata } from "@/lib/metadata";
+import { getPledgesAction } from "@/lib/actions";
 
 // Display / Hero — Built Titling (self-hosted OTF, free for commercial use per dafont)
 const builtTitling = localFont({
@@ -46,22 +47,22 @@ const sueEllenFrancisco = localFont({
 
 export const metadata: Metadata = baseMetadata;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const counts = await getPledgesAction();
+  const totalPledges = counts.reduce_screen_time + counts.take_a_break + counts.quit_for_good;
+
   return (
     <html lang="en">
       <body
         className={`${builtTitling.variable} ${raleway.variable} ${sueEllenFrancisco.variable} antialiased`}
       >
-        <header>
-          <NavigationWrapper />
-        </header>
-        <main id="main-content" className="flex min-h-screen w-full flex-col items-center justify-between py-10 px-4 sm:px-8 lg:px-16 bg-background sm:items-start">
+        <AppShell totalPledges={totalPledges}>
           {children}
-        </main>
+        </AppShell>
         <Footer />
       </body>
     </html>
