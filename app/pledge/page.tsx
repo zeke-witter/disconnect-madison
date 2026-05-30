@@ -138,7 +138,10 @@ export default function Page() {
                             <div>
                                 <Label id="newsletter-label" className="font-bold cursor-pointer">Keep me in the loop</Label>
                                 <p className="text-sm text-(--muted) mt-1">
-                                    We don&apos;t have a newsletter right now, but we might someday. Check this if you&apos;d be open to updates from us. No spam, and we won&apos;t contact you for any other reason.
+                                    We&apos;ll occasionally send updates about local events, major announcements, and volunteer opportunities. Your information will never be shared and we won&apos;t contact you for any other reason.
+                                </p>
+                                <p className="text-sm text-(--muted) mt-1">
+                                    Note: our emails may be filtered to your spam folder while email clients are still learning to trust us.
                                 </p>
                             </div>
                         </Field>

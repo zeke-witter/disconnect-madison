@@ -107,6 +107,10 @@ export default function Page() {
                         ))}
                     </div>
 
+                    <p className="text-sm text-(--muted) mb-6">
+                        Taking the pledge? Check the opt-in box on the pledge form to receive occasional updates about local events and announcements.
+                    </p>
+
                     <button
                         onClick={handleReset}
                         className="text-sm text-(--muted) underline hover:text-(--accent) transition-colors"

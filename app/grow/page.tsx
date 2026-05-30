@@ -199,6 +199,9 @@ export default function Page() {
                     We&apos;re always open to new ideas, better ways to spread the message, partnerships, events, content, or anything else you think could move the needle. If you want to get involved in any capacity, we&apos;d love to hear from you.
                 </p>
                 <p className="mb-4">We&apos;re especially in need of assistance from graphic designers (can you tell?) and people with experience in community organizing.</p>
+                <p className="text-(--muted) mb-4">
+                    You can also join our mailing list to stay informed about events, volunteer opportunities, and major announcements. Just check the opt-in box when you take the pledge.
+                </p>
                 <p>
                     <Link
                         href="/contact"
