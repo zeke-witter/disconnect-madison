@@ -114,6 +114,9 @@ export default async function EventsPage() {
                         ))}
                     </div>
                 )}
+                <p className="text-sm text-(--muted) mt-6">
+                    Want to hear about future events? <Link href="/pledge">Take the pledge</Link> and opt in to our mailing list on the form.
+                </p>
             </section>
 
             {past.length > 0 && (

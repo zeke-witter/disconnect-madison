@@ -76,6 +76,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                                 </div>
                             ))}
                         </div>
+                        <p className="text-sm text-(--muted) mt-6">
+                            If you opted in to our mailing list, keep an eye on your inbox for local event updates and announcements. Our emails may land in your spam folder while clients are still learning to trust us.
+                        </p>
                     </div>
                 </>
             )}

@@ -100,7 +100,7 @@ export default function Page() {
 
                 <AccordionItem title="How is my email address used when I take the pledge?">
                     <p>
-                        Your email is used only to verify your pledge, to confirm it was submitted by a real person and to prevent duplicate submissions. You&apos;ll receive one confirmation email. That&apos;s it. Your address is never shared with anyone, never used for marketing, and never added to a mailing list. We have no interest in your inbox beyond confirming your pledge.
+                        Your email is used only to verify your pledge, to confirm it was submitted by a real person and to prevent duplicate submissions. You&apos;ll receive one confirmation email. If you opt in to our mailing list on the pledge form, we&apos;ll occasionally send updates about local events, major announcements, and volunteer opportunities. Your address is never shared with anyone and we won&apos;t contact you for any other reason.
                     </p>
                 </AccordionItem>
 
