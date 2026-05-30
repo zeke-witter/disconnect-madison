@@ -173,13 +173,13 @@ export default function Page() {
                 <div>
                     <h2 className="font-bold text-lg mb-3 text-(--muted)">Preparing to step away?</h2>
                     <p className="text-(--muted)">Before you deactivate or delete, read our guide on saving your data, reaching out to contacts, and leaving at your own pace.</p>
-                    <p><a href="/before-you-go" target="_blank" rel="noopener noreferrer">Read: Before You Go →</a></p>
+                    <p><a href="/before-you-go" target="_blank" rel="noopener noreferrer">Read: How to Quit →</a></p>
                 </div>
 
                 <div>
                     <h2 className="font-bold text-lg mb-3 text-(--muted)">Not sure what to do next?</h2>
                     <p className="text-(--muted)">Check out our practical strategies for getting through the first two weeks, changing your environment, and staying off for good.</p>
-                    <p><a href="/help-yourself" target="_blank" rel="noopener noreferrer">Read: How to Help Yourself →</a></p>
+                    <p><a href="/help-yourself" target="_blank" rel="noopener noreferrer">Read: How to Reduce →</a></p>
                 </div>
 
                 <div>

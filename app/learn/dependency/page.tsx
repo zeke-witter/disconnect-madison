@@ -163,7 +163,7 @@ export default function Page() {
                         None of this requires rejecting technology. It requires being selective about when you reach for it and making space for your brain to do its own work.
                     </p>
                     <p>
-                        If you are looking for more practical strategies, the <Link href="/help-yourself">Help Yourself</Link> page has guidance on reducing screen time and changing habits in a sustainable way. And if you are ready to make a larger change, the <Link href="/pledge">pledge</Link> is a good place to start.
+                        If you are looking for more practical strategies, the <Link href="/help-yourself">How to Reduce</Link> guide has guidance on reducing screen time and changing habits in a sustainable way. And if you are ready to make a larger change, the <Link href="/pledge">pledge</Link> is a good place to start.
                     </p>
                 </div>
             </section>

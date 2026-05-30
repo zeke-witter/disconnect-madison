@@ -3,7 +3,7 @@ import Link from "next/link";
 import HelpYourselfAccordion from "@/app/components/HelpYourselfAccordion";
 
 export const metadata: Metadata = {
-    title: "How to Help Yourself",
+    title: "How to Reduce",
     description: "Practical, research-informed advice for reducing screen time, surviving the first two weeks, and building a life with less social media.",
     alternates: { canonical: "/help-yourself" },
 };
@@ -14,7 +14,7 @@ export default function Page() {
 
             <section aria-labelledby="what-actually-helps" className="w-full mb-10">
                 <h1 id="what-actually-helps" className="font-display text-5xl lg:text-7xl mb-4">
-                    How to help yourself
+                    How to reduce
                 </h1>
                 <div className="space-y-4">
                     <p className="text-lg text-(--muted)">
@@ -35,7 +35,7 @@ export default function Page() {
             <section aria-labelledby="next-step" className="w-full mt-10 p-6 rounded-md border border-(--accent-muted)/30 bg-(--accent-muted)/5">
                 <h2 id="next-step" className="font-bold text-base mb-2 text-(--muted)">Ready to take the next step?</h2>
                 <p className="text-sm text-(--muted)">
-                    If you&apos;re thinking about deactivating or deleting accounts, our <Link href="/before-you-go">Before You Go</Link> guide walks through saving your data, reaching out to contacts, and how to leave at your own pace.
+                    If you&apos;re thinking about deactivating or deleting accounts, our <Link href="/before-you-go">How to Quit</Link> guide walks through saving your data, reaching out to contacts, and how to leave at your own pace.
                 </p>
             </section>
 

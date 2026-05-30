@@ -13,17 +13,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Learn hub + sub-pages
     { url: `${baseUrl}/learn`,                       lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/learn/kids`,                  lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/learn/depression`,            lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/learn/attention`,             lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/learn/sleep`,                 lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/learn/body-image`,            lastModified: new Date('2026-03-12'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/learn/dependency`,            lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/learn/kids`,                  lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/learn/depression`,            lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/learn/attention`,             lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/learn/sleep`,                 lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/learn/body-image`,            lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/learn/dependency`,            lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/learn/ecological-impact`,     lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.7 },
 
     // Guides
-    { url: `${baseUrl}/help-yourself`,               lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/before-you-go`,               lastModified: new Date('2026-03-16'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/help-yourself`,               lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/parents`,                     lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/before-you-go`,               lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/breathe`,                     lastModified: new Date('2026-03-16'), changeFrequency: 'yearly',  priority: 0.5 },
 
     // Events

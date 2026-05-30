@@ -162,7 +162,7 @@ export default function Page() {
                         People who remove devices from the bedroom report falling asleep faster and waking less during the night. Some report a gradual shift in their natural sleep and wake timing back toward an earlier, more restorative pattern as the circadian delay resolves.
                     </p>
                     <p>
-                        Better sleep compounds: improved mood, lower anxiety, better focus, and more patience are all reliably associated with adequate rest. These are not small effects. For many people, fixing sleep is the most direct path to meaningful improvement in daily functioning, and reducing nighttime phone use is one of the clearest, most evidence-supported ways to start. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">Help yourself page</Link> has practical strategies for making the change stick.
+                        Better sleep compounds: improved mood, lower anxiety, better focus, and more patience are all reliably associated with adequate rest. These are not small effects. For many people, fixing sleep is the most direct path to meaningful improvement in daily functioning, and reducing nighttime phone use is one of the clearest, most evidence-supported ways to start. The <Link href="/help-yourself" className="underline text-(--accent) hover:text-(--accent-hover)">How to Reduce</Link> guide has practical strategies for making the change stick.
                     </p>
                 </div>
             </section>

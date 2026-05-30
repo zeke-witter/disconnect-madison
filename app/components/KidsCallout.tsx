@@ -12,7 +12,7 @@ const cards = [
     },
     {
         number: '2',
-        heading: 'Learn how to help yourself',
+        heading: 'How to reduce your screen time',
         body: 'Practical strategies for reducing your screen time, changing your environment, and making the change stick.',
         cta: 'Read the guide',
         href: '/help-yourself',

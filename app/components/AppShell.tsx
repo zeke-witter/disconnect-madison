@@ -27,8 +27,9 @@ const GROUPS: NavGroup[] = [
         key: 'act', label: 'Take Action', href: '/pledge', items: [
             { label: 'Take the Pledge', href: '/pledge' },
             { label: 'Take the Quiz', href: '/quiz' },
-            { label: 'How to Help Yourself', href: '/help-yourself' },
-            { label: 'Before You Go', href: '/before-you-go' },
+            { label: 'How to Reduce', href: '/help-yourself' },
+            { label: 'How to Quit', href: '/before-you-go' },
+            { label: 'Parents Guide', href: '/parents' },
             { label: 'Breathe', href: '/breathe' },
         ],
     },
