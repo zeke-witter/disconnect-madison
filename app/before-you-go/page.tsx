@@ -6,7 +6,7 @@ export default function BeforeYouGoPage() {
 
             <section aria-labelledby="before-you-go-heading" className="w-full mb-10">
                 <h1 id="before-you-go-heading" className="font-display text-5xl lg:text-7xl mb-4">
-                    Before you go
+                    How to quit
                 </h1>
                 <div className="space-y-4 text-lg text-(--muted)">
                     <p>
@@ -174,7 +174,7 @@ export default function BeforeYouGoPage() {
                 <h2 id="further-reading" className="font-bold mb-3 text-(--muted)">Further reading</h2>
                 <p className="text-sm text-(--muted)">
                     Looking for strategies to reduce screen time, get through the first two weeks, or build habits that stick? See{' '}
-                    <Link href="/help-yourself">How to Help Yourself</Link>.
+                    <Link href="/help-yourself">How to Reduce</Link>.
                 </p>
             </section>
 

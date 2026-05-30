@@ -150,6 +150,9 @@ export default function Page() {
                     <p>
                         <Link href="/pledge" className="underline text-(--accent) hover:text-(--accent-hover)">Take the pledge</Link>: reduce your use, step away, or quit for good. And if you know a young person who is struggling with social media, share what you&apos;ve learned here.
                     </p>
+                    <p>
+                        If you&apos;re a parent or guardian looking for more specific guidance, our <Link href="/parents" className="underline text-(--accent) hover:text-(--accent-hover)">Parents Guide</Link> covers how to talk to kids about screens, how to set structure at home, and how to navigate other families who do things differently.
+                    </p>
                 </div>
             </section>
 
