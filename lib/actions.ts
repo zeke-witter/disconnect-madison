@@ -757,11 +757,22 @@ export async function sendEmailDraftAction(formData: FormData) {
         return { success: false, message: 'Draft not found or already sent.' };
     }
 
+    let broadcastText: string | undefined;
+    if (draft.event_id) {
+        const { data: event } = await supabase.from('events').select('*').eq('id', draft.event_id).single();
+        if (event) {
+            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+                ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://disconnectmadison.org');
+            broadcastText = buildEventAnnouncementEmail(event as EventRow, baseUrl).text;
+        }
+    }
+
     const { data: broadcast, error: broadcastError } = await resend.broadcasts.create({
         audienceId,
         from: 'Disconnect Madison <hello@disconnectmadison.org>',
         subject: draft.subject,
         html: draft.body_html,
+        ...(broadcastText ? { text: broadcastText } : {}),
         send: true,
     } as Parameters<typeof resend.broadcasts.create>[0]);
 
@@ -804,15 +815,15 @@ export async function sendTestEmailAction(formData: FormData) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
         ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
-    const { subject, html } = buildEventAnnouncementEmail(event as EventRow, baseUrl);
-    const testEmail = process.env.TEST_EMAIL ?? 'zeke@disconnectmadison.org';
+    const { subject, html, text } = buildEventAnnouncementEmail(event as EventRow, baseUrl);
+    const testEmail = (formData.get('testEmail') as string | null)?.trim() || process.env.TEST_EMAIL || 'zeke@disconnectmadison.org';
 
     const { error: emailError } = await resend.emails.send({
         from: 'Disconnect Madison <hello@disconnectmadison.org>',
         to: testEmail,
         subject: `[TEST] ${subject}`,
         html,
-        text: `Test preview for event: ${event.title}`,
+        text,
     });
 
     if (emailError) {

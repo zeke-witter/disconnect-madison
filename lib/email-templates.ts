@@ -19,7 +19,7 @@ export function buildEventAnnouncementEmail(event: {
     location_name: string;
     location_address?: string | null;
     description?: string | null;
-}, baseUrl: string): { subject: string; html: string } {
+}, baseUrl: string): { subject: string; html: string; text: string } {
     const subject = `New event: ${event.title}`;
     const dateStr = formatDate(event.date);
     const locationStr = event.location_address
@@ -33,6 +33,22 @@ export function buildEventAnnouncementEmail(event: {
     const descTruncated = descExcerpt && event.description && event.description.length > 280
         ? `${descExcerpt}...`
         : descExcerpt;
+
+    const text = [
+        'Disconnect Madison',
+        '',
+        subject,
+        '',
+        dateStr,
+        locationStr,
+        ...(descTruncated ? ['', descTruncated] : []),
+        '',
+        `View event details: ${eventUrl}`,
+        '',
+        '---',
+        "You're receiving this because you signed the Disconnect Madison pledge and opted in to updates.",
+        'Unsubscribe: {{{unsubscribe}}}',
+    ].join('\n');
 
     const html = `<!DOCTYPE html>
 <html lang="en">
@@ -67,5 +83,5 @@ export function buildEventAnnouncementEmail(event: {
 </body>
 </html>`;
 
-    return { subject, html };
+    return { subject, html, text };
 }
