@@ -19,7 +19,7 @@ export function buildEventAnnouncementEmail(event: {
     location_name: string;
     location_address?: string | null;
     description?: string | null;
-}, baseUrl: string): { subject: string; html: string } {
+}, baseUrl: string): { subject: string; html: string; text: string } {
     const subject = `New event: ${event.title}`;
     const dateStr = formatDate(event.date);
     const locationStr = event.location_address
