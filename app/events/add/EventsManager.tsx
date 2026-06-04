@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { marked } from 'marked';
 import { getAllEventsAction, saveEventAction, deleteEventAction, createEventEmailDraftAction } from '@/lib/actions';
+import { createBrowserClient } from '@/lib/supabase-browser';
 import type { EventRow } from '@/lib/types';
 
 marked.use({ breaks: true, gfm: true });
@@ -49,9 +50,37 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
     const [successMsg, setSuccessMsg] = useState('');
     const [draftingEmailFor, setDraftingEmailFor] = useState<string | null>(null);
     const [draftResult, setDraftResult] = useState<{ id: string; success: boolean; message: string } | null>(null);
+    const [uploading, setUploading] = useState(false);
+    const [uploadError, setUploadError] = useState('');
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const set = (field: string, value: any) =>
         setForm(prev => ({ ...prev, [field]: value }));
+
+    async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setUploading(true);
+        setUploadError('');
+        const supabase = createBrowserClient();
+        const ext = file.name.split('.').pop() ?? 'jpg';
+        const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+        const { error: uploadErr } = await supabase.storage
+            .from('event-images')
+            .upload(filename, file, { upsert: false });
+        if (uploadErr) {
+            setUploadError(uploadErr.message);
+            setUploading(false);
+            return;
+        }
+        const { data: { publicUrl } } = supabase.storage
+            .from('event-images')
+            .getPublicUrl(filename);
+        set('cover_image_url', publicUrl);
+        setUploading(false);
+        // reset so the same file can be re-selected if needed
+        if (fileInputRef.current) fileInputRef.current.value = '';
+    }
 
     const reload = useCallback(async () => {
         const data = await getAllEventsAction();
@@ -306,7 +335,7 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                         <>
                             <input type="hidden" name="description" value={form.description} />
                             <div
-                                className="min-h-48 w-full rounded-md border border-(--accent-muted)/40 bg-(--accent-muted)/5 px-4 py-3 prose prose-sm prose-invert max-w-none"
+                                className="min-h-48 w-full rounded-md border border-(--accent-muted)/40 bg-(--accent-muted)/5 px-4 py-3 text-sm leading-relaxed [&_p]:mb-3 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-3 [&_li]:mb-0.5 [&_strong]:font-bold [&_em]:italic [&_a]:text-(--accent) [&_h1]:font-display [&_h1]:text-xl [&_h1]:mb-2 [&_h2]:font-display [&_h2]:text-lg [&_h2]:mb-2"
                                 dangerouslySetInnerHTML={{ __html: previewHtml || '<p class="text-(--muted) italic">Nothing to preview.</p>' }}
                             />
                         </>
@@ -327,15 +356,45 @@ export default function EventsManager({ initialEvents }: { initialEvents: EventR
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium mb-1">Cover image URL <span className="text-xs text-(--muted)">(optional)</span></label>
-                        <input
-                            name="cover_image_url"
-                            type="url"
-                            value={form.cover_image_url}
-                            onChange={e => set('cover_image_url', e.target.value)}
-                            placeholder="https://..."
-                            className="block w-full rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 focus:outline-none focus:border-(--accent)"
-                        />
+                        <label className="block text-sm font-medium mb-1">Cover image <span className="text-xs text-(--muted)">(optional)</span></label>
+                        {form.cover_image_url && (
+                            <div className="relative w-full aspect-video rounded-md overflow-hidden border border-(--accent-muted)/40 mb-2">
+                                <img src={form.cover_image_url} alt="" className="w-full h-full object-cover" />
+                                <button
+                                    type="button"
+                                    onClick={() => set('cover_image_url', '')}
+                                    className="absolute top-2 right-2 rounded bg-black/60 px-2 py-0.5 text-xs text-white hover:bg-black/80 transition-colors"
+                                >
+                                    Remove
+                                </button>
+                            </div>
+                        )}
+                        <div className="flex gap-2">
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageUpload}
+                                className="hidden"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => fileInputRef.current?.click()}
+                                disabled={uploading}
+                                className="shrink-0 rounded-md border border-(--accent-muted) px-3 py-2 text-sm text-(--muted) hover:border-(--foreground) hover:text-(--foreground) transition-colors disabled:opacity-50"
+                            >
+                                {uploading ? 'Uploading…' : 'Upload file'}
+                            </button>
+                            <input
+                                name="cover_image_url"
+                                type="url"
+                                value={form.cover_image_url}
+                                onChange={e => set('cover_image_url', e.target.value)}
+                                placeholder="or paste a URL"
+                                className="min-w-0 flex-1 rounded-md border border-(--accent-muted) bg-transparent px-3 py-2 text-sm focus:outline-none focus:border-(--accent)"
+                            />
+                        </div>
+                        {uploadError && <p className="mt-1 text-xs text-(--accent)">{uploadError}</p>}
                     </div>
                 </div>
 

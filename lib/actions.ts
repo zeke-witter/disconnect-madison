@@ -4,8 +4,8 @@ import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 import { createServerAuthClient } from '@/lib/supabase-auth';
-import type { EventRow, EmailDraft } from '@/lib/types';
-import { buildEventAnnouncementEmail } from '@/lib/email-templates';
+import type { EventRow, EmailDraft, EventRegistration } from '@/lib/types';
+import { buildEventAnnouncementEmail, buildRegistrationEmail, buildWaitlistPromotionEmail } from '@/lib/email-templates';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -832,6 +832,202 @@ export async function sendTestEmailAction(formData: FormData) {
     }
 
     return { success: true, message: `Sent to ${testEmail}.` };
+}
+
+// ---------------------------------------------------------------------------
+// Event registration
+// ---------------------------------------------------------------------------
+
+export async function registerForEventAction(prevState: any, formData: FormData) {
+    if (formData.get('website')) return { success: true, waitlisted: false };
+
+    const eventId = formData.get('event_id') as string;
+    const name = (formData.get('name') as string)?.trim();
+    const email = (formData.get('email') as string)?.trim().toLowerCase();
+    const guestCount = Math.max(0, Math.min(4, parseInt((formData.get('guest_count') as string) ?? '0', 10) || 0));
+
+    if (!eventId || !name || !email) return { success: false, message: 'Please fill in all required fields.' };
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { success: false, message: 'Please enter a valid email address.' };
+
+    const { data: event } = await supabase
+        .from('events')
+        .select('id, title, date, location_name, location_address, capacity')
+        .eq('id', eventId)
+        .eq('published', true)
+        .single();
+
+    if (!event) return { success: false, message: 'Event not found.' };
+
+    const { data: existing } = await supabase
+        .from('event_registrations')
+        .select('id')
+        .eq('event_id', eventId)
+        .eq('email', email)
+        .eq('cancelled', false)
+        .maybeSingle();
+
+    if (existing) return { success: false, message: 'This email is already registered for this event.' };
+
+    let waitlisted = false;
+    if (event.capacity != null) {
+        const { data: activeRegs } = await supabase
+            .from('event_registrations')
+            .select('guest_count')
+            .eq('event_id', eventId)
+            .eq('waitlisted', false)
+            .eq('cancelled', false);
+        const occupied = (activeRegs ?? []).reduce((sum: number, r: { guest_count: number }) => sum + 1 + r.guest_count, 0);
+        if (occupied + 1 + guestCount > event.capacity) waitlisted = true;
+    }
+
+    const { data: reg, error: insertErr } = await supabase
+        .from('event_registrations')
+        .insert({ event_id: eventId, name, email, guest_count: guestCount, waitlisted })
+        .select('cancellation_token')
+        .single();
+
+    if (insertErr || !reg) {
+        console.error('registerForEventAction insert error:', insertErr);
+        return { success: false, message: 'Something went wrong. Please try again.' };
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+        ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://disconnectmadison.org');
+
+    const { subject, html, text } = buildRegistrationEmail({
+        name,
+        eventTitle: event.title,
+        eventDate: event.date,
+        locationName: event.location_name,
+        locationAddress: event.location_address ?? null,
+        guestCount,
+        waitlisted,
+        cancelUrl: `${baseUrl}/events/cancel?token=${reg.cancellation_token}`,
+    });
+
+    await resend.emails.send({ from: 'Disconnect Madison <hello@disconnectmadison.org>', to: email, subject, html, text });
+
+    return { success: true, waitlisted };
+}
+
+export async function cancelRegistrationAction(token: string) {
+    if (!token) return { success: false, message: 'Invalid cancellation link.' };
+
+    const { data: reg } = await supabase
+        .from('event_registrations')
+        .select('id, event_id, cancelled, waitlisted')
+        .eq('cancellation_token', token)
+        .single();
+
+    if (!reg) return { success: false, message: 'Registration not found.' };
+    if (reg.cancelled) return { success: false, message: 'This registration has already been cancelled.' };
+
+    await supabase.from('event_registrations').update({ cancelled: true }).eq('cancellation_token', token);
+
+    if (!reg.waitlisted) await promoteFromWaitlist(reg.event_id);
+
+    return { success: true };
+}
+
+async function promoteFromWaitlist(eventId: string) {
+    const { data: event } = await supabase
+        .from('events')
+        .select('capacity, title, date, location_name, location_address')
+        .eq('id', eventId)
+        .single();
+
+    if (!event?.capacity) return;
+
+    const { data: activeRegs } = await supabase
+        .from('event_registrations')
+        .select('guest_count')
+        .eq('event_id', eventId)
+        .eq('waitlisted', false)
+        .eq('cancelled', false);
+
+    let occupied = (activeRegs ?? []).reduce((sum: number, r: { guest_count: number }) => sum + 1 + r.guest_count, 0);
+
+    const { data: queue } = await supabase
+        .from('event_registrations')
+        .select('id, name, email, guest_count, cancellation_token')
+        .eq('event_id', eventId)
+        .eq('waitlisted', true)
+        .eq('cancelled', false)
+        .order('created_at', { ascending: true });
+
+    if (!queue?.length) return;
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+        ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://disconnectmadison.org');
+
+    for (const r of queue) {
+        if (occupied + 1 + r.guest_count <= event.capacity) {
+            await supabase.from('event_registrations').update({ waitlisted: false }).eq('id', r.id);
+            occupied += 1 + r.guest_count;
+            const { subject, html, text } = buildWaitlistPromotionEmail({
+                name: r.name,
+                eventTitle: event.title,
+                eventDate: event.date,
+                locationName: event.location_name,
+                locationAddress: event.location_address ?? null,
+                guestCount: r.guest_count,
+                cancelUrl: `${baseUrl}/events/cancel?token=${r.cancellation_token}`,
+            });
+            await resend.emails.send({ from: 'Disconnect Madison <hello@disconnectmadison.org>', to: r.email, subject, html, text });
+        }
+    }
+}
+
+export async function getRegistrationByTokenAction(token: string) {
+    if (!token) return null;
+    const { data: reg } = await supabase
+        .from('event_registrations')
+        .select('id, event_id, name, email, guest_count, waitlisted, cancelled')
+        .eq('cancellation_token', token)
+        .single();
+    if (!reg) return null;
+    const { data: event } = await supabase
+        .from('events')
+        .select('title, date, location_name')
+        .eq('id', reg.event_id)
+        .single();
+    return { ...reg, event_title: event?.title ?? null, event_date: event?.date ?? null, event_location: event?.location_name ?? null };
+}
+
+export async function getEventRegistrationSummaryAction(eventId: string) {
+    const { data } = await supabase
+        .from('event_registrations')
+        .select('guest_count, waitlisted')
+        .eq('event_id', eventId)
+        .eq('cancelled', false);
+    if (!data) return { confirmedAttendees: 0, waitlistedCount: 0 };
+    const confirmedAttendees = data
+        .filter((r: { waitlisted: boolean }) => !r.waitlisted)
+        .reduce((sum: number, r: { guest_count: number }) => sum + 1 + r.guest_count, 0);
+    const waitlistedCount = data.filter((r: { waitlisted: boolean }) => r.waitlisted).length;
+    return { confirmedAttendees, waitlistedCount };
+}
+
+export async function getAllEventRegistrationsAction() {
+    const { data } = await supabase
+        .from('event_registrations')
+        .select('*, events(title)')
+        .order('created_at', { ascending: false });
+    return (data ?? []) as (EventRegistration & { events: { title: string } | null })[];
+}
+
+export async function deleteEventRegistrationAction(formData: FormData) {
+    if (process.env.VERCEL_ENV) return;
+    const id = formData.get('id') as string;
+    if (!id) return;
+    await supabase.from('event_registrations').delete().eq('id', id);
+    revalidatePath('/dev');
+}
+
+export async function deleteAllEventRegistrationsAction() {
+    if (process.env.VERCEL_ENV) return;
+    await supabase.from('event_registrations').delete().in('cancelled', [true, false]);
+    revalidatePath('/dev');
 }
 
 /**

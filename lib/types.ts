@@ -9,6 +9,18 @@ export type EmailDraft = {
     sent_at: string | null;
 };
 
+export type EventRegistration = {
+    id: string;
+    event_id: string;
+    name: string;
+    email: string;
+    guest_count: number;
+    cancellation_token: string;
+    waitlisted: boolean;
+    cancelled: boolean;
+    created_at: string;
+};
+
 export type EventRow = {
     id: string;
     title: string;
