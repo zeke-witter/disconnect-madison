@@ -103,7 +103,7 @@ export default async function EventDetailPage({ params }: Props) {
 
             {event.description && (
                 <div
-                    className="prose prose-invert max-w-none text-base leading-relaxed [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_a]:text-(--accent) [&_a:hover]:text-(--accent-hover)"
+                    className="max-w-none text-base leading-relaxed [&_p]:mb-4 [&_p:last-child]:mb-0 [&_h1]:font-display [&_h1]:text-3xl [&_h1]:mb-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mb-3 [&_h3]:font-display [&_h3]:text-xl [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_strong]:font-bold [&_em]:italic [&_a]:text-(--accent) [&_a:hover]:text-(--accent-hover)"
                     dangerouslySetInnerHTML={{ __html: descriptionHtml }}
                 />
             )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 import TiltWrapper from "./TiltWrapper";
 
 const cards = [
@@ -32,7 +33,7 @@ export default function KidsCallout() {
     return (
         <section
             aria-labelledby="explore-heading"
-            className="bg-forest text-(--on-forest) -mx-4 sm:-mx-8 lg:-mx-16 px-4 sm:px-8 lg:px-16 py-14 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)]"
+            className="relative overflow-visible bg-forest text-(--on-forest) -mx-4 sm:-mx-8 lg:-mx-16 px-4 sm:px-8 lg:px-16 py-14 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)]"
         >
             <h2
                 id="explore-heading"
@@ -40,6 +41,15 @@ export default function KidsCallout() {
             >
                 What&apos;s next
             </h2>
+            {/* Rainbow — lime on forest, bottom-right corner */}
+            <Image
+                src="/brand/elements/rainbow_02.png"
+                alt=""
+                aria-hidden="true"
+                width={96}
+                height={96}
+                className="hidden lg:block absolute bottom-4 right-6 w-20 rotate-[6deg] pointer-events-none select-none opacity-60"
+            />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {cards.map((card) => (
                     <TiltWrapper
