@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     // Core CTAs
-    { url: baseUrl,                                  lastModified: new Date('2026-05-30'), changeFrequency: 'weekly',  priority: 1.0 },
+    { url: baseUrl,                                  lastModified: new Date('2026-06-03'), changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${baseUrl}/pledge`,                      lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/quiz`,                        lastModified: new Date('2026-05-30'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/donate`,                      lastModified: new Date('2026-04-27'), changeFrequency: 'monthly', priority: 0.8 },
