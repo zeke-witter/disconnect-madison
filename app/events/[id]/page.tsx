@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { marked } from 'marked';
-import { getPublishedEventAction } from '@/lib/actions';
+import { getPublishedEventAction, getEventRegistrationSummaryAction } from '@/lib/actions';
+import RegisterForm from './RegisterForm';
 
 marked.use({ breaks: true, gfm: true });
 
@@ -39,6 +40,10 @@ export default async function EventDetailPage({ params }: Props) {
     const { id } = await params;
     const event = await getPublishedEventAction(id);
     if (!event) notFound();
+
+    const regSummary = event.registration_required
+        ? await getEventRegistrationSummaryAction(event.id)
+        : null;
 
     const descriptionHtml = await marked.parse(event.description || '');
 
@@ -87,16 +92,21 @@ export default async function EventDetailPage({ params }: Props) {
                         )}
                     </span>
                 </div>
-                {event.registration_required && (
+                {event.registration_required && regSummary && event.capacity != null && (
                     <div className="flex items-start gap-2">
-                        <span aria-hidden="true">✏️</span>
-                        <span className="font-semibold text-(--accent)">Registration required</span>
+                        <span aria-hidden="true">🎟️</span>
+                        <span>
+                            {regSummary.confirmedAttendees >= event.capacity
+                                ? <>Full &mdash; <a href="#register" className="font-semibold">join the waitlist</a></>
+                                : <>{event.capacity - regSummary.confirmedAttendees} of {event.capacity} spots remaining</>
+                            }
+                        </span>
                     </div>
                 )}
-                {event.capacity != null && (
+                {event.registration_required && !event.capacity && (
                     <div className="flex items-start gap-2">
-                        <span aria-hidden="true">👥</span>
-                        <span>Capacity: {event.capacity}</span>
+                        <span aria-hidden="true">✏️</span>
+                        <span className="font-semibold">Registration required</span>
                     </div>
                 )}
             </div>
@@ -108,12 +118,7 @@ export default async function EventDetailPage({ params }: Props) {
                 />
             )}
 
-            {event.registration_required && (
-                <div id="register" className="mt-12 p-6 rounded-lg border border-(--accent-muted)/40 bg-(--accent-muted)/5">
-                    <h2 className="font-display text-3xl mb-2">Register</h2>
-                    <p className="text-(--muted) text-sm">Registration is coming soon. In the meantime, <Link href="/contact">send us a message</Link> to reserve your spot.</p>
-                </div>
-            )}
+            {event.registration_required && <RegisterForm eventId={event.id} />}
 
             <div className="mt-12 pt-8 border-t border-(--accent-muted)/20">
                 <Link href="/events" className="text-sm text-(--muted) hover:text-(--foreground) transition-colors">

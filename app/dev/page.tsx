@@ -1,6 +1,7 @@
 import {
-    getAllPledgesAction, deletePledgeAction, deleteAllPledgesAction,
+    getAllPledgesAction, deletePledgeAction,
     getAllNewsArticlesAction, deleteNewsArticleAction, deleteAllNewsArticlesAction,
+    getAllEventRegistrationsAction, deleteEventRegistrationAction, deleteAllEventRegistrationsAction,
 } from '@/lib/actions';
 import LogoutButton from '@/app/components/LogoutButton';
 
@@ -12,9 +13,10 @@ const PLEDGE_LABELS: Record<string, string> = {
 
 export default async function Page() {
     const canDelete = !process.env.VERCEL_ENV;
-    const [pledges, articles] = await Promise.all([
+    const [pledges, articles, registrations] = await Promise.all([
         getAllPledgesAction(),
         getAllNewsArticlesAction(),
+        getAllEventRegistrationsAction(),
     ]);
 
     return (
@@ -32,16 +34,6 @@ export default async function Page() {
             <section className="mb-16" aria-labelledby="pledges-heading">
                 <div className="flex items-center justify-between mb-4">
                     <h2 id="pledges-heading" className="font-display text-3xl">Pledges</h2>
-                    {canDelete && pledges.length > 0 && (
-                        <form action={deleteAllPledgesAction}>
-                            <button
-                                type="submit"
-                                className="rounded-md border border-(--accent) px-4 py-2 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent) hover:text-(--on-accent) cursor-pointer"
-                            >
-                                Delete all ({pledges.length})
-                            </button>
-                        </form>
-                    )}
                 </div>
 
                 {pledges.length === 0 ? (
@@ -85,6 +77,88 @@ export default async function Page() {
                                     )}
                                 </tr>
                             ))}
+                        </tbody>
+                    </table>
+                )}
+            </section>
+
+            {/* Event Registrations */}
+            <section className="mb-16" aria-labelledby="registrations-heading">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 id="registrations-heading" className="font-display text-3xl">Event Registrations</h2>
+                    {canDelete && registrations.length > 0 && (
+                        <form action={deleteAllEventRegistrationsAction}>
+                            <button
+                                type="submit"
+                                className="rounded-md border border-(--accent) px-4 py-2 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent) hover:text-(--on-accent) cursor-pointer"
+                            >
+                                Delete all ({registrations.length})
+                            </button>
+                        </form>
+                    )}
+                </div>
+
+                {registrations.length === 0 ? (
+                    <p className="text-(--muted)">No registrations in the database.</p>
+                ) : (
+                    <table className="w-full text-sm border-collapse">
+                        <thead>
+                            <tr className="border-b border-(--accent-muted) text-left text-(--muted)">
+                                <th className="pb-2 pr-4 font-medium">Event</th>
+                                <th className="pb-2 pr-4 font-medium">Name</th>
+                                <th className="pb-2 pr-4 font-medium">Email</th>
+                                <th className="pb-2 pr-4 font-medium">Guests</th>
+                                <th className="pb-2 pr-4 font-medium">Status</th>
+                                <th className="pb-2 pr-4 font-medium">Cancel link</th>
+                                <th className="pb-2 pr-4 font-medium">Created</th>
+                                <th className="pb-2 font-medium"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {registrations.map((reg) => {
+                                const status = reg.cancelled ? 'Cancelled' : reg.waitlisted ? 'Waitlisted' : 'Confirmed';
+                                return (
+                                    <tr key={reg.id} className="border-b border-(--accent-muted)/30">
+                                        <td className="py-3 pr-4 max-w-40 truncate">{reg.events?.title ?? '—'}</td>
+                                        <td className="py-3 pr-4">{reg.name}</td>
+                                        <td className="py-3 pr-4">{reg.email}</td>
+                                        <td className="py-3 pr-4">{reg.guest_count > 0 ? `+${reg.guest_count}` : '—'}</td>
+                                        <td className="py-3 pr-4">
+                                            <span className={
+                                                reg.cancelled ? 'text-(--muted)' :
+                                                reg.waitlisted ? 'text-amber-700' :
+                                                'text-green-700'
+                                            }>
+                                                {status}
+                                            </span>
+                                        </td>
+                                        <td className="py-3 pr-4">
+                                            <a
+                                                href={`/events/cancel?token=${reg.cancellation_token}`}
+                                                className="font-mono text-xs text-(--accent) hover:underline"
+                                            >
+                                                cancel link
+                                            </a>
+                                        </td>
+                                        <td className="py-3 pr-4 text-(--muted) whitespace-nowrap">
+                                            {new Date(reg.created_at).toLocaleString()}
+                                        </td>
+                                        {canDelete && (
+                                            <td className="py-3">
+                                                <form action={deleteEventRegistrationAction}>
+                                                    <input type="hidden" name="id" value={reg.id} />
+                                                    <button
+                                                        type="submit"
+                                                        className="text-(--accent) hover:underline cursor-pointer"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        )}
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 )}
