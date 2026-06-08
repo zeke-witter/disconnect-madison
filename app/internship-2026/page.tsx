@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import StickerCarousel from "./StickerCarousel";
+import SocialCarousel from "./SocialCarousel";
 
 export default function Page() {
     return (
@@ -11,17 +13,24 @@ export default function Page() {
             <section aria-labelledby="profile-heading" className="w-full mb-16">
                 <h2 id="profile-heading" className="sr-only">Profile</h2>
                 <div>
-                    <div className="float-left w-44 h-44 rounded-md mr-6 mb-4 bg-(--accent-muted)/20 border border-(--accent-muted)/40 flex items-center justify-center text-(--muted) text-sm">
-                        Photo coming soon
-                    </div>
+                    <Image
+                        src="/internship_tanisha.png"
+                        alt="Tanisha Pathan"
+                        width={176}
+                        height={176}
+                        className="float-left w-44 h-44 rounded-md mr-6 mb-4 object-cover"
+                    />
                     <p className="mb-4">
-                        Placeholder paragraph one. Tanisha is a graphic design student with a passion for visual communication and community-driven work. She brings a sharp eye for detail and a collaborative spirit to everything she touches.
+                        Hi! I&apos;m Tanisha, a communication design student who spends an unreasonable amount of time recognizing fonts in the wild, mentally redesigning bad flyers, figuring out what makes people pay attention, and then using design to make sure they do.
                     </p>
                     <p className="mb-4">
-                        Placeholder paragraph two. Before joining Disconnect Madison, Tanisha worked on branding projects for student organizations and local nonprofits, developing a style that balances clarity with personality. She believes good design should feel effortless to the people it serves.
+                        Over the past few years, I&apos;ve had the chance to work with design and advertising agencies, national nonprofits, and student organizations on branding, campaigns, visual identities, and digital content. Those experiences taught me that good design is about much more than aesthetics. It starts with understanding people, asking the right questions, and creating solutions that are thoughtful, effective, and grounded in real needs.
+                    </p>
+                    <p className="mb-4">
+                        Working with Disconnect Madison gave me the opportunity to apply that approach in a meaningful way. The internship challenged me to think carefully about how design can support connection, belonging, and intentional engagement in an increasingly digital world.
                     </p>
                     <p className="mb-6">
-                        Placeholder paragraph three. Outside of design, Tanisha is interested in sustainable living, urban community spaces, and the intersection of technology and human behavior — which made Disconnect Madison a natural fit for her first major internship.
+                        Beyond design, I&apos;m interested in community, sustainability, and technology, particularly in how they shape the way we interact with one another. That&apos;s one of the reasons Disconnect Madison&apos;s mission resonated with me. Working alongside Zeke, whose enthusiasm for community-building is absolutely infectious, made the experience especially memorable. Projects like this remind me why I enjoy working at the intersection of design, strategy, and social impact.
                     </p>
                     <a
                         id="portfolio-link"
@@ -42,6 +51,15 @@ export default function Page() {
                     Tanisha is designing a series of stickers for Disconnect Madison to use at events and in printed materials. More designs will be added as they&apos;re completed.
                 </p>
                 <StickerCarousel />
+            </section>
+
+            {/* Social media templates */}
+            <section aria-labelledby="social-heading" className="w-full mb-16">
+                <h2 id="social-heading" className="font-bold text-2xl mb-2 text-(--accent-muted)">Social media templates</h2>
+                <SocialCarousel />
+                <p className="text-(--muted) mt-8">
+                    In addition to designing several configurable templates for social media posts, Tanisha developed a content calendar and templating guidelines.
+                </p>
             </section>
 
             {/* Brand design — coming soon */}
