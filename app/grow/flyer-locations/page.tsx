@@ -3,50 +3,23 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Flyer Locations",
-    description: "Where Disconnect Madison flyers have been posted around Madison, WI, and places we'd love help reaching.",
+    description: "Community spots around Madison, WI where Disconnect Madison flyers have been posted or where we'd love help getting them up.",
     alternates: { canonical: "/grow/flyer-locations" },
 };
-
-const posted = [
-    {
-        category: "Independent coffee shops",
-        locations: ["Johnson Public House", "Indie Coffee", "Michelangelo's Coffee House", "Fair Trade Coffee House", "Collectivo (Monroe St.)"],
-    },
-    {
-        category: "Independent bookstores",
-        locations: ["Mystery to Me", "Lake City Books", "The Book Deal", "Leopold's Books Bar Cafe", "Frugal Muse Books"],
-    },
-    {
-        category: "Community boards",
-        locations: ["Willy Street Co-op (Willy St., Middleton)"],
-    },
-    {
-        category: "Bars",
-        locations: ["Mana Tap (Milwaukee)"],
-    },
-    {
-        category: "Misc",
-        locations: ["Corner of E. Johnson and Paterson"],
-    },
-];
-
-const uncertain = [
-    "Public libraries (distributed, unconfirmed): McFarland, Fitchburg, Oregon, Middleton, Sun Prairie, Stoughton",
-    "I'm Board! Games and Family Fun (shared, unconfirmed)",
-];
 
 const wishlist = [
     {
         category: "Independent bookstores",
-        locations: ["Friends of Sequoya Library"],
+        locations: ["Mystery to Me", "Lake City Books", "The Book Deal", "Leopold's Books Bar Cafe", "Frugal Muse Books", "Friends of Sequoya Library"],
     },
     {
         category: "Independent coffee shops",
-        locations: ["Cargo Coffee", "Bradbury's", "Mercies Coffee", "Firefly Coffeehouse", "The Sow's Ear"],
+        locations: ["Johnson Public House", "Indie Coffee", "Michelangelo's Coffee House", "Fair Trade Coffee House", "Collectivo (Monroe St.)", "Cargo Coffee", "Bradbury's", "Mercies Coffee", "Firefly Coffeehouse", "The Sow's Ear"],
     },
     {
         category: "Locally owned bars",
         locations: [
+            "Mana Tap (Milwaukee)",
             "Giant Jones",
             "Delta Beer Lab",
             "Working Draft",
@@ -66,8 +39,8 @@ const wishlist = [
         ],
     },
     {
-        category: "Community boards",
-        locations: ["Willy Street Co-op (2 more locations)", "Kwik Trip (several locations)"],
+        category: "Bulletin boards",
+        locations: ["Willy Street Co-op (Willy St., Middleton)", "Willy Street Co-op (more locations)", "Kwik Trip (several locations)"],
     },
     {
         category: "Yoga studios and mindfulness centers",
@@ -136,7 +109,7 @@ const wishlist = [
     },
     {
         category: "Misc",
-        locations: ["Your apartment building's bulletin board or elevators!"],
+        locations: ["Corner of E. Johnson and Paterson", "Your apartment building's bulletin board or elevators!"],
     },
 ];
 
@@ -154,44 +127,14 @@ export default function Page() {
                     Flyer locations
                 </h1>
                 <p className="text-lg text-(--muted)">
-                    A running log of where flyers have been posted around Madison, and places that are still on the list. If any of these are near you, we'd love help getting a flyer up. <Link href="/contact" className="underline hover:text-(--muted)">Let us know</Link> if you do.
+                    Places around Madison where flyers have been posted or where we'd love to get them up. If any of these are near you, we'd love help getting a flyer up. <Link href="/contact" className="underline hover:text-(--muted)">Let us know</Link> if you do.
                 </p>
             </section>
 
-            <section aria-labelledby="posted-heading" className="w-full mb-12">
-                <h2 id="posted-heading" className="font-display text-4xl lg:text-5xl mb-6">Posted</h2>
-                <div className="space-y-6">
-                    {posted.map(({ category, locations }) => (
-                        <div key={category}>
-                            <h3 className="text-sm font-semibold uppercase tracking-wide text-(--muted) mb-2">{category}</h3>
-                            <ul className="space-y-1">
-                                {locations.map((loc) => (
-                                    <li key={loc} className="flex items-center gap-2 text-(--muted)">
-                                        <span className="text-(--muted) font-bold shrink-0" aria-hidden="true">✓</span>
-                                        {loc}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-
-                {uncertain.length > 0 && (
-                    <div className="mt-8 pt-6 border-t border-(--border-color)">
-                        <h3 className="text-sm font-semibold uppercase tracking-wide text-(--muted) mb-2">Possibly posted</h3>
-                        <ul className="space-y-1">
-                            {uncertain.map((loc) => (
-                                <li key={loc} className="text-sm text-(--muted)">{loc}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </section>
-
             <section aria-labelledby="wishlist-heading" className="w-full mb-10">
-                <h2 id="wishlist-heading" className="font-display text-4xl lg:text-5xl mb-3">On the list</h2>
+                <h2 id="wishlist-heading" className="font-display text-4xl lg:text-5xl mb-3">Community boards</h2>
                 <p className="text-(--muted) mb-8">
-                    These are spots we'd like to reach. If you're a regular at any of them, or you're willing to make a stop, printing a flyer and asking to put it up would make a real difference. You can <Link href="/grow" className="underline hover:text-(--muted)">download a flyer on the grow page</Link>. If you know of a local business or organization that should be on the list, please <Link href="/contact">let us know</Link>, or feel free to bring a flyer there on our behalf :).
+                    If you're a regular at any of these spots, or you're willing to make a stop, printing a flyer and asking to put it up would make a real difference. You can <Link href="/grow" className="underline hover:text-(--muted)">download a flyer on the grow page</Link>. If you know of a local business or organization that should be on the list, please <Link href="/contact">let us know</Link>, or feel free to bring a flyer there on our behalf :).
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
