@@ -39,7 +39,7 @@ export default function Page() {
                         rel="noopener noreferrer"
                         className="inline-block border border-(--accent)/70 text-(--accent) font-medium px-5 py-2 rounded-sm hover:border-(--accent) hover:bg-(--accent)/10 transition-colors no-underline"
                     >
-                        View her portfolio
+                        View my portfolio
                     </a>
                 </div>
             </section>

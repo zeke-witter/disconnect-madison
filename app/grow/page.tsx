@@ -177,7 +177,7 @@ export default function Page() {
                 <FlyerCarousel flyers={bwFlyers} />
 
                 <p className="text-(--muted) mt-8">
-                    Want to help post flyers around Madison? <Link href="/grow/flyer-locations" className="underline hover:text-(--muted)">See where we&apos;ve been and where we still need help.</Link>
+                    Want to help post flyers around Madison? <Link href="/grow/flyer-locations" className="underline hover:text-(--muted)">See our list of community spots.</Link>
                 </p>
             </section>
 

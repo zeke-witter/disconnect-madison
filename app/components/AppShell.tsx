@@ -36,7 +36,7 @@ const GROUPS: NavGroup[] = [
     { key: 'events', label: 'Events', href: '/events', items: [] },
     {
         key: 'about', label: 'About', href: '/about', items: [
-            { label: 'Help Us Grow', href: '/grow', children: [{ label: 'Flyer Locations', href: '/grow/flyer-locations' }] },
+            { label: 'Help Us Grow', href: '/grow' },
             { label: 'Internship 2026', href: '/internship-2026' },
             { label: 'FAQ', href: '/faq' },
             { label: 'Contact', href: '/contact' },
