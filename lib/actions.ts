@@ -545,6 +545,27 @@ export async function deleteAllNewsArticlesAction() {
 // ---------------------------------------------------------------------------
 
 /**
+ * Public: fetch confirmed attendee counts (non-waitlisted, non-cancelled) for
+ * all events in a single query. Returns a map of event_id → attendee count,
+ * where each registration contributes 1 + guest_count to the total.
+ */
+export async function getPublishedEventRegistrationCountsAction(): Promise<Record<string, number>> {
+    const { data } = await supabase
+        .from('event_registrations')
+        .select('event_id, guest_count')
+        .eq('waitlisted', false)
+        .eq('cancelled', false);
+
+    if (!data) return {};
+
+    const counts: Record<string, number> = {};
+    for (const r of data) {
+        counts[r.event_id] = (counts[r.event_id] ?? 0) + 1 + r.guest_count;
+    }
+    return counts;
+}
+
+/**
  * Public: fetch all published events ordered by date ascending.
  * Used on the public /events page.
  */

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPublishedEventsAction } from '@/lib/actions';
+import { getPublishedEventsAction, getPublishedEventRegistrationCountsAction } from '@/lib/actions';
 import { createServerAuthClient } from '@/lib/supabase-auth';
 import type { EventRow } from '@/lib/types';
 
@@ -25,7 +25,7 @@ function formatEventDate(dateStr: string): string {
     return `${weekday}, ${MONTHS[month - 1]} ${day}, ${year} at ${h}:${mm} ${ampm} CT`;
 }
 
-function EventCard({ event, past = false }: { event: EventRow; past?: boolean }) {
+function EventCard({ event, registeredCount = 0, past = false }: { event: EventRow; registeredCount?: number; past?: boolean }) {
     return (
         <Link
             href={`/events/${event.id}`}
@@ -56,7 +56,9 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
                         <span className="text-xs font-semibold text-(--accent)">Registration required</span>
                     )}
                     {event.capacity != null && (
-                        <span className="text-xs text-(--muted)">Capacity: {event.capacity}</span>
+                        <span className="text-xs text-(--muted)">
+                            {Math.max(0, event.capacity - registeredCount)}/{event.capacity} spots remaining
+                        </span>
                     )}
                 </div>
             </div>
@@ -66,8 +68,9 @@ function EventCard({ event, past = false }: { event: EventRow; past?: boolean })
 
 export default async function EventsPage() {
     const authClient = await createServerAuthClient();
-    const [events, { data: { user } }] = await Promise.all([
+    const [events, registrationCounts, { data: { user } }] = await Promise.all([
         getPublishedEventsAction(),
+        getPublishedEventRegistrationCountsAction(),
         authClient.auth.getUser(),
     ]);
     const isAdmin = !!user;
@@ -110,7 +113,7 @@ export default async function EventsPage() {
                 ) : (
                     <div className="flex flex-col gap-4">
                         {upcoming.map(event => (
-                            <EventCard key={event.id} event={event} />
+                            <EventCard key={event.id} event={event} registeredCount={registrationCounts[event.id] ?? 0} />
                         ))}
                     </div>
                 )}
@@ -124,7 +127,7 @@ export default async function EventsPage() {
                     <h2 id="past-events-heading" className="font-display text-3xl mb-6 text-(--accent-muted)">Past events</h2>
                     <div className="flex flex-col gap-4">
                         {past.map(event => (
-                            <EventCard key={event.id} event={event} past />
+                            <EventCard key={event.id} event={event} registeredCount={registrationCounts[event.id] ?? 0} past />
                         ))}
                     </div>
                 </section>
